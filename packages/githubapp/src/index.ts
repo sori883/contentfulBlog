@@ -55,7 +55,7 @@ export = (app: Probot) => {
       (async () => {
         const storage = new Storage({projectId: process.env.GCP_PROJECT_ID, keyFilename: './key.json'});
       
-        await storage.bucket(String(process.env.GCS_ID)).file(`${item.path}`).save(Buffer.from(image.data));
+        await storage.bucket(String(process.env.GCS_NAME)).file(`${item.path}`).save(Buffer.from(image.data));
 
       })().catch(async (e) => {
         console.log(e.code, e.errors);
@@ -81,7 +81,7 @@ export = (app: Probot) => {
       
       (async () => {
         const storage = new Storage({projectId: process.env.GCP_PROJECT_ID, keyFilename: './key.json'});
-        await storage.bucket(String(process.env.GCS_ID)).file(`${item.path}`).save(Buffer.from(image.data));
+        await storage.bucket(String(process.env.GCS_NAME)).file(`${item.path}`).save(Buffer.from(image.data));
 
       })().catch(async (e) => {
         console.log(e.code, e.errors);
