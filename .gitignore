@@ -8,6 +8,7 @@ npm-debug.log
 .env
 coverage
 work
+.data
 key.json
 work/
 packages/githubapp/lib

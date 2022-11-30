@@ -8,8 +8,6 @@
   ],
   "scripts": {
     "web": "yarn workspace web",
-    "githubapp": "yarn workspace githubapp",
-    "schema": "yarn workspace schema",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint:web": "eslint ./packages/web",
