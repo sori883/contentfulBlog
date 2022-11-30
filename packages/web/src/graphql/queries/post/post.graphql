@@ -1,0 +1,18 @@
+query post($slug: String) {
+  postsCollection(where: {slug: $slug}){
+    items {
+      title
+      slug
+      content
+      tagsCollection {
+        items{
+          name
+        }
+      }
+      sys {
+        id
+        firstPublishedAt
+      }
+    }
+  }
+}
