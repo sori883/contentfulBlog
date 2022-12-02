@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 import ContentBox from 'components/elements/contentBox/contentBox';
 import Layout from 'components/layouts/layout';
-import SiteHead from 'components/nonVisual/siteHead';
+import { SiteHead } from 'components/nonVisual/siteHead';
 
 
 const ItsMe: NextPage = () => (

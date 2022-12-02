@@ -14,6 +14,8 @@ const nextConfig =  {
     GCS_URL: process.env.GCS_URL,
   },
   publicRuntimeConfig: {
+    APP_ROOT_URL: process.env.APP_ROOT_URL, 
+    BLOG_TITLE: process.env.BLOG_TITLE,
     CONTENTFUL_GRAPHQL_ENDPOINT: process.env.CONTENTFUL_GRAPHQL_ENDPOINT,
     GCS_URL: process.env.GCS_URL,
     TWITTER_ID: process.env.TWITTER_ID,

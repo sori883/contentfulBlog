@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 import ArticleList from 'components/article/ArticlesList';
 import Layout from 'components/layouts/layout';
-import SiteHead from 'components/nonVisual/siteHead';
+import { SiteHead }  from 'components/nonVisual/siteHead';
 import { client } from 'graphql/client';
 import { PostsDocument, PostsQuery, PostsQueryVariables } from 'graphql/generated';
 

@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 import ArticleList from 'components/article/ArticlesList';
 import Layout from 'components/layouts/layout';
-import SiteHead from 'components/nonVisual/siteHead';
+import { SiteHead } from 'components/nonVisual/siteHead';
 import { client } from 'graphql/client';
 import {
   PostsDocument,
@@ -19,7 +19,7 @@ export const getStaticPaths = async () => {
   });
 
   const range = (start: number, end: number) => [...Array(end - start + 1)].map((_, i) => start + i);
-  const paths = range(2,  Math.ceil(Number(data.postsCollection?.total) / 20))
+  const paths = Number(data.postsCollection?.total) === 0 ? 0 : range(2,  Math.ceil(Number(data.postsCollection?.total) / 20))
     .map((item) => ({ params: {page: `${item}`}}));
 
   return { paths, fallback: false };
@@ -59,7 +59,7 @@ const Article: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
   return (
     <>
-      <SiteHead />
+      <SiteHead/>
       <Layout>
         <ArticleList
           fallbackArticle={initialData.postsCollection}

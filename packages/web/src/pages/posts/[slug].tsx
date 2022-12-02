@@ -8,7 +8,7 @@ import ContentBox from 'components/elements/contentBox/contentBox';
 import { Resume, View } from 'components/elements/markdown/markdown';
 import TagChip from 'components/elements/tagChip/tagChip';
 import Layout from 'components/layouts/layout';
-import SiteHead from 'components/nonVisual/siteHead';
+import { SiteHead } from 'components/nonVisual/siteHead';
 import { client } from 'graphql/client';
 import {
   PostDocument,
@@ -52,7 +52,9 @@ const Article: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
   return (
     <>
-      <SiteHead />
+      <SiteHead
+        title={String(fallbackArticle.postsCollection?.items[0]?.title)}
+      />
       <Layout
         containerSize='xl'
       >

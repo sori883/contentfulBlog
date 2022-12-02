@@ -2,11 +2,14 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import getConfig from "next/config";
 import Link from 'next/link';
 
 import { pagesPath } from 'lib/$path';
 
 export default function Footer() {
+  const { publicRuntimeConfig } = getConfig();
+  
   return (
     <Box
       sx={{
@@ -26,12 +29,12 @@ export default function Footer() {
         </Link>
       </Typography>
       <Typography variant='body2' color='textSecondary' align='center'>
-        <Link href={pagesPath.about.$url()} target='_blank'>
+        <Link href={pagesPath.privacypolicy.$url()}>
           プライバシーポリシー
         </Link>
       </Typography>
       <Typography variant='body2' color='textSecondary' align='center'>
-        {`Copyright © blog ${new Date().getFullYear()} .`}
+        {`Copyright © ${publicRuntimeConfig.BLOG_TITLE} ${new Date().getFullYear()} .`}
       </Typography>
     </Box>
   );

@@ -1,38 +1,54 @@
-import getConfig from "next/config";
-import Head from 'next/head';
-import { useRouter } from "next/router";
+import NextHeadSeo from 'next-head-seo';
+import getConfig from 'next/config';
+import { useRouter } from 'next/router';
 
-type Props = {
+export type MyPageSeoProps = {
+  path?: string;
   title?: string;
   description?: string;
-  image?: string;
-}
+  ogImagePath?: string;
+  noindex?: boolean;
+  noTitleTemplate?: boolean;
+};
 
-const { publicRuntimeConfig } = getConfig();
-
-export default function SiteHead({ 
-  title = 'ブログ名未定！',
-  description = 'blog description',
-  image = '500.png'
-}: Props): JSX.Element {
+export const SiteHead: React.FC<MyPageSeoProps> = (props) => {
+  const { publicRuntimeConfig } = getConfig();
   const router = useRouter();
 
+  const APP_ROOT_URL = publicRuntimeConfig.NEXT_PUBLIC_APP_ROOT_URL;
+  const BLOG_TITLE = publicRuntimeConfig.BLOG_TITLE;
+
+  const {
+    path = router.pathname,
+    title = BLOG_TITLE,
+    description = 'ブログです！！！！',
+    ogImagePath = '/default-og.png',
+    noindex = false,
+    noTitleTemplate = true,
+  } = props;
+
+  // Absolute page url
+  const pageUrl = APP_ROOT_URL + path;
+  // Absolute og image url
+  const ogImageUrl = APP_ROOT_URL + ogImagePath;
+
   return (
-    <Head>
-      <title>{title}</title>
-      <meta charSet='utf-8' />
-      <meta name='description' content={description.substring(0, 100)} />
-      <meta property='og:site_name' content='blog title' />
-      <meta property='og:title' content={title} />
-      <meta property='og:description' content={description.substring(0, 100)} />
-      <meta property='og:url' content={router.pathname} />
-      <meta property='og:type' content='article' />
-      <meta property='og:image' content={image} />
-      <meta name='twitter:card' content='summary' />
-      <meta name='twitter:site' content={`@${publicRuntimeConfig.TWITTER_ID}`} />
-      {/* <meta name='fb:app_id' content={publicRuntimeConfig.FBAPP_ID /> */}
-    </Head>
+    <NextHeadSeo
+      title={noTitleTemplate ? title : `${title} - ${BLOG_TITLE}`}
+      canonical={pageUrl}
+      description={description}
+      robots={noindex ? 'noindex, nofollow' : undefined}
+      og={{
+        title,
+        description,
+        url: pageUrl,
+        image: ogImageUrl,
+        type: 'article',
+        siteName: BLOG_TITLE,
+      }}
+      twitter={{
+        card: 'summary_large_image',
+      }}
+    />
   );
-}
-
-
+};

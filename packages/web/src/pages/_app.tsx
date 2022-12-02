@@ -8,9 +8,9 @@ import GoogleTagManager, {
   GoogleTagManagerId,
 } from 'components/nonVisual/googleTagManager';
 import { client } from 'graphql/client';
+import { googleTagManagerId } from 'gtm/gtm';
 import createEmotionCache from 'mui/createEmotionCache';
 import theme from 'mui/theme';
-import { googleTagManagerId } from 'types/gtm';
 
 import 'styles/globals.css';
 
