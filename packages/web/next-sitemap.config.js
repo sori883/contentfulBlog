@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: process.env.HOST,
+  siteUrl: process.env.APP_ROOT_URL,
   generateRobotsTxt: true
 };

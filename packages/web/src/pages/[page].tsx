@@ -19,8 +19,11 @@ export const getStaticPaths = async () => {
   });
 
   const range = (start: number, end: number) => [...Array(end - start + 1)].map((_, i) => start + i);
-  const paths = Number(data.postsCollection?.total) === 0 ? 0 : range(2,  Math.ceil(Number(data.postsCollection?.total) / 20))
-    .map((item) => ({ params: {page: `${item}`}}));
+  const paths = Number(data.postsCollection?.total) === 0 ?
+    [{ params: {page: '0'} }]
+    :
+    range(2,  Math.ceil(Number(data.postsCollection?.total) / 20))
+      .map((item) => ({ params: {page: `${item}`}}));
 
   return { paths, fallback: false };
 };
@@ -29,6 +32,10 @@ export const getStaticProps = async ({
   params
 }: GetStaticPropsContext) => {
   if (typeof params?.page !== 'string') {
+    return { notFound: true };
+  }
+
+  if (params?.page === '0') {
     return { notFound: true };
   }
 
