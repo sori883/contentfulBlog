@@ -7,6 +7,7 @@ import type { AppProps } from 'next/app';
 import GoogleTagManager, {
   GoogleTagManagerId,
 } from 'components/nonVisual/googleTagManager';
+import { SiteHead } from 'components/nonVisual/siteHead';
 import { client } from 'graphql/client';
 import { googleTagManagerId } from 'gtm/gtm';
 import createEmotionCache from 'mui/createEmotionCache';
@@ -34,6 +35,7 @@ function MyApp(props: MyAppProps): JSX.Element {
             <GoogleTagManager
               googleTagManagerId={googleTagManagerId as GoogleTagManagerId}
             />
+            <SiteHead />
             <Component {...pageProps} />
             <AppInit />
           </ThemeProvider>
