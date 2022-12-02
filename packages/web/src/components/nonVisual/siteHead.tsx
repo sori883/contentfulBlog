@@ -15,7 +15,7 @@ export const SiteHead: React.FC<MyPageSeoProps> = (props) => {
   const { publicRuntimeConfig } = getConfig();
   const router = useRouter();
 
-  const APP_ROOT_URL = publicRuntimeConfig.NEXT_PUBLIC_APP_ROOT_URL;
+  const APP_ROOT_URL = publicRuntimeConfig.APP_ROOT_URL;
   const BLOG_TITLE = publicRuntimeConfig.BLOG_TITLE;
 
   const {
