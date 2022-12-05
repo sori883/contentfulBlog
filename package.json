@@ -9,7 +9,7 @@
   "scripts": {
     "prepare": "husky install",
     "web": "yarn workspace web",
-    "build:web": "yarn workspace web build",
+    "build:web": "yarn workspace web build:commit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint:web": "eslint ./packages/web",
