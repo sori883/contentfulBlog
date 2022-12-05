@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: undefined
+Host: https://sori883.dev
 
 # Sitemaps
-Sitemap: undefined/sitemap.xml
+Sitemap: https://sori883.dev/sitemap.xml
