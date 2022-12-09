@@ -6,7 +6,9 @@ import Link from 'next/link';
 
 import { pagesPath } from 'lib/$path';
 
-export default function DrawerContent() {
+
+
+export const DrawerContent =():JSX.Element => {
 
   return (
     <Box sx={{ width: '100%', minWidth: 240, maxWidth: 240 }}>
@@ -30,4 +32,4 @@ export default function DrawerContent() {
       </nav>
     </Box>
   );
-}
+};

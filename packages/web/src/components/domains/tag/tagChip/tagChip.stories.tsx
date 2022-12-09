@@ -1,20 +1,20 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import TagChip from './tagChip';
+import { TagChip } from './tagChip';
 
 export default {
-  title: 'Example/TagChip',
+  title: 'Domains/TagChip',
   component: TagChip,
 } as ComponentMeta<typeof TagChip>;
 
 const Template: ComponentStory<typeof TagChip> = (args) => <TagChip {...args} />;
 
-export const single = Template.bind({});
-single.args = {
+export const Single = Template.bind({});
+Single.args = {
   tagsOnArticles: ['tag1']
 };
 
-export const many = Template.bind({});
-many.args = {
+export const Many = Template.bind({});
+Many.args = {
   tagsOnArticles: ['tag1','tag2','tag3']
 };

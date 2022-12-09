@@ -4,10 +4,11 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import type { GetStaticPropsContext, InferGetStaticPropsType, NextPage  } from 'next';
 
-import ContentBox from 'components/elements/contentBox/contentBox';
-import { Resume, View } from 'components/elements/markdown/markdown';
-import TagChip from 'components/elements/tagChip/tagChip';
-import Layout from 'components/layouts/layout';
+import { TagChip } from 'components/domains/tag/tagChip';
+import { View } from 'components/elements/markdown';
+import { Resume } from 'components/elements/resume';
+import { ContainerBox } from 'components/layouts/containerBox';
+import { ContentBox } from 'components/layouts/contentBox';
 import { SiteHead } from 'components/nonVisual/siteHead';
 import { client } from 'graphql/client';
 import {
@@ -55,7 +56,7 @@ const Article: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
       <SiteHead
         title={String(fallbackArticle.postsCollection?.items[0]?.title)}
       />
-      <Layout
+      <ContainerBox
         containerSize='xl'
       >
         <Grid container spacing={[0, 0, 0, 4]} justifyContent={'center'}>
@@ -104,7 +105,7 @@ const Article: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
             </Box>
           </Grid>
         </Grid>
-      </Layout>
+      </ContainerBox>
     </>
   );
 };

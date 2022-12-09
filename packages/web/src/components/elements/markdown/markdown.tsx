@@ -1,15 +1,13 @@
-import { css } from '@emotion/react';
 import Box from '@mui/material/Box';
 import Image from 'next/image';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
-import { Link as Scroll } from 'react-scroll';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import rehypeRaw from 'rehype-raw';
 import gfm from 'remark-gfm';
 
 import { imageLoader, pathBuilder } from 'lib/ImageLoader';
-import ContentStyle from 'styles/cotentStyle';
+import ContentStyle from 'styles/contentStyle';
 
 type Props = {
   children: string;
@@ -27,7 +25,7 @@ const IMG = ({ ...props }) => {
     <Box
       sx={{ display: 'flex', justifyContent: 'center'}}
     >
-      <Link href={pathBuilder(src)} target='_blank'>
+      <Link href={pathBuilder(src)}>
         <Image
           loader={imageLoader}
           src={src}
@@ -46,23 +44,6 @@ const IMG = ({ ...props }) => {
   );
 };
 
-
-const ankerLink = ({ ...props }) => {
-  return (
-    <li>
-      <Scroll
-        css={css`
-        &&& {
-          cursor: pointer;
-        }
-    `}
-        to={`${props.children}`} smooth={true} duration={600}>
-        {props.children}
-      </Scroll>
-    </li>
-  );
-};
-
 const CodeBlock = ({ ...props }) => {
   const match = /language-(\w+)/.exec(props.className || '');
   return !props.inline && match ? (
@@ -76,7 +57,7 @@ const CodeBlock = ({ ...props }) => {
   );
 };
 
-export function View({children}: Props): JSX.Element {
+export const View = ({children}: Props): JSX.Element => {
   return (
     <ContentStyle>
       <ReactMarkdown
@@ -92,21 +73,4 @@ export function View({children}: Props): JSX.Element {
       </ReactMarkdown>
     </ContentStyle>
   );
-}
-
-export function Resume({children}: Props): JSX.Element {
-  return (
-    <>
-      <ul>
-        <ReactMarkdown
-          allowedElements={['h2']}
-          components={{
-            h2: ankerLink,
-          }}
-        >
-          {children}
-        </ReactMarkdown>
-      </ul>
-    </>
-  );
-}
+};

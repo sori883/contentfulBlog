@@ -8,13 +8,13 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import getConfig from "next/config";
+import getConfig from 'next/config';
 import Link from 'next/link';
 
-import DrawerContent from 'components/layouts/drawerContent';
+import { DrawerContent } from 'components/layouts/drawerContent';
 import { pagesPath } from 'lib/$path';
 
-export default function Header() {
+export const Header = ():JSX.Element => {
   const [drawerOpened, setDrawerOpened] = useState(false);
   const { publicRuntimeConfig } = getConfig();
 
@@ -77,4 +77,4 @@ export default function Header() {
       </Drawer>
     </>
   );
-}
+};

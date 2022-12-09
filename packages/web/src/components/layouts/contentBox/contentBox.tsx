@@ -2,13 +2,13 @@ import { ReactNode } from 'react';
 
 import Box from '@mui/material/Box';
 
-import ContentStyle from 'styles/cotentStyle';
+import ContentStyle from 'styles/contentStyle';
 
 type Props = {
   children: ReactNode;
 }
 
-export default function ContentBox({children}:Props): JSX.Element {
+export const ContentBox = ({children}:Props): JSX.Element => {
   return (
     <Box  sx={{
       bgcolor: 'background.paper',
@@ -21,4 +21,4 @@ export default function ContentBox({children}:Props): JSX.Element {
       </ContentStyle>
     </Box>
   );
-}
+};
