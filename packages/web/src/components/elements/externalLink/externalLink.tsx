@@ -13,11 +13,13 @@ type Props = {
 export const ExternalLink: FC<Props> = ({
   url,
   icon = true,
-  children
+  children,
+  ...props
 }: Props) => {
   return (
     <MuiLink
       href={url} target='_blank' rel='noopener noreferrer'
+      {...props}
       css={css`
       color: inherit;
       text-decoration: none;

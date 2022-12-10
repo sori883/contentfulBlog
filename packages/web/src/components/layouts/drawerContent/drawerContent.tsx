@@ -15,18 +15,18 @@ export const DrawerContent =():JSX.Element => {
       <nav aria-label="secondary mailbox folders">
         <List>
           <ListItem disablePadding>
-            <ListItemButton>
-              <Link href={pagesPath.$url()}>
-                  home
-              </Link>
-            </ListItemButton>
+            <Link passHref href={pagesPath.$url()}>
+              <ListItemButton>
+                    home
+              </ListItemButton>
+            </Link>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton>
-              <Link href={pagesPath.itsme.$url()}>
-              profile
-              </Link>
-            </ListItemButton>
+            <Link passHref href={pagesPath.itsme.$url()}>
+              <ListItemButton component='div'>
+                profile
+              </ListItemButton>
+            </Link>
           </ListItem>
         </List>
       </nav>

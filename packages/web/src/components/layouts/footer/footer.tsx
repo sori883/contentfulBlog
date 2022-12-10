@@ -18,12 +18,12 @@ export const Footer = ():JSX.Element => {
       }}
     >
       <Typography variant='body2' color='textSecondary' align='center'>
-        <ExternalLink url='https://github.com/sori883' icon={false}>
+        <ExternalLink url='https://github.com/sori883' icon={false} aria-label='GitHubリンク'>
           <GitHubIcon
             sx={{marginX: '0.5rem',}}
           />
         </ExternalLink>
-        <ExternalLink url='https://github.com/sori883' icon={false}>
+        <ExternalLink url='https://twitter.com/sorinaji' icon={false} aria-label='Twitterリンク'>
           <TwitterIcon
             sx={{marginX: '0.5rem',}}
           />
