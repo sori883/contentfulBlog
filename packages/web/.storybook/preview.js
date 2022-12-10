@@ -3,6 +3,11 @@ import CssBaseline from '@mui/material/CssBaseline'
 import theme from '../src/mui/theme'
 import 'styles/globals.css';
 
+import { setConfig } from 'next/config';
+import { publicRuntimeConfig } from '../next.config';
+
+setConfig({ publicRuntimeConfig });
+
 export const decorators = [
     (Story) => {
       return (
