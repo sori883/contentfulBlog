@@ -39,7 +39,7 @@ export const Header = ():JSX.Element => {
                 fontWeight: 700,
               }}>
                 <Link href={pagesPath.$url()}>
-                  { publicRuntimeConfig.BLOG_TITLE }
+                  { publicRuntimeConfig.BLOG_TITLE || '' }
                 </Link>
               </Typography>
               <Box
