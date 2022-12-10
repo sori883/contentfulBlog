@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 
 
-import ContentBox from 'components/elements/contentBox/contentBox';
-import Layout from 'components/layouts/layout';
+import { ContainerBox } from 'components/layouts/containerBox';
+import { ContentBox } from 'components/layouts/contentBox';
 import { SiteHead } from 'components/nonVisual/siteHead';
 
 const { publicRuntimeConfig } = getConfig();
@@ -17,7 +17,7 @@ const Privacypolicy: NextPage = () => (
       title='このサイトについて'
       description='サイトについてのあれこれ'
     />
-    <Layout>
+    <ContainerBox>
       <ContentBox>
         <h2>お問い合わせ</h2>
         <p>
@@ -55,7 +55,7 @@ const Privacypolicy: NextPage = () => (
 
         <p>最終更新:2022年11月17日</p>
       </ContentBox>
-    </Layout>
+    </ContainerBox>
   </div>
 );
 

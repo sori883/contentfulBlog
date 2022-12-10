@@ -7,7 +7,7 @@ type Props = {
 }
 
 
-export default function TagChip({tagsOnArticles}: Props): JSX.Element {
+export const TagChip =({tagsOnArticles}: Props): JSX.Element => {
   return (
     <>
       <Stack direction="row" spacing={1}>
@@ -19,4 +19,4 @@ export default function TagChip({tagsOnArticles}: Props): JSX.Element {
       </Stack>
     </>
   );
-}
+};

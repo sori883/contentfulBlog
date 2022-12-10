@@ -6,8 +6,8 @@ import type { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import ContentBox from 'components/elements/contentBox/contentBox';
-import Layout from 'components/layouts/layout';
+import { ContainerBox } from 'components/layouts/containerBox';
+import { ContentBox } from 'components/layouts/contentBox';
 import { SiteHead } from 'components/nonVisual/siteHead';
 
 
@@ -17,7 +17,7 @@ const ItsMe: NextPage = () => (
       title='profile'
       description='about me'
     />
-    <Layout containerSize='lg'>
+    <ContainerBox containerSize='lg'>
       <ContentBox>
         <Box
           sx={{display: 'flex'}}
@@ -90,7 +90,7 @@ const ItsMe: NextPage = () => (
           <Link  href='https://coconala.com/users/2964176' target='_blank'>熊田様(ココナラ)</Link>
         </Typography>
       </ContentBox>
-    </Layout>
+    </ContainerBox>
   </div>
 );
 
