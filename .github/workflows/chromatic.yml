@@ -3,9 +3,10 @@ name: 'Chromatic'
 
 # Event for the workflow
 on: 
-  pullrequest
-  - main
-  - develop
+  pullrequest:
+  branches:
+    - main
+    - develop
 
 # List of jobs
 jobs:
