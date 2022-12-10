@@ -19,7 +19,7 @@ export const Header = ():JSX.Element => {
   const { publicRuntimeConfig } = getConfig();
 
   return (
-    <div>
+    <>
       <Box sx={{ flexGrow: { md: 1 } }}>
         <AppBar position='static'>
           <Toolbar>
@@ -69,12 +69,12 @@ export const Header = ():JSX.Element => {
         </AppBar>
       </Box>
 
-      <Drawer
+      {/* <Drawer
         anchor={'right'}
         open={drawerOpened}
         onClose={() => setDrawerOpened(false)}>
         <DrawerContent />
-      </Drawer>
-    </div>
+      </Drawer> */}
+    </>
   );
 };
