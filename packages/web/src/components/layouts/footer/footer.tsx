@@ -2,12 +2,13 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import getConfig from "next/config";
+import getConfig from 'next/config';
 import Link from 'next/link';
 
+import { ExternalLink } from 'components/elements/externalLink';
 import { pagesPath } from 'lib/$path';
 
-export default function Footer() {
+export const Footer = ():JSX.Element => {
   const { publicRuntimeConfig } = getConfig();
   
   return (
@@ -17,16 +18,16 @@ export default function Footer() {
       }}
     >
       <Typography variant='body2' color='textSecondary' align='center'>
-        <Link href='https://github.com/sori883' target='_blank'>
+        <ExternalLink url='https://github.com/sori883' icon={false} aria-label='GitHubリンク'>
           <GitHubIcon
             sx={{marginX: '0.5rem',}}
           />
-        </Link>
-        <Link href='https://twitter.com/sorinaji'>
+        </ExternalLink>
+        <ExternalLink url='https://twitter.com/sorinaji' icon={false} aria-label='Twitterリンク'>
           <TwitterIcon
             sx={{marginX: '0.5rem',}}
           />
-        </Link>
+        </ExternalLink>
       </Typography>
       <Typography variant='body2' color='textSecondary' align='center'>
         <Link href={pagesPath.privacypolicy.$url()}>
@@ -34,8 +35,8 @@ export default function Footer() {
         </Link>
       </Typography>
       <Typography variant='body2' color='textSecondary' align='center'>
-        {`Copyright © ${publicRuntimeConfig.BLOG_TITLE} ${new Date().getFullYear()} .`}
+        {`Copyright © ${publicRuntimeConfig.BLOG_TITLE || ''} ${new Date().getFullYear()} .`}
       </Typography>
     </Box>
   );
-}
+};

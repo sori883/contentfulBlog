@@ -4,8 +4,8 @@ import { css } from "@emotion/react";
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
-import Footer from 'components/layouts/footer';
-import Header from 'components/layouts/header';
+import { Footer } from 'components/layouts/footer';
+import { Header } from 'components/layouts/header/header';
 
 const sizes = {
   sm: 'sm',
@@ -15,14 +15,14 @@ const sizes = {
 };
 
 type Props = {
-  children: ReactNode;
+  children?: ReactNode;
   containerSize?: keyof typeof sizes;
 }
 
-export default function Layout({ 
+export const ContainerBox = ({ 
   children,
   containerSize = 'xl'
-}: Props): JSX.Element {
+}: Props): JSX.Element => {
   return (
     <Box sx={{display: 'flex', flexFlow: 'column', minHeight: '100vh'}}>
       <Header />
@@ -40,4 +40,4 @@ export default function Layout({
       <Footer />
     </Box>
   );
-}
+};

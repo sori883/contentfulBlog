@@ -3,8 +3,8 @@ import Pagination from '@mui/material/Pagination';
 import type { InferGetStaticPropsType, NextPage } from 'next';
 import { useRouter } from 'next/router';
 
-import ArticleList from 'components/article/ArticlesList';
-import Layout from 'components/layouts/layout';
+import { ArticleList } from 'components/domains/articleTopList';
+import { ContainerBox } from 'components/layouts/containerBox';
 import { SiteHead }  from 'components/nonVisual/siteHead';
 import { client } from 'graphql/client';
 import { PostsDocument, PostsQuery, PostsQueryVariables } from 'graphql/generated';
@@ -12,7 +12,7 @@ import { PostsDocument, PostsQuery, PostsQueryVariables } from 'graphql/generate
 export const getStaticProps = async () => {
   const { data } = await client.query<PostsQuery, PostsQueryVariables>({
     query: PostsDocument,
-    variables: { limit: 20, skip: 0 }  // 固定で取っちゃえ
+    variables: { limit: 20, skip: 0 }
   });
 
   return {
@@ -35,7 +35,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   return (
     <>
       <SiteHead />
-      <Layout>
+      <ContainerBox>
         <ArticleList
           fallbackArticle={initialData.postsCollection}
         />
@@ -46,7 +46,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
             count={ Math.ceil(Number(initialData.postsCollection?.total) / 20)}
           />
         </Box>
-      </Layout>
+      </ContainerBox>
     </>
   );
 };

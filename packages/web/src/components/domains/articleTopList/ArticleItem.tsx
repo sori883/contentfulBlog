@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
 
-import TagChip from 'components/elements/tagChip/tagChip';
+import { TagChip } from 'components/domains/tag/tagChip';
 import { PostsQuery } from 'graphql/generated';
 import { pagesPath } from 'lib/$path';
 import parseValue from 'lib/dataformat';
@@ -13,7 +13,7 @@ type Props = {
   article: NonNullable<PostsQuery['postsCollection']>['items'][number];
 }
 
-export default function ArticleItem({ article }: Props): JSX.Element {
+export const ArticleItem = ({ article }: Props): JSX.Element => {
 
   const tags = article?.tagsCollection?.items.map((item) => String(item?.name));
 
@@ -49,4 +49,4 @@ export default function ArticleItem({ article }: Props): JSX.Element {
       </Card>
     </>
   );
-}
+};

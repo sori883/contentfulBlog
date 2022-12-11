@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
-import ArticleItem from 'components/article/ArticleItem';
+import { ArticleItem } from 'components/domains/articleTopList/ArticleItem';
 import { PostsQuery } from 'graphql/generated';
 
 
@@ -10,7 +10,7 @@ type Props = {
   fallbackArticle: PostsQuery['postsCollection'];
 }
 
-export default function ArticleList({ fallbackArticle }: Props): JSX.Element {
+export const ArticleList = ({ fallbackArticle }: Props): JSX.Element => {
   return (
     <>
       <Grid container alignItems={'center'} justifyContent={'center'}>
@@ -40,4 +40,4 @@ export default function ArticleList({ fallbackArticle }: Props): JSX.Element {
       </Grid>
     </>
   );
-}
+};
