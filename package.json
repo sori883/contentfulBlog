@@ -14,7 +14,8 @@
     "lint:fix": "eslint . --fix",
     "lint:web": "eslint ./packages/web",
     "lint:web-fix": "eslint ./packages/web --fix",
-    "codegen": "yarn web codegen && yarn eslint ./packages/web/src/graphql --fix"
+    "codegen": "yarn web codegen && yarn eslint ./packages/web/src/graphql --fix",
+    "build-storybook": "yarn web build-storybook"
   },
   "devDependencies": {
     "@emotion/eslint-plugin": "^11.10.0",

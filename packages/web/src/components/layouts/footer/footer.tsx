@@ -35,7 +35,7 @@ export const Footer = ():JSX.Element => {
         </Link>
       </Typography>
       <Typography variant='body2' color='textSecondary' align='center'>
-        {`Copyright © ${publicRuntimeConfig.BLOG_TITLE} ${new Date().getFullYear()} .`}
+        {`Copyright © ${publicRuntimeConfig.BLOG_TITLE || ''} ${new Date().getFullYear()} .`}
       </Typography>
     </Box>
   );

@@ -23,48 +23,52 @@ export const Header = ():JSX.Element => {
       <Box sx={{ flexGrow: { md: 1 } }}>
         <AppBar position='static'>
           <Toolbar>
-            <AcUnitRoundedIcon sx={{
-              display: { md: 'flex' },
-              mr: 1,
-              fontSize: 32,
-              color: '#45A1CF',
-            }} />
-            <Typography variant='h6' noWrap component='div' sx={{
-              mr: 5,
-              color: 'inherit',
-              textDecoration: 'none',
-              flexGrow: { xl: 0, xs: 1},
-              fontFamily: 'monospace',
-              fontWeight: 700,
-            }}>
-              <Link href={pagesPath.$url()}>
-                { publicRuntimeConfig.BLOG_TITLE }
-              </Link>
-            </Typography>
-            <Box
-              sx={{ display: { xl : 'flex', xs: 'none'} }}
-            >
-              <Typography textAlign='center' variant='subtitle1' component='p' sx={{ mr: 3 }}>
+            <>
+              <AcUnitRoundedIcon sx={{
+                display: { md: 'flex' },
+                mr: 1,
+                fontSize: 32,
+                color: '#45A1CF',
+              }} />
+              <Typography variant='h6' noWrap component='div' sx={{
+                mr: 5,
+                color: 'inherit',
+                textDecoration: 'none',
+                flexGrow: { xl: 0, xs: 1},
+                fontFamily: 'monospace',
+                fontWeight: 700,
+              }}>
                 <Link href={pagesPath.$url()}>
-                  home
+                  { publicRuntimeConfig.BLOG_TITLE || '' }
                 </Link>
               </Typography>
-              <Typography textAlign='center' variant='subtitle1' component='p' sx={{ mr: 3 }}>
-                <Link href={pagesPath.itsme.$url()}>
-                  profile
-                </Link>
-              </Typography>
-            </Box>
-            <IconButton
-              size='large'
-              edge='start'
-              color='inherit'
-              aria-label='menu'
-              sx={{ display: { xl : 'none'}, mr: 2 }}
-              onClick={() => setDrawerOpened(true)}
-            >
-              <MenuIcon />
-            </IconButton>
+              <Box
+                sx={{ display: { xl : 'flex', xs: 'none'} }}
+              >
+                <>
+                  <Typography textAlign='center' variant='subtitle1' component='p' sx={{ mr: 3 }}>
+                    <Link href={pagesPath.$url()}>
+                      home
+                    </Link>
+                  </Typography>
+                  <Typography textAlign='center' variant='subtitle1' component='p' sx={{ mr: 3 }}>
+                    <Link href={pagesPath.itsme.$url()}>
+                      profile
+                    </Link>
+                  </Typography>
+                </>
+              </Box>
+              <IconButton
+                size='large'
+                edge='start'
+                color='inherit'
+                aria-label='menu'
+                sx={{ display: { xl : 'none'}, mr: 2 }}
+                onClick={() => setDrawerOpened(true)}
+              >
+                <MenuIcon />
+              </IconButton>
+            </>
           </Toolbar>
         </AppBar>
       </Box>

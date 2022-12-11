@@ -2,10 +2,11 @@
 name: 'Chromatic'
 
 # Event for the workflow
-on: 
-  pullrequest
-  - main
-  - develop
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
 
 # List of jobs
 jobs:
@@ -19,5 +20,5 @@ jobs:
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}# githubに登録させる必要あり。
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           exitZeroOnChanges: true
