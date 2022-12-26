@@ -27,7 +27,7 @@ export const ArticleItem = ({ article }: Props): JSX.Element => {
             sx={{ width: '100%', height: '100%', display: 'flex', flexFlow: 'column'}}
           >
             <CardContent sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
-              <Typography gutterBottom variant='h5' component='h5' sx={{ width: '100%', fontWeight: 700, verticalAlign: 'middle' }}>
+              <Typography gutterBottom variant='h1' component='h5' sx={{ width: '100%', fontWeight: 700, verticalAlign: 'middle' }}>
                 { article?.title }
               </Typography>
             </CardContent>

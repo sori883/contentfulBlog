@@ -36,6 +36,7 @@ export const CopyLink = (): JSX.Element => {
           justifyItems: 'center',
           alignItems: 'center',
           paddingX: 1,
+          fontSize:10,
         }}>
         <ContentCopyIcon
         />

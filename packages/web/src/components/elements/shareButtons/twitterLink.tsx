@@ -36,7 +36,8 @@ export const TwitterLink = (): JSX.Element => {
             justifyItems: 'center',
             alignItems: 'center',
             paddingX: 1,
-            color: '#4e4e4e'
+            color: '#4e4e4e',
+            fontSize:10,
           }}>
           <TwitterIcon
           />
