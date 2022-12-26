@@ -71,7 +71,7 @@ export default function ContentStyle({children}: Props): JSX.Element {
             background-color: #fff;
           }
           
-          table tr:nth-child(2n) {
+          table tr:nth-of-type(2n) {
             background-color: #f6f8fa;
           }
           

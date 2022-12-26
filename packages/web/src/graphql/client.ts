@@ -1,5 +1,5 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client";
-import getConfig from "next/config";
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+import getConfig from 'next/config';
 
 const { serverRuntimeConfig } = getConfig();
 const CONTENTFUL_GRAPHQL_ENDPOINT = serverRuntimeConfig.CONTENTFUL_GRAPHQL_ENDPOINT;

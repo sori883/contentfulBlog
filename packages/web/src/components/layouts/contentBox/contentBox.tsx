@@ -13,7 +13,7 @@ export const ContentBox = ({children}:Props): JSX.Element => {
     <Box  sx={{
       bgcolor: 'background.paper',
       boxShadow: 1,
-      borderRadius: 2,
+      borderRadius: {lg: 2, xs: 0},
       p: 2,
     }}>
       <ContentStyle>

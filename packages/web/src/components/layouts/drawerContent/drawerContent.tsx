@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -15,15 +16,35 @@ export const DrawerContent =():JSX.Element => {
       <nav aria-label="secondary mailbox folders">
         <List>
           <ListItem disablePadding>
-            <Link passHref href={pagesPath.$url()}>
-              <ListItemButton>
+            <Link passHref href={pagesPath.$url()} css={css`
+              &&& {
+                display: inline-block;
+                width: 100%;
+              }
+            `}>
+              <ListItemButton css={css`
+              &&& {
+                display: inline-block;
+                width: 100%;
+              }
+            `}>
                     home
               </ListItemButton>
             </Link>
           </ListItem>
           <ListItem disablePadding>
-            <Link passHref href={pagesPath.itsme.$url()}>
-              <ListItemButton component='div'>
+            <Link passHref href={pagesPath.itsme.$url()} css={css`
+              &&& {
+                display: inline-block;
+                width: 100%;
+              }
+            `}>
+              <ListItemButton component='div' css={css`
+              &&& {
+                display: inline-block;
+                width: 100%;
+              }
+            `}>
                 profile
               </ListItemButton>
             </Link>

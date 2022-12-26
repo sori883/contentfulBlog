@@ -21,7 +21,10 @@ export const Header = ():JSX.Element => {
   return (
     <>
       <Box sx={{ flexGrow: { md: 1 } }}>
-        <AppBar position='static'>
+        <AppBar sx={{
+          boxShadow: 0,
+          position: 'static'
+        }}>
           <Toolbar>
             <>
               <AcUnitRoundedIcon sx={{
@@ -34,7 +37,7 @@ export const Header = ():JSX.Element => {
                 mr: 5,
                 color: 'inherit',
                 textDecoration: 'none',
-                flexGrow: { xl: 0, xs: 1},
+                flexGrow: { lg: 0, xs: 1},
                 fontFamily: 'monospace',
                 fontWeight: 700,
               }}>
@@ -43,7 +46,7 @@ export const Header = ():JSX.Element => {
                 </Link>
               </Typography>
               <Box
-                sx={{ display: { xl : 'flex', xs: 'none'} }}
+                sx={{ display: { lg : 'flex', xs: 'none'} }}
               >
                 <>
                   <Typography textAlign='center' variant='subtitle1' component='p' sx={{ mr: 3 }}>
@@ -63,7 +66,7 @@ export const Header = ():JSX.Element => {
                 edge='start'
                 color='inherit'
                 aria-label='menu'
-                sx={{ display: { xl : 'none'}, mr: 2 }}
+                sx={{ display: { lg : 'none'}, mr: 2 }}
                 onClick={() => setDrawerOpened(true)}
               >
                 <MenuIcon />
