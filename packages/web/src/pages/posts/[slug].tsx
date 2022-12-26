@@ -67,7 +67,7 @@ const Article: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
             item
             xs={12}
             md={12}
-            xl={10}
+            lg={10}
           >
             <ContentBox>
               <Typography variant='h1'>
@@ -86,7 +86,7 @@ const Article: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
               }
               <Box
                 sx={{
-                  display: {xl: 'none', xs: 'block'},
+                  display: {lg: 'none', xs: 'block'},
                   position: 'sticky',
                   backgroundColor: 'background.paper',
                   top: 0,
@@ -98,7 +98,7 @@ const Article: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
                 />
               </Box>
               <Divider sx={{
-                mt: {xl: 1, xs: 0},
+                mt: {lg: 1, xs: 0},
                 mb: 2}}
               />
               <View>
@@ -110,7 +110,7 @@ const Article: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
             item
             xs={12}
             md={12}
-            xl={2}
+            lg={2}
           >
             <Box sx={{
               bgcolor: 'background.paper',
