@@ -21,7 +21,7 @@ export const ArticleList = ({ fallbackArticle }: Props): JSX.Element => {
               key={item?.sys.id}
               xs={12}
               md={6}
-              xl={4}
+              lg={4}
               css={css`
               &&& {
                 margin-bottom: 3rem;
