@@ -21,7 +21,10 @@ export const Header = ():JSX.Element => {
   return (
     <>
       <Box sx={{ flexGrow: { md: 1 } }}>
-        <AppBar position='static'>
+        <AppBar sx={{
+          boxShadow: 0,
+          position: 'static'
+        }}>
           <Toolbar>
             <>
               <AcUnitRoundedIcon sx={{

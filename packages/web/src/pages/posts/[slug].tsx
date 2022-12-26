@@ -7,8 +7,10 @@ import type { GetStaticPropsContext, InferGetStaticPropsType, NextPage  } from '
 import { TagChip } from 'components/domains/tag/tagChip';
 import { View } from 'components/elements/markdown';
 import { Resume } from 'components/elements/resume';
+import { ShareContents } from 'components/elements/shareContents';
 import { ContainerBox } from 'components/layouts/containerBox';
 import { ContentBox } from 'components/layouts/contentBox';
+import { ShareAndResume } from 'components/layouts/shareAndResume';
 import { SiteHead } from 'components/nonVisual/siteHead';
 import { client } from 'graphql/client';
 import {
@@ -18,6 +20,7 @@ import {
   PostsDocument,
   PostsQuery
 } from 'graphql/generated';
+import parseValue from 'lib/dataformat';
 
 export const getStaticPaths = async () => {
   const { data } = await client.query<PostsQuery>({
@@ -67,8 +70,11 @@ const Article: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
             xl={10}
           >
             <ContentBox>
-              <Typography variant='h3'>
+              <Typography variant='h1'>
                 {fallbackArticle.postsCollection?.items[0]?.title}
+              </Typography>
+              <Typography variant='body2' component='div' sx={{my: 1}}>
+                {`投稿日：${parseValue(fallbackArticle.postsCollection?.items[0]?.sys.firstPublishedAt)}`}
               </Typography>
               {
                 tags ? 
@@ -78,9 +84,25 @@ const Article: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
                   :
                   <></>
               }
-              <Divider sx={{marginY: 2}} />
+              <Box
+                sx={{
+                  display: {xl: 'none', xs: 'block'},
+                  position: 'sticky',
+                  backgroundColor: 'background.paper',
+                  top: 0,
+                  height: 50,
+                }}
+              >
+                <ShareAndResume
+                  markdown={String(fallbackArticle.postsCollection?.items[0]?.content)}
+                />
+              </Box>
+              <Divider sx={{
+                mt: {xl: 1, xs: 0},
+                mb: 2}}
+              />
               <View>
-                { String(fallbackArticle.postsCollection?.items[0]?.content)  }
+                { String(fallbackArticle.postsCollection?.items[0]?.content) }
               </View>
             </ContentBox>
           </Grid>
@@ -94,11 +116,29 @@ const Article: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
               bgcolor: 'background.paper',
               boxShadow: 1,
               borderRadius: 2,
-              p: 2,
               position: 'sticky',
               top: 50,
-              display: { xs: 'none', md: 'flex' }
+              display: { xs: 'none', md: 'flex' },
+              marginBottom: 3,
             }}>
+              <ShareContents />
+            </Box>
+            <Box sx={{
+              bgcolor: 'background.paper',
+              boxShadow: 1,
+              borderRadius: 2,
+              width: '100%',
+              position: 'sticky',
+              top: 50,
+              display: { xs: 'none', md: 'block' }
+            }}>
+              <Typography
+                variant='body1'
+                component='div'
+                sx={{paddingX:2, paddingTop: 2, fontWeight: 800}}
+              >
+                目次
+              </Typography>
               <Resume>
                 { String(fallbackArticle.postsCollection?.items[0]?.content) }
               </Resume>

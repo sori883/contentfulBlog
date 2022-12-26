@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
+import Box from '@mui/material/Box';
 import ReactMarkdown from 'react-markdown';
-import { Link as Scroll } from 'react-scroll';
 
 type Props = {
   children: string;
@@ -8,24 +8,37 @@ type Props = {
 
 const ankerLink = ({ ...props }) => {
   return (
-    <li>
-      <Scroll
-        css={css`
-        &&& {
-          cursor: pointer;
-        }
+    <li
+      css={css`
+      &&&{
+        padding-left: 0x;
+        font-size: 14px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-weight: 600;
+      }
     `}
-        to={`${props.children}`} smooth={true} duration={600}>
+    >
+      <a href={`#${props.children}`}>
         {props.children}
-      </Scroll>
+      </a>
     </li>
   );
 };
 
 export const Resume = ({children}: Props): JSX.Element => {
   return (
-    <>
-      <ul>
+    <Box
+      sx={{padding: 2}}
+    >
+      <ul
+        css={css`
+        &&&{
+          list-style-position: outside;
+          padding-left: 15px;
+        }
+        `}
+      >
         <ReactMarkdown
           allowedElements={['h2']}
           components={{
@@ -35,6 +48,6 @@ export const Resume = ({children}: Props): JSX.Element => {
           {children}
         </ReactMarkdown>
       </ul>
-    </>
+    </Box>
   );
 };
