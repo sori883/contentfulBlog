@@ -4,7 +4,12 @@ echo "VERCEL_GIT_COMMIT_REF: $VERCEL_GIT_COMMIT_REF"
 
 if [[ "$VERCEL_GIT_COMMIT_REF" == "develop" ]] ; then
   # Proceed with the build
-  echo "✅ - Build can proceed"
+  echo "✅ - Build can proceed develop"
+  exit 1;
+
+elif [[ "$VERCEL_GIT_COMMIT_REF" == "main" ]] ; then
+  # Proceed with the build
+  echo "✅ - Build can proceed main"
   exit 1;
 
 else
