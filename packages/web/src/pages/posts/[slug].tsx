@@ -67,7 +67,7 @@ const Article: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
             item
             xs={12}
             md={12}
-            lg={10}
+            lg={7}
           >
             <ContentBox>
               <Typography variant='h1'>

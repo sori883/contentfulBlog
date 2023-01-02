@@ -4,6 +4,7 @@ import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import rehypeRaw from 'rehype-raw';
+import remarkBreaks from 'remark-breaks';
 import gfm from 'remark-gfm';
 
 import { imageLoader, pathBuilder } from 'lib/ImageLoader';
@@ -66,10 +67,10 @@ export const View = ({children}: Props): JSX.Element => {
           img: IMG,
           code: CodeBlock
         }}
-        remarkPlugins={[gfm]}
+        remarkPlugins={[gfm,remarkBreaks]}
         rehypePlugins={[rehypeRaw]}
       >
-        {children}
+        {children.replace(/\n/gi, '\n')}
       </ReactMarkdown>
     </ContentStyle>
   );
