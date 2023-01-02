@@ -12,69 +12,77 @@ export default function ContentStyle({children}: Props): JSX.Element {
     <Box
       sx={{margin: 0}}
       css={css`
-          a {
-            color: #4b75b9;
-          }
+      * {
+        wthite-space: pre-wrap;
+      }
 
-          p {
-            margin: 0;
-            padding: 0;
-          }
+      a {
+        color: #4b75b9;
+      }
 
-          table {
-            overflow: auto;
-            border-collapse: collapse;
-          }
-          
-          table{
-            margin-top: 0;
-            margin-bottom: 16px;
-          }
-          
-          table {
-            border-spacing: 0;
-            border-collapse: collapse;
-          }
-          
-          td,
-          th {
-            padding: 0;
-          }
-          
-          table th {
-            font-weight: 600;
-            background-color: #e7e7e7;
-          }
-          
-          table thead th,
-          table thead td {
-            padding: 6px 13px;
-            text-align: center;
-          }
-          
-          table th,
-          table td {
-            padding: 6px 13px;
-            text-align: center;
-            border: 1px solid #ccc
-          }
-          
-          table thead tr th {
-            border: 1px solid #ccc;
-          }
-          
-          table tbody tr + tr td {
-            border: 1px solid #ccc;
-          }
-          
-          table tr {
-            background-color: #fff;
-          }
-          
-          table tr:nth-of-type(2n) {
-            background-color: #f6f8fa;
-          }
-          
+      p {
+        margin: 0 0 18px 0;
+        line-height: 1.8;
+        word-wrap: break-word;
+      }
+
+      ul {
+        padding-left: 15px;
+      }
+
+      table {
+        overflow: auto;
+        border-collapse: collapse;
+      }
+      
+      table{
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      
+      table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      
+      td,
+      th {
+        padding: 0;
+      }
+      
+      table th {
+        font-weight: 600;
+        background-color: #e7e7e7;
+      }
+      
+      table thead th,
+      table thead td {
+        padding: 6px 13px;
+        text-align: center;
+      }
+      
+      table th,
+      table td {
+        padding: 6px 13px;
+        text-align: center;
+        border: 1px solid #ccc
+      }
+      
+      table thead tr th {
+        border: 1px solid #ccc;
+      }
+      
+      table tbody tr + tr td {
+        border: 1px solid #ccc;
+      }
+      
+      table tr {
+        background-color: #fff;
+      }
+      
+      table tr:nth-of-type(2n) {
+        background-color: #f6f8fa;
+      }
     `}
     >
       { children }
