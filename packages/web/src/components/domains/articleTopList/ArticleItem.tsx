@@ -20,7 +20,7 @@ export const ArticleItem = ({ article }: Props): JSX.Element => {
   return (
     <>
       <Card
-        sx={{ maxWidth: 400, minWidth: {md: 400, xs: 350}, height: 230 }}
+        sx={{ maxWidth: {md: 400, xs: 350}, minWidth: {md: 400, xs: 350}, height: 230 }}
       >
         <Link href={pagesPath.posts._slug(String(article?.slug)).$url()}>
           <CardActionArea
