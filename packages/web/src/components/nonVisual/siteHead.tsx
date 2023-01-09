@@ -19,18 +19,19 @@ export const SiteHead: React.FC<MyPageSeoProps> = (props) => {
   const BLOG_TITLE = publicRuntimeConfig.BLOG_TITLE;
 
   const {
-    path = router.pathname,
+    path = decodeURI(router.asPath),
     title = BLOG_TITLE,
     description = 'ブログです！！！！',
-    ogImagePath = '/default-og.png',
+    ogImagePath = '', // slug
     noindex = false,
     noTitleTemplate = true,
   } = props;
 
   // Absolute page url
   const pageUrl = APP_ROOT_URL + path;
-  // Absolute og image url
-  const ogImageUrl = APP_ROOT_URL + ogImagePath;
+  console.log(path);
+  // og画像生成URL
+  const ogImageUrl = `${APP_ROOT_URL}/api/generateOgImage/${ogImagePath}`;
 
   return (
     <NextHeadSeo

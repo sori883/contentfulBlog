@@ -58,6 +58,7 @@ const Article: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     <>
       <SiteHead
         title={String(fallbackArticle.postsCollection?.items[0]?.title)}
+        ogImagePath={String(fallbackArticle.postsCollection?.items[0]?.slug)}
       />
       <ContainerBox
         containerSize='xl'

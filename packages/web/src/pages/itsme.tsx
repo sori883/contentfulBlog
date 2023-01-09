@@ -23,7 +23,7 @@ const ItsMe: NextPage = () => (
           sx={{display: 'flex'}}
         >
           <Image
-            src='/500.png'
+            src='/500.webp'
             width='60'
             height='60'
             alt='icon'
