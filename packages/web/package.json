@@ -6,7 +6,7 @@
     "dev": "run-p dev:*",
     "dev:next": "next dev",
     "dev:path": "pathpida --watch",
-    "now-build": "yum install libuuid-devel libmount-devel && cp /lib64/{libuuid,libmount,libblkid}.so.1 node_modules/canvas/build/Release/ && npm run build",
+    "now-build": "yum install libuuid-devel libmount-devel && cp /lib64/{libuuid,libmount,libblkid}.so.1 ../../node_modules/canvas/build/Release/ && npm run build",
     "build": "pathpida && next build && next-sitemap",
     "build:commit": "pathpida && next build",
     "sitemap": "next-sitemap",
