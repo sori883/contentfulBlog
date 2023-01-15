@@ -31,7 +31,7 @@ export const SiteHead: React.FC<MyPageSeoProps> = (props) => {
   const pageUrl = APP_ROOT_URL + path;
   console.log(path);
   // og画像生成URL
-  const ogImageUrl = `${APP_ROOT_URL}/api/generateOgImage/${ogImagePath}`;
+  const ogImageUrl = `${APP_ROOT_URL}/posts/${ogImagePath}/ogImage`;
 
   return (
     <NextHeadSeo
