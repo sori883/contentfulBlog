@@ -1,5 +1,5 @@
 {
-  "ignorePatterns": ["node_modules", ".next", "dist", "$path.ts", "generated.ts"],
+  "ignorePatterns": ["node_modules", ".next", "packages/api_og/api", "$path.ts", "generated.ts"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",

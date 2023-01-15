@@ -67,3 +67,6 @@ out/
 sitemap-0.xml
 sitemap.xml
 robots.txt
+
+# opg生成apiの成果ファイルを除外
+packages/api_og/api
