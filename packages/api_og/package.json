@@ -1,13 +1,13 @@
 {
   "name": "api_og",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "private": true,
-  "main": "index.js",
+  "main": "api/serverless.js",
   "license": "MIT",
   "scripts": {
-    "dev": "tsc -p tsconfig.json && node dist/serverless.js",
+    "dev": "tsc -p tsconfig.json && node api/serverless.js",
     "build": "tsc -p tsconfig.json",
-    "start": "node dist/serverless.js",
+    "start": "node api/serverless.js",
     "vercel-build": "yum install libuuid-devel libmount-devel && cp /lib64/{libuuid,libmount,libblkid}.so.1 ../../node_modules/canvas/build/Release/ && tsc -p tsconfig.json"
   },
   "dependencies": {

@@ -21,7 +21,7 @@
     "noUnusedParameters": true,
     "importsNotUsedAsValues": "error",
     "checkJs": true,
-    "outDir": "dist",
+    "outDir": "api",
     "typeRoots": [
       "node_modules/@types"
     ],
