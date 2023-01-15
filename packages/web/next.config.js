@@ -15,6 +15,7 @@ const nextConfig =  {
   },
   publicRuntimeConfig: {
     APP_ROOT_URL: process.env.APP_ROOT_URL, 
+    OGP_URL: process.env.OGP_URL, 
     BLOG_TITLE: process.env.BLOG_TITLE,
     GCS_URL: process.env.GCS_URL,
     TWITTER_ID: process.env.TWITTER_ID,
