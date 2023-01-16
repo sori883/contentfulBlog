@@ -1,9 +1,11 @@
 import * as dotenv from "dotenv";
-import fastify from 'fastify';
+import Fastify from 'fastify';
 
 dotenv.config();
 
-const app = fastify();
+const app = Fastify({
+  logger: true,
+});
 
 app.register(import('./blog'), {
   prefix: '/'
@@ -11,6 +13,7 @@ app.register(import('./blog'), {
 
 // document
 // https://www.fastify.io/docs/latest/Guides/Serverless/#vercel
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async (req: any, res: any) => {
   await app.ready();
   app.server.emit('request', req, res);
