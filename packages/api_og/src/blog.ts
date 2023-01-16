@@ -25,6 +25,7 @@ interface RequestGeneric extends RequestGenericInterface {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function (instance: FastifyInstance, _opts: FastifyServerOptions, done: any) {
   instance.get('/', async (_req: FastifyRequest, reply: FastifyReply) => {
     reply.status(200).send('ok');
@@ -42,6 +43,7 @@ export default async function (instance: FastifyInstance, _opts: FastifyServerOp
       const title = data.postsCollection?.items[0]?.title as string;
 
       reply.send({ title: title });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
       console.error(e.message);
 
@@ -65,6 +67,7 @@ export default async function (instance: FastifyInstance, _opts: FastifyServerOp
       const img = await generateOgImage(title);
 
       reply.send(img);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
       console.error(e.message);
       const file = path.resolve(cwd, 'src/canvas/og_image_default.png');
