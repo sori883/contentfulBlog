@@ -33,7 +33,7 @@ export const SiteHead: React.FC<MyPageSeoProps> = (props) => {
   console.log(path);
   // og画像生成URL
   const ogImageUrl = ogImagePath === '' ?
-    `${APP_ROOT_URL}og_image_default.png`
+    `${APP_ROOT_URL}/og_image_default.png`
     : 
     `${OGP_URL}/posts/${ogImagePath}/ogImage`;
 
