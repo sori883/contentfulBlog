@@ -9,14 +9,11 @@
   "scripts": {
     "prepare": "husky install",
     "web": "yarn workspace web",
-    "api_og": "yarn workspace api_og",
     "build:web": "yarn workspace web build:commit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint:web": "eslint ./packages/web",
     "lint:web-fix": "eslint ./packages/web --fix",
-    "lint:api_og": "eslint ./packages/api_og",
-    "lint:api_og-fix": "eslint ./packages/api_og --fix",
     "codegen": "yarn web codegen && yarn eslint ./packages/web/src/graphql --fix",
     "build-storybook": "yarn web build-storybook"
   },
