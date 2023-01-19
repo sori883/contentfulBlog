@@ -27,8 +27,8 @@ export default function ContentStyle({children}: Props): JSX.Element {
       }
 
       ul {
-        padding-left: 15px;
-        margin-bottom 18px;
+        margin-bottom: 18px;
+        padding-left: 18px;
       }
 
       table {
@@ -38,7 +38,7 @@ export default function ContentStyle({children}: Props): JSX.Element {
       
       table{
         margin-top: 0;
-        margin-bottom: 16px;
+        margin-bottom: 18px;
       }
       
       table {
