@@ -28,6 +28,7 @@ export default function ContentStyle({children}: Props): JSX.Element {
 
       ul {
         padding-left: 15px;
+        margin-bottom 18px;
       }
 
       table {
