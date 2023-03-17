@@ -1,6 +1,6 @@
-import NextHeadSeo from 'next-head-seo';
 import getConfig from 'next/config';
 import { useRouter } from 'next/router';
+import NextHeadSeo from 'next-head-seo';
 
 export type MyPageSeoProps = {
   path?: string;
