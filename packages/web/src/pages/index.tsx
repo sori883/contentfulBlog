@@ -3,7 +3,9 @@ import Pagination from '@mui/material/Pagination';
 import type { InferGetStaticPropsType, NextPage } from 'next';
 import { useRouter } from 'next/router';
 
+import posts from '.contents/posts.json';
 import { ArticleList } from 'components/domains/articleTopList';
+import { ZennList } from 'components/domains/rss/zennList';
 import { ContainerBox } from 'components/layouts/containerBox';
 import { SiteHead }  from 'components/nonVisual/siteHead';
 import { client } from 'graphql/client';
@@ -46,6 +48,10 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
             count={ Math.ceil(Number(initialData.postsCollection?.total) / 20)}
           />
         </Box>
+        <ZennList
+          posts={posts}
+        />
+
       </ContainerBox>
     </>
   );
