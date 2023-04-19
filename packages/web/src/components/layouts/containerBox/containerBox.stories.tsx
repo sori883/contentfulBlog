@@ -1,12 +1,12 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { ContainerBox } from './containerBox';
 
-export default {
+const meta: Meta<typeof ContainerBox> = {
   title: 'Layout/ContainerBox',
   component: ContainerBox,
-} as ComponentMeta<typeof ContainerBox>;
+};
+export default meta;
 
-const Template: ComponentStory<typeof ContainerBox> = () => <ContainerBox>conent</ContainerBox>;
-
-export const Default = Template.bind({});
+export const Default: StoryObj<typeof ContainerBox> = {
+};

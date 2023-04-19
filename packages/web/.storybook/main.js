@@ -1,4 +1,6 @@
 const path = require('path')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -14,17 +16,37 @@ module.exports = {
       options: {
         nextConfigPath: path.resolve(__dirname, '../next.config.js')
       }
-    }
+    },
+    {
+      name: '@storybook/addon-postcss',
+      options: {
+        postcssLoaderOptions: {
+          implementation: require('postcss'),
+        },
+      },
+    },
   ],
   staticDirs: ['../public'],
-  "framework": "@storybook/react",
-  "core": {
-    "builder": "@storybook/builder-webpack5"
+  framework: '@storybook/nextjs',
+  core: {
+    builder: "@storybook/builder-webpack5"
   },
-  // emotionのbabel-preset-css-propを使えるようにしてる
-  babel: async (options) => ({
-    ...options,
-    presets: [...options.presets, '@emotion/babel-preset-css-prop'],
-    plugins: ['react-require']
-  }),
+  webpackFinal: (config) => {
+    if (config.module?.rules) {
+      config.module.rules = config.module.rules.map((rule) => {
+        // HACK: Override SVG loader to not use file-loader
+        if (rule !== '...' && rule.test?.toString().indexOf('svg') !== -1) {
+          rule.exclude = /\.svg$/
+        }
+        return rule
+      })
+
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+        issuer: /\.tsx$/,
+      })
+    }
+    return config
+  }
 }

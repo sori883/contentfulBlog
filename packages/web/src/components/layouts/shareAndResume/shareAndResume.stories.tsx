@@ -1,15 +1,12 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { ShareAndResume } from './shareAndResume';
 
-export default {
+const meta: Meta<typeof ShareAndResume> = {
   title: 'Layout/ShareAndResume',
   component: ShareAndResume,
-} as ComponentMeta<typeof ShareAndResume>;
+};
+export default meta;
 
-const Template: ComponentStory<typeof ShareAndResume> = (arg) => <ShareAndResume {...arg} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  markdown: '## resume'
+export const Default: StoryObj<typeof ShareAndResume> = {
 };

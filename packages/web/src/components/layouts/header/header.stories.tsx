@@ -1,12 +1,13 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Header } from './header';
+import { HeaderResponsive } from './header';
 
-export default {
+const meta: Meta<typeof HeaderResponsive> = {
   title: 'Layout/Header',
-  component: Header,
-} as ComponentMeta<typeof Header>;
+  component: HeaderResponsive,
+};
+export default meta;
 
-const Template: ComponentStory<typeof Header> = () => <Header />;
+export const Default: StoryObj<typeof HeaderResponsive> = {
+};
 
-export const Default = Template.bind({});

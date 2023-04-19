@@ -1,25 +1,26 @@
-import {ThemeProvider} from '@mui/material/styles'
-import CssBaseline from '@mui/material/CssBaseline'
-import theme from '../src/mui/theme'
+import { useDarkMode } from 'storybook-dark-mode';
+import { MantineProvider, ColorSchemeProvider } from '@mantine/core';
+import { theme } from '../src/theme/theme';
 import 'styles/globals.css';
+// import 'styles/cotentEntry.scss';
+import React from 'react';
 
-export const decorators = [
-    (Story) => {
-      return (
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Story />
-        </ThemeProvider>
-      )
-    },
-]
+
+function ThemeWrapper(props) {
+  const colorScheme = useDarkMode() ? 'dark' : 'light';
+  return (
+    <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={() => {}}>
+      <MantineProvider theme={theme(colorScheme)} withGlobalStyles withNormalizeCSS>
+        {props.children}
+      </MantineProvider>
+    </ColorSchemeProvider>
+  );
+}
+
+export const decorators = [(renderStory) => <ThemeWrapper>{renderStory()}</ThemeWrapper>];
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
-    },
+  backgrounds: {
+    default: 'light'
   },
-}
+};
