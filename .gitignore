@@ -12,6 +12,7 @@ work
 key.json
 work/
 packages/githubapp/lib
+.contents
 
 # Logs
 logs
