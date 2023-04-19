@@ -1,87 +1,141 @@
-import { useState } from 'react';
-
-import AcUnitRoundedIcon from '@mui/icons-material/AcUnitRounded';
-import MenuIcon from '@mui/icons-material/Menu';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import {
+  Burger,
+  Container,
+  Group,
+  Header,
+  Paper,
+  Transition,
+  createStyles,
+  rem,
+} from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 import getConfig from 'next/config';
 import Link from 'next/link';
 
-import { DrawerContent } from 'components/layouts/drawerContent';
+import { ToggleTheme } from 'components/elements/toggleTheme';
 import { pagesPath } from 'lib/$path';
 
-export const Header = ():JSX.Element => {
-  const [drawerOpened, setDrawerOpened] = useState(false);
-  const { publicRuntimeConfig } = getConfig();
+const HEADER_HEIGHT = rem(60);
+
+const useStyles = createStyles((theme) => ({
+  root: {
+    position: 'relative',
+    zIndex: 1,
+    borderBottom: 0,
+  },
+
+  logo: {
+    color: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[0],
+    textDecoration: 'none',
+  },
+
+  dropdown: {
+    position: 'absolute',
+    top: HEADER_HEIGHT,
+    left: 0,
+    right: 0,
+    zIndex: 0,
+    borderTopRightRadius: 0,
+    borderTopLeftRadius: 0,
+    borderTopWidth: 0,
+    overflow: 'hidden',
+
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
+    },
+  },
+
+  header: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: '100%',
+  },
+
+  links: {
+    [theme.fn.smallerThan('sm')]: {
+      display: 'none',
+    },
+  },
+
+  burger: {
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
+    },
+  },
+
+  link: {
+    display: 'block',
+    lineHeight: 1,
+    padding: `${rem(8)} ${rem(12)}`,
+    borderRadius: theme.radius.sm,
+    textDecoration: 'none',
+    fontSize: theme.fontSizes.md,
+    fontWeight: 500,
+    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[9],
+    '&:hover': {
+      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+    },
+
+    [theme.fn.smallerThan('sm')]: {
+      borderRadius: 0,
+      padding: theme.spacing.md,
+    },
+  },
+}));
+
+type HeaderResponsiveProps = { link: string; label: string }[];
+
+const links: HeaderResponsiveProps = [
+  { link: pagesPath.$url().pathname, label: 'home'},
+  { link: pagesPath.itsme.$url().pathname, label: 'profile'},
+];
+
+const { publicRuntimeConfig } = getConfig();
+
+export function HeaderResponsive() {
+  const [opened, { toggle }] = useDisclosure(false);
+  const { classes, cx } = useStyles();
+
+  const items = links.map((link) => (
+    <Link
+      key={link.label}
+      href={link.link}
+      className={cx(classes.link)}
+    >
+      {link.label}
+    </Link>
+  ));
 
   return (
-    <>
-      <Box sx={{ flexGrow: { md: 1 } }}>
-        <AppBar sx={{
-          boxShadow: 0,
-          position: 'static'
-        }}>
-          <Toolbar>
-            <>
-              <AcUnitRoundedIcon sx={{
-                display: { md: 'flex' },
-                mr: 1,
-                fontSize: 32,
-                color: '#45A1CF',
-              }} />
-              <Typography variant='h6' noWrap component='div' sx={{
-                mr: 5,
-                color: 'inherit',
-                textDecoration: 'none',
-                flexGrow: { lg: 0, xs: 1},
-                fontFamily: 'monospace',
-                fontWeight: 700,
-              }}>
-                <Link href={pagesPath.$url()}>
-                  { publicRuntimeConfig.BLOG_TITLE || '' }
-                </Link>
-              </Typography>
-              <Box
-                sx={{ display: { lg : 'flex', xs: 'none'} }}
-              >
-                <>
-                  <Typography textAlign='center' variant='subtitle1' component='p' sx={{ mr: 3 }}>
-                    <Link href={pagesPath.$url()}>
-                      home
-                    </Link>
-                  </Typography>
-                  <Typography textAlign='center' variant='subtitle1' component='p' sx={{ mr: 3 }}>
-                    <Link href={pagesPath.itsme.$url()}>
-                      profile
-                    </Link>
-                  </Typography>
-                </>
-              </Box>
-              <IconButton
-                size='large'
-                edge='start'
-                color='inherit'
-                aria-label='menu'
-                sx={{ display: { lg : 'none'}, mr: 2 }}
-                onClick={() => setDrawerOpened(true)}
-              >
-                <MenuIcon />
-              </IconButton>
-            </>
-          </Toolbar>
-        </AppBar>
-      </Box>
+    <Header height={HEADER_HEIGHT} className={classes.root}>
+      <Container className={classes.header}>
+        <Link
+          href={pagesPath.$url()}
+          className='no-underline text-inherit'
+        >
+          🦊{ publicRuntimeConfig.BLOG_TITLE || '' }
+        </Link>
+        <Group spacing={5} className={classes.links}>
+          {items}
+          <ToggleTheme />
+        </Group>
 
-      <Drawer
-        anchor={'right'}
-        open={drawerOpened}
-        onClose={() => setDrawerOpened(false)}>
-        <DrawerContent />
-      </Drawer>
-    </>
+        <Burger opened={opened} onClick={toggle} className={classes.burger} size='sm' />
+
+        <Transition transition='pop-top-right' duration={200} mounted={opened}>
+          {(styles) => (
+            <Paper className={classes.dropdown} withBorder style={styles}>
+              {items}
+              <div
+                className='min-w-full grid place-items-center my-5'
+              >
+                <ToggleTheme />
+              </div>
+            </Paper>
+          )}
+        </Transition>
+      </Container>
+    </Header>
   );
-};
+}

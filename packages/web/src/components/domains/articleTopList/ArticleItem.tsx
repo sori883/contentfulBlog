@@ -1,10 +1,7 @@
-import { CardActionArea } from '@mui/material';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+import { Card, Text } from '@mantine/core';
 import Link from 'next/link';
 
-import { TagChip } from 'components/domains/tag/tagChip';
+import { TagChip } from 'components/domains/tagChip';
 import { PostsQuery } from 'graphql/generated';
 import { pagesPath } from 'lib/$path';
 import parseValue from 'lib/dataformat';
@@ -20,18 +17,26 @@ export const ArticleItem = ({ article }: Props): JSX.Element => {
   return (
     <>
       <Card
-        sx={{ maxWidth: {md: 400, xs: 350}, minWidth: {md: 400, xs: 350}, height: 230 }}
+        className='shadow-md w-[350rem] md:w-[400rem] h-[15rem]'
+        sx={(theme) => ({
+          backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+        })}
       >
-        <Link href={pagesPath.posts._slug(String(article?.slug)).$url()}>
-          <CardActionArea
-            sx={{ width: '100%', height: '100%', display: 'flex', flexFlow: 'column'}}
+        <Link
+          href={pagesPath.posts._slug(String(article?.slug)).$url()}
+          className='no-underline text-inherit'
+        >
+          <div
+            className='flex flex-col w-full h-full'
           >
-            <CardContent sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
-              <Typography gutterBottom variant='h1' component='h5' sx={{ width: '100%', fontWeight: 700, verticalAlign: 'middle' }}>
+            <div
+              className='grow flex items-center w-full'
+            >
+              <Text weight={800} size='xl' component='h1' className='w-full text-center'>
                 { article?.title }
-              </Typography>
-            </CardContent>
-            <CardContent sx={{ width: '100%' }}>
+              </Text>
+            </div>
+            <div className='w-full'>
               {
                 tags ?
                   <TagChip 
@@ -40,11 +45,11 @@ export const ArticleItem = ({ article }: Props): JSX.Element => {
                   :
                   <></>
               }
-              <Typography variant='body2' color='text.secondary' component='div'>
+              <Text size='sm' className='mt-2'>
                 投稿日：{ parseValue(article?.sys.firstPublishedAt) }
-              </Typography>
-            </CardContent>
-          </CardActionArea>
+              </Text>
+            </div>
+          </div>
         </Link>
       </Card>
     </>

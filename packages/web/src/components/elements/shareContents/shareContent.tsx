@@ -1,21 +1,13 @@
-import Box from '@mui/material/Box';
-
-import { CopyLink , TwitterLink } from 'components/elements/shareButtons';
+import { TwitterLink } from 'components/elements/shareButtons';
 
 
 export const ShareContents = (): JSX.Element => {
 
   return (
-    <Box
-      sx={{
-        padding: 2,
-        display: 'flex',
-        width: '100%',
-        justifyContent: 'center',
-      }}
+    <div
+      className='py-6 flex w-full justify-center'
     >
-      <CopyLink />
       <TwitterLink />
-    </Box>
+    </div>
   );
 };

@@ -1,9 +1,9 @@
-import Box from '@mui/material/Box';
-import Pagination from '@mui/material/Pagination';
+
 import type { GetStaticPropsContext, InferGetStaticPropsType, NextPage  } from 'next';
 import { useRouter } from 'next/router';
 
 import { ArticleList } from 'components/domains/articleTopList';
+import { Pagination } from 'components/elements/pagination';
 import { ContainerBox } from 'components/layouts/containerBox';
 import { SiteHead } from 'components/nonVisual/siteHead';
 import { client } from 'graphql/client';
@@ -58,26 +58,26 @@ const Article: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   page
 }) => {
   const router = useRouter();
-  const handleOnChange = (event: React.ChangeEvent<unknown>, page: number) => {
-    page === 1 ? router.push('/')
+  const handleOnChange = (value: number) => {
+    value === 1 ? router.push('/')
       :
-      router.push(`/${page}`);
+      router.push(`/${value}`);
   };
 
   return (
     <>
-      <SiteHead/>
+      <SiteHead />
       <ContainerBox>
         <ArticleList
           fallbackArticle={initialData.postsCollection}
         />
-        <Box display='flex' justifyContent='center'>
+        <div className='flex justify-center'>
           <Pagination
+            total={Math.ceil(Number(initialData.postsCollection?.total) / 20)}
             defaultPage={page}
             onChange={handleOnChange}
-            count={ Math.ceil(Number(initialData.postsCollection?.total) / 20)}
           />
-        </Box>
+        </div>
       </ContainerBox>
     </>
   );

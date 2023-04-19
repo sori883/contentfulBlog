@@ -1,5 +1,3 @@
-import { css } from '@emotion/react';
-import Box from '@mui/material/Box';
 import ReactMarkdown from 'react-markdown';
 
 type Props = {
@@ -9,17 +7,12 @@ type Props = {
 const ankerLink = ({ ...props }) => {
   return (
     <li
-      css={css`
-      &&&{
-        padding-left: 0x;
-        font-size: 14px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        font-weight: 600;
-      }
-    `}
+      className='pl-0 py-1.5 font-bold'
     >
-      <a href={`#${props.children}`}>
+      <a
+        href={`#${props.children}`}
+        className='text-inherit no-underline'
+      >
         {props.children}
       </a>
     </li>
@@ -28,16 +21,11 @@ const ankerLink = ({ ...props }) => {
 
 export const Resume = ({children}: Props): JSX.Element => {
   return (
-    <Box
-      sx={{padding: 2}}
+    <div
+      className='px-4 pb-4'
     >
       <ul
-        css={css`
-        &&&{
-          list-style-position: outside;
-          padding-left: 15px;
-        }
-        `}
+        className='list-outside pl-4'
       >
         <ReactMarkdown
           allowedElements={['h2']}
@@ -48,6 +36,6 @@ export const Resume = ({children}: Props): JSX.Element => {
           {children}
         </ReactMarkdown>
       </ul>
-    </Box>
+    </div>
   );
 };

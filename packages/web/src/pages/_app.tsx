@@ -1,7 +1,7 @@
+import { useState } from 'react';
+
 import { ApolloProvider } from '@apollo/client';
-import { CacheProvider, EmotionCache } from '@emotion/react';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
+import { ColorScheme, ColorSchemeProvider, MantineProvider } from '@mantine/core';
 import type { AppProps } from 'next/app';
 
 import GoogleTagManager, {
@@ -10,36 +10,39 @@ import GoogleTagManager, {
 import { SiteHead } from 'components/nonVisual/siteHead';
 import { client } from 'graphql/client';
 import { googleTagManagerId } from 'gtm/gtm';
-import createEmotionCache from 'mui/createEmotionCache';
-import theme from 'mui/theme';
+import { theme } from 'theme/theme';
 
 import 'styles/globals.css';
+import 'styles/cotentEntry.scss';
 
-const clientSideEmotionCache = createEmotionCache();
-interface MyAppProps extends AppProps {
-  emotionCache?: EmotionCache;
-}
 
 function AppInit():null {
   return null;
 }
 
-function MyApp(props: MyAppProps): JSX.Element {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+  const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
+
+  const toggleColorScheme = (value?: ColorScheme) =>
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+
   return (
     <>
       <ApolloProvider client={client}>
-        <CacheProvider value={emotionCache}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <GoogleTagManager
-              googleTagManagerId={googleTagManagerId as GoogleTagManagerId}
-            />
-            <SiteHead />
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          theme={theme(colorScheme)}
+        >
+          <GoogleTagManager
+            googleTagManagerId={googleTagManagerId as GoogleTagManagerId}
+          />
+          <SiteHead />
+          <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
             <Component {...pageProps} />
-            <AppInit />
-          </ThemeProvider>
-        </CacheProvider>
+          </ColorSchemeProvider>
+          <AppInit />
+        </MantineProvider>
       </ApolloProvider>
     </>
   );
