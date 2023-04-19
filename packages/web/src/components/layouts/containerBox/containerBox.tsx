@@ -1,13 +1,12 @@
 import { ReactNode } from 'react';
 
-import { css } from "@emotion/react";
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
+import { Container } from '@mantine/core';
 
 import { Footer } from 'components/layouts/footer';
-import { Header } from 'components/layouts/header/header';
+import { HeaderResponsive } from 'components/layouts/header/header';
 
 const sizes = {
+  xs: 'xs',
   sm: 'sm',
   md: 'md',
   lg: 'lg',
@@ -24,21 +23,14 @@ export const ContainerBox = ({
   containerSize = 'xl'
 }: Props): JSX.Element => {
   return (
-    <Box sx={{display: 'flex', flexFlow: 'column', minHeight: '100vh'}}>
-      <Header />
+    <div className='flex flex-col flex-wrap min-h-screen'>
+      <HeaderResponsive />
       <Container
-        css={css`
-          &&& {
-            margin-top: 3rem;
-            margin-bottom: 3rem;
-            flex: 1;
-            padding: 0;
-          }
-      `}
-        maxWidth={containerSize}>
+        className='my-12 p-0 flex-1'
+        size={containerSize}>
         { children }
       </Container>
       <Footer />
-    </Box>
+    </div>
   );
 };

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import Box from '@mui/material/Box';
+import { Box } from '@mantine/core';
 
 import ContentStyle from 'styles/contentStyle';
 
@@ -10,12 +10,12 @@ type Props = {
 
 export const ContentBox = ({children}:Props): JSX.Element => {
   return (
-    <Box  sx={{
-      bgcolor: 'background.paper',
-      boxShadow: 1,
-      borderRadius: {lg: 2, xs: 0},
-      p: 2,
-    }}>
+    <Box
+      className='shadow-md p-12 rounded-md min-w-full'
+      sx={(theme) => ({
+        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+      })}
+    >
       <ContentStyle>
         { children }
       </ContentStyle>

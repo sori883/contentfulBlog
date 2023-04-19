@@ -1,7 +1,4 @@
-import { css } from "@emotion/react";
-import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
+import { Divider, Text } from '@mantine/core';
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -19,76 +16,75 @@ const ItsMe: NextPage = () => (
     />
     <ContainerBox containerSize='lg'>
       <ContentBox>
-        <Box
-          sx={{display: 'flex'}}
-        >
+        <div className='flex'>
           <Image
             src='/500.webp'
             width='60'
             height='60'
             alt='icon'
-            css={css`
-            &&& {
-              border-radius: 50%;
-              margin-right: 1.5rem;
-            }
-          `}
+            className='rounded-full mr-6'
           />
-          <Box>
-            <Typography variant='h5' component={'h5'} sx={{fontWidth: 700}}>
+          <div>
+            <Text
+              className='font-bold'
+            >
               Sorinaji
-            </Typography>
-            <Typography variant='body1' component={'h6'}>
+            </Text>
+            <Text>
               <Link href='https://twitter.com/sorinaji' target='_blank'>
               @sorinaji
               </Link>
-            </Typography>
-          </Box>
-        </Box>
+            </Text>
+          </div>
+        </div>
         <Divider
-          sx={{marginY: 1}}
+          className='my-6'
+          variant='dashed'
         />
-        <Typography variant='h6' component={'h6'}>
+        <h1>
             Account
-        </Typography>
-        <Typography variant='body1' component={'p'}>
+        </h1>
+        <Text>
           <Link href='https://twitter.com/sorinaji' target='_blank'>
             Twitter
           </Link>
-        </Typography>
-        <Typography variant='body1' component={'p'}>
+        </Text>
+        <Text>
           <Link href='https://github.com/sori883' target='_blank'>
             GitHub
           </Link>
-        </Typography>
+        </Text>
         <Divider
-          sx={{ marginTop: 3, marginBottom: 1}}
+          className='my-6'
+          variant='dashed'
         />
-        <Typography variant='h6' component={'h6'}>
+        <h1>
             About
-        </Typography>
-        <Typography variant='body1' component={'p'}>
+        </h1>
+        <Text>
           N番煎じの技術ブログで素振りするのがいいと聞いたので、ブログを立ち上げてみました。<br />
-          まだ何書くかは考えてません＼(^o^)／
-        </Typography>
+          特に何かって経歴がないので、そのうち書ける様なもの作ります。。。
+        </Text>
         <Divider
-          sx={{marginTop: 3, marginBottom: 1}}
+          className='my-6'
+          variant='dashed'
         />
-        <Typography variant='h6' component={'h6'}>
+        <h1>
             Job
-        </Typography>
-        <Typography variant='body1' component={'p'}>
+        </h1>
+        <Text>
           Backend Engineer
-        </Typography>
+        </Text>
         <Divider
-          sx={{marginTop: 3, marginBottom: 1}}
+          className='my-6'
+          variant='dashed'
         />
-        <Typography variant='h6' component={'h6'}>
+        <h1>
             illustration
-        </Typography>
-        <Typography variant='body1' component={'p'}>
+        </h1>
+        <Text variant='body1' component={'p'}>
           <Link  href='https://coconala.com/users/2964176' target='_blank'>熊田様(ココナラ)</Link>
-        </Typography>
+        </Text>
       </ContentBox>
     </ContainerBox>
   </div>

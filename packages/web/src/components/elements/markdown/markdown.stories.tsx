@@ -1,11 +1,12 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { View } from './markdown';
 
-export default {
+const meta: Meta<typeof View> = {
   title: 'Element/MarkdownView',
   component: View,
-} as ComponentMeta<typeof View>;
+};
+export default meta;
 
 const markdownText = `## ブログ作ってみました
 この業界に入った8割の人が一度はやってみようかと思い、5割がやっぱダルいわとなり、3割が実行していると噂の技術ブログを始めてみました。  
@@ -24,6 +25,9 @@ const markdownText = `## ブログ作ってみました
 あとは見づらい部分、使いづらい部分（PCにだけ表示される上に表示が微妙な目次とかね）を直しつつ、関連記事とかの機能をぶちこみたいなー。。と思ってます。  
 `;
 
-const Template: ComponentStory<typeof View> = () => <View>{markdownText}</View>;
+export const Default: StoryObj<typeof View> = {
+  args: {
+    children: markdownText
+  },
+};
 
-export const Default = Template.bind({});

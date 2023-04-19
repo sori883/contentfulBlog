@@ -1,6 +1,6 @@
-import NextHeadSeo from 'next-head-seo';
 import getConfig from 'next/config';
 import { useRouter } from 'next/router';
+import NextHeadSeo from 'next-head-seo';
 
 export type MyPageSeoProps = {
   path?: string;
@@ -30,7 +30,6 @@ export const SiteHead: React.FC<MyPageSeoProps> = (props) => {
 
   // Absolute page url
   const pageUrl = APP_ROOT_URL + path;
-  console.log(path);
   // og画像生成URL
   const ogImageUrl = ogImagePath === '' ?
     `${APP_ROOT_URL}/og_image_default.png`
