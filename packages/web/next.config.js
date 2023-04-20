@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const withTM = require("next-transpile-modules")(['react-syntax-highlighter']);
-
 const nextConfig =  {
   reactStrictMode: true,
   eslint: {
@@ -21,8 +18,23 @@ const nextConfig =  {
     TWITTER_ID: process.env.TWITTER_ID,
     GOOGLE_TAG_MANAGER_ID: process.env.GOOGLE_TAG_MANAGER_ID
   },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: [
+        {
+          loader: "@svgr/webpack",
+          options: {
+            svgo: false,
+          },
+        },
+      ],
+    });
+    return config;
+  },
   images: {
     domains: ['img.sori883.dev'],
+    disableStaticImages: true,
   },
   compiler: {
     emotion: true
@@ -30,7 +42,7 @@ const nextConfig =  {
 };
 
 const buildConfig = _phase => {
-  const plugins = [withTM];
+  const plugins = [];
   const config = plugins.reduce((acc, next) => next(acc), {
     ...nextConfig
   });

@@ -1,84 +1,49 @@
-import { MouseEvent, useState } from 'react';
+import { useState } from 'react';
 
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
+import { Button, Popover, Text } from '@mantine/core';
+import { IconChevronDown } from '@tabler/icons-react';
 
 
 import { Resume } from 'components/elements/resume';
-import { CopyLink , TwitterLink } from 'components/elements/shareButtons';
+import { TwitterLink } from 'components/elements/shareButtons';
 
 type Props = {
   markdown: string
 }
 
 export const ShareAndResume = ({markdown}:Props):JSX.Element => {
-  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
-
-  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
-  const id = open ? 'resume-popover' : undefined;
+  const [opened, setOpened] = useState(false);
   
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        minWidth: '100%',
-      }}
+    <div
+      className='flex justify-between min-w-full'
     >
-      <Box
-        sx={{
-          display: 'flex',
-        }}
+      <div
+        className='flex'
       >
-        <CopyLink />
         <TwitterLink />
-      </Box>
-      <Button
-        aria-describedby={id}
-        onClick={handleClick}
-        color='inherit'
-      >
-        <Typography
-          variant='body1'
-          component='div'
-          sx={{
-            my: 1,
-            fontWeight: 600,
-            display: 'inline-flex',
-            alignItems: 'center',
-          }}
-        >
-            目次
-          <KeyboardArrowDownIcon />
-        </Typography>
-      </Button>
+      </div>
+      <Popover width={200} position='bottom' withArrow shadow='md' opened={opened} onChange={setOpened}>
+        <Popover.Target>
+          <Button
+            onClick={() => setOpened((o) => !o)}
+            className='text-inherit'
+          >
+            <Text
+              className='my-2 inline-flex items-center'
+            >
+                目次
+              <IconChevronDown />
+            </Text>
+          </Button>
+        </Popover.Target>
 
-      <Popover
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        onClick={handleClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
-      >
-        <Resume>
-          {markdown}
-        </Resume>
+        <Popover.Dropdown>
+          <Resume>
+            {markdown}
+          </Resume>
+        </Popover.Dropdown>
       </Popover>
-    </Box>
+    </div>
   );
 };

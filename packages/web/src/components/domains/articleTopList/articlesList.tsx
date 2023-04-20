@@ -1,40 +1,35 @@
-import { css } from '@emotion/react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import { Grid } from '@mantine/core';
 
-import { ArticleItem } from 'components/domains/articleTopList/ArticleItem';
+import { ArticleItem } from 'components/domains/articleTopList/articleItem';
 import { PostsQuery } from 'graphql/generated';
 
 
-type Props = {
+export type Props = {
   fallbackArticle: PostsQuery['postsCollection'];
 }
 
 export const ArticleList = ({ fallbackArticle }: Props): JSX.Element => {
   return (
     <>
-      <Grid container alignItems={'center'} justifyContent={'center'}>
+      <Grid
+        className='items-center justify-center'
+      >
         { 
           fallbackArticle?.items.map((item) => (
-            <Grid
-              item
+            <Grid.Col
               key={item?.sys.id}
               xs={12}
               md={6}
               lg={4}
-              css={css`
-              &&& {
-                margin-bottom: 3rem;
-              }
-          `}
+              className='mb-12'
             >
-              <Box display='flex' justifyContent='center'>
+              <div className='flex justify-center'>
                 <ArticleItem
                   key={item?.sys.id}
                   article={item}
                 />
-              </Box>
-            </Grid>
+              </div>
+            </Grid.Col>
           ))
         }
       </Grid>

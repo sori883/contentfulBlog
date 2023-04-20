@@ -1,6 +1,5 @@
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { Text } from '@mantine/core';
+import { IconClipboard } from '@tabler/icons-react';
 import getConfig from 'next/config';
 import { useRouter } from 'next/router';
 
@@ -13,35 +12,19 @@ export const CopyLink = (): JSX.Element => {
   const { publicRuntimeConfig } = getConfig();
 
   return (
-    <Button
-      component={'span'}
+    <div
       onClick={() => {
         copyUrl(`${publicRuntimeConfig.APP_ROOT_URL}${router.asPath}`);
       }}
-      color='inherit'
-      sx={{
-        display: 'flex',
-        flexFlow: 'column',
-        justifyContent: 'center',
-        justifyItems: 'center',
-        alignItems: 'center',
-        paddingX: 1,
-      }}>
-      <Typography
-        component={'span'}
-        variant={'body2'}
-        sx={{
-          display: 'flex',
-          flexFlow: 'column',
-          justifyItems: 'center',
-          alignItems: 'center',
-          paddingX: 1,
-          fontSize:10,
-        }}>
-        <ContentCopyIcon
+      className='px-6 text-inherit flex flex-col justify-center justify-items-center items-center'
+    >
+      <Text
+        size='xs'
+        className='flex flex-col justify-items-center items-center'>
+        <IconClipboard
         />
         リンクコピー
-      </Typography>
-    </Button>
+      </Text>
+    </div>
   );
 };

@@ -1,6 +1,5 @@
-import TwitterIcon from '@mui/icons-material/Twitter';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { Text } from '@mantine/core';
+import { IconBrandTwitterFilled } from '@tabler/icons-react';
 import getConfig from 'next/config';
 import { useRouter } from 'next/router';
 
@@ -14,36 +13,18 @@ export const TwitterLink = (): JSX.Element => {
   return (
     <ExternalLink
       url={`http://twitter.com/share?url=${publicRuntimeConfig.APP_ROOT_URL}${router.asPath}`}
-      icon={false}
     >
-      <Button
-        component={'span'}
-        color='inherit'
-        sx={{
-          display: 'flex',
-          flexFlow: 'column',
-          justifyContent: 'center',
-          justifyItems: 'center',
-          alignItems: 'center',
-          paddingX: 1,
-        }}>
-        <Typography
-          component={'span'}
-          variant={'body2'}
-          sx={{
-            display: 'flex',
-            flexFlow: 'column',
-            justifyItems: 'center',
-            alignItems: 'center',
-            paddingX: 1,
-            color: '#4e4e4e',
-            fontSize:10,
-          }}>
-          <TwitterIcon
+      <div
+        className='px-6 text-inherit flex flex-col justify-center justify-items-center items-center'
+      >
+        <Text
+          size='xs'
+          className='flex flex-col justify-items-center items-center'>
+          <IconBrandTwitterFilled
           />
             ツイート
-        </Typography>
-      </Button>
+        </Text> 
+      </div>
     </ExternalLink>
   );
 };

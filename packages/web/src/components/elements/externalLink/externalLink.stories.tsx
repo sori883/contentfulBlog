@@ -1,22 +1,16 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { ExternalLink } from './externalLink';
 
-export default {
+const meta: Meta<typeof ExternalLink> = {
   title: 'Element/ExternalLink',
   component: ExternalLink,
-} as ComponentMeta<typeof ExternalLink>;
-
-const Template: ComponentStory<typeof ExternalLink> = (arg) => <ExternalLink {...arg}>リンクテキスト</ExternalLink>;
-
-export const Default = Template.bind({});
-Default.args = {
-  url: '',
-  icon: false
 };
+export default meta;
 
-export const ShowIcon = Template.bind({});
-ShowIcon.args = {
-  url: '',
-  icon: true
+export const Default: StoryObj<typeof ExternalLink> = {
+  args: {
+    url: '',
+    children: 'リンクテキスト'
+  },
 };
