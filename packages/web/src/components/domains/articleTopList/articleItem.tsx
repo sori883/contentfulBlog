@@ -17,7 +17,7 @@ export const ArticleItem = ({ article }: Props): JSX.Element => {
   return (
     <>
       <Card
-        className='shadow-md w-[350rem] md:w-[400rem] h-[15rem]'
+        className='shadow-md w-[22rem] sm:w-[25rem] md:w-[40rem] h-[15rem]'
         sx={(theme) => ({
           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
         })}
