@@ -9,7 +9,7 @@ type Props = {
 export default function ContentStyle({children}: Props): JSX.Element {
   return (
     <Box
-      className='m-0 content-entry'
+      className='m-0 content-entry p-0'
     >
       { children }
     </Box>
