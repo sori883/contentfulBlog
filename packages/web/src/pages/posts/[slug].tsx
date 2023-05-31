@@ -67,6 +67,7 @@ const Article: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
             xs={12}
             md={12}
             lg={7}
+            className='p-0'
           >
             <ContentBox>
               <h1>
