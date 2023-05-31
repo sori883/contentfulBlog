@@ -1,9 +1,8 @@
-import { Code, Divider } from '@mantine/core';
+import { Divider } from '@mantine/core';
 import { Prism } from '@mantine/prism';
 import Image from 'next/image';
 import Link from 'next/link';
 import duotoneDark from 'prism-react-renderer/themes/duotoneDark';
-import duotoneLight from 'prism-react-renderer/themes/duotoneLight';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkBreaks from 'remark-breaks';
@@ -60,23 +59,20 @@ const CodeBlock = ({ ...props }) => {
     <Prism
       language={match[1]}
       withLineNumbers
-      getPrismTheme={(_theme, colorScheme) =>
-        colorScheme === 'light' ? duotoneLight : duotoneDark
-      }
+      getPrismTheme={(_theme, ) => duotoneDark}
       {...props}
     >
       {String(props.children).replace(/\n$/, '')}
     </Prism>
   ) : (
-    <Code
-      block
-      className={props.className}
-      sx={(theme) => ({
-        fontSize: theme.fontSizes.md
-      })}
+    <Prism
+      language={'bash'}
+      withLineNumbers
+      getPrismTheme={(_theme, ) => duotoneDark}
+      {...props}
     >
-      {props.children}
-    </Code>
+      {String(props.children).replace(/\n$/, '')}
+    </Prism>
   );
 };
 
