@@ -11,7 +11,7 @@ type Props = {
 export const ContentBox = ({children}:Props): JSX.Element => {
   return (
     <Box
-      className='shadow-md p-12 rounded-md min-w-full'
+      className='shadow-md p-5 rounded-md'
       sx={(theme) => ({
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
       })}

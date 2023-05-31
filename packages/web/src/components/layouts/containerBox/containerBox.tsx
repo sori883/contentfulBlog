@@ -23,10 +23,10 @@ export const ContainerBox = ({
   containerSize = 'xl'
 }: Props): JSX.Element => {
   return (
-    <div className='flex flex-col flex-wrap min-h-screen'>
+    <div className='block md:grid md:grid-rows-[auto ltr auto] md:min-h-[100vh]'>
       <HeaderResponsive />
       <Container
-        className='my-12 p-0 flex-1'
+        className='my-12 p-0'
         size={containerSize}>
         { children }
       </Container>
