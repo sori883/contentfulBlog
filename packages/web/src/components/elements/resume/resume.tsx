@@ -22,7 +22,7 @@ const ankerLink = ({ ...props }) => {
 export const Resume = ({children}: Props): JSX.Element => {
   return (
     <div
-      className='px-4 pb-4'
+      className='px-4 pb-4 w-full'
     >
       <ul
         className='list-outside pl-4'
