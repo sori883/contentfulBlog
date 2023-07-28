@@ -11,7 +11,7 @@ type Props = {
   markdown: string
 }
 
-export const ShareAndResume = ({markdown}:Props):JSX.Element => {
+export const ShareAndResume = ( {markdown}:Props):JSX.Element => {
   const [opened, setOpened] = useState(false);
   
   return (
@@ -23,7 +23,7 @@ export const ShareAndResume = ({markdown}:Props):JSX.Element => {
       >
         <TwitterLink />
       </div>
-      <Popover width={200} position='bottom' withArrow shadow='md' opened={opened} onChange={setOpened}>
+      <Popover width={350} position='bottom' withArrow shadow='md' opened={opened} onChange={setOpened}>
         <Popover.Target>
           <Button
             onClick={() => setOpened((o) => !o)}
