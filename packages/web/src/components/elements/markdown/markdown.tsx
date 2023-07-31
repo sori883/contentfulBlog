@@ -1,4 +1,4 @@
-import { Divider } from '@mantine/core';
+import { Divider, Text } from '@mantine/core';
 import { Prism } from '@mantine/prism';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -6,7 +6,7 @@ import duotoneDark from 'prism-react-renderer/themes/duotoneDark';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkBreaks from 'remark-breaks';
-import gfm from 'remark-gfm';
+import gfm from 'remark-gfm'; 
 
 import { imageLoader, pathBuilder } from 'lib/ImageLoader';
 import ContentStyle from 'styles/contentStyle';
@@ -15,6 +15,32 @@ import { isLanguage } from 'types/isLanguage';
 type Props = {
   children: string;
 }
+
+const A = ({ ...props }) => {
+  return (
+    <Text
+      sx={(theme) => ({
+        color: theme.colors.blue[6],
+        "color:hover": theme.colors.indigo[6],
+        "color:visited": theme.colors.violet[6],
+      })}
+    >
+      {
+        props.href.includes('http') ?
+          <a
+            href={props.href} target='_blank' rel='noopener noreferrer'
+            className='text-inherit no-underline inline-flex items-center break-all'
+          >
+            { props.children }
+          </a>
+          :
+          <Link href={props.href}>
+            { props.children }
+          </Link>
+      }
+    </Text>
+  );
+};
 
 const H2 = ({ ...props }) => {
   return (
@@ -81,6 +107,7 @@ export const View = ({children}: Props): JSX.Element => {
     <ContentStyle>
       <ReactMarkdown
         components={{
+          a: A,
           h2: H2,
           img: IMG,
           code: CodeBlock
