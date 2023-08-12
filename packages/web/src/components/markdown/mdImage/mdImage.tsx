@@ -1,4 +1,4 @@
-import { FC, ImgHTMLAttributes } from 'react';
+import { ComponentPropsWithoutRef, FC } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { imageLoader, pathBuilder } from 'lib/ImageLoader';
 
 
-export const mdImage: FC<ImgHTMLAttributes<HTMLImageElement>> = ({ src, alt, width = 700, height = 400 }) => {
+export const mdImage: FC<ComponentPropsWithoutRef<'img'>> = ({ src, alt, width = 700, height = 400 }) => {
   if (!src) return <span>src が指定されていません。</span>;
 
   return (

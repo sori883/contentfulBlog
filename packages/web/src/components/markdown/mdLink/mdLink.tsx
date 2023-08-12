@@ -1,8 +1,8 @@
-import { AnchorHTMLAttributes, FC } from 'react';
+import { ComponentPropsWithoutRef, FC } from 'react';
 
 import Link from 'next/link';
 
-export const mdLink: FC<AnchorHTMLAttributes<HTMLAnchorElement>> = ({ href, children }) => {
+export const mdLink: FC<ComponentPropsWithoutRef<'a'>> = ({ href, children }) => {
   return href?.startsWith('/') ? (
     <Link href={href}>{children}</Link>
   ) : (
