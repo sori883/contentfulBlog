@@ -15,8 +15,8 @@ export const TagChip =({tagsOnArticles}: Props): JSX.Element => {
             className='mr-2 border px-2 rounded-lg'
             sx={(theme) => ({
               fontSize: theme.fontSizes.tagChip,
-              color: theme.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.gray[0],
-              backgroundColor: theme.colors.brand[9]
+              color: theme.white,
+              backgroundColor: theme.colors.brand[9],
             })}
           >
             {tag}

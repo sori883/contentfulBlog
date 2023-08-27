@@ -11,6 +11,7 @@ export const ToggleTheme = (): JSX.Element => {
       color={dark ? 'orange' : 'blue'}
       onClick={() => toggleColorScheme()}
       title='Toggle color scheme'
+      aria-label='Toggle Thmem Color'
     >
       {dark ? <IconSun size={20} /> : <IconMoonStars size={20} />}
     </ActionIcon>

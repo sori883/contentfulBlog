@@ -21,7 +21,12 @@ const Privacypolicy: NextPage = () => (
       <ContentBox>
         <h1>お問い合わせ</h1>
         <p>
-          Twitterまでお願い致します。<Link href={`https://twitter.com/${publicRuntimeConfig.TWITTER_ID}`}>{`@${publicRuntimeConfig.TWITTER_ID}`}</Link>
+          Twitterまでお願い致します。
+          <Link href={`https://twitter.com/${publicRuntimeConfig.TWITTER_ID}`}
+            className='a-link no-underline inline-flex items-center break-all'
+          >
+            {`@${publicRuntimeConfig.TWITTER_ID}`}
+          </Link>
         </p>
 
         <h1>このサイトについて</h1>
