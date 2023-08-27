@@ -31,7 +31,7 @@ const ItsMe: NextPage = () => (
               Sorinaji
             </Text>
             <Text>
-              <Link href='https://twitter.com/sorinaji' target='_blank'>
+              <Link className='a-link' href='https://twitter.com/sorinaji' target='_blank'>
               @sorinaji
               </Link>
             </Text>
@@ -45,12 +45,12 @@ const ItsMe: NextPage = () => (
             Account
         </h1>
         <Text>
-          <Link href='https://twitter.com/sorinaji' target='_blank'>
+          <Link className='a-link' href='https://twitter.com/sorinaji' target='_blank'>
             Twitter
           </Link>
         </Text>
         <Text>
-          <Link href='https://github.com/sori883' target='_blank'>
+          <Link className='a-link' href='https://github.com/sori883' target='_blank'>
             GitHub
           </Link>
         </Text>
@@ -83,7 +83,7 @@ const ItsMe: NextPage = () => (
             illustration
         </h1>
         <Text variant='body1' component={'p'}>
-          <Link  href='https://coconala.com/users/2964176' target='_blank'>熊田様(ココナラ)</Link>
+          <Link className='a-link' href='https://coconala.com/users/2964176' target='_blank'>熊田様(ココナラ)</Link>
         </Text>
       </ContentBox>
     </ContainerBox>

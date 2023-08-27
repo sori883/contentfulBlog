@@ -121,7 +121,13 @@ export function HeaderResponsive() {
           <ToggleTheme />
         </Group>
 
-        <Burger opened={opened} onClick={toggle} className={classes.burger} size='sm' />
+        <Burger
+          opened={opened}
+          onClick={toggle}
+          className={classes.burger}
+          size='sm'
+          aria-label='toggle menu button'
+        />
 
         <Transition transition='pop-top-right' duration={200} mounted={opened}>
           {(styles) => (
