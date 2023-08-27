@@ -4,6 +4,24 @@
   word-wrap: break-word;
 }
 
+.content-entry .a-link{
+  color: #208dc3;
+}
+
+.content-entry .a-link:hover {
+  color: #208dc3;
+  text-decoration: underline;
+}
+
+.content-entry .a-link:visited {
+  color: #208dc3;
+};
+
+.content-entry strong {
+  color: #f7630c;
+  font-weight: inherit;
+}
+
 .content-entry ul {
   margin-bottom: 18px;
   padding-left: 18px;

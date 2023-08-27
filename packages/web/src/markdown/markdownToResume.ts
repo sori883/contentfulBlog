@@ -1,17 +1,30 @@
-import remarkHeadings from '@vcarl/remark-headings';
-import rehypeStringify from 'rehype-stringify';
+import { Fragment, createElement } from 'react';
+
+import rehypeReact from 'rehype-react';
 import remarkParse from "remark-parse";
 import remarkRehype from 'remark-rehype';
-import remarkStringify from "remark-stringify";
 import { unified } from 'unified';
 
+import { mdResumeHead } from 'components/markdown/mdResumeHead';
+import { pickHeading } from 'markdown/lib/pickHeading';
+ 
+export const markdownToResume = (markdownContent: string) => {
+  const h2 = pickHeading(markdownContent);
 
-export const markdownToResume = async (markdownContent: string) => {
-  const result = await unified()
+  const res = unified()
     .use(remarkParse)
-    .use(remarkRehype)
-    .use(rehypeStringify)
-    .process(markdownContent);
+    .use(remarkRehype, { // mdast -> hast の変換
+      allowDangerousHtml: true, // 直接記載されたタグを許可する
+    })
+    .use(rehypeReact, {
+      Fragment, // divで囲まれるのを防ぐ
+      components: {
+        h2: mdResumeHead, // H2に目次用のSlugを付与
+      },
+      createElement,
+    })
+    .processSync(h2).result; // 実行
 
-  return result.toString();
+  return res;
 };
+

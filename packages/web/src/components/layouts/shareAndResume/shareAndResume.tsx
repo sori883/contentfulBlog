@@ -14,12 +14,12 @@ type Props = {
 export const ShareAndResume = ({markdown}:Props):JSX.Element => {
   const [opened, setOpened] = useState(false);
   
-  return (
+  return ( 
     <div
       className='flex justify-between min-w-full'
     >
       <div
-        className='flex'
+        className='flex not-a-color'
       >
         <TwitterLink />
       </div>
