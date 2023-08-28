@@ -14,7 +14,6 @@ import { theme } from 'theme/theme';
 
 import 'styles/globals.css';
 import 'styles/cotentEntry.scss';
-import 'prismjs/themes/prism-okaidia.css';
 
 
 function AppInit():null {
