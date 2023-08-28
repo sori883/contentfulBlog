@@ -13,7 +13,7 @@ export const ExternalLink: FC<Props> = ({
   return (
     <a
       href={url} target='_blank' rel='noopener noreferrer'
-      className='text-inherit no-underline inline-flex items-center'
+      className='text-inherit no-underline inline-flex items-center break-all'
       {...props}
     >
       { children }
