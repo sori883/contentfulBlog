@@ -1,0 +1,38 @@
+{
+  "name": "@acme/blog",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --mode client && vite build",
+    "preview": "wrangler pages dev",
+    "deploy": "$npm_execpath run build && wrangler pages deploy",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "private": true,
+  "dependencies": {
+    "hono": "^4.4.7",
+    "honox": "^0.1.23"
+  },
+  "devDependencies": {
+    "@acme/eslint-config": "workspace:^",
+    "@acme/prettier-config": "workspace:^",
+    "@acme/tailwind-config": "workspace:^",
+    "@acme/tsconfig": "workspace:^",
+    "@cloudflare/workers-types": "^4.20240529.0",
+    "@hono/vite-cloudflare-pages": "^0.4.1",
+    "@hono/vite-dev-server": "^0.12.1",
+    "vite": "^5.2.12",
+    "wrangler": "^3.57.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@acme/eslint-config/base",
+      "@acme/eslint-config/hono",
+      "@acme/eslint-config/react"
+    ]
+  },
+  "prettier": "@acme/prettier-config"
+}

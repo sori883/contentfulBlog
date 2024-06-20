@@ -7,11 +7,6 @@ const config = {
       jsx: true,
     },
   },
-  env: {
-    browser: true,
-    commonjs: true,
-    es6: true,
-  },
   extends: [
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
@@ -33,6 +28,10 @@ const config = {
   },
   rules: {
     "react/prop-types": "off",
+    // HonoXでJSXを使うために無効化
+    "@typescript-eslint/no-unsafe-return": "off",
+    "@typescript-eslint/no-unsafe-argument": "off",
+    // ここまで
   },
   globals: {
     React: "writable",

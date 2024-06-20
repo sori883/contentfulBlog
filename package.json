@@ -1,9 +1,6 @@
 {
-  "name": "sinsekai",
+  "name": "blog-desu",
   "private": true,
-  "engines": {
-    "node": ">=20.10"
-  },
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev --parallel",
