@@ -1,73 +1,25 @@
-node_modules
-.pnp
-.pnp.js
-dist
-npm-debug.log
-*.pem
-!mock-cert.pem
+# node
 .env
-coverage
-work
-.data
-key.json
-work/
-packages/githubapp/lib
-.contents
+node_modules
 
-# Logs
-logs
-*.log
-npm-debug.log*
-pnpm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-
-# OS
+# misc
 .DS_Store
+*.pem
 
-# Tests
-coverage
-.nyc_output
+# cloudflare
+.cache
+.dev.vars
+.wrangler
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# remixのbuild結果
+apps/remix/public/build
+apps/remix/functions
+
+# blogbot
+build
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
 
-# next.js
-.next/
-out/
-
-# production
-/build
-
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-# local env
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# sitemap
-sitemap-0.xml
-sitemap.xml
-robots.txt
-
-# RSSコンテンツ
-.contents/
+# turbo
+.turbo

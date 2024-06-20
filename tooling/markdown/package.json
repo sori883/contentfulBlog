@@ -1,0 +1,42 @@
+{
+  "name": "@acme/markdown",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./css/markdown.css": "./css/markdown.css"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev:css": "sass ./src/style/index.scss ./css/markdown.css --watch --no-source-map",
+    "build:css": "sass ./src/style/index.scss ./css/markdown.css --style compressed --no-source-map",
+    "clean": "rm -rf .turbo node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "marked": "^12.0.0",
+    "sass": "^1.77.6"
+  },
+  "devDependencies": {
+    "@acme/eslint-config": "workspace:^",
+    "@acme/prettier-config": "workspace:^",
+    "@acme/tsconfig": "workspace:^",
+    "@cloudflare/workers-types": "^4.20240614.0",
+    "@types/node": "^20.14.6",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@acme/eslint-config/base"
+    ]
+  },
+  "prettier": "@acme/prettier-config",
+  "sideEffects": [
+    "*.css"
+  ]
+}
