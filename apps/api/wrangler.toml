@@ -1,0 +1,8 @@
+name = "blog-api"
+main = "src/index.ts"
+compatibility_date = "2024-07-21"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "bd7f0004f5a843909936d31a9b0b9dc2"
+preview_id = "83cb2a0e761c4beebd69e5122c2a5c31"

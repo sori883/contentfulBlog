@@ -1,12 +1,19 @@
 import { createRoute } from "honox/factory";
-import Counter from "../islands/counter";
+import { getPosts } from "~/mdx/posts";
+import { Pagination } from "~/components/elements/pagination";
+import { PostSummary } from "~/components/domain/postSummary";
 
 export default createRoute((c) => {
-  const name = c.req.query("name") ?? "Hono";
+  const pageNum = 1;
+  const { posts, hasPrev, hasNext } = getPosts(pageNum);
+
   return c.render(
     <div className="font-bold">
-      <h1>Hello, {name}!</h1>
-      <Counter />
+        {posts.map(post => {
+          return (<div key={post.id}><PostSummary post={post} /></div>);
+        })}
+      <Pagination pageNumber={pageNum} hasPrev={hasPrev} hasNext={hasNext} />
     </div>
   );
 });
+
