@@ -21,7 +21,7 @@ export async function ExLinkCard({ url }: Props) {
         ) : null}
         <div>
           <p>{ogp}</p>
-          <div>{data.data.description}</div>
+          <div>{data.description}</div>
           <span>{new URL(url).host}</span>
         </div>
       </a>

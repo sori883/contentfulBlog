@@ -1,7 +1,8 @@
 export type Frontmatter = {
+  icon: string
   title: string
   date: string
   description: string
-  categories: string[]
+  category: string
   tags?: string[]
 }

@@ -11,6 +11,10 @@ export default {
   theme: {
     extend: {
       colors: {
+        "base"  : "#2d2c38",
+        "secondary"  : "#22202f",
+        "white"  : "#d4d3de",
+        "primary"  : "#5a4eb4",
       },
       fontFamily: {
         sans: ["Inter var", ...fontFamily.sans],

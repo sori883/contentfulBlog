@@ -4,6 +4,7 @@ import { createRoute } from "honox/factory";
 import { Pagination } from "~/components/elements/pagination";
 import { PostSummary } from "~/components/domain/postSummary";
 import { getAllPosts, getMaxPageNumber, getPosts } from "~/mdx/posts";
+import { GeneralLayout } from "~/components/layouts/generalLayout";
 
 const param = ssgParams<Env>(_c => {
   const posts = getAllPosts();
@@ -29,13 +30,13 @@ export default createRoute(param, c => {
   const { posts, hasPrev, hasNext } = getPosts(num);
 
   return c.render(
-    <div>
-      <div>
+    <GeneralLayout>
+      <div className="grid grid-cols-3 gap-4">
         {posts.map(post => {
           return (<div key={post.id}><PostSummary post={post} /></div>);
         })}
       </div>
       <Pagination pageNumber={num} hasPrev={hasPrev} hasNext={hasNext} />
-    </div>,
+    </GeneralLayout>
   );
 });

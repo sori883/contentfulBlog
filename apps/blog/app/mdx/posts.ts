@@ -116,7 +116,7 @@ const categories = _getCategories();
 
 export function _getCategories(): Category[] {
   const allPosts = getAllPosts();
-  const groupedByCategory = groupBy(allPosts, p => p.frontmatter.categories[0]!);
+  const groupedByCategory = groupBy(allPosts, p => p.frontmatter.category);
 
   return Object.entries(groupedByCategory).map(([name, posts]) => {
     return {
