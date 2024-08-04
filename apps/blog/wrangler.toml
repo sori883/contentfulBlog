@@ -3,7 +3,5 @@ compatibility_date = "2024-04-01"
 compatibility_flags = [ "nodejs_compat" ]
 pages_build_output_dir = "dist"
 
-[[services]]
-binding = "API"
-service = "blog-api"
-environment = "production"
+[env.production]
+compatibility_date = "2024-04-04"

@@ -37,6 +37,11 @@ export default defineConfig(({ mode }) => {
     };
   } else {
     return {
+      resolve: {
+        alias: {
+          "@": path.resolve(__dirname, "app"),
+        },
+      },
       assetsInclude: ["**/*.JPG"],
       base:
         process.env.NODE_ENV === "production" ? "https://sori883.dev/" : "/",
@@ -49,7 +54,7 @@ export default defineConfig(({ mode }) => {
         pages(),
         mdx({
           jsxImportSource: "hono/jsx",
-          providerImportSource: "./app/mdx/mdx-components",
+          providerImportSource: "@/mdx/mdx-components",
           remarkPlugins: [
             remarkFrontmatter,
             remarkMdxFrontmatter,
