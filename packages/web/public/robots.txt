@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://sori883.dev
-
-# Sitemaps
-Sitemap: https://sori883.dev/sitemap.xml
