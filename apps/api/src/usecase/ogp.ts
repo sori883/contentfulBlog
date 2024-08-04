@@ -31,7 +31,7 @@ class OGPParser {
   }
 }
 
-export type OpgType = typeof OGPParser.prototype;
+export type OpgType = Omit<typeof OGPParser.prototype, "element">
 
 export async function getOgp(url: string) {
   const decodedUrl = decodeURIComponent(url);
@@ -47,5 +47,5 @@ export async function getOgp(url: string) {
 
   // HTMLRewriterの要素抽出を待機
   await rewriter.text();
-  return ogp;
+  return ogp as OpgType;
 }

@@ -15,6 +15,7 @@ export default {
         "secondary"  : "#22202f",
         "white"  : "#d4d3de",
         "primary"  : "#5a4eb4",
+        "deep": "#1a1b26",
       },
       fontFamily: {
         sans: ["Inter var", ...fontFamily.sans],

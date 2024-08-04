@@ -44,6 +44,7 @@ export default jsxRenderer(({ children, title: propsTitle, frontmatter }, c) => 
             async
             src="https://platform.twitter.com/widgets.js"
           />
+        <Link href="/app/css/index.scss" rel="stylesheet" />
       </head>
       <body>
         {children}

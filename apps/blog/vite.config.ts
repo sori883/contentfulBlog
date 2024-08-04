@@ -20,13 +20,17 @@ import rehypeMdxCodeProps from "rehype-mdx-code-props";
 import rehypeMdxImportMedia from "rehype-mdx-import-media";
 import rehypeMermaid from "rehype-mermaid";
 import tsconfigPaths from "vite-tsconfig-paths";
+import rehypeSlug from "rehype-slug";
 
 export default defineConfig(({ mode }) => {
   if (mode === "client") {
     return {
       build: {
         rollupOptions: {
-          input: ["/app/css/tailwind.css"],
+          input: [
+            "/app/css/tailwind.css",
+            "/app/css/index.scss"
+          ],
         },
       },
       plugins: [client(), tsconfigPaths()],
@@ -55,7 +59,8 @@ export default defineConfig(({ mode }) => {
             rehypeHighlight,
             rehypeMdxCodeProps,
             rehypeMdxImportMedia,
-            rehypeMermaid
+            rehypeMermaid,
+            rehypeSlug
           ],
           recmaPlugins: [recmaExportFilepath],
         }),
