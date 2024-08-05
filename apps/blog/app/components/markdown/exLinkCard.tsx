@@ -24,7 +24,6 @@ export async function ExLinkCard({ url }: Props) {
                   height="16"
                   width="16"
                   referrerPolicy="no-referrer"
-                  loading="lazy"
                 />
               </div>
               <span>{urlObj.hostname}</span>

@@ -10,7 +10,7 @@ export function Image(props: PropsWithChildren<JSX.IntrinsicElements["img"]>) {
 
   return (
     <a href={src}>
-      <img className="content-img" src={src} alt={props.alt} />
+      <img className="content-img" src={src} alt={props.alt} loading="lazy" />
     </a>
   );
 }

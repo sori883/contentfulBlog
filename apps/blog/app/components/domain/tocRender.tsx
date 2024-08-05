@@ -14,7 +14,7 @@ const renderList = (tocItems: Toc[]) => {
             <li key={toc.id} className={cx("hover:underline hover:text-gray-400 my-1", toc.level === 2 ? "" : "pl-[1rem]")}>
               <a
                 href={`#${toc.id}`}
-                className="py-1 a-link inline-flex items-center break-all text-midium text-sm font-semibold"
+                className="py-1 a-link inline-flex items-center break-all text-midium"
               >
                 {toc.text}
               </a>
