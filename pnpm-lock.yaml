@@ -100,9 +100,6 @@ importers:
       '@formkit/tempo':
         specifier: ^0.1.2
         version: 0.1.2
-      '@hono/vite-cloudflare-pages':
-        specifier: ^0.4.1
-        version: 0.4.1(hono@4.5.1)
       '@hono/vite-dev-server':
         specifier: ^0.12.1
         version: 0.12.2(hono@4.5.1)
@@ -221,40 +218,6 @@ importers:
       '@types/eslint':
         specifier: ^8.56.10
         version: 8.56.10
-      eslint:
-        specifier: ^8.56.0
-        version: 8.57.0
-      prettier:
-        specifier: ^3.2.5
-        version: 3.3.2
-      typescript:
-        specifier: ^5.3.3
-        version: 5.4.5
-
-  tooling/markdown:
-    dependencies:
-      marked:
-        specifier: ^12.0.0
-        version: 12.0.0
-      sass:
-        specifier: ^1.77.6
-        version: 1.77.6
-    devDependencies:
-      '@acme/eslint-config':
-        specifier: workspace:^
-        version: link:../eslint
-      '@acme/prettier-config':
-        specifier: workspace:^
-        version: link:../prettier
-      '@acme/tsconfig':
-        specifier: workspace:^
-        version: link:../typescript
-      '@cloudflare/workers-types':
-        specifier: ^4.20240614.0
-        version: 4.20240614.0
-      '@types/node':
-        specifier: ^20.14.6
-        version: 20.14.6
       eslint:
         specifier: ^8.56.0
         version: 8.57.0
@@ -842,12 +805,6 @@ packages:
   '@hono/node-server@1.11.4':
     resolution: {integrity: sha512-8TOiiiAqcFC6f62P7M9p6adQREAlWdVi1awehAwgWW+3R65/rKzHnLARO/Hu/466z01VNViBoogqatqXJMyItA==}
     engines: {node: '>=18.14.1'}
-
-  '@hono/vite-cloudflare-pages@0.4.1':
-    resolution: {integrity: sha512-B0M0Hy6JW4WMtnRmac/dqA0ooIKfspAY+2z+nKNvcDxvK8Ib0Imb90mbBYATn0+XBYis7L6ClxLAUvwfgCYdFQ==}
-    engines: {node: '>=18.14.1'}
-    peerDependencies:
-      hono: '*'
 
   '@hono/vite-dev-server@0.12.2':
     resolution: {integrity: sha512-aq09IUi/+Ut/EXR8t1lCjsV/OEnSQoO4F6RmV7Ufvy3x0tE2TIYLs6YL0kZ7+gLIbmVg6V2MppHGQaLMNs7G8Q==}
@@ -2779,11 +2736,6 @@ packages:
   markdown-table@3.0.3:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
 
-  marked@12.0.0:
-    resolution: {integrity: sha512-Vkwtq9rLqXryZnWaQc86+FHLC6tr/fycMfYAhiOIXkrNmeGAyhSxjqu0Rs1i0bBqw5u0S7+lV9fdH2ZSVaoa0w==}
-    engines: {node: '>= 18'}
-    hasBin: true
-
   mdast-util-find-and-replace@3.0.1:
     resolution: {integrity: sha512-SG21kZHGC3XRTSUhtofZkBzZTJNM5ecCi0SK2IMKmSXR8vO3peL+kb1O0z7Zl83jKtutG4k5Wv/W7V3/YHvzPA==}
 
@@ -4486,10 +4438,6 @@ snapshots:
       - supports-color
 
   '@hono/node-server@1.11.4': {}
-
-  '@hono/vite-cloudflare-pages@0.4.1(hono@4.5.1)':
-    dependencies:
-      hono: 4.5.1
 
   '@hono/vite-dev-server@0.12.2(hono@4.5.1)':
     dependencies:
@@ -7040,8 +6988,6 @@ snapshots:
   markdown-extensions@2.0.0: {}
 
   markdown-table@3.0.3: {}
-
-  marked@12.0.0: {}
 
   mdast-util-find-and-replace@3.0.1:
     dependencies:

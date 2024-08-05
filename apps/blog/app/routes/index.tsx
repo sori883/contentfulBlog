@@ -2,11 +2,10 @@ import { getAllPosts, getMaxPageNumber, getPosts } from "~/mdx/posts";
 import { Pagination } from "~/components/elements/pagination";
 import { PostSummary } from "~/components/domain/postSummary";
 import { GeneralLayout } from "~/components/layouts/generalLayout";
-import { createRoute } from "honox/factory";
 import { GridListLayout } from "~/components/layouts/gridListLayout";
 
 
-export default createRoute((c) => {
+export default function Top() {
   const allPosts = getAllPosts();
   const totalCount = getMaxPageNumber(allPosts);
   
@@ -14,7 +13,7 @@ export default createRoute((c) => {
   
   const { posts } = getPosts(pageNum);
 
-  return c.render(
+  return (
     <GeneralLayout>
       <GridListLayout>
           {posts.map(post => {
@@ -32,4 +31,4 @@ export default createRoute((c) => {
       </div>
     </GeneralLayout>
   );
-});
+};

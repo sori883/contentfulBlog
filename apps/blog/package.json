@@ -5,15 +5,15 @@
     "dev": "vite",
     "build": "vite build --mode client && vite build",
     "preview": "wrangler pages dev",
-    "pages:deploy": "wrangler pages deploy ./dist",
+    "pages:deploy": "pnpm build && wrangler pages deploy",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
-  "private": true,
   "engines": {
     "node": ">=16.0.0"
   },
+  "private": true,
   "dependencies": {
     "@acme/api": "workspace:^",
     "cheerio": "1.0.0-rc.12",
@@ -28,7 +28,6 @@
     "@acme/tsconfig": "workspace:^",
     "@cloudflare/workers-types": "^4.20240529.0",
     "@formkit/tempo": "^0.1.2",
-    "@hono/vite-cloudflare-pages": "^0.4.1",
     "@hono/vite-dev-server": "^0.12.1",
     "@hono/vite-ssg": "^0.1.0",
     "@mdx-js/rollup": "^3.0.1",

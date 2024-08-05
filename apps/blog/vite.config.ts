@@ -1,13 +1,10 @@
 import path from "node:path";
-import pages from "@hono/vite-cloudflare-pages";
 import adapter from "@hono/vite-dev-server/cloudflare";
 import ssg from "@hono/vite-ssg";
 import honox from "honox/vite";
 import client from "honox/vite/client";
 import { defineConfig, normalizePath  } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
-
-const entry = "./app/server.ts";
 
 // mdx
 import mdx from "@mdx-js/rollup";
@@ -21,6 +18,8 @@ import rehypeMdxImportMedia from "rehype-mdx-import-media";
 import rehypeMermaid from "rehype-mermaid";
 import tsconfigPaths from "vite-tsconfig-paths";
 import rehypeSlug from "rehype-slug";
+
+const entry = "@/server.ts";
 
 export default defineConfig(({ mode }) => {
   if (mode === "client") {
@@ -51,7 +50,6 @@ export default defineConfig(({ mode }) => {
       plugins: [
         tsconfigPaths(),
         honox({ devServer: { adapter } }),
-        pages(),
         mdx({
           jsxImportSource: "hono/jsx",
           providerImportSource: "@/mdx/mdx-components",
@@ -89,7 +87,7 @@ export default defineConfig(({ mode }) => {
               const destPath = normalizePath(
                 path
                   .relative(__dirname, fullPath)
-                  .replaceAll("app/routes/posts/", ""),
+                  .replaceAll("app\\routes\\posts\\", ""),
               );
               return destPath;
             },
