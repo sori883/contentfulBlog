@@ -1,5 +1,6 @@
 import { html } from "hono/html";
 import { jsxRenderer } from "hono/jsx-renderer";
+import { Link, Script } from "honox/server";
 
 export default jsxRenderer(({ children, title: propsTitle, frontmatter }, c) => {
   const description =
@@ -32,18 +33,18 @@ export default jsxRenderer(({ children, title: propsTitle, frontmatter }, c) => 
         <meta name="twitter:creator" content="@sorinaji" />
         <meta property="og:title" content={title} />
 
-        <link rel="icon" href="/favicon.ico" />
+        <Link rel="icon" href="/favicon.ico" />
         <link href={`https://sori883.dev${c.req.path}`} rel="canonical" />
-        <link href="/app/css/tailwind.css" rel="stylesheet" />
-        <link href="https://rsms.me/inter/inter.css" rel="preload" as="style" />
-        <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
-        <script src="/app/client.ts" async />
+        <Link href="/app/css/tailwind.css" rel="stylesheet" />
+        <Link href="https://rsms.me/inter/inter.css" rel="preload" as="style" />
+        <Link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
+        <Script src="/app/client.ts" async />
         {import.meta.env.PROD ? <GoogleAnalytics /> : null}
         <script
             async
             src="https://platform.twitter.com/widgets.js"
           />
-        <link href="/app/css/index.scss" rel="stylesheet" />
+        <Link href="/app/css/index.scss" rel="stylesheet" />
       </head>
       <body>
         {children}
