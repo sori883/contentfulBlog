@@ -28,7 +28,7 @@ export default jsxRenderer(({ children, title: propsTitle, frontmatter }, c) => 
           property="og:url"
           content={`https://sori883.dev${c.req.path}`}
         />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@sorinaji" />
         <meta name="twitter:creator" content="@sorinaji" />
         <meta property="og:title" content={title} />

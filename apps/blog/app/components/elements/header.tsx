@@ -3,7 +3,7 @@ const navigation = [
     { name: "Home", href: "/" },
     { name: "X.com", href: "https://x.com/sorinaji" },
     { name: "Zenn", href: "https://zenn.dev/sorinaji" },
-    { name: "Github", href: "https://github.com/sori883" },
+    { name: "GitHub", href: "https://github.com/sori883" },
 ];
 
 export function Header() {
