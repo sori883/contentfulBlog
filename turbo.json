@@ -23,6 +23,10 @@
       "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
+    "lint:text": {
+      "dependsOn": ["^topo"],
+      "outputs": ["node_modules/.cache/.eslintcache"]
+    },
     "typecheck": {
       "dependsOn": ["^topo"],
       "outputs": ["node_modules/.cache/tsbuildinfo.json"]

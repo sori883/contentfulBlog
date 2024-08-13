@@ -8,6 +8,7 @@
     "pages:deploy": "pnpm build && wrangler pages deploy",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint .",
+    "lint:text": "textlint app/routes/posts/**/*.mdx --config .textlintrc.json",
     "typecheck": "tsc --noEmit"
   },
   "engines": {
@@ -32,6 +33,7 @@
     "@hono/vite-ssg": "^0.1.0",
     "@mdx-js/rollup": "^3.0.1",
     "@tailwindcss/typography": "^0.5.13",
+    "@textlint/textlint-plugin-markdown": "^14.0.5",
     "@types/mdx": "^2.0.13",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.56.0",
@@ -47,6 +49,11 @@
     "remark-gfm": "^4.0.0",
     "remark-mdx-frontmatter": "^4.0.0",
     "tailwindcss": "^3.4.4",
+    "textlint": "^14.0.5",
+    "textlint-rule-aws-service-name": "^1.10.1",
+    "textlint-rule-ja-no-redundant-expression": "^4.0.1",
+    "textlint-rule-ja-unnatural-alphabet": "^2.0.1",
+    "textlint-rule-no-doubled-joshi": "^5.1.0",
     "typescript": "^5.3.3",
     "vite": "^5.2.12",
     "vite-plugin-static-copy": "^1.0.6",

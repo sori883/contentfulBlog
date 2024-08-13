@@ -1,0 +1,14 @@
+{
+  "plugins": {
+    "@textlint/markdown": {
+        "extensions": [".mdx"]
+    }
+},
+  "filters": {},
+  "rules": {
+    "ja-unnatural-alphabet": true,
+    "ja-no-redundant-expression": true,
+    "no-doubled-joshi": true,
+    "aws-service-name": true
+  }
+}
