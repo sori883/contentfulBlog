@@ -179,8 +179,8 @@ importers:
         specifier: ^0.0.6
         version: 0.0.6(eslint@8.57.0)(typescript@5.4.5)
       '@next/eslint-plugin-next':
-        specifier: ^14.2.4
-        version: 14.2.4
+        specifier: ^14.2.5
+        version: 14.2.5
       '@remix-run/eslint-config':
         specifier: ^2.9.2
         version: 2.9.2(eslint@8.57.0)(react@18.3.1)(typescript@5.4.5)
@@ -881,8 +881,8 @@ packages:
     peerDependencies:
       rollup: '>=2'
 
-  '@next/eslint-plugin-next@14.2.4':
-    resolution: {integrity: sha512-svSFxW9f3xDaZA3idQmlFw7SusOuWTpDTAeBlO3AEPDltrraV+lqs7mAc6A27YdnpQVVIA3sODqUAAHdWhVWsA==}
+  '@next/eslint-plugin-next@14.2.5':
+    resolution: {integrity: sha512-LY3btOpPh+OTIpviNojDpUdIbHW9j0JBYBjsIp8IxtDFfYFyORvw3yNq6N231FVqQA7n7lwaf7xHbVJlA1ED7g==}
 
   '@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1':
     resolution: {integrity: sha512-54/JRvkLIzzDWshCWfuhadfrfZVPiElY8Fcgmg1HroEly/EDSszzhBAsarCux+D/kOslTRquNzuyGSmUSTTHGg==}
@@ -4558,7 +4558,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@next/eslint-plugin-next@14.2.4':
+  '@next/eslint-plugin-next@14.2.5':
     dependencies:
       glob: 10.3.10
 
@@ -6436,7 +6436,7 @@ snapshots:
     dependencies:
       foreground-child: 3.2.1
       jackspeak: 2.3.6
-      minimatch: 9.0.4
+      minimatch: 9.0.5
       minipass: 7.1.2
       path-scurry: 1.11.1
 
