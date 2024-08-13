@@ -1,23 +1,23 @@
 import path from "node:path";
+
 import adapter from "@hono/vite-dev-server/cloudflare";
 import ssg from "@hono/vite-ssg";
-import honox from "honox/vite";
-import client from "honox/vite/client";
-import { defineConfig, normalizePath  } from "vite";
-import { viteStaticCopy } from "vite-plugin-static-copy";
-
 // mdx
 import mdx from "@mdx-js/rollup";
+import honox from "honox/vite";
+import client from "honox/vite/client";
 import recmaExportFilepath from "recma-export-filepath";
-import remarkFrontmatter from "remark-frontmatter";
-import remarkMdxFrontmatter from "remark-mdx-frontmatter";
-import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import rehypeMdxCodeProps from "rehype-mdx-code-props";
 import rehypeMdxImportMedia from "rehype-mdx-import-media";
 import rehypeMermaid from "rehype-mermaid";
-import tsconfigPaths from "vite-tsconfig-paths";
 import rehypeSlug from "rehype-slug";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkGfm from "remark-gfm";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
+import { defineConfig, normalizePath } from "vite";
+import { viteStaticCopy } from "vite-plugin-static-copy";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 const entry = "@/server.ts";
 
@@ -26,10 +26,7 @@ export default defineConfig(({ mode }) => {
     return {
       build: {
         rollupOptions: {
-          input: [
-            "/app/css/tailwind.css",
-            "/app/css/index.scss"
-          ],
+          input: ["/app/css/tailwind.css", "/app/css/index.scss"],
         },
       },
       plugins: [client(), tsconfigPaths()],
@@ -53,49 +50,45 @@ export default defineConfig(({ mode }) => {
         mdx({
           jsxImportSource: "hono/jsx",
           providerImportSource: "@/mdx/mdx-components",
-          remarkPlugins: [
-            remarkFrontmatter,
-            remarkMdxFrontmatter,
-            remarkGfm
-          ],
+          remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
           rehypePlugins: [
             rehypeHighlight,
             rehypeMdxCodeProps,
             rehypeMdxImportMedia,
             rehypeMermaid,
-            rehypeSlug
+            rehypeSlug,
           ],
           recmaPlugins: [recmaExportFilepath],
         }),
         ssg({ entry }),
         // 記事内に配置している画像たちを `dist/posts` にコピーする
-      viteStaticCopy({
-        targets: [
-          {
-            src: [
-              "./app/routes/posts/**/*.png",
-              "./app/routes/posts/**/*.jpg",
-              "./app/routes/posts/**/*.jpeg",
-              "./app/routes/posts/**/*.webp",
-            ],
-            dest: "posts",
-            rename: (
-              fileName: string,
-              fileExtension: string,
-              fullPath: string,
-            ) => {
-              const destPath = normalizePath(
-                path
-                  .relative(__dirname, fullPath)
-                  .replaceAll("app/routes/posts/", ""),
-              );
-              return destPath;
+        viteStaticCopy({
+          targets: [
+            {
+              src: [
+                "./app/routes/posts/**/*.png",
+                "./app/routes/posts/**/*.jpg",
+                "./app/routes/posts/**/*.jpeg",
+                "./app/routes/posts/**/*.webp",
+              ],
+              dest: "posts",
+              rename: (
+                fileName: string,
+                fileExtension: string,
+                fullPath: string,
+              ) => {
+                const destPath = normalizePath(
+                  path
+                    .relative(__dirname, fullPath)
+                    .replaceAll("app/routes/posts/", ""),
+                );
+                return destPath;
+              },
+              // 普通のviteのビルドで生成したファイルを消さないようにする
+              overwrite: false,
             },
-            // 普通のviteのビルドで生成したファイルを消さないようにする
-            overwrite: false,
-          },
-        ],
-      }),
+          ],
+        }),
       ],
     };
   }

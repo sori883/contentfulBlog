@@ -23,7 +23,7 @@ class Headings {
       level: parseInt(element.tagName.slice(1), 10),
       text: "", // textハンドラで追加
       id: element.getAttribute("id")!,
-      children: []
+      children: [],
     };
   }
 
@@ -43,14 +43,14 @@ class Headings {
 export async function makeToc(html: string) {
   // HTMLRewriterで使用するため、Responseにする
   const htmlResponse = new Response(html, {
-    headers:{ 
+    headers: {
       "content-type": "text/html; charset=UTF-8",
     },
-    status: 200
+    status: 200,
   });
 
   const headings = new Headings();
-  const rewriter =  new HTMLRewriter()
+  const rewriter = new HTMLRewriter()
     .on("h2", headings)
     .on("h3", headings)
     .transform(htmlResponse);

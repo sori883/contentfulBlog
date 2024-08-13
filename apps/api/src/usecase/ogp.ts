@@ -31,7 +31,7 @@ class OGPParser {
   }
 }
 
-export type OpgType = Omit<typeof OGPParser.prototype, "element">
+export type OpgType = Omit<typeof OGPParser.prototype, "element">;
 
 export async function getOgp(url: string) {
   const decodedUrl = decodeURIComponent(url);
@@ -39,11 +39,10 @@ export async function getOgp(url: string) {
 
   if (!domResponse.ok) {
     throw new Error("OGP取得先へのアクセスに失敗しました。");
-  };
+  }
 
   const ogp = new OGPParser();
-  const rewriter = new HTMLRewriter()
-    .on("meta", ogp).transform(domResponse);
+  const rewriter = new HTMLRewriter().on("meta", ogp).transform(domResponse);
 
   // HTMLRewriterの要素抽出を待機
   await rewriter.text();

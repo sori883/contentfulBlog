@@ -6,11 +6,8 @@
     "paths": {
       "~/*": ["./app/*"]
     },
-    "types": [
-      "vite/client",
-      "@cloudflare/workers-types"
-    ],
+    "types": ["vite/client", "@cloudflare/workers-types"],
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx"
-  },
+  }
 }

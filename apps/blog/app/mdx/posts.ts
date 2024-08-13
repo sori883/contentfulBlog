@@ -1,16 +1,17 @@
-import type { MDXProps } from "mdx/types";
-import type { Frontmatter } from "~/mdx/mdx-types";
-import { parseDate } from "~/utils/time";
-import { groupBy } from "~/utils/groupby";
 import type { JSX } from "hono/jsx/jsx-runtime";
+import type { MDXProps } from "mdx/types";
+
+import type { Frontmatter } from "~/mdx/mdx-types";
+import { groupBy } from "~/utils/groupby";
+import { parseDate } from "~/utils/time";
 
 const POSTS_PER_PAGE = 10;
 
 type MDXExports = {
-  frontmatter: Frontmatter
-  default: (props: MDXProps) => JSX.Element
-  ContentSummary?: () => JSX.Element
-}
+  frontmatter: Frontmatter;
+  default: (props: MDXProps) => JSX.Element;
+  ContentSummary?: () => JSX.Element;
+};
 
 const posts = import.meta.glob<MDXExports>("../routes/posts/**/*.mdx", {
   eager: true,
@@ -30,19 +31,19 @@ function sortByDateDesc():
 }
 
 export type Post = {
-  id: string
-  frontmatter: Frontmatter
-  permalink: string
+  id: string;
+  frontmatter: Frontmatter;
+  permalink: string;
   fullFilePath: URL;
-  MDXContent: (props: MDXProps) => JSX.Element
-  ContentSummary?: () => JSX.Element
-}
+  MDXContent: (props: MDXProps) => JSX.Element;
+  ContentSummary?: () => JSX.Element;
+};
 
 type Posts = {
-  posts: Post[]
-  hasPrev: boolean
-  hasNext: boolean
-}
+  posts: Post[];
+  hasPrev: boolean;
+  hasNext: boolean;
+};
 
 export function getAllPosts(): Post[] {
   return allPosts;
@@ -86,14 +87,14 @@ export function getPosts(page: number): Posts {
 }
 
 export type PaginationPosts = {
-  prevPost: Post | null
-  nextPost: Post | null
-}
+  prevPost: Post | null;
+  nextPost: Post | null;
+};
 
 export function getPaginationPosts(currentPostTitle: string): PaginationPosts {
   const allPosts = getAllPosts();
   const currentIndex = allPosts.findIndex(
-    p => p.frontmatter.title === currentPostTitle,
+    (p) => p.frontmatter.title === currentPostTitle,
   );
   return {
     prevPost:
@@ -103,10 +104,10 @@ export function getPaginationPosts(currentPostTitle: string): PaginationPosts {
 }
 
 type Category = {
-  id: string
-  name: string
-  posts: Post[]
-}
+  id: string;
+  name: string;
+  posts: Post[];
+};
 
 export function getCategories(): Category[] {
   return categories;
@@ -116,7 +117,7 @@ const categories = _getCategories();
 
 export function _getCategories(): Category[] {
   const allPosts = getAllPosts();
-  const groupedByCategory = groupBy(allPosts, p => p.frontmatter.category);
+  const groupedByCategory = groupBy(allPosts, (p) => p.frontmatter.category);
 
   return Object.entries(groupedByCategory).map(([name, posts]) => {
     return {
@@ -128,9 +129,9 @@ export function _getCategories(): Category[] {
 }
 
 type CategoryPosts = {
-  hasPrev: boolean
-  hasNext: boolean
-} & Category
+  hasPrev: boolean;
+  hasNext: boolean;
+} & Category;
 
 export function getCategoryPosts(
   categoryId: string,
@@ -139,7 +140,7 @@ export function getCategoryPosts(
   const start = POSTS_PER_PAGE * (page - 1);
   const end = POSTS_PER_PAGE * page;
 
-  const category = getCategories().find(c => c.id === categoryId);
+  const category = getCategories().find((c) => c.id === categoryId);
 
   if (!category) {
     return null;
@@ -161,10 +162,10 @@ export function categoryNameToId(name: string): string {
 }
 
 type Tag = {
-  id: string
-  name: string
-  posts: Post[]
-}
+  id: string;
+  name: string;
+  posts: Post[];
+};
 
 export function getTags(): Tag[] {
   return tags;
@@ -175,9 +176,9 @@ const tags: Tag[] = _getTags();
 function _getTags(): Tag[] {
   const allPosts = getAllPosts();
 
-  const tags = allPosts.flatMap(p => {
+  const tags = allPosts.flatMap((p) => {
     return (
-      p.frontmatter.tags?.map(tag => {
+      p.frontmatter.tags?.map((tag) => {
         return {
           id: tagNameToId(tag),
           name: tag,
@@ -186,14 +187,16 @@ function _getTags(): Tag[] {
     );
   });
   const uniqueTags = Array.from(
-    new Map(tags.map(tag => [tag.id, tag])).values(),
+    new Map(tags.map((tag) => [tag.id, tag])).values(),
   );
 
-  return uniqueTags.map(tag => {
+  return uniqueTags.map((tag) => {
     return {
       id: tag.id,
       name: tag.name,
-      posts: getAllPosts().filter(p => p.frontmatter.tags?.includes(tag.name)),
+      posts: getAllPosts().filter((p) =>
+        p.frontmatter.tags?.includes(tag.name),
+      ),
     };
   });
 }
@@ -203,22 +206,22 @@ export function tagNameToId(name: string): string {
 }
 
 type TagPosts = {
-  posts: Post[]
-  hasPrev: boolean
-  hasNext: boolean
-} & Tag
+  posts: Post[];
+  hasPrev: boolean;
+  hasNext: boolean;
+} & Tag;
 
 export function getTagPosts(tagId: string, page: number): TagPosts | null {
   const start = POSTS_PER_PAGE * (page - 1);
   const end = POSTS_PER_PAGE * page;
 
-  const tag = getTags().find(tag => tag.id === tagId);
+  const tag = getTags().find((tag) => tag.id === tagId);
 
   if (!tag) {
     return null;
   }
 
-  const tagPosts = getAllPosts().filter(p =>
+  const tagPosts = getAllPosts().filter((p) =>
     p.frontmatter.tags?.includes(tag.name),
   );
   const pagePosts = tagPosts.slice(start, end);

@@ -1,14 +1,15 @@
 import type { PropsWithChildren } from "hono/jsx";
-import { Header } from "~/components/elements/header";
+
 import { Footer } from "~/components/elements/footer";
+import { Header } from "~/components/elements/header";
 
 export function GeneralLayout({ children }: PropsWithChildren) {
   return (
-    <main className="flex flex-col min-h-screen bg-base text-white">
+    <main className="bg-base flex min-h-screen flex-col text-white">
       <Header />
-      <div className="flex-1 container mx-auto px-0">
-        <div className="mx-auto max-w-8xl px-0 py-8 sm:px-6 lg:px-8">
-          { children }
+      <div className="container mx-auto flex-1 px-0">
+        <div className="max-w-8xl mx-auto px-0 py-8 sm:px-6 lg:px-8">
+          {children}
         </div>
       </div>
       <Footer />

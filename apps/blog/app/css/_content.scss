@@ -188,8 +188,8 @@ code {
 }
 code,
 .code-block-filename {
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   -webkit-font-smoothing: antialiased;
 }
 pre {
@@ -203,7 +203,7 @@ pre {
   /* flex + codeの隣に疑似要素を配置することで横スクロール時の右端の余白を作る */
   display: flex;
   &:after {
-    content: '';
+    content: "";
     width: 8px;
     flex-shrink: 0;
   }

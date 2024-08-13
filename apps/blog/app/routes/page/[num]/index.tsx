@@ -1,13 +1,14 @@
 import type { Env } from "hono";
 import { ssgParams } from "hono/ssg";
 import { createRoute } from "honox/factory";
-import { Pagination } from "~/components/elements/pagination";
+
 import { PostSummary } from "~/components/domain/postSummary";
-import { getAllPosts, getMaxPageNumber, getPosts } from "~/mdx/posts";
+import { Pagination } from "~/components/elements/pagination";
 import { GeneralLayout } from "~/components/layouts/generalLayout";
 import { GridListLayout } from "~/components/layouts/gridListLayout";
+import { getAllPosts, getMaxPageNumber, getPosts } from "~/mdx/posts";
 
-const param = ssgParams<Env>(_c => {
+const param = ssgParams<Env>((_c) => {
   const posts = getAllPosts();
   const maxPageNumber = getMaxPageNumber(posts);
   const params = [];
@@ -23,32 +24,33 @@ const param = ssgParams<Env>(_c => {
   return params;
 });
 
-export default createRoute(param, c => {
+export default createRoute(param, (c) => {
   const numStr = c.req.param("num");
   const num = Number.parseInt(numStr);
 
   const allPosts = getAllPosts();
   const totalCount = getMaxPageNumber(allPosts);
-  
+
   if (Number.isNaN(num)) {
     return c.notFound();
   }
 
-  const { posts  } = getPosts(num);
+  const { posts } = getPosts(num);
 
   return c.render(
     <GeneralLayout>
       <GridListLayout>
-        {posts.map(post => {
-          return (<div key={post.id}><PostSummary post={post} /></div>);
+        {posts.map((post) => {
+          return (
+            <div key={post.id}>
+              <PostSummary post={post} />
+            </div>
+          );
         })}
       </GridListLayout>
       <div className="flex justify-center">
-        <Pagination
-          currentPage={num}
-          totalCount={totalCount}
-          />
+        <Pagination currentPage={num} totalCount={totalCount} />
       </div>
-    </GeneralLayout>
+    </GeneralLayout>,
   );
 });

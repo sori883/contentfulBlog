@@ -1,6 +1,6 @@
 import { createRoute } from "honox/factory";
 
-export default createRoute(c => {
+export default createRoute((c) => {
   // ファイル書き出しするため、改行必須
   const robotsTxt = `User-Agent: *
 Allow: /`;

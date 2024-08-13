@@ -45,9 +45,9 @@ $sm: 576px;
 $md: 768px;
 
 $breakpoints: (
-  'xs': 'screen and (max-width: #{$xs})',
-  'sm': 'screen and (max-width: #{$sm})',
-  'md': 'screen and (max-width: #{$md})',
+  "xs": "screen and (max-width: #{$xs})",
+  "sm": "screen and (max-width: #{$sm})",
+  "md": "screen and (max-width: #{$md})",
 );
 
 @mixin mq($size) {
@@ -64,7 +64,7 @@ $breakpoints: (
   line-height: 1.9;
   overflow-wrap: anywhere; // 要素はみ出ないように改行させる
 
-  @import './_content.scss';
-  @import './_embed.scss';
-  @import './_highlight.scss';
+  @import "./_content.scss";
+  @import "./_embed.scss";
+  @import "./_highlight.scss";
 }

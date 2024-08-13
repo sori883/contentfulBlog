@@ -1,5 +1,6 @@
 import { format } from "@formkit/tempo";
 import { createRoute } from "honox/factory";
+
 import type { Post } from "~/mdx/posts";
 import { getAllPosts } from "~/mdx/posts";
 
@@ -13,7 +14,7 @@ function generateSitemap(posts: Post[]): string {
         <loc>https://sori883.dev.com</loc>
         <lastmod>${format(now, SITEMAP_DATE_FORMAT, "en")}</lastmod>
     </url>
-    ${posts.map(post => generateSitemapItem(post)).join("\n")}
+    ${posts.map((post) => generateSitemapItem(post)).join("\n")}
 </urlset>`;
 }
 
@@ -24,7 +25,7 @@ function generateSitemapItem(post: Post): string {
     </url>`;
 }
 
-export default createRoute(c => {
+export default createRoute((c) => {
   const sitemap = generateSitemap(getAllPosts());
   return c.text(sitemap, 200, {
     "Content-Type": "application/xml",

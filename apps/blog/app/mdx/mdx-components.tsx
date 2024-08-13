@@ -1,13 +1,13 @@
 import type { MDXComponents } from "mdx/types";
-import { Twitter } from "~/components/markdown/twitter";
-import { ExLinkCard } from "~/components/markdown/exLinkCard";
-import { StyledPre } from "~/components/markdown/styledPre";
-import { Image } from "~/components/markdown/image";
-import { Link } from "~/components/markdown/link";
-import { WarningNote } from "~/components/markdown/warningNote";
-import { ErrorNote } from "~/components/markdown/errorNote";
-import { InfoNote } from "~/components/markdown/infoNote";
 
+import { ErrorNote } from "~/components/markdown/errorNote";
+import { ExLinkCard } from "~/components/markdown/exLinkCard";
+import { Image } from "~/components/markdown/image";
+import { InfoNote } from "~/components/markdown/infoNote";
+import { Link } from "~/components/markdown/link";
+import { StyledPre } from "~/components/markdown/styledPre";
+import { Twitter } from "~/components/markdown/twitter";
+import { WarningNote } from "~/components/markdown/warningNote";
 
 export function useMDXComponents(): MDXComponents {
   const components = {
@@ -20,6 +20,6 @@ export function useMDXComponents(): MDXComponents {
     ErrorNote: ErrorNote,
     InfoNote: InfoNote,
   };
-  
+
   return components;
 }
