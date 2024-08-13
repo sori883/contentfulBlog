@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@hono/eslint-config": "^0.0.6",
-    "@next/eslint-plugin-next": "^14.2.4",
     "@remix-run/eslint-config": "^2.9.2",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
