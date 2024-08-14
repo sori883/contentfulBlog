@@ -23,15 +23,15 @@ jobs:
         run: pnpm lint && pnpm lint:ws
 
   textlint:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v4
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
-    - name: Setup
-      uses: ./tooling/github/setup
+      - name: Setup
+        uses: ./tooling/github/setup
 
-    - name: Lint
-      run: pnpm lint:text
+      - name: Lint
+        run: pnpm lint:text
 
   format:
     runs-on: ubuntu-latest
