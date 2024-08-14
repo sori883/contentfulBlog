@@ -37,7 +37,7 @@ const config = {
     "**/*.config.cjs",
     "**/*.config.ts",
     "**/.eslintrc.cjs",
-    "**/.textlintrc.json"
+    "**/.textlintrc.json",
     "pnpm-lock.yaml",
   ],
   reportUnusedDisableDirectives: true,
