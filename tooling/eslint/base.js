@@ -35,7 +35,9 @@ const config = {
   ignorePatterns: [
     "**/*.config.js",
     "**/*.config.cjs",
+    "**/*.config.ts",
     "**/.eslintrc.cjs",
+    "**/.textlintrc.json"
     "pnpm-lock.yaml",
   ],
   reportUnusedDisableDirectives: true,
