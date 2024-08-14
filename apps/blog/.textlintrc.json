@@ -4,7 +4,6 @@
         "extensions": [".mdx"]
     }
   },
-  "filters": {},
   "rules": {
     "ja-unnatural-alphabet": true,
     "ja-no-redundant-expression": true,
