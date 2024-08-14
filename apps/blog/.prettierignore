@@ -1,4 +1,4 @@
-# これを除外したいだけ。
+# gitignoreしたくないけど、prettierignoreしたい↓のために
 app/routes/posts/**/*.mdx
 
 
