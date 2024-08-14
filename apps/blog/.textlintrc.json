@@ -3,7 +3,7 @@
     "@textlint/markdown": {
         "extensions": [".mdx"]
     }
-},
+  },
   "filters": {},
   "rules": {
     "ja-unnatural-alphabet": true,
