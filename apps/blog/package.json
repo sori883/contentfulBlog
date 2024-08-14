@@ -6,7 +6,7 @@
     "build": "vite build --mode client && vite build",
     "preview": "wrangler pages dev",
     "pages:deploy": "pnpm build && wrangler pages deploy",
-    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "format": "prettier --check .",
     "lint": "eslint .",
     "lint:text": "textlint app/routes/posts/**/*.mdx --config .textlintrc.json",
     "typecheck": "tsc --noEmit"
