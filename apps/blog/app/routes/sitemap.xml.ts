@@ -11,7 +11,7 @@ function generateSitemap(posts: Post[]): string {
   return `<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-        <loc>https://sori883.dev.com</loc>
+        <loc>https://sori883.dev</loc>
         <lastmod>${format(now, SITEMAP_DATE_FORMAT, "en")}</lastmod>
     </url>
     ${posts.map((post) => generateSitemapItem(post)).join("\n")}
