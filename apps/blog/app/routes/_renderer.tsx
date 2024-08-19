@@ -35,7 +35,7 @@ export default jsxRenderer(
           <meta property="og:title" content={title} />
 
           <Link rel="icon" href="/favicon.ico" />
-          <link href={`https://sori883.dev${c.req.path}`} rel="canonical" />
+          <Link href={`https://sori883.dev${c.req.path}`} rel="canonical" />
           <Link href="/app/css/tailwind.css" rel="stylesheet" />
           <Link
             href="https://rsms.me/inter/inter.css"
