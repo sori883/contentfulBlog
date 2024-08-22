@@ -18,7 +18,7 @@
   "dependencies": {
     "@acme/api": "workspace:^",
     "cheerio": "1.0.0-rc.12",
-    "hono": "^4.5.1",
+    "hono": "^4.5.8",
     "honox": "^0.1.23",
     "sass": "^1.77.6"
   },
