@@ -17,7 +17,7 @@
   "private": true,
   "dependencies": {
     "@acme/api": "workspace:^",
-    "cheerio": "1.0.0-rc.12",
+    "cheerio": "1.0.0",
     "hono": "^4.5.8",
     "honox": "^0.1.23",
     "sass": "^1.77.6"
