@@ -35,7 +35,7 @@
     "@textlint/textlint-plugin-markdown": "^14.0.5",
     "@types/mdx": "^2.0.13",
     "autoprefixer": "^10.4.20",
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "postcss": "^8.4.38",
     "prettier": "^3.3.3",
     "recma-export-filepath": "^1.1.0",
