@@ -161,8 +161,8 @@ importers:
         specifier: ^14.0.5
         version: 14.0.5
       textlint-rule-aws-service-name:
-        specifier: ^1.10.1
-        version: 1.10.1(typescript@5.4.5)
+        specifier: ^1.11.0
+        version: 1.11.0(typescript@5.4.5)
       textlint-rule-ja-no-redundant-expression:
         specifier: ^4.0.1
         version: 4.0.1
@@ -5093,8 +5093,8 @@ packages:
   text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
 
-  textlint-rule-aws-service-name@1.10.1:
-    resolution: {integrity: sha512-IrBbLgmwrObC/fzMgePdLKZbqKm1096qMKud9yAtPoHRF9grx7uq7uIBAkKXL17FMHjLFaWIALcBViHjuHa9YQ==}
+  textlint-rule-aws-service-name@1.11.0:
+    resolution: {integrity: sha512-QJEgJIGaHvw9/L07APsjYA1lV//yzRy8uJBozOZSuiVaVZrJRijWzMA//nGva2vRDvlw8hFhnwg8LxPiBE0mVg==}
 
   textlint-rule-helper@2.3.1:
     resolution: {integrity: sha512-b1bijvyiUmKinfFE5hkQMSXs3Ky8jyZ3Y6SOoTRJKV9HLL2LWUVFAUezO7z4FpAkVvYruDYWCwA5qWV8GmvyUw==}
@@ -5683,8 +5683,8 @@ snapshots:
 
   '@babel/helper-builder-binary-assignment-operator-visitor@7.24.7':
     dependencies:
-      '@babel/traverse': 7.24.7
-      '@babel/types': 7.24.7
+      '@babel/traverse': 7.25.3
+      '@babel/types': 7.25.2
     transitivePeerDependencies:
       - supports-color
 
@@ -5785,7 +5785,7 @@ snapshots:
 
   '@babel/helper-optimise-call-expression@7.24.7':
     dependencies:
-      '@babel/types': 7.24.7
+      '@babel/types': 7.25.2
 
   '@babel/helper-plugin-utils@7.24.7': {}
 
@@ -5818,8 +5818,8 @@ snapshots:
 
   '@babel/helper-skip-transparent-expression-wrappers@7.24.7':
     dependencies:
-      '@babel/traverse': 7.24.7
-      '@babel/types': 7.24.7
+      '@babel/traverse': 7.25.3
+      '@babel/types': 7.25.2
     transitivePeerDependencies:
       - supports-color
 
@@ -6072,7 +6072,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.24.7
       '@babel/helper-plugin-utils': 7.24.8
-      '@babel/template': 7.24.7
+      '@babel/template': 7.25.0
 
   '@babel/plugin-transform-destructuring@7.24.8(@babel/core@7.24.7)':
     dependencies:
@@ -6158,7 +6158,7 @@ snapshots:
   '@babel/plugin-transform-modules-amd@7.24.7(@babel/core@7.24.7)':
     dependencies:
       '@babel/core': 7.24.7
-      '@babel/helper-module-transforms': 7.24.7(@babel/core@7.24.7)
+      '@babel/helper-module-transforms': 7.25.2(@babel/core@7.24.7)
       '@babel/helper-plugin-utils': 7.24.8
     transitivePeerDependencies:
       - supports-color
@@ -6185,7 +6185,7 @@ snapshots:
   '@babel/plugin-transform-modules-umd@7.24.7(@babel/core@7.24.7)':
     dependencies:
       '@babel/core': 7.24.7
-      '@babel/helper-module-transforms': 7.24.7(@babel/core@7.24.7)
+      '@babel/helper-module-transforms': 7.25.2(@babel/core@7.24.7)
       '@babel/helper-plugin-utils': 7.24.8
     transitivePeerDependencies:
       - supports-color
@@ -6467,7 +6467,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.24.7
       '@babel/helper-plugin-utils': 7.24.8
-      '@babel/types': 7.24.7
+      '@babel/types': 7.25.2
       esutils: 2.0.3
 
   '@babel/preset-react@7.24.7(@babel/core@7.24.7)':
@@ -6485,8 +6485,8 @@ snapshots:
   '@babel/preset-typescript@7.24.7(@babel/core@7.24.7)':
     dependencies:
       '@babel/core': 7.24.7
-      '@babel/helper-plugin-utils': 7.24.7
-      '@babel/helper-validator-option': 7.24.7
+      '@babel/helper-plugin-utils': 7.24.8
+      '@babel/helper-validator-option': 7.24.8
       '@babel/plugin-syntax-jsx': 7.24.7(@babel/core@7.24.7)
       '@babel/plugin-transform-modules-commonjs': 7.24.8(@babel/core@7.24.7)
       '@babel/plugin-transform-typescript': 7.25.2(@babel/core@7.24.7)
@@ -7546,7 +7546,7 @@ snapshots:
 
   '@vue/compiler-core@3.4.29':
     dependencies:
-      '@babel/parser': 7.24.7
+      '@babel/parser': 7.25.3
       '@vue/shared': 3.4.29
       entities: 4.5.0
       estree-walker: 2.0.2
@@ -7559,7 +7559,7 @@ snapshots:
 
   '@vue/compiler-sfc@3.4.29':
     dependencies:
-      '@babel/parser': 7.24.7
+      '@babel/parser': 7.25.3
       '@vue/compiler-core': 3.4.29
       '@vue/compiler-dom': 3.4.29
       '@vue/compiler-ssr': 3.4.29
@@ -7781,8 +7781,8 @@ snapshots:
 
   babel-plugin-static-fs@3.0.0:
     dependencies:
-      '@babel/template': 7.24.7
-      '@babel/types': 7.24.7
+      '@babel/template': 7.25.0
+      '@babel/types': 7.25.2
       browser-resolve: 1.11.3
       events: 1.1.1
       resolve: 1.22.8
@@ -11736,7 +11736,7 @@ snapshots:
 
   text-table@0.2.0: {}
 
-  textlint-rule-aws-service-name@1.10.1(typescript@5.4.5):
+  textlint-rule-aws-service-name@1.11.0(typescript@5.4.5):
     dependencies:
       textlint-rule-prh: 5.3.0
       textlint-scripts: 13.4.1(typescript@5.4.5)
@@ -11776,7 +11776,7 @@ snapshots:
 
   textlint-rule-prh@5.3.0:
     dependencies:
-      '@babel/parser': 7.24.7
+      '@babel/parser': 7.25.3
       prh: 5.4.4
       textlint-rule-helper: 2.3.1
       untildify: 3.0.3
