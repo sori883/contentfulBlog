@@ -28,10 +28,10 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: ^0.2.2
-        version: 0.2.2(hono@4.5.8)(zod@3.23.8)
+        version: 0.2.2(hono@4.5.9)(zod@3.23.8)
       hono:
-        specifier: ^4.5.8
-        version: 4.5.8
+        specifier: ^4.5.9
+        version: 4.5.9
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -70,11 +70,11 @@ importers:
         specifier: workspace:^
         version: link:../api
       hono:
-        specifier: ^4.5.8
-        version: 4.5.8
+        specifier: ^4.5.9
+        version: 4.5.9
       honox:
         specifier: ^0.1.23
-        version: 0.1.23(hono@4.5.8)
+        version: 0.1.23(hono@4.5.9)
       sass:
         specifier: ^1.77.8
         version: 1.77.8
@@ -99,10 +99,10 @@ importers:
         version: 0.1.2
       '@hono/vite-dev-server':
         specifier: ^0.12.1
-        version: 0.12.2(hono@4.5.8)
+        version: 0.12.2(hono@4.5.9)
       '@hono/vite-ssg':
         specifier: ^0.1.0
-        version: 0.1.0(hono@4.5.8)
+        version: 0.1.0(hono@4.5.9)
       '@mdx-js/rollup':
         specifier: ^3.0.1
         version: 3.0.1(rollup@4.18.0)
@@ -3290,8 +3290,8 @@ packages:
     resolution: {integrity: sha512-fJ7cW7fQGCYAkgv4CPfwFHrfd/cLS4Hau96JuJ+ZTOWhjnhoeN1ub1tFmALm/+lW5z4WCAuAV9bm05AP0mS6Gw==}
     engines: {node: '>=12.0.0'}
 
-  hono@4.5.8:
-    resolution: {integrity: sha512-pqpSlcdqGkpTTRpLYU1PnCz52gVr0zVR9H5GzMyJWuKQLLEBQxh96q45QizJ2PPX8NATtz2mu31/PKW/Jt+90Q==}
+  hono@4.5.9:
+    resolution: {integrity: sha512-zz8ktqMDRrZETjxBrv8C5PQRFbrTRCLNVAjD1SNQyOzv4VjmX68Uxw83xQ6oxdAB60HiWnGEatiKA8V3SZLDkQ==}
     engines: {node: '>=16.0.0'}
 
   honox@0.1.23:
@@ -6785,10 +6785,10 @@ snapshots:
 
   '@hono/node-server@1.11.4': {}
 
-  '@hono/vite-dev-server@0.12.2(hono@4.5.8)':
+  '@hono/vite-dev-server@0.12.2(hono@4.5.9)':
     dependencies:
       '@hono/node-server': 1.11.4
-      hono: 4.5.8
+      hono: 4.5.9
       miniflare: 3.20240610.1
       minimatch: 9.0.4
     transitivePeerDependencies:
@@ -6796,13 +6796,13 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@hono/vite-ssg@0.1.0(hono@4.5.8)':
+  '@hono/vite-ssg@0.1.0(hono@4.5.9)':
     dependencies:
-      hono: 4.5.8
+      hono: 4.5.9
 
-  '@hono/zod-validator@0.2.2(hono@4.5.8)(zod@3.23.8)':
+  '@hono/zod-validator@0.2.2(hono@4.5.9)(zod@3.23.8)':
     dependencies:
-      hono: 4.5.8
+      hono: 4.5.9
       zod: 3.23.8
 
   '@humanwhocodes/config-array@0.11.14':
@@ -9352,16 +9352,16 @@ snapshots:
 
   highlight.js@11.9.0: {}
 
-  hono@4.5.8: {}
+  hono@4.5.9: {}
 
-  honox@0.1.23(hono@4.5.8):
+  honox@0.1.23(hono@4.5.9):
     dependencies:
       '@babel/generator': 7.24.7
       '@babel/parser': 7.24.7
       '@babel/traverse': 7.24.7
       '@babel/types': 7.24.7
-      '@hono/vite-dev-server': 0.12.2(hono@4.5.8)
-      hono: 4.5.8
+      '@hono/vite-dev-server': 0.12.2(hono@4.5.9)
+      hono: 4.5.9
       jsonc-parser: 3.2.1
       precinct: 12.1.1
     optionalDependencies:
