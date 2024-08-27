@@ -26,7 +26,7 @@ export default jsxRenderer(
             <div className="mb-8">
               <span className="text-9xl">{frontmatter.icon}</span>
             </div>
-            <h1 className="mb-8">
+            <h1 className="mb-8 px-1">
               <span className="text-3xl">{frontmatter.title}</span>
             </h1>
             <div>
