@@ -37,8 +37,7 @@ ul {
   & > li {
     list-style: disc;
     &::marker {
-      font-size: 1.1em;
-      color: $c-gray-800;
+      font-size: 1em;
     }
   }
 }
@@ -48,8 +47,6 @@ ol {
     list-style: decimal;
     padding-left: 0.2em;
     &::marker {
-      color: $c-gray-800;
-      font-weight: 600;
       letter-spacing: -0.05em;
     }
   }
