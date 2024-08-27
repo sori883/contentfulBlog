@@ -23,7 +23,7 @@
     "@acme/prettier-config": "workspace:^",
     "@acme/tailwind-config": "workspace:^",
     "@acme/tsconfig": "workspace:^",
-    "@cloudflare/workers-types": "^4.20240529.0",
+    "@cloudflare/workers-types": "^4.20240821.1",
     "eslint": "^8.57.0",
     "prettier": "^3.3.3",
     "typescript": "^5.3.3",
