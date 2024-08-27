@@ -61,8 +61,11 @@ $breakpoints: (
   & > *:first-child {
     margin-top: 0;
   }
+  
+  &{ 
   line-height: 1.9;
   overflow-wrap: anywhere; // 要素はみ出ないように改行させる
+  }
 
   @import "./_content.scss";
   @import "./_embed.scss";
