@@ -22,5 +22,5 @@
     "typescript": "^5.3.3"
   },
   "prettier": "@acme/prettier-config",
-  "packageManager": "pnpm@9.8.0"
+  "packageManager": "pnpm@9.9.0"
 }
