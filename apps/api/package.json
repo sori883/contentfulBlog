@@ -24,7 +24,7 @@
     "@acme/tailwind-config": "workspace:^",
     "@acme/tsconfig": "workspace:^",
     "@cloudflare/workers-types": "^4.20240821.1",
-    "eslint": "^8.57.0",
+    "eslint": "^9.9.1",
     "prettier": "^3.3.3",
     "typescript": "^5.3.3",
     "wrangler": "^3.57.2"
