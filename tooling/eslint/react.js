@@ -1,41 +1,25 @@
-/** @type {import("eslint").Linter.Config} */
-const config = {
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-  extends: [
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:react-hooks/recommended",
-    "plugin:jsx-a11y/recommended",
-  ],
-  settings: {
-    react: {
-      version: "detect",
-    },
-    formComponents: ["Form"],
-    linkComponents: [
-      { name: "Link", linkAttribute: "to" },
-      { name: "NavLink", linkAttribute: "to" },
-    ],
-    "import/resolver": {
-      typescript: {},
-    },
-  },
-  rules: {
-    "react/prop-types": "off",
-    // HonoXでJSXを使うために無効化
-    "@typescript-eslint/no-unsafe-return": "off",
-    "@typescript-eslint/no-unsafe-argument": "off",
-    // ここまで
-  },
-  globals: {
-    React: "writable",
-  },
-};
+import reactPlugin from "eslint-plugin-react";
+import hooksPlugin from "eslint-plugin-react-hooks";
 
-module.exports = config;
+/** @type {Awaited<import('typescript-eslint').Config>} */
+export default [
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    plugins: {
+      react: reactPlugin,
+      "react-hooks": hooksPlugin,
+    },
+    rules: {
+      ...reactPlugin.configs["jsx-runtime"].rules,
+      ...hooksPlugin.configs.recommended.rules,
+      // HonoX用
+      "@typescript-eslint/no-unsafe-return": ["off"],
+      "@typescript-eslint/no-unsafe-argument": ["off"],
+    },
+    languageOptions: {
+      globals: {
+        React: "writable",
+      },
+    },
+  },
+];

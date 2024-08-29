@@ -37,5 +37,8 @@
     "//#clean": {
       "cache": false
     }
-  }
+  },
+  "globalEnv": [
+    "PROD"
+  ]
 }
