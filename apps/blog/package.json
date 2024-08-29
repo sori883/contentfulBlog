@@ -28,7 +28,7 @@
     "@acme/tsconfig": "workspace:^",
     "@cloudflare/workers-types": "catalog:",
     "@formkit/tempo": "^0.1.2",
-    "@hono/vite-dev-server": "^0.12.1",
+    "@hono/vite-dev-server": "^0.15.0",
     "@hono/vite-ssg": "^0.1.0",
     "@mdx-js/rollup": "^3.0.1",
     "@tailwindcss/typography": "^0.5.14",
