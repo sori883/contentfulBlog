@@ -10,12 +10,12 @@
     "dev": "wrangler dev src/index.ts",
     "worker:deploy": "wrangler deploy --minify src/index.ts",
     "format": "prettier --check . --ignore-path ../../.gitignore",
-    "lint": "eslint .",
+    "lint": "eslint",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@hono/zod-validator": "^0.2.2",
-    "hono": "^4.5.9",
+    "hono": "catalog:",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -23,18 +23,11 @@
     "@acme/prettier-config": "workspace:^",
     "@acme/tailwind-config": "workspace:^",
     "@acme/tsconfig": "workspace:^",
-    "@cloudflare/workers-types": "^4.20240821.1",
-    "eslint": "^8.57.0",
-    "prettier": "^3.3.3",
-    "typescript": "^5.3.3",
-    "wrangler": "^3.57.2"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@acme/eslint-config/base",
-      "@acme/eslint-config/hono"
-    ]
+    "@cloudflare/workers-types": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:",
+    "wrangler": "catalog:"
   },
   "prettier": "@acme/prettier-config"
 }

@@ -22,6 +22,7 @@ app.use(
   }),
 );
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const route = app.route("/api", appRouter);
 
 /**

@@ -11,15 +11,15 @@
     "lint:text": "turbo lint:text --continue -- --cache --cache-location node_modules/.cache/.eslintcache",
     "lint:fix": "turbo lint --continue -- --fix --cache --cache-location node_modules/.cache/.eslintcache",
     "lint:ws": "pnpm dlx sherif@latest",
-    "lintws:manual": "pnpm lint:ws",
+    "postinstall": "pnpm lint:ws",
     "typecheck": "turbo typecheck"
   },
   "devDependencies": {
     "@acme/prettier-config": "workspace:^",
-    "eslint": "^8.57.0",
-    "prettier": "^3.3.3",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
     "turbo": "^2.0.14",
-    "typescript": "^5.3.3"
+    "typescript": "catalog:"
   },
   "prettier": "@acme/prettier-config",
   "packageManager": "pnpm@9.8.0"

@@ -6,11 +6,11 @@ export const groupBy = <K extends PropertyKey, V>(
     (obj, cur, idx, src) => {
       const key = getKey(cur, idx, src);
       if (obj[key]) {
-        obj[key]?.push(cur);
+        obj[key].push(cur);
         return obj;
       }
       obj[key] = [];
-      obj[key]?.push(cur);
+      obj[key].push(cur);
       return obj;
     },
     {} as Record<K, V[]>,
