@@ -122,8 +122,8 @@ importers:
         specifier: ^0.1.2
         version: 0.1.2
       '@hono/vite-dev-server':
-        specifier: ^0.15.0
-        version: 0.15.0(hono@4.5.9)(miniflare@3.20240821.0)(wrangler@3.72.3(@cloudflare/workers-types@4.20240821.1))
+        specifier: ^0.16.0
+        version: 0.16.0(hono@4.5.9)(miniflare@3.20240821.0)(wrangler@3.72.3(@cloudflare/workers-types@4.20240821.1))
       '@hono/vite-ssg':
         specifier: ^0.1.0
         version: 0.1.0(hono@4.5.9)
@@ -231,7 +231,7 @@ importers:
         version: 7.35.0(eslint@9.9.1(jiti@1.21.6))
       eslint-plugin-react-hooks:
         specifier: rc
-        version: 5.1.0-rc-7771d3a7-20240827(eslint@9.9.1(jiti@1.21.6))
+        version: 5.1.0-rc-a03254bc-20240905(eslint@9.9.1(jiti@1.21.6))
       typescript-eslint:
         specifier: ^8.3.0
         version: 8.3.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
@@ -1385,8 +1385,8 @@ packages:
     peerDependencies:
       hono: '*'
 
-  '@hono/vite-dev-server@0.15.0':
-    resolution: {integrity: sha512-z4sg1Kvcon7U20eb6StgRXAwNayPFcUJ+LTuMXzNw3JttxSGWkS9B3A8Tw0p8bsAdbR/I896QNVdKgWRbL3h1w==}
+  '@hono/vite-dev-server@0.16.0':
+    resolution: {integrity: sha512-zGPaYY7DyDr33id677fUuaPiV2qQJoPrxv+nrcLc7g8M9PkcvlV8kO2XRkrwZT64rUSBxyWOuGN3vEIFiH9l0w==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '*'
@@ -2663,8 +2663,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
 
-  eslint-plugin-react-hooks@5.1.0-rc-7771d3a7-20240827:
-    resolution: {integrity: sha512-SY8Fq2Qz7Bb7xJnv2siIUFzOEf/BahfvIbxHxpY4ud1OGiCpm0d+6mSxGn0CegCCbj82SvIHCrM5LHgAgADW2g==}
+  eslint-plugin-react-hooks@5.1.0-rc-a03254bc-20240905:
+    resolution: {integrity: sha512-MAQG2WZjBdVBz2mpyWz2l7piMjBoHrSaPiWAQqyJuwbmRRy5YHdVW/jkLXQcKWoct+U02AojaWh+EGKfsL1fgA==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -6510,7 +6510,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@hono/vite-dev-server@0.15.0(hono@4.5.9)(miniflare@3.20240821.0)(wrangler@3.72.3(@cloudflare/workers-types@4.20240821.1))':
+  '@hono/vite-dev-server@0.16.0(hono@4.5.9)(miniflare@3.20240821.0)(wrangler@3.72.3(@cloudflare/workers-types@4.20240821.1))':
     dependencies:
       '@hono/node-server': 1.12.2(hono@4.5.9)
       hono: 4.5.9
@@ -8140,7 +8140,7 @@ snapshots:
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.0
 
-  eslint-plugin-react-hooks@5.1.0-rc-7771d3a7-20240827(eslint@9.9.1(jiti@1.21.6)):
+  eslint-plugin-react-hooks@5.1.0-rc-a03254bc-20240905(eslint@9.9.1(jiti@1.21.6)):
     dependencies:
       eslint: 9.9.1(jiti@1.21.6)
 
