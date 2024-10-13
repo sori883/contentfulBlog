@@ -2,7 +2,7 @@ import { FoxSVG } from "~/components/svg/foxSvg";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "X.com", href: "https://x.com/sori883" },
+  { name: "X.com", href: "https://x.com/sorinaji" },
   { name: "Zenn", href: "https://zenn.dev/sorinaji" },
   { name: "GitHub", href: "https://github.com/sori883" },
 ];
