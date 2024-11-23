@@ -46,7 +46,7 @@
     "rehype-slug": "^6.0.0",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.0",
-    "remark-mdx-frontmatter": "^4.0.0",
+    "remark-mdx-frontmatter": "^5.0.0",
     "tailwindcss": "catalog:",
     "textlint": "^14.0.5",
     "textlint-rule-aws-service-name": "^1.11.0",
