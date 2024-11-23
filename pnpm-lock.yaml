@@ -97,7 +97,7 @@ importers:
         specifier: 'catalog:'
         version: 4.6.11
       honox:
-        specifier: ^0.1.23
+        specifier: ^0.1.26
         version: 0.1.26(hono@4.6.11)(miniflare@3.20241106.1)(wrangler@3.90.0(@cloudflare/workers-types@4.20241112.0))
       sass:
         specifier: ^1.81.0
@@ -5361,7 +5361,7 @@ snapshots:
 
   '@babel/generator@7.25.6':
     dependencies:
-      '@babel/types': 7.25.6
+      '@babel/types': 7.26.0
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
       jsesc: 2.5.2
@@ -5506,7 +5506,7 @@ snapshots:
 
   '@babel/parser@7.25.6':
     dependencies:
-      '@babel/types': 7.25.6
+      '@babel/types': 7.26.0
 
   '@babel/parser@7.26.2':
     dependencies:
@@ -6026,10 +6026,10 @@ snapshots:
   '@babel/traverse@7.25.6':
     dependencies:
       '@babel/code-frame': 7.26.2
-      '@babel/generator': 7.25.6
-      '@babel/parser': 7.25.6
+      '@babel/generator': 7.26.2
+      '@babel/parser': 7.26.2
       '@babel/template': 7.25.9
-      '@babel/types': 7.25.6
+      '@babel/types': 7.26.0
       debug: 4.3.7(supports-color@8.1.1)
       globals: 11.12.0
     transitivePeerDependencies:
@@ -6935,7 +6935,7 @@ snapshots:
 
   '@vue/compiler-core@3.5.13':
     dependencies:
-      '@babel/parser': 7.25.6
+      '@babel/parser': 7.26.2
       '@vue/shared': 3.5.13
       entities: 4.5.0
       estree-walker: 2.0.2
@@ -6948,7 +6948,7 @@ snapshots:
 
   '@vue/compiler-sfc@3.5.13':
     dependencies:
-      '@babel/parser': 7.25.6
+      '@babel/parser': 7.26.2
       '@vue/compiler-core': 3.5.13
       '@vue/compiler-dom': 3.5.13
       '@vue/compiler-ssr': 3.5.13
@@ -9846,7 +9846,7 @@ snapshots:
 
   node-source-walk@7.0.0:
     dependencies:
-      '@babel/parser': 7.25.6
+      '@babel/parser': 7.26.2
 
   non-layered-tidy-tree-layout@2.0.2: {}
 
