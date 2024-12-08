@@ -8,6 +8,6 @@
     "ja-unnatural-alphabet": true,
     "ja-no-redundant-expression": true,
     "no-doubled-joshi": true,
-    "aws-service-name": true
+    "aws-service-name": false
   }
 }
