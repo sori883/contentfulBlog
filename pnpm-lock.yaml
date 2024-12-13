@@ -51,8 +51,8 @@ importers:
   apps/api:
     dependencies:
       '@hono/zod-validator':
-        specifier: ^0.2.2
-        version: 0.2.2(hono@4.6.11)(zod@3.23.8)
+        specifier: ^0.4.2
+        version: 0.4.2(hono@4.6.11)(zod@3.23.8)
       hono:
         specifier: 'catalog:'
         version: 4.6.11
@@ -1290,8 +1290,8 @@ packages:
     peerDependencies:
       hono: '>=4.0.0'
 
-  '@hono/zod-validator@0.2.2':
-    resolution: {integrity: sha512-dSDxaPV70Py8wuIU2QNpoVEIOSzSXZ/6/B/h4xA7eOMz7+AarKTSGV8E6QwrdcCbBLkpqfJ4Q2TmBO0eP1tCBQ==}
+  '@hono/zod-validator@0.4.2':
+    resolution: {integrity: sha512-1rrlBg+EpDPhzOV4hT9pxr5+xDVmKuz6YJl+la7VCwK6ass5ldyKm5fD+umJdV2zhHD6jROoCCv8NbTwyfhT0g==}
     peerDependencies:
       hono: '>=3.9.0'
       zod: ^3.19.1
@@ -6315,7 +6315,7 @@ snapshots:
     dependencies:
       hono: 4.6.11
 
-  '@hono/zod-validator@0.2.2(hono@4.6.11)(zod@3.23.8)':
+  '@hono/zod-validator@0.4.2(hono@4.6.11)(zod@3.23.8)':
     dependencies:
       hono: 4.6.11
       zod: 3.23.8
