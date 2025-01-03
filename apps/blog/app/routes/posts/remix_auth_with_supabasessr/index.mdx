@@ -237,16 +237,6 @@ export const action = async ({ request, context }: ActionFunctionArgs) => {
   // また、headersは付与忘れるとコールバック処理がうまくいかないので注意
   return redirect(parsedData.data.url!, { headers: data.headers });
 };
-
-export default function SignIn() {
-  return (
-    &lt;div&gt;
-      &lt;Form method="post"&gt;
-        &lt;button type="submit"&gt;Sign In&lt;/button&gt;
-      &lt;/Form&gt;
-    &lt;/div&gt;
-  );
-}
 ```
 
 ### コールバック処理の作成
