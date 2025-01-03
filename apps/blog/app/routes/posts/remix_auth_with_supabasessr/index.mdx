@@ -214,39 +214,9 @@ export const isUserLoggedIn = async (
 `Loader`では、`isUserLoggedIn`でログイン済みか否かを判定し、ログイン済みであれば`/user`ページにリダイレクトしています。  
 「Sign In」ボタンを押下すると実行されるactionでは`signInWithGoogle`でログインし、コールバック先へリダイレクトしています。  
 
-```
+```ts
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/cloudflare";
-import { redirect } from "@remix-run/cloudflare";
-import { Form } from "@remix-run/react";
-import { isUserLoggedIn, signInWithGoogle } from "~/supabase/auth.supabase.server";
-
-export const loader = async ({ request, context }: LoaderFunctionArgs) => {
-  // 認証済みならトップページにリダイレクトする
-  if (await isUserLoggedIn(request, context)) {
-    return redirect("/user");
-  }
-  return null;
-};
-
-export const action = async ({ request, context }: ActionFunctionArgs) => {
-  const data =  await signInWithGoogle(request, context);
-  const parsedData = data;
-
-  // リダイレクトURLはdata.urlに格納されている。
-  // 自動でリダイレクトはしてくれないので、手動で行う。
-  // また、headersは付与忘れるとコールバック処理がうまくいかないので注意
-  return redirect(parsedData.data.url!, { headers: data.headers });
-};
-
-export default function SignIn() {
-  return (
-    &lt;div&gt;
-      &lt;Form method="post"&gt;
-        &lt;button type="submit"&gt;Sign In&lt;/button&gt;
-      &lt;/Form&gt;
-    &lt;/div&gt;
-  );
-}
+aaaa
 ```
 
 ### コールバック処理の作成
