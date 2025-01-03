@@ -50,3 +50,93 @@ SUPABASE_URL=https://<project_id>.supabase.co
 SUPABASE_ANON_KEY=your_anon_key
 ```
 
+## Google Cloudの設定
+以下リンク先の手順をなぞる形になるため、本記事では変更部分だけピックアップします。  
+<ExLinkCard url="https://supabase.com/docs/guides/auth/social-login/auth-google?queryGroups=environment&environment=server&queryGroups=framework&framework=remix&queryGroups=platform&platform=web#application-code-configuration" />  
+
+### OAuth同意画面の設定
+まずは[OAuth同意画面](https://console.cloud.google.com/apis/credentials/consent)を作成します。  
+OAuth同意画面にアクセスし、`UserType`を`外部`とし、「作成」ボタンをクリックします。  
+![supabasessr_gcp1](./supabasessr_gcp1.webp)  
+
+アプリ名とユーザサポートメールアドレスは適当に
+![supabasessr_gcp2](./supabasessr_gcp2.webp)  
+
+認証済みドメインは環境変数に設定した`SUPABASE_URL`のドメイン部分だけを入力します。  
+![supabasessr_gcp3](./supabasessr_gcp3.webp)  
+
+次の画面では「スコープの追加または削除」ボタンをクリックして画像の通り追加します。  
+下記を設定した後は全てデフォルトのままボタンポチポチでOKです。  
+![supabasessr_gcp4](./supabasessr_gcp4.webp)  
+
+### OAuthクライアントIDの作成
+次にOAuthクライアントIDを作成します。  
+[認証情報](https://console.cloud.google.com/apis/credentials)画面から、「認証情報を作成」「OAuthクライアントID」の順にクリックします。  
+![supabasessr_gcp5](./supabasessr_gcp5.webp)  
+
+OAuthクライアントIDの作成で、下記画像のとおり設定します。  
+URIはRemixの設定に応じて変更してください。  
+![supabasessr_gcp6](./supabasessr_gcp6.webp)  
+
+最後に承認済みリダイレクトですが、Supabaseから取得した値を入力します。  
+記載場所は「Authentication」>「Auth Providers」>「Google」の中にある「Callback URL (for OAuth)」に記載されています。  
+![supabasessr_gcp7](./supabasessr_gcp7.webp)  
+
+クライアントID作成が完了すると「クライアントID」と「クライアントシークレット」が発行されます。  
+これをSupabaseに設定していきます。  
+![supabasessr_gcp8](./supabasessr_gcp8.webp)  
+
+## Supabaseの設定
+Supabaseダッシュボードから「Authentication」>「Auth Providers」>「Google」を開き、クライアントIDとクライアントシークレットを設定します。  
+「Save」ボタンクリック後、GoogleがEnableとなっていれば設定完了です。  
+![supabasessr_sb1](./supabasessr_sb1.webp)  
+
+## SupabaseとRemixでGoogle認証をする
+### Supabase Clientと認証処理の作成
+まずは、RemixでSupabaseを利用するためのSupabase Clientを作成します。  
+こちらは、ほぼ[公式サイト](https://supabase.com/docs/guides/auth/server-side/creating-a-client?queryGroups=framework&framework=remix&queryGroups=package-manager&package-manager=pnpm&queryGroups=environment&environment=remix-component#create-a-client)の例をそのまま使っています。  
+
+```ts
+import { createServerClient, parseCookieHeader, serializeCookieHeader } from "@supabase/ssr";
+
+import type { AppLoadContext } from "@remix-run/cloudflare";
+
+export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
+  const headers = new Headers();
+
+  const client = createServerClient(
+      c.cloudflare.env.SUPABASE_URL,
+      c.cloudflare.env.SUPABASE_ANON_KEY,
+    {
+      cookies: {
+        getAll() {
+          return parseCookieHeader(request.headers.get("Cookie") ?? "");
+        },
+        setAll(cookiesToSet) {
+					for (const cookie of cookiesToSet) {
+						const { name, value, options } = cookie;
+						headers.append(
+							"Set-Cookie",
+							serializeCookieHeader(name, value, options),
+						);
+					}
+        },
+      },
+      cookieOptions: {
+        httpOnly: true,
+        secure: true,
+      },
+  });
+
+  return { 
+    client,
+    headers,
+  };
+}
+```
+
+次にSupabase Clientを使用したログインやログアウトを実装します。  
+`supabase/supabase.server.ts`を作成し、以下のとおり記載します。  
+
+注意点として`successRedirectPath`は後述するコールバック先に合わせておく必要があります。 
+ 
