@@ -215,6 +215,9 @@ export const isUserLoggedIn = async (
 `Loader`では、`isUserLoggedIn`でログイン済みか否かを判定し、ログイン済みであれば`/user`ページにリダイレクトしています。  
 「Sign In」ボタンを押下すると実行されるaction`では`signInWithGoogle`でログインし、コールバック先へリダイレクトしています。  
 
-```ts
-ああ
-```
+
+## あとがき
+@supabase/ssrとRemixを用いたGoogle認証は以上です。  
+簡単ですが、redirect時はheadersを付与する必要がある点に注意で、私は半日はまりました。  
+
+また、ZennスクラップでRemixからHonoにJWTを投げてユーザ情報を取得する等行っているので、もしよければご参照ください。  
