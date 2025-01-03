@@ -213,30 +213,74 @@ export const isUserLoggedIn = async (
 `routes/login.tsx`を作成し、以下のとおり記載します。  
 `Loader`では、`isUserLoggedIn`でログイン済みか否かを判定し、ログイン済みであれば`/user`ページにリダイレクトしています。  
 「Sign In」ボタンを押下すると実行されるactionでは`signInWithGoogle`でログインし、コールバック先へリダイレクトしています。  
+```ts
+import { createSupabaseServerClient } from "~/supabase/supabase.server";
+import type { AppLoadContext } from "@remix-run/cloudflare";
 
-```
-import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/cloudflare";
-import { redirect } from "@remix-run/cloudflare";
-import { Form } from "@remix-run/react";
-import { isUserLoggedIn, signInWithGoogle } from "~/supabase/auth.supabase.server";
+export const signInWithGoogle = async (
+  request: Request,
+  c: AppLoadContext,
+  successRedirectPath: string = "http://localhost:5173/auth/callback",
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+  const { data, error } = await supabase.client.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: successRedirectPath,
+    },
+  });
 
-export const loader = async ({ request, context }: LoaderFunctionArgs) => {
-  // 認証済みならトップページにリダイレクトする
-  if (await isUserLoggedIn(request, context)) {
-    return redirect("/user");
-  }
-  return null;
+  return { 
+    ok: !error && data ? true : false,
+    data: data,
+    error: error && !data ? error.message : "",
+    headers: supabase.headers,
+  };
 };
 
-export const action = async ({ request, context }: ActionFunctionArgs) => {
-  const data =  await signInWithGoogle(request, context);
-  const parsedData = data;
+export const signOut = async (
+  request: Request,
+  c: AppLoadContext,
+  successRedirectPath: string = "/",
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+  const { error } = await supabase.client.auth.signOut();
 
-  // リダイレクトURLはdata.urlに格納されている。
-  // 自動でリダイレクトはしてくれないので、手動で行う。
-  // また、headersは付与忘れるとコールバック処理がうまくいかないので注意
-  return redirect(parsedData.data.url!, { headers: data.headers });
+  return { 
+    ok: !error ? true : false,
+    data: { url: successRedirectPath }, 
+    error: error ? error.message : "",
+    headers: supabase.headers,
+  };
+
 };
+
+export const getUser = async (
+  request: Request,
+  c: AppLoadContext,
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+
+  const {
+    data: { session },
+  } = await supabase.client.auth.getSession();
+
+  return session?.user ?? null;
+};
+
+export const isUserLoggedIn = async (
+  request: Request,
+  c: AppLoadContext,
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+
+  const {
+    data: { user },
+  } = await supabase.client.auth.getUser();
+
+  return !!user;
+};
+
 ```
 
 ### コールバック処理の作成
