@@ -174,32 +174,6 @@ export const signOut = async (
   };
 
 };
-
-export const getUser = async (
-  request: Request,
-  c: AppLoadContext,
-) => {
-  const supabase = createSupabaseServerClient(request, c);
-
-  const {
-    data: { session },
-  } = await supabase.client.auth.getSession();
-
-  return session?.user ?? null;
-};
-
-export const isUserLoggedIn = async (
-  request: Request,
-  c: AppLoadContext,
-) => {
-  const supabase = createSupabaseServerClient(request, c);
-
-  const {
-    data: { user },
-  } = await supabase.client.auth.getUser();
-
-  return !!user;
-};
 ```
 
 ### ログイン画面の作成
