@@ -142,7 +142,7 @@ export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
 `Loader`では、`isUserLoggedIn`でログイン済みか否かを判定し、ログイン済みであれば`/user`ページにリダイレクトしています。  
 「Sign In」ボタンを押下すると実行されるactionでは`signInWithGoogle`でログインし、コールバック先へリダイレクトしています。  
 
-```ts
+```
 export const loader = async ({ request, context }: LoaderFunctionArgs) => {
   if (await isUserLoggedIn(request, context)) {
     return redirect("/user");
@@ -156,6 +156,16 @@ export const action = async ({ request, context }: ActionFunctionArgs) => {
 
   return redirect(parsedData.data.url!, { headers: data.headers });
 };
+
+export default function SignIn() {
+  return (
+    &lt;div&gt;
+      &lt;Form method="post"&gt;
+        &lt;button type="submit"&gt;Sign In&lt;/button&gt;
+      &lt;/Form&gt;
+    &lt;/div&gt;
+  );
+}
 ```
 
 
