@@ -151,8 +151,6 @@ export const signInWithGoogle = async (
     error: error ? error.message : "",
     headers: supabase.headers,
   };
-
-
 };
 
 export const getUser = async (
@@ -166,6 +164,19 @@ export const getUser = async (
   } = await supabase.client.auth.getSession();
 
   return session?.user ?? null;
+};
+
+export const isUserLoggedIn = async (
+  request: Request,
+  c: AppLoadContext,
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+
+  const {
+    data: { user },
+  } = await supabase.client.auth.getUser();
+
+  return !!user;
 };
 
 ```
