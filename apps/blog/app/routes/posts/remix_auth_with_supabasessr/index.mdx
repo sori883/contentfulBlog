@@ -97,9 +97,6 @@ Supabaseダッシュボードから「Authentication」>「Auth Providers」>「
 こちらは、ほぼ[公式サイト](https://supabase.com/docs/guides/auth/server-side/creating-a-client?queryGroups=framework&framework=remix&queryGroups=package-manager&package-manager=pnpm&queryGroups=environment&environment=remix-component#create-a-client)の例をそのまま使っています。  
 
 ```ts
-improt { createServerClient, parseCookieHeader, serializeCookieHeader } from "@supabase/ssr";
-import type { AppLoadContext } from "@remix-run/cloudflare";
-
 export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
   const headers = new Headers();
 
@@ -139,6 +136,71 @@ export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
 
 注意点として`successRedirectPath`は後述するコールバック先に合わせておく必要があります。 
 
+```ts
+export const signInWithGoogle = async (
+  request: Request,
+  c: AppLoadContext,
+  successRedirectPath: string = "http://localhost:5173/auth/callback",
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+  const { data, error } = await supabase.client.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: successRedirectPath,
+    },
+  });
+
+  return { 
+    ok: !error && data ? true : false,
+    data: data,
+    error: error && !data ? error.message : "",
+    headers: supabase.headers,
+  };
+};
+
+export const signOut = async (
+  request: Request,
+  c: AppLoadContext,
+  successRedirectPath: string = "/",
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+  const { error } = await supabase.client.auth.signOut();
+
+  return { 
+    ok: !error ? true : false,
+    data: { url: successRedirectPath }, 
+    error: error ? error.message : "",
+    headers: supabase.headers,
+  };
+
+};
+
+export const getUser = async (
+  request: Request,
+  c: AppLoadContext,
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+
+  const {
+    data: { session },
+  } = await supabase.client.auth.getSession();
+
+  return session?.user ?? null;
+};
+
+export const isUserLoggedIn = async (
+  request: Request,
+  c: AppLoadContext,
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+
+  const {
+    data: { user },
+  } = await supabase.client.auth.getUser();
+
+  return !!user;
+};
+```
 
 ### ログイン画面の作成
 `routes/login.tsx`を作成し、以下のとおり記載します。  
