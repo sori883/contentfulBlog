@@ -139,142 +139,33 @@ export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
 
 注意点として`successRedirectPath`は後述するコールバック先に合わせておく必要があります。 
 
-```ts
-import { createSupabaseServerClient } from "~/supabase/supabase.server";
-import type { AppLoadContext } from "@remix-run/cloudflare";
 
-export const signInWithGoogle = async (
-  request: Request,
-  c: AppLoadContext,
-  successRedirectPath: string = "http://localhost:5173/auth/callback",
-) => {
-  const supabase = createSupabaseServerClient(request, c);
-  const { data, error } = await supabase.client.auth.signInWithOAuth({
-    provider: "google",
-    options: {
-      redirectTo: successRedirectPath,
-    },
-  });
-
-  return { 
-    ok: !error && data ? true : false,
-    data: data,
-    error: error && !data ? error.message : "",
-    headers: supabase.headers,
-  };
-};
-
-export const signOut = async (
-  request: Request,
-  c: AppLoadContext,
-  successRedirectPath: string = "/",
-) => {
-  const supabase = createSupabaseServerClient(request, c);
-  const { error } = await supabase.client.auth.signOut();
-
-  return { 
-    ok: !error ? true : false,
-    data: { url: successRedirectPath }, 
-    error: error ? error.message : "",
-    headers: supabase.headers,
-  };
-
-};
-
-export const getUser = async (
-  request: Request,
-  c: AppLoadContext,
-) => {
-  const supabase = createSupabaseServerClient(request, c);
-
-  const {
-    data: { session },
-  } = await supabase.client.auth.getSession();
-
-  return session?.user ?? null;
-};
-
-export const isUserLoggedIn = async (
-  request: Request,
-  c: AppLoadContext,
-) => {
-  const supabase = createSupabaseServerClient(request, c);
-
-  const {
-    data: { user },
-  } = await supabase.client.auth.getUser();
-
-  return !!user;
-};
-```
+### ログイン画面の作成
+`routes/login.tsx`を作成し、以下のとおり記載します。  
+`Loader`では、`isUserLoggedIn`でログイン済みか否かを判定し、ログイン済みであれば`/user`ページにリダイレクトしています。  
+「Sign In」ボタンを押下すると実行されるactionでは`signInWithGoogle`でログインし、コールバック先へリダイレクトしています。  
 
 ```ts
+import { redirect } from "@remix-run/cloudflare";
+import type {LoaderFunctionArgs} from "@remix-run/cloudflare";
 import { createSupabaseServerClient } from "~/supabase/supabase.server";
-import type { AppLoadContext } from "@remix-run/cloudflare";
 
-export const signInWithGoogle = async (
-  request: Request,
-  c: AppLoadContext,
-  successRedirectPath: string = "http://localhost:5173/auth/callback",
-) => {
-  const supabase = createSupabaseServerClient(request, c);
-  const { data, error } = await supabase.client.auth.signInWithOAuth({
-    provider: "google",
-    options: {
-      redirectTo: successRedirectPath,
-    },
-  });
+export async function loader({ request, context }: LoaderFunctionArgs) {
+  const requestUrl = new URL(request.url);
+  const code = requestUrl.searchParams.get("code");
+  const next = requestUrl.searchParams.get("next") ?? "/user";
+  const { client, headers } = createSupabaseServerClient(request, context);
 
-  return { 
-    ok: !error && data ? true : false,
-    data: data,
-    error: error && !data ? error.message : "",
-    headers: supabase.headers,
-  };
-};
+  if (code) {
+    const { error } = await client.auth.exchangeCodeForSession(code);
+    if (!error) {
+      return redirect(next, { headers });
+    }
+  }
 
-export const signOut = async (
-  request: Request,
-  c: AppLoadContext,
-  successRedirectPath: string = "/",
-) => {
-  const supabase = createSupabaseServerClient(request, c);
-  const { error } = await supabase.client.auth.signOut();
-
-  return { 
-    ok: !error ? true : false,
-    data: { url: successRedirectPath }, 
-    error: error ? error.message : "",
-    headers: supabase.headers,
-  };
-
-};
-
-export const getUser = async (
-  request: Request,
-  c: AppLoadContext,
-) => {
-  const supabase = createSupabaseServerClient(request, c);
-
-  const {
-    data: { session },
-  } = await supabase.client.auth.getSession();
-
-  return session?.user ?? null;
-};
-
-export const isUserLoggedIn = async (
-  request: Request,
-  c: AppLoadContext,
-) => {
-  const supabase = createSupabaseServerClient(request, c);
-
-  const {
-    data: { user },
-  } = await supabase.client.auth.getUser();
-
-  return !!user;
-};
+  // return the user to an error page with instructions
+  return redirect("/error", { headers });
+}
 ```
 
 ### コールバック処理の作成
