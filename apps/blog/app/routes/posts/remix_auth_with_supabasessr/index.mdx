@@ -151,10 +151,6 @@ export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
 ここでは`routes/auth.callback.tsx`を作成し、以下のとおり記載します。  
 
 ```ts
-import { redirect } from "@remix-run/cloudflare";
-import type {LoaderFunctionArgs} from "@remix-run/cloudflare";
-import { createSupabaseServerClient } from "~/supabase/supabase.server";
-
 export async function loader({ request, context }: LoaderFunctionArgs) {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get("code");
