@@ -94,7 +94,7 @@ Supabaseダッシュボードから「Authentication」>「Auth Providers」>「
 ## RemixでGoogle認証をする
 ### 認証処理の作成
 まずは、RemixでSupabaseを利用するためのSupabase Clientを作成します。  
-こちらは、ほぼ[公式サイト](https://supabase.com/docs/guides/auth/server-side/creating-a-client?queryGroups=framework&framework=remix&queryGroups=package-manager&package-manager=pnpm&queryGroups=environment&environment=remix-component#create-a-client)の例をそのまま使っています。  
+こちらは、ほぼ[Supabaseドキュメント](https://supabase.com/docs/guides/auth/server-side/creating-a-client?queryGroups=framework&framework=remix&queryGroups=package-manager&package-manager=pnpm&queryGroups=environment&environment=remix-component#create-a-client)の例をそのまま使っています。  
 
 ```ts
 export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
@@ -192,7 +192,7 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
 }
 ```
 
-codeをセッションに変換（Cookieに保存）しており、ソースコードは[Supabaseのサイト](https://supabase.com/docs/guides/auth/social-login/auth-google)を参考にしています。  
+codeをセッションに変換（Cookieに保存）しており、ソースコードは[Supabaseドキュメント](https://supabase.com/docs/guides/auth/social-login/auth-google)を参考にしています。  
 
 ### ユーザページの作成
 ログイン先のユーザページ`routes/user.tsx`を作成します。  
