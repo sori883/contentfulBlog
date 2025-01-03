@@ -206,14 +206,7 @@ export const isUserLoggedIn = async (
 
   return !!user;
 };
-
 ```
-
-### ログイン画面の作成
-`routes/login.tsx`を作成し、以下のとおり記載します。  
-`Loader`では、`isUserLoggedIn`でログイン済みか否かを判定し、ログイン済みであれば`/user`ページにリダイレクトしています。  
-「Sign In」ボタンを押下すると実行されるactionでは`signInWithGoogle`でログインし、コールバック先へリダイレクトしています。  
-
 
 ```ts
 import { createSupabaseServerClient } from "~/supabase/supabase.server";
@@ -282,7 +275,6 @@ export const isUserLoggedIn = async (
 
   return !!user;
 };
-
 ```
 
 ### コールバック処理の作成
