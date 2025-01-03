@@ -46,7 +46,7 @@ export default jsxRenderer(
             </div>
             <div className="hidden md:col-span-1 md:flex">
               <div className="min-w-full">
-                <div className="sticky top-20">
+                <div className="sticky top-6">
                   <DoubleContentLayout>
                     <TocRender toc={toc} />
                   </DoubleContentLayout>
