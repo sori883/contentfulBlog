@@ -29,3 +29,24 @@ GitHubレポジトリはこちらです！
 ## Remixプロジェクトの作成
 今回はCloudflare公式のRemix on Cloudflare Workersのテンプレートに導入していきます。  
 <ExLinkCard url="https://developers.cloudflare.com/workers/frameworks/framework-guides/remix/" />  
+
+テンプレートを使用してRemixプロジェクトを作成します。  
+
+```
+pnpm create cloudflare@latest remix-supabasessr --framework=remix --experimental
+```
+
+テンプレート作成後、必要なパッケージを追加しておきます。  
+
+```
+pnpm add @supabase/ssr @supabase/supabase-js
+```
+
+そして、.dev.varsにSupabaseで使用する環境変数を記載します。  
+Suapabseの環境変数はProject Setting > APIに記載されています。  
+
+```
+SUPABASE_URL=https://<project_id>.supabase.co
+SUPABASE_ANON_KEY=your_anon_key
+```
+
