@@ -152,6 +152,22 @@ export const signInWithGoogle = async (
     headers: supabase.headers,
   };
 
+
+};
+
+export const getUser = async (
+  request: Request,
+  c: AppLoadContext,
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+
+  const {
+    data: { session },
+  } = await supabase.client.auth.getSession();
+
+  return session?.user ?? null;
+};
+
 ```
 
 ### ログイン画面の作成
