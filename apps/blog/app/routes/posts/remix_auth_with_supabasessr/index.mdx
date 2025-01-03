@@ -145,40 +145,6 @@ export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
 `Loader`では、`isUserLoggedIn`でログイン済みか否かを判定し、ログイン済みであれば`/user`ページにリダイレクトしています。  
 「Sign In」ボタンを押下すると実行されるactionでは`signInWithGoogle`でログインし、コールバック先へリダイレクトしています。  
 
-```ts
-import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/cloudflare";
-import { redirect } from "@remix-run/cloudflare";
-import { Form } from "@remix-run/react";
-import { isUserLoggedIn, signInWithGoogle } from "~/supabase/auth.supabase.server";
-
-export const loader = async ({ request, context }: LoaderFunctionArgs) => {
-  // 認証済みならトップページにリダイレクトする
-  if (await isUserLoggedIn(request, context)) {
-    return redirect("/user");
-  }
-  return null;
-};
-
-export const action = async ({ request, context }: ActionFunctionArgs) => {
-  const data =  await signInWithGoogle(request, context);
-  const parsedData = data;
-
-  // リダイレクトURLはdata.urlに格納されている。
-  // 自動でリダイレクトはしてくれないので、手動で行う。
-  // また、headersは付与忘れるとコールバック処理がうまくいかないので注意
-  return redirect(parsedData.data.url!, { headers: data.headers });
-};
-
-export default function SignIn() {
-  return (
-    &lt;div&gt;
-      &lt;Form method="post"&gt;
-        &lt;button type="submit"&gt;Sign In&lt;/button&gt;
-      &lt;/Form&gt;
-    &lt;/div&gt;
-  );
-}
-```
 
 ### コールバック処理の作成
 次にコールバック先のページを作成します。  
@@ -213,41 +179,6 @@ codeをセッションに変換（Cookieに保存）しており、ソースコ�
 ログイン先のユーザページ`routes/user.tsx`を作成します。  
 `Loader`ではユーザ情報を取得しつつ、Actionではログアウトを実装しています。  
 
-```ts
-import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/cloudflare";
-import { Form, redirect, useLoaderData } from "@remix-run/react";
-import { getUser, signOut } from "~/supabase/auth.supabase.server";
-
-export const loader = async ({ request, context }: LoaderFunctionArgs) => {
-  // ユーザ情報を取得する
-  const user = await getUser(request, context);
-  return { user };
-};
-
-export const action = async ({ request, context }: ActionFunctionArgs) => {
-  const data =  await signOut(request, context);
-  return redirect(data.data.url, { headers: data.headers });
-};
-
-export default function SignIn() {
-  // Loaderからユーザ情報を受け取り、ログイン状態を分岐
-  const data = useLoaderData<typeof loader>();
-  return (
-    &lt;div&gt;
-      { data.user ? 
-        &lt;div&gt;
-          &lt;h1>ログイン済みです！&lt;/h1&gt;
-          &lt;h2>ログアウトボタン&lt;/h2&gt;
-          &lt;Form method="post"&gt;
-            &lt;button type="submit"&gt;Sign Out&lt;/button&gt;
-          &lt;/Form&gt;
-        &lt;/div&gt;
-        : &lt;h1&gt;未ログインです。。&lt;/h1&gt; 
-      }
-    &lt;/div&gt;
-  );  
-}
-```
 
 ## あとがき
 @supabase/ssrとRemixを用いたGoogle認証は以上です。  
