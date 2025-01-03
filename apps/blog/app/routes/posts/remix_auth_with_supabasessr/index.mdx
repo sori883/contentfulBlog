@@ -180,11 +180,35 @@ codeをセッションに変換（Cookieに保存）しており、ソースコ�
 `Loader`ではユーザ情報を取得しつつ、Actionではログアウトを実装しています。  
 
 ```ts
-import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/cloudflare";
-import { Form, redirect, useLoaderData } from "@remix-run/react";
-import { getUser, signOut } from "~/supabase/auth.supabase.server";
+export const loader = async ({ request, context }: LoaderFunctionArgs) => {
+  // ユーザ情報を取得する
+  const user = await getUser(request, context);
+  return { user };
+};
 
+export const action = async ({ request, context }: ActionFunctionArgs) => {
+  const data =  await signOut(request, context);
+  return redirect(data.data.url, { headers: data.headers });
+};
 
+export default function SignIn() {
+  // Loaderからユーザ情報を受け取り、ログイン状態を分岐
+  const data = useLoaderData<typeof loader>();
+  return (
+    &lt;div&gt;
+      { data.user ? 
+        &lt;div&gt;
+          &lt;h1>ログイン済みです！&lt;/h1&gt;
+          &lt;h2>ログアウトボタン&lt;/h2&gt;
+          &lt;Form method="post"&gt;
+            &lt;button type="submit"&gt;Sign Out&lt;/button&gt;
+          &lt;/Form&gt;
+        &lt;/div&gt;
+        : &lt;h1&gt;未ログインです。。&lt;/h1&gt; 
+      }
+    &lt;/div&gt;
+  );  
+}
 ```
 
 ## あとがき
