@@ -136,10 +136,7 @@ export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
 
 注意点として`successRedirectPath`は後述するコールバック先に合わせておく必要があります。 
 
-```ts
-import { createSupabaseServerClient } from "~/supabase/supabase.server";
-import type { AppLoadContext } from "@remix-run/cloudflare";
-
+```
 export const signInWithGoogle = async (
   request: Request,
   c: AppLoadContext,
