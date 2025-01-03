@@ -241,11 +241,11 @@ export const action = async ({ request, context }: ActionFunctionArgs) => {
 
 export default function SignIn() {
   return (
-    <>
+    <div>
       <Form method="post">
         <button type="submit">Sign In</button>
       </Form>
-    </>
+    </div>
   );
 }
 ```
@@ -254,7 +254,7 @@ export default function SignIn() {
 次にコールバック先のページを作成します。  
 ここでは`routes/auth.callback.tsx`を作成し、以下のとおり記載します。  
 
-```tsx
+```ts
 import { redirect } from "@remix-run/cloudflare";
 import type {LoaderFunctionArgs} from "@remix-run/cloudflare";
 import { createSupabaseServerClient } from "~/supabase/supabase.server";
@@ -304,18 +304,18 @@ export default function SignIn() {
   // Loaderからユーザ情報を受け取り、ログイン状態を分岐
   const data = useLoaderData<typeof loader>();
   return (
-    <>
+    <div>
       { data.user ? 
-        <>
+        <div>
           <h1>ログイン済みです！</h1>
           <h2>ログアウトボタン</h2>
           <Form method="post">
             <button type="submit">Sign Out</button>
           </Form>
-        </>
+        </div>
         : <h1>未ログインです。。</h1> 
       }
-    </>
+    </div>
   );  
 }
 ```
