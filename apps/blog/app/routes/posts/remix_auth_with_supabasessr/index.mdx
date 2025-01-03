@@ -144,12 +144,28 @@ export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
 
 ```ts
 export const loader = async ({ request, context }: LoaderFunctionArgs) => {
-  // 認証済みならトップページにリダイレクトする
   if (await isUserLoggedIn(request, context)) {
     return redirect("/user");
   }
   return null;
 };
+
+export const action = async ({ request, context }: ActionFunctionArgs) => {
+  const data =  await signInWithGoogle(request, context);
+  const parsedData = data;
+
+  return redirect(parsedData.data.url!, { headers: data.headers });
+};
+
+export default function SignIn() {
+  return (
+    &lt;div&gt;
+      &lt;Form method="post"&gt;
+        &lt;button type="submit"&gt;Sign In&lt;/button&gt;
+      &lt;/Form&gt;
+    &lt;/div&gt;
+  );
+}
 ```
 
 
