@@ -215,12 +215,46 @@ export const isUserLoggedIn = async (
 `Loader`では、`isUserLoggedIn`でロ`グイン済みか否かを判定し、ログイン済みであれば`/user`ページにリダイレクトしています。  
 「Sign In」ボタンを押下すると実行されるaction`では`signInWithGoogle`でログインし、コールバック先へリダイレクトしています。  
 
+```tsx
+import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/cloudflare";
+import { redirect } from "@remix-run/cloudflare";
+import { Form } from "@remix-run/react";
+import { isUserLoggedIn, signInWithGoogle } from "~/supabase/auth.supabase.server";
+
+export const loader = async ({ request, context }: LoaderFunctionArgs) => {
+  // 認証済みならトップページにリダイレクトする
+  if (await isUserLoggedIn(request, context)) {
+    return redirect("/user");
+  }
+  return null;
+};
+
+export const action = async ({ request, context }: ActionFunctionArgs) => {
+  const data =  await signInWithGoogle(request, context);
+  const parsedData = data;
+
+  // リダイレクトURLはdata.urlに格納されている。
+  // 自動でリダイレクトはしてくれないので、手動で行う。
+  // また、headersは付与忘れるとコールバック処理がうまくいかないので注意
+  return redirect(parsedData.data.url!, { headers: data.headers });
+};
+
+export default function SignIn() {
+  return (
+    <>
+      <Form method="post">
+        <button type="submit">Sign In</button>
+      </Form>
+    </>
+  );
+}
+```
 
 ### コールバック処理の作成
 次にコールバック先のページを作成します。  
 ここでは`routes/auth.callback.tsx`を作成し、以下のとおり記載します。  
 
-```ts
+```tsx
 import { redirect } from "@remix-run/cloudflare";
 import type {LoaderFunctionArgs} from "@remix-run/cloudflare";
 import { createSupabaseServerClient } from "~/supabase/supabase.server";
@@ -250,7 +284,7 @@ codeをセッションに変換（Cookieに保存）しており、ソースコ�
 ログイン先のユーザページ`routes/user.tsx`を作成します。  
 `Loader`ではユーザ情報を取得しつつ、Actionではログアウトを実装しています。  
 
-```ts
+```tsx
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/cloudflare";
 import { Form, redirect, useLoaderData } from "@remix-run/react";
 import { getUser, signOut } from "~/supabase/auth.supabase.server";
