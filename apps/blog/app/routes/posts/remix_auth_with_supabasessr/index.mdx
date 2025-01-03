@@ -251,8 +251,29 @@ export default function SignIn() {
 ```
 
 
-## あとがき
-@supabase/ssrとRemixを用いたGoogle認証は以上です。  
-簡単ですが、redirect時はheadersを付与する必要がある点に注意で、私は半日はまりました。  
+### コールバック処理の作成
+次にコールバック先のページを作成します。  
+ここでは`auth/callback.ts`を作成し、以下のとおり記載します。  
 
-また、ZennスクラップでRemixからHonoにJWTを投げてユーザ情報を取得する等行っているので、もしよければご参照ください。  
+```ts
+import { redirect  } from "@remix-run/cloudflare";
+import type {LoaderFunctionArgs} from "@remix-run/cloudflare";
+import { createSupabaseServerClient } from "~/supabase/supabase.server";
+
+export async function loader({ request, context }: LoaderFunctionArgs) {
+  const requestUrl = new URL(request.url);
+  const code = requestUrl.searchParams.get("code");
+  const next = requestUrl.searchParams.get("next") ?? "/user";
+  const { client, headers } = createSupabaseServerClient(request, context);
+
+  if (code) {
+    const { error } = await client.auth.exchangeCodeForSession(code);
+    if (!error) {
+      return redirect(next, { headers });
+    }
+  }
+
+  // return the user to an error page with instructions
+  return redirect("/error", { headers });
+}
+```
