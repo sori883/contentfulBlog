@@ -241,11 +241,11 @@ export const action = async ({ request, context }: ActionFunctionArgs) => {
 
 export default function SignIn() {
   return (
-    <div>
-      <Form method="post">
-        <button type="submit">Sign In</button>
-      </Form>
-    </div>
+    &lt;div&gt;
+      &lt;Form method="post"&gt;
+        &lt;button type="submit"&gt;Sign In&lt;/button&gt;
+      &lt;/Form&gt;
+    &lt;/div&gt;
   );
 }
 ```
@@ -304,18 +304,18 @@ export default function SignIn() {
   // Loaderからユーザ情報を受け取り、ログイン状態を分岐
   const data = useLoaderData<typeof loader>();
   return (
-    <div>
+    &lt;div&gt;
       { data.user ? 
-        <div>
-          <h1>ログイン済みです！</h1>
-          <h2>ログアウトボタン</h2>
-          <Form method="post">
-            <button type="submit">Sign Out</button>
-          </Form>
-        </div>
-        : <h1>未ログインです。。</h1> 
+        &lt;div&gt;
+          &lt;h1>ログイン済みです！&lt;/h1&gt;
+          &lt;h2>ログアウトボタン&lt;/h2&gt;
+          &lt;Form method="post"&gt;
+            &lt;button type="submit"&gt;Sign Out&lt;/button&gt;
+          &lt;/Form&gt;
+        &lt;/div&gt;
+        : &lt;h1&gt;未ログインです。。&lt;/h1&gt; 
       }
-    </div>
+    &lt;/div&gt;
   );  
 }
 ```
