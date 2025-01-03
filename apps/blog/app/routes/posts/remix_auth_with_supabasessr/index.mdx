@@ -132,10 +132,11 @@ export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
 ```
 
 次にSupabase Clientを使用したログインやログアウトを実装します。  
-`supabase/supabase.server.ts`を作成し、以下のとおり記載します。  
-注意点として`successRedirectPath`は後述するコールバック先に合わせておく必要があります。 
+supabase/supabase.server.tsを作成し、以下のとおり記載します。  
 
-```ts
+注意点としてsuccessRedirectPathは後述するコールバック先に合わせておく必要があります。 
+
+```
 export const signInWithGoogle = async (
   request: Request,
   c: AppLoadContext,
@@ -157,8 +158,49 @@ export const signInWithGoogle = async (
   };
 };
 
-```
+export const signOut = async (
+  request: Request,
+  c: AppLoadContext,
+  successRedirectPath: string = "/",
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+  const { error } = await supabase.client.auth.signOut();
 
+  return { 
+    ok: !error ? true : false,
+    data: { url: successRedirectPath }, 
+    error: error ? error.message : "",
+    headers: supabase.headers,
+  };
+
+};
+
+export const getUser = async (
+  request: Request,
+  c: AppLoadContext,
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+
+  const {
+    data: { session },
+  } = await supabase.client.auth.getSession();
+
+  return session?.user ?? null;
+};
+
+export const isUserLoggedIn = async (
+  request: Request,
+  c: AppLoadContext,
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+
+  const {
+    data: { user },
+  } = await supabase.client.auth.getUser();
+
+  return !!user;
+};
+```
 
 ### ログイン画面の作成
 `routes/login.tsx`を作成し、以下のとおり記載します。  
