@@ -145,6 +145,13 @@ export const signInWithGoogle = async (
   const supabase = createSupabaseServerClient(request, c);
   const { error } = await supabase.client.auth.signOut();
 
+  return { 
+    ok: !error ? true : false,
+    data: { url: successRedirectPath }, 
+    error: error ? error.message : "",
+    headers: supabase.headers,
+  };
+
 ```
 
 ### ログイン画面の作成
