@@ -215,7 +215,7 @@ export const isUserLoggedIn = async (
 `Loader`では、`isUserLoggedIn`でロ`グイン済みか否かを判定し、ログイン済みであれば`/user`ページにリダイレクトしています。  
 「Sign In」ボタンを押下すると実行されるaction`では`signInWithGoogle`でログインし、コールバック先へリダイレクトしています。  
 
-```tsx
+```ts
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/cloudflare";
 import { redirect } from "@remix-run/cloudflare";
 import { Form } from "@remix-run/react";
@@ -284,7 +284,7 @@ codeをセッションに変換（Cookieに保存）しており、ソースコ�
 ログイン先のユーザページ`routes/user.tsx`を作成します。  
 `Loader`ではユーザ情報を取得しつつ、Actionではログアウトを実装しています。  
 
-```tsx
+```ts
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/cloudflare";
 import { Form, redirect, useLoaderData } from "@remix-run/react";
 import { getUser, signOut } from "~/supabase/auth.supabase.server";
