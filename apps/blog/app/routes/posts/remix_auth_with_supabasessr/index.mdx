@@ -49,7 +49,6 @@ SUPABASE_ANON_KEY=your_anon_key
 
 ## Google Cloudの設定
 以下リンク先の手順をなぞる形になるため、本記事では変更部分だけピックアップします。  
-<ExLinkCard url="https://supabase.com/docs/guides/auth/social-login/auth-google?queryGroups=environment&environment=server&queryGroups=framework&framework=remix&queryGroups=platform&platform=web#application-code-configuration" />  
 
 ### OAuth同意画面の設定
 まずは[OAuth同意画面](https://console.cloud.google.com/apis/credentials/consent)を作成します。  
@@ -276,7 +275,6 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
 ```
 
 codeをセッションに変換（Cookieに保存）しており、ソースコードは公式サイトを参考にしています。  
-<ExLinkCard url="https://supabase.com/docs/guides/auth/social-login/auth-google?queryGroups=framework&framework=remix&queryGroups=environment&environment=server&queryGroups=platform&platform=web#application-code" />  
 
 ### ユーザページの作成
 ログイン先のユーザページ`routes/user.tsx`を作成します。  
