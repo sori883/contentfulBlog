@@ -225,6 +225,23 @@ codeをセッションに変換（Cookieに保存）しており、ソースコ�
 ログイン先のユーザページ`routes/user.tsx`を作成します。  
 `Loader`ではユーザ情報を取得しつつ、Actionではログアウトを実装しています。  
 
+```ts
+import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/cloudflare";
+import { Form, redirect, useLoaderData } from "@remix-run/react";
+import { getUser, signOut } from "~/supabase/auth.supabase.server";
+
+export const loader = async ({ request, context }: LoaderFunctionArgs) => {
+  // ユーザ情報を取得する
+  const user = await getUser(request, context);
+  return { user };
+};
+
+export const action = async ({ request, context }: ActionFunctionArgs) => {
+  const data =  await signOut(request, context);
+  return redirect(data.data.url, { headers: data.headers });
+};
+```
+
 ## あとがき
 @supabase/ssrとRemixを用いたGoogle認証は以上です。  
 簡単ですが、redirect時はheadersを付与する必要がある点に注意で、私は半日はまりました。  
