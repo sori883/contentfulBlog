@@ -132,11 +132,14 @@ export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
 ```
 
 次にSupabase Clientを使用したログインやログアウトを実装します。  
-supabase/supabase.server.tsを作成し、以下のとおり記載します。  
+`supabase/supabase.server.ts`を作成し、以下のとおり記載します。  
 
-注意点としてsuccessRedirectPathは後述するコールバック先に合わせておく必要があります。 
+注意点として`successRedirectPath`は後述するコールバック先に合わせておく必要があります。 
 
-```
+```ts
+import { createSupabaseServerClient } from "~/supabase/supabase.server";
+import type { AppLoadContext } from "@remix-run/cloudflare";
+
 export const signInWithGoogle = async (
   request: Request,
   c: AppLoadContext,
