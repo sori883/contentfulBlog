@@ -53,7 +53,7 @@ export default defineConfig(({ mode }) => {
           remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
           rehypePlugins: [
             rehypeHighlight,
-            rehypeMdxCodeProps,
+            [rehypeMdxCodeProps, { tagName: 'code' }],
             rehypeMdxImportMedia,
             rehypeMermaid,
             rehypeSlug,
