@@ -92,7 +92,7 @@ Supabaseダッシュボードから「Authentication」>「Auth Providers」>「
 ![supabasessr_sb1](./supabasessr_sb1.webp)  
 
 ## SupabaseとRemixでGoogle認証をする
-### Supabase Clientと認証処理の作成
+### 認証処理の作成
 まずは、RemixでSupabaseを利用するためのSupabase Clientを作成します。  
 こちらは、ほぼ[公式サイト](https://supabase.com/docs/guides/auth/server-side/creating-a-client?queryGroups=framework&framework=remix&queryGroups=package-manager&package-manager=pnpm&queryGroups=environment&environment=remix-component#create-a-client)の例をそのまま使っています。  
 
@@ -113,13 +113,13 @@ export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
           return parseCookieHeader(request.headers.get("Cookie") ?? "");
         },
         setAll(cookiesToSet) {
-					for (const cookie of cookiesToSet) {
-						const { name, value, options } = cookie;
-						headers.append(
-							"Set-Cookie",
-							serializeCookieHeader(name, value, options),
-						);
-					}
+          for (const cookie of cookiesToSet) {
+            const { name, value, options } = cookie;
+            headers.append(
+            "Set-Cookie",
+            serializeCookieHeader(name, value, options),
+            );
+          }
         },
       },
       cookieOptions: {
@@ -139,4 +139,141 @@ export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
 `supabase/supabase.server.ts`を作成し、以下のとおり記載します。  
 
 注意点として`successRedirectPath`は後述するコールバック先に合わせておく必要があります。 
- 
+
+```ts
+import { createSupabaseServerClient } from "~/supabase/supabase.server";
+import type { AppLoadContext } from "@remix-run/cloudflare";
+
+export const signInWithGoogle = async (
+  request: Request,
+  c: AppLoadContext,
+  successRedirectPath: string = "http://localhost:5173/auth/callback",
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+  const { data, error } = await supabase.client.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: successRedirectPath,
+    },
+  });
+
+  return { 
+    ok: !error && data ? true : false,
+    data: data,
+    error: error && !data ? error.message : "",
+    headers: supabase.headers,
+  };
+};
+
+export const signOut = async (
+  request: Request,
+  c: AppLoadContext,
+  successRedirectPath: string = "/",
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+  const { error } = await supabase.client.auth.signOut();
+
+  return { 
+    ok: !error ? true : false,
+    data: { url: successRedirectPath }, 
+    error: error ? error.message : "",
+    headers: supabase.headers,
+  };
+
+};
+
+export const getUser = async (
+  request: Request,
+  c: AppLoadContext,
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+
+  const {
+    data: { session },
+  } = await supabase.client.auth.getSession();
+
+  return session?.user ?? null;
+};
+
+export const isUserLoggedIn = async (
+  request: Request,
+  c: AppLoadContext,
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+
+  const {
+    data: { user },
+  } = await supabase.client.auth.getUser();
+
+  return !!user;
+};
+```
+
+
+### ログイン画面の作成
+`routes/login.tsx`を作成し、以下のとおり記載します。  
+`Loader`では、`isUserLoggedIn`でログイン済みか否かを判定し、ログイン済みであれば`/user`ページにリダイレクトしています。  
+「Sign In」ボタンを押下すると実行される`action`では`signInWithGoogle`でログインし、コールバック先へリダイレクトしています。  
+
+```ts
+import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/cloudflare";
+import { redirect } from "@remix-run/cloudflare";
+import { Form } from "@remix-run/react";
+import { isUserLoggedIn, signInWithGoogle } from "~/supabase/auth.supabase.server";
+
+export const loader = async ({ request, context }: LoaderFunctionArgs) => {
+  // 認証済みならトップページにリダイレクトする
+  if (await isUserLoggedIn(request, context)) {
+    return redirect("/user");
+  }
+  return null;
+};
+
+export const action = async ({ request, context }: ActionFunctionArgs) => {
+  const data =  await signInWithGoogle(request, context);
+  const parsedData = data;
+
+  // リダイレクトURLはdata.urlに格納されている。
+  // 自動でリダイレクトはしてくれないので、手動で行う。
+  // また、headersは付与忘れるとコールバック処理がうまくいかないので注意
+  return redirect(parsedData.data.url!, { headers: data.headers });
+};
+
+export default function SignIn() {
+  return (
+    <>
+      <Form method="post">
+        <button type="submit">Sign In</button>
+      </Form>
+    </>
+  );
+}
+```
+
+
+### コールバック処理の作成
+次にコールバック先のページを作成します。  
+ここでは`auth/callback.ts`を作成し、以下のとおり記載します。  
+
+```ts
+import { redirect  } from "@remix-run/cloudflare";
+import type {LoaderFunctionArgs} from "@remix-run/cloudflare";
+import { createSupabaseServerClient } from "~/supabase/supabase.server";
+
+export async function loader({ request, context }: LoaderFunctionArgs) {
+  const requestUrl = new URL(request.url);
+  const code = requestUrl.searchParams.get("code");
+  const next = requestUrl.searchParams.get("next") ?? "/user";
+  const { client, headers } = createSupabaseServerClient(request, context);
+
+  if (code) {
+    const { error } = await client.auth.exchangeCodeForSession(code);
+    if (!error) {
+      return redirect(next, { headers });
+    }
+  }
+
+  // return the user to an error page with instructions
+  return redirect("/error", { headers });
+}
+```
