@@ -138,6 +138,12 @@ export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
 
 ```
 export const signInWithGoogle = async (
+  request: Request,
+  c: AppLoadContext,
+  successRedirectPath: string = "/",
+) => {
+  const supabase = createSupabaseServerClient(request, c);
+  const { error } = await supabase.client.auth.signOut();
 
 ```
 
