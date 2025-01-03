@@ -136,10 +136,7 @@ export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
 
 注意点として`successRedirectPath`は後述するコールバック先に合わせておく必要があります。 
 
-
-import { createSupabaseServerClient } from "~/supabase/supabase.server";
-import type { AppLoadContext } from "@remix-run/cloudflare";
-
+```
 export const signInWithGoogle = async (
   request: Request,
   c: AppLoadContext,
@@ -203,7 +200,7 @@ export const isUserLoggedIn = async (
 
   return !!user;
 };
-
+```
 
 ### ログイン画面の作成
 `routes/login.tsx`を作成し、以下のとおり記載します。  
