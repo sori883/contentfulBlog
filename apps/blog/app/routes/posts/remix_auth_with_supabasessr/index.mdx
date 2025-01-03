@@ -156,16 +156,6 @@ export const action = async ({ request, context }: ActionFunctionArgs) => {
 
   return redirect(parsedData.data.url!, { headers: data.headers });
 };
-
-export default function SignIn() {
-  return (
-    &lt;div&gt;
-      &lt;Form method="post"&gt;
-        &lt;button type="submit"&gt;Sign In&lt;/button&gt;
-      &lt;/Form&gt;
-    &lt;/div&gt;
-  );
-}
 ```
 
 
