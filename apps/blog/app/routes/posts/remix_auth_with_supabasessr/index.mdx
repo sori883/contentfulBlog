@@ -96,7 +96,7 @@ Supabaseダッシュボードから「Authentication」>「Auth Providers」>「
 まずは、RemixでSupabaseを利用するためのSupabase Clientを作成します。  
 こちらは、ほぼ[Supabaseドキュメント](https://supabase.com/docs/guides/auth/server-side/creating-a-client?queryGroups=framework&framework=remix&queryGroups=package-manager&package-manager=pnpm&queryGroups=environment&environment=remix-component#create-a-client)の例をそのまま使っています。  
 
-```js
+```
 export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
   const headers = new Headers();
 
@@ -142,7 +142,7 @@ export function createSupabaseServerClient(request: Request, c:AppLoadContext) {
 `Loader`では、`isUserLoggedIn`でログイン済みか否かを判定し、ログイン済みであれば`/user`ページにリダイレクトしています。  
 「Sign In」ボタンを押下すると実行されるactionでは`signInWithGoogle`でログインし、コールバック先へリダイレクトしています。  
 
-```js
+```
 export const loader = async ({ request, context }: LoaderFunctionArgs) => {
   if (await isUserLoggedIn(request, context)) {
     return redirect("/user");
