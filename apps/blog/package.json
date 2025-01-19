@@ -36,7 +36,7 @@
     "@types/mdx": "^2.0.13",
     "autoprefixer": "^10.4.20",
     "eslint": "catalog:",
-    "postcss": "^8.4.49",
+    "postcss": "^8.5.1",
     "prettier": "catalog:",
     "recma-export-filepath": "^1.1.0",
     "rehype-highlight": "^7.0.0",
