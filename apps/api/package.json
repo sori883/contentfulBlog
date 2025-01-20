@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "wrangler dev src/index.ts",
+    "dev:remote": "wrangler dev src/index.ts --remote",
     "worker:deploy": "wrangler deploy --minify src/index.ts",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",

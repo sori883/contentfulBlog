@@ -63,3 +63,6 @@ lerna-debug.log*
 
 # misc
 .DS_Store
+
+# cloudflare
+apps/api/wrangler.toml

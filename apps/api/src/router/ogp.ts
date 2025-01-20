@@ -18,7 +18,7 @@ export const ogpRouter = new Hono<{ Bindings: Bindings }>().get(
   async (c) => {
     const { url } = c.req.valid("query");
 
-    const cachedOgp = await c.env.KV.get<OpgType>(url, "json");
+    const cachedOgp = await c.env.KV.get<OpgType>(url.toString(), "json");
 
     if (cachedOgp) {
       return c.json({data: cachedOgp});

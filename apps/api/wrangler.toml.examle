@@ -1,0 +1,8 @@
+name = "sori883_api"
+main = "src/index.ts"
+compatibility_date = "2024-08-21"
+
+[[kv_namespaces]]
+binding = "KV"
+id = ""
+preview_id = ""
