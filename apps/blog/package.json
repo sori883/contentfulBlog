@@ -49,7 +49,7 @@
     "remark-mdx-frontmatter": "^5.0.0",
     "tailwindcss": "catalog:",
     "textlint": "^14.0.5",
-    "textlint-rule-aws-service-name": "^1.11.0",
+    "textlint-rule-aws-service-name": "^1.12.0",
     "textlint-rule-ja-no-redundant-expression": "^4.0.1",
     "textlint-rule-ja-unnatural-alphabet": "^2.0.1",
     "textlint-rule-no-doubled-joshi": "^5.1.0",
