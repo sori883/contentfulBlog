@@ -2,10 +2,11 @@ import { client } from "~/utils/rpc";
 
 type Props = {
   url: string;
+  title?: string;
 };
 
-export async function ExLinkCard({ url }: Props) {
-  const response = await (
+export async function ExLinkCard({ url, title }: Props) {
+  const response = title ? { data: { title } }  : await (
     await client.api.ogp.getOgp.$get({ query: { url } })
   ).json();
 
