@@ -4,9 +4,8 @@ import { HTTPException } from "hono/http-exception";
 import { z } from "zod";
 
 import type { Bindings } from "../bindings";
-import { getOgp } from "../usecase/ogp";
-
 import type { OpgType } from "../usecase/ogp.ts";
+import { getOgp } from "../usecase/ogp";
 
 const getOgpParam = z.object({
   url: z.string(),
@@ -21,7 +20,7 @@ export const ogpRouter = new Hono<{ Bindings: Bindings }>().get(
     const cachedOgp = await c.env.KV.get<OpgType>(url.toString(), "json");
 
     if (cachedOgp) {
-      return c.json({data: cachedOgp});
+      return c.json({ data: cachedOgp });
     }
 
     try {

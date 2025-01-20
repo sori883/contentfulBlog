@@ -1,5 +1,3 @@
-
-
 class OGPParser {
   title: string;
   description: string;
