@@ -15,6 +15,7 @@ import rehypeSlug from "rehype-slug";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
+import rehypePrettyCode from "rehype-pretty-code";
 import { defineConfig, normalizePath } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 import tsconfigPaths from "vite-tsconfig-paths";
@@ -52,8 +53,7 @@ export default defineConfig(({ mode }) => {
           providerImportSource: "@/mdx/mdx-components",
           remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
           rehypePlugins: [
-            rehypeHighlight,
-            [rehypeMdxCodeProps, { tagName: "code" }],
+            [rehypePrettyCode],
             rehypeMdxImportMedia,
             rehypeMermaid,
             rehypeSlug,

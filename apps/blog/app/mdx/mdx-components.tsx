@@ -12,7 +12,7 @@ import { WarningNote } from "~/components/markdown/warningNote";
 export function useMDXComponents(): MDXComponents {
   const components = {
     img: Image,
-    pre: StyledPre,
+    // pre: StyledPre,
     Twitter: Twitter,
     ExLinkCard: ExLinkCard,
     a: Link,

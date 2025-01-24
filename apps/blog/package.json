@@ -19,7 +19,9 @@
     "@acme/api": "workspace:^",
     "hono": "catalog:",
     "honox": "^0.1.26",
-    "sass": "^1.81.0"
+    "rehype-pretty-code": "^0.14.0",
+    "sass": "^1.81.0",
+    "shiki": "^2.1.0"
   },
   "devDependencies": {
     "@acme/eslint-config": "workspace:^",
