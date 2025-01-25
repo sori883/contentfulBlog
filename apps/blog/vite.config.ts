@@ -53,7 +53,8 @@ export default defineConfig(({ mode }) => {
           providerImportSource: "@/mdx/mdx-components",
           remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
           rehypePlugins: [
-            [rehypePrettyCode],
+            rehypeHighlight,
+            rehypeMdxCodeProps,
             rehypeMdxImportMedia,
             rehypeMermaid,
             rehypeSlug,
