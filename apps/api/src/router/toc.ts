@@ -10,15 +10,18 @@ const getTocParam = z.object({
   html: z.string(),
 });
 
-export const tocRouter = new Hono<{ Bindings: Bindings }>()
-.post("/parseTocPost", zValidator("json", getTocParam), async (c) => {
-  const { html } = c.req.valid("json");
+export const tocRouter = new Hono<{ Bindings: Bindings }>().post(
+  "/parseTocPost",
+  zValidator("json", getTocParam),
+  async (c) => {
+    const { html } = c.req.valid("json");
 
-  try {
-    const tocs = await makeToc(html);
-    return c.json({ data: tocs });
-  } catch (error) {
-    console.error(error);
-    throw new HTTPException(500, { message: "TOCの作成に失敗しました" });
-  }
-});
+    try {
+      const tocs = await makeToc(html);
+      return c.json({ data: tocs });
+    } catch (error) {
+      console.error(error);
+      throw new HTTPException(500, { message: "TOCの作成に失敗しました" });
+    }
+  },
+);
