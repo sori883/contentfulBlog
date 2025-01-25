@@ -16,7 +16,7 @@ export default jsxRenderer(
 
     const html = renderToString(await children?.toString());
     const toc = (
-      await (await client.api.toc.parseToc.$get({ query: { html } })).json()
+      await (await client.api.toc.parseTocPost.$post({ json: { html } })).json()
     ).data;
 
     return (

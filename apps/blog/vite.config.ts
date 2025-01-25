@@ -11,6 +11,7 @@ import rehypeHighlight from "rehype-highlight";
 import rehypeMdxCodeProps from "rehype-mdx-code-props";
 import rehypeMdxImportMedia from "rehype-mdx-import-media";
 import rehypeMermaid from "rehype-mermaid";
+import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
@@ -53,7 +54,7 @@ export default defineConfig(({ mode }) => {
           remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
           rehypePlugins: [
             rehypeHighlight,
-            [rehypeMdxCodeProps, { tagName: "code" }],
+            rehypeMdxCodeProps,
             rehypeMdxImportMedia,
             rehypeMermaid,
             rehypeSlug,

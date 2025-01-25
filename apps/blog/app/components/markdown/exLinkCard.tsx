@@ -6,9 +6,9 @@ type Props = {
 };
 
 export async function ExLinkCard({ url, title }: Props) {
-  const response = title ? { data: { title } }  : await (
-    await client.api.ogp.getOgp.$get({ query: { url } })
-  ).json();
+  const response = title
+    ? { data: { title } }
+    : await (await client.api.ogp.getOgp.$get({ query: { url } })).json();
 
   const urlObj = new URL(url);
 

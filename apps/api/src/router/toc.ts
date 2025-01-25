@@ -10,11 +10,11 @@ const getTocParam = z.object({
   html: z.string(),
 });
 
-export const tocRouter = new Hono<{ Bindings: Bindings }>().get(
-  "/parseToc",
-  zValidator("query", getTocParam),
+export const tocRouter = new Hono<{ Bindings: Bindings }>().post(
+  "/parseTocPost",
+  zValidator("json", getTocParam),
   async (c) => {
-    const { html } = c.req.valid("query");
+    const { html } = c.req.valid("json");
 
     try {
       const tocs = await makeToc(html);
