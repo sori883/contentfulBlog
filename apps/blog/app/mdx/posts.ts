@@ -5,7 +5,7 @@ import type { Frontmatter } from "~/mdx/mdx-types";
 import { groupBy } from "~/utils/groupby";
 import { parseDate } from "~/utils/time";
 
-const POSTS_PER_PAGE = 10;
+const POSTS_PER_PAGE = 9;
 
 type MDXExports = {
   frontmatter: Frontmatter;
