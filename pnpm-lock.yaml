@@ -155,8 +155,8 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0
       rehype-highlight:
-        specifier: ^7.0.0
-        version: 7.0.1
+        specifier: ^7.0.2
+        version: 7.0.2
       rehype-mdx-code-props:
         specifier: ^3.0.1
         version: 3.0.1
@@ -4125,8 +4125,8 @@ packages:
   regx@1.0.4:
     resolution: {integrity: sha512-Z/5ochRUyD5TkJgFq+66ajKePlj6KzpSLfDO2lOLOLu7E82xAjNux0m8mx1DAXBj5ECHiRCBWoqL25b4lkwcgw==}
 
-  rehype-highlight@7.0.1:
-    resolution: {integrity: sha512-dB/vVGFsbm7xPglqnYbg0ABg6rAuIWKycTvuXaOO27SgLoOFNoTlniTBtAxp3n5ZyMioW1a3KwiNqgjkb6Skjg==}
+  rehype-highlight@7.0.2:
+    resolution: {integrity: sha512-k158pK7wdC2qL3M5NcZROZ2tR/l7zOzjxXd5VGdcfIyoijjQqpHd3JKtYSBDpDZ38UI2WJWuFAtkMDxmx5kstA==}
 
   rehype-mdx-code-props@3.0.1:
     resolution: {integrity: sha512-BWWKn0N6r7/qd7lbLgv5J8of7imz1l1PyCNoY7BH0AOR9JdJlQIfA9cKqTZVEb2h2GPKh473qrBajF0i01fq3A==}
@@ -9517,7 +9517,7 @@ snapshots:
 
   regx@1.0.4: {}
 
-  rehype-highlight@7.0.1:
+  rehype-highlight@7.0.2:
     dependencies:
       '@types/hast': 3.0.4
       hast-util-to-text: 4.0.2
