@@ -8,5 +8,5 @@ catalog:
   tailwindcss: ^3.4.10
   typescript: ^5.5.4
   wrangler:  ^3.103.2
-  "@cloudflare/workers-types": ^4.20250109.0
+  "@cloudflare/workers-types": ^4.20250129.0
   hono: ^4.6.20
