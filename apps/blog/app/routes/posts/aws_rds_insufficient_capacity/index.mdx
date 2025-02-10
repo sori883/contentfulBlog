@@ -13,16 +13,16 @@ tags:
 検証のためいつも通りクラスターを起動して休憩から帰ってきたら、プライマリインスタンスのステータスが「insufficient-capacity」になっていました。  
 
 ## RDSのinsufficient-capacityについて
-「insufficient-capacity」は、RSインスタンスを作成、起動、変更、復元しようとしたAZのリソース不足が原因で発生するようです。
+「insufficient-capacity」は、RSインスタンスを作成、起動、変更、復元しようとしたAZのリソース不足が原因で発生するようです。  
 AWSが十分なリソースを確保出来なかった点が原因であるため、AWSの責任範囲になります。  
 <ExLinkCard title="Amazon RDS で利用可能な DB インスタンスが不足している" url="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Capacity" />
 
 ## insufficient-capacity発生時はどのような状況だったか
-前提としてAuroraの構成は、クラスターに対してプライマリインスタンス1個のみでした。  
+Auroraの構成は、クラスターに対してプライマリインスタンス1個のみでした。  
 エラー発生時に出来なくなったことを記載します。  
-・クラスターの一時停止不可
-・インスタンスの再起動、変更、停止不可
-・DBクライアントからの接続不可  
+- クラスターの一時停止不可
+- インスタンスの再起動、変更、停止不可
+- DBクライアントからの接続不可  
 
 インスタンスタイプ等、マネコンから確認出来る情報はそのまま表示されたままでした。  
 
@@ -30,9 +30,10 @@ AWSが十分なリソースを確保出来なかった点が原因であるた�
 RDSインスタンスの再作成しかありません。  
 
 噓でしょ？と思ってAWSサポートにも問い合わせをしてみましたが、以下の通り削除後に再作成するしかないようでした。  
-・insufficient-capacityが発生したRDSインスタンスは継続利用不可能のため、削除。  
-・削除後、クラスターにリーダーインスタンスを追加。  
-※サポートから貰ったリーダーインスタンスの追加方法  
+- insufficient-capacityが発生したRDSインスタンスは継続利用不可能のため、削除。  
+- 削除後、クラスターにリーダーインスタンスを追加。  
+
+※下記、サポートから貰ったリーダーインスタンスの追加方法  
 <ExLinkCard title="DB クラスターに Aurora レプリカを追加する" url="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/aurora-replicas-adding.html" />
 
 実際の対応では以下の順番で実施しました。  
@@ -41,16 +42,19 @@ RDSインスタンスの再作成しかありません。
 1. insufficient-capacity状態のライターインスタンス削除 ※ここでリーダーインスタンスがライターインスタンスに昇格する
 1. リーダーインスタンスのインスタンス名を変更
 
-
 ## RDSのinsufficient-capacityの対策
 キャパシティ予約もないし..どうやって対策すればいいんだろう..と思ってついでにAWSサポートへ聞いてみました。  
 「強いて言うならAuroraクラスターを停止しないことです」とのことで、一時停止等を行う場合は必ず「insufficient-capacity」のリスクを負う必要があるようです。  
 
-構築や構成変更時の設計で発生しても対処出来るように考えておく必要がありそうですね。  
-
-コールドスタートがキツそうですが、検証利用ならAurora Serverless v2でAUC 0とかもありな気がします。 
+残念ながら、EC2の様なキャパシティ予約もないため、構築や構成変更時の設計で発生しても対処出来るように考えておく必要がありそうですね。  
+例えば、私のように検証利用であれば、Aurora Serverless v2でAUC 0とかもありな気がします。  
 <ExLinkCard url="https://aws.amazon.com/jp/about-aws/whats-new/2024/11/amazon-aurora-serverless-v2-scaling-zero-capacity/" />
 
+## ちなみに、結構多発しているらしい。
+2025年2月時点、「ap-northeast-1」でキャパシティ不足エラーが多発しているようです。  
+私自身もEC2やRDSで複数回発生していますし、XではLambdaがキャパシティエラーで動かない事例も発生しているようです。  
+年度末に向けてプロジェクトの決着を急いでいる方々、特にお気を付けください。。  
+
 ## 参考
-(Amazon RDSでinsufficient-capacityになって詰まった件)[https://qiita.com/jarapeno/items/619292dcb675ecebbfe4]  
-(RDSインスタンスが「Insufficient instance capacity」で起動しません。どうすれば良いですか?)[https://support.serverworks.co.jp/hc/ja/articles/5328839457561-RDS%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%81%8C-Insufficient-instance-capacity-%E3%81%A7%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%BE%E3%81%9B%E3%82%93-%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E8%89%AF%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B]  
+[Amazon RDSでinsufficient-capacityになって詰まった件](https://qiita.com/jarapeno/items/619292dcb675ecebbfe4)  
+[RDSインスタンスが「Insufficient instance capacity」で起動しません。どうすれば良いですか?](https://support.serverworks.co.jp/hc/ja/articles/5328839457561-RDS%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%81%8C-Insufficient-instance-capacity-%E3%81%A7%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%BE%E3%81%9B%E3%82%93-%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E8%89%AF%E3%81%84%E3%81%A7%E3%81%99%E3%81%8B)  
