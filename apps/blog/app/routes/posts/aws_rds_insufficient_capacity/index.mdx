@@ -1,7 +1,7 @@
 ---
 icon: "😥"
-title: "Amazon RDSのAuroraでinsufficient-capacityエラーに遭遇した"
-date: 2024-02-08T00:00:00
+title: "Amazon RDSでinsufficient-capacityエラーに遭遇した"
+date: 2025-02-10T00:00:00
 description: "AWS SAP(C-02)の合格記録"
 category: "AWS"
 tags:
@@ -9,7 +9,7 @@ tags:
 ---
 
 ## はじまり
-コストを抑えるために、Auroraクラスターを手動で停止する運用を行ってました。  
+コストを抑えるために、Auroraクラスターを手動で停止する運用をしていました。  
 検証のためいつも通りクラスターを起動して休憩から帰ってきたら、プライマリインスタンスのステータスが「insufficient-capacity」になっていました。  
 
 ## RDSのinsufficient-capacityについて
@@ -43,7 +43,7 @@ RDSインスタンスの再作成しかありません。
 
 
 ## RDSのinsufficient-capacityの対策
-キャパシティ予約もないし..どうやって対策すればいいんだろう..と思ってついでにAWSサポートに聞いてみました。  
+キャパシティ予約もないし..どうやって対策すればいいんだろう..と思ってついでにAWSサポートへ聞いてみました。  
 「強いて言うならAuroraクラスターを停止しないことです」とのことで、一時停止等を行う場合は必ず「insufficient-capacity」のリスクを負う必要があるようです。  
 
 構築や構成変更時の設計で発生しても対処出来るように考えておく必要がありそうですね。  
