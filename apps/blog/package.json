@@ -7,6 +7,7 @@
     "preview": "wrangler pages dev",
     "pages:deploy": "pnpm build && wrangler pages deploy",
     "format": "prettier --check .",
+    "format:fix": "prettier --write .",
     "lint": "eslint",
     "lint:text": "textlint app/routes/posts/**/*.mdx --config .textlintrc.json",
     "typecheck": "tsc --noEmit"

@@ -11,6 +11,7 @@
     "dev:remote": "wrangler dev src/index.ts --remote",
     "worker:deploy": "wrangler deploy --minify src/index.ts",
     "format": "prettier --check . --ignore-path ../../.gitignore",
+    "format:fix": "prettier --write . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "login": "wrangler login"
