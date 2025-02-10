@@ -18,9 +18,9 @@
     "@acme/prettier-config": "workspace:^",
     "eslint": "catalog:",
     "prettier": "catalog:",
-    "turbo": "^2.3.3",
+    "turbo": "^2.4.0",
     "typescript": "catalog:"
   },
   "prettier": "@acme/prettier-config",
-  "packageManager": "pnpm@9.9.0"
+  "packageManager": "pnpm@10.2.1"
 }
