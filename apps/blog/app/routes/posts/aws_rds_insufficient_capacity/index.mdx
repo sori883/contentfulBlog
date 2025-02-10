@@ -1,0 +1,52 @@
+---
+icon: "😥"
+title: "Amazon RDSのAuroraでinsufficient-capacityエラーに遭遇した"
+date: 2024-02-08T00:00:00
+description: "AWS SAP(C-02)の合格記録"
+category: "AWS"
+tags:
+  - 資格
+---
+
+## はじまり
+コストを抑えるために、Auroraクラスターを手動で停止する運用を行ってました。  
+検証のためいつも通りクラスターを起動して休憩から帰ってきたら、プライマリインスタンスのステータスが「insufficient-capacity」になっていました。  
+
+## RDSのinsufficient-capacityについて
+「insufficient-capacity」は、RSインスタンスを作成、起動、変更、復元しようとしたAZのリソース不足が原因で発生するようです。
+AWSが十分なリソースを確保出来なかった点が原因であるため、AWSの責任範囲になります。
+https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Capacity
+
+## insufficient-capacity発生時はどのような状況だったか
+前提としてAuroraの構成は、クラスターに対してプライマリインスタンス1個のみでした。  
+エラー発生時に出来なくなったことを記載します。  
+・クラスターの一時停止不可
+・インスタンスの再起動、変更、停止不可
+・DBクライアントからの接続不可  
+
+インスタンスタイプ等、マネコンから確認出来る情報はそのまま表示されたままでした。  
+
+## RDSのinsufficient-capacityの対処方法
+RDSインスタンスの再作成しかありません。  
+
+噓でしょ？と思ってAWSサポートにも問い合わせをしてみましたが、以下の通り削除後に再作成するしかないようでした。  
+・insufficient-capacityが発生したRDSインスタンスは継続利用不可能のため、削除。  
+・削除後、クラスターにリーダーインスタンスを追加。  
+※サポートから貰ったリーダーインスタンスの追加方法  
+<ExLinkCard url="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/aurora-replicas-adding.html" />
+
+実際の対応では以下の順番で実施しました。  
+エンドポイントやデータへの影響なく、1時間くらいでサクッと終わりました。  
+1. リーダーインスタンスの追加  
+1. insufficient-capacity状態のライターインスタンス削除 ※ここでリーダーインスタンスがライターインスタンスに昇格する
+1. リーダーインスタンスのインスタンス名を変更
+
+
+## RDSのinsufficient-capacityの対策
+キャパシティ予約もないし..どうやって対策すればいいんだろう..と思ってついでにAWSサポートに聞いてみました。  
+「強いて言うならAuroraクラスターを停止しないことです」とのことで、一時停止等を行う場合は必ず「insufficient-capacity」のリスクを負う必要があるようです。  
+
+構築や構成変更時の設計で発生しても対処出来るように考えておく必要がありそうですね。  
+
+コールドスタートがキツそうですが、検証利用ならAurora Serverless v2でAUC 0とかもありな気がします。 
+<ExLinkCard url="https://aws.amazon.com/jp/about-aws/whats-new/2024/11/amazon-aurora-serverless-v2-scaling-zero-capacity/" />
