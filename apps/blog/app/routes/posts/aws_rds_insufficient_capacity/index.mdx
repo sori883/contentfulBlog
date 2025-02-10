@@ -14,8 +14,8 @@ tags:
 
 ## RDSのinsufficient-capacityについて
 「insufficient-capacity」は、RSインスタンスを作成、起動、変更、復元しようとしたAZのリソース不足が原因で発生するようです。
-AWSが十分なリソースを確保出来なかった点が原因であるため、AWSの責任範囲になります。
-https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Capacity
+AWSが十分なリソースを確保出来なかった点が原因であるため、AWSの責任範囲になります。  
+<ExLinkCard title="Amazon RDS で利用可能な DB インスタンスが不足している" url="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Capacity" />
 
 ## insufficient-capacity発生時はどのような状況だったか
 前提としてAuroraの構成は、クラスターに対してプライマリインスタンス1個のみでした。  
@@ -33,7 +33,7 @@ RDSインスタンスの再作成しかありません。
 ・insufficient-capacityが発生したRDSインスタンスは継続利用不可能のため、削除。  
 ・削除後、クラスターにリーダーインスタンスを追加。  
 ※サポートから貰ったリーダーインスタンスの追加方法  
-<ExLinkCard url="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/aurora-replicas-adding.html" />
+<ExLinkCard title="DB クラスターに Aurora レプリカを追加する" url="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/aurora-replicas-adding.html" />
 
 実際の対応では以下の順番で実施しました。  
 エンドポイントやデータへの影響なく、1時間くらいでサクッと終わりました。  
