@@ -13,7 +13,7 @@
     "typecheck": "tsc --noEmit"
   },
   "engines": {
-    "node": ">=22.13.1"
+    "node": ">=22.14.0"
   },
   "private": true,
   "dependencies": {
