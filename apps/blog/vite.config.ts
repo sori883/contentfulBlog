@@ -78,8 +78,8 @@ export default defineConfig(({ mode }) => {
                 const destPath = normalizePath(
                   path
                     .relative(__dirname, fullPath)
-                    .replaceAll("app/routes/posts/", ""),
-                );
+                    .replaceAll("app\\routes\\posts\\", ""),
+                );    
                 return destPath;
               },
               // 普通のviteのビルドで生成したファイルを消さないようにする
