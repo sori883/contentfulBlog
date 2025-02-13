@@ -20,7 +20,7 @@ export function TocRender({ toc }: { toc: Toc[] }) {
             >
               <a
                 href={`#${toc.id}`}
-                className="a-link text-midium inline-flex items-center break-all py-1"
+                className="a-link text-sm inline-flex items-center break-all py-1"
               >
                 {toc.text}
               </a>
