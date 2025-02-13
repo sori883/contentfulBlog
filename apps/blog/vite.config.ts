@@ -79,7 +79,7 @@ export default defineConfig(({ mode }) => {
                   path
                     .relative(__dirname, fullPath)
                     .replaceAll("app/routes/posts/", ""),
-                );    
+                );
                 return destPath;
               },
               // 普通のviteのビルドで生成したファイルを消さないようにする
