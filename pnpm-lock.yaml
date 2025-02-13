@@ -16,8 +16,8 @@ catalogs:
       specifier: ^4.7.0
       version: 4.7.0
     prettier:
-      specifier: ^3.4.2
-      version: 3.5.0
+      specifier: ^3.5.1
+      version: 3.5.1
     tailwindcss:
       specifier: ^3.4.17
       version: 3.4.17
@@ -40,7 +40,7 @@ importers:
         version: 9.20.1(jiti@1.21.6)
       prettier:
         specifier: 'catalog:'
-        version: 3.5.0
+        version: 3.5.1
       turbo:
         specifier: ^2.4.2
         version: 2.4.2
@@ -80,7 +80,7 @@ importers:
         version: 9.20.1(jiti@1.21.6)
       prettier:
         specifier: 'catalog:'
-        version: 3.5.0
+        version: 3.5.1
       typescript:
         specifier: 'catalog:'
         version: 5.7.2
@@ -150,7 +150,7 @@ importers:
         version: 8.5.2
       prettier:
         specifier: 'catalog:'
-        version: 3.5.0
+        version: 3.5.1
       recma-export-filepath:
         specifier: ^1.1.0
         version: 1.1.0
@@ -244,7 +244,7 @@ importers:
         version: 9.20.1(jiti@1.21.6)
       prettier:
         specifier: 'catalog:'
-        version: 3.5.0
+        version: 3.5.1
       typescript:
         specifier: 'catalog:'
         version: 5.7.2
@@ -255,13 +255,13 @@ importers:
     dependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: ^4.3.1
-        version: 4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.0)
+        version: 4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.1)
       prettier:
         specifier: 'catalog:'
-        version: 3.5.0
+        version: 3.5.1
       prettier-plugin-tailwindcss:
         specifier: ^0.6.9
-        version: 0.6.9(@ianvs/prettier-plugin-sort-imports@4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.0))(prettier@3.5.0)
+        version: 0.6.9(@ianvs/prettier-plugin-sort-imports@4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.1))(prettier@3.5.1)
     devDependencies:
       '@acme/tsconfig':
         specifier: workspace:^
@@ -293,7 +293,7 @@ importers:
         version: 9.20.1(jiti@1.21.6)
       prettier:
         specifier: 'catalog:'
-        version: 3.5.0
+        version: 3.5.1
       typescript:
         specifier: 'catalog:'
         version: 5.7.2
@@ -3997,8 +3997,8 @@ packages:
       prettier-plugin-svelte:
         optional: true
 
-  prettier@3.5.0:
-    resolution: {integrity: sha512-quyMrVt6svPS7CjQ9gKb3GLEX/rl3BCL2oa/QkNcXv4YNVBC9olt3s+H7ukto06q7B1Qz46PbrKLO34PR6vXcA==}
+  prettier@3.5.1:
+    resolution: {integrity: sha512-hPpFQvHwL3Qv5AdRvBFMhnKo4tYxp0ReXiPn2bxkiohEX6mBeBwEpBSQTkD458RaaDKQMYSp4hX4UtfUTA5wDw==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -5977,13 +5977,13 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.1': {}
 
-  '@ianvs/prettier-plugin-sort-imports@4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.0)':
+  '@ianvs/prettier-plugin-sort-imports@4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.1)':
     dependencies:
       '@babel/generator': 7.26.2
       '@babel/parser': 7.26.2
       '@babel/traverse': 7.25.9
       '@babel/types': 7.26.0
-      prettier: 3.5.0
+      prettier: 3.5.1
       semver: 7.6.3
     optionalDependencies:
       '@vue/compiler-sfc': 3.5.13
@@ -9332,13 +9332,13 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-tailwindcss@0.6.9(@ianvs/prettier-plugin-sort-imports@4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.0))(prettier@3.5.0):
+  prettier-plugin-tailwindcss@0.6.9(@ianvs/prettier-plugin-sort-imports@4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.1))(prettier@3.5.1):
     dependencies:
-      prettier: 3.5.0
+      prettier: 3.5.1
     optionalDependencies:
-      '@ianvs/prettier-plugin-sort-imports': 4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.0)
+      '@ianvs/prettier-plugin-sort-imports': 4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.1)
 
-  prettier@3.5.0: {}
+  prettier@3.5.1: {}
 
   prh@5.4.4:
     dependencies:
