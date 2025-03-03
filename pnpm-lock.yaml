@@ -16,8 +16,8 @@ catalogs:
       specifier: ^4.7.0
       version: 4.7.0
     prettier:
-      specifier: ^3.4.2
-      version: 3.5.0
+      specifier: ^3.5.3
+      version: 3.5.3
     tailwindcss:
       specifier: ^3.4.17
       version: 3.4.17
@@ -40,7 +40,7 @@ importers:
         version: 9.20.1(jiti@1.21.6)
       prettier:
         specifier: 'catalog:'
-        version: 3.5.0
+        version: 3.5.3
       turbo:
         specifier: ^2.4.2
         version: 2.4.2
@@ -80,7 +80,7 @@ importers:
         version: 9.20.1(jiti@1.21.6)
       prettier:
         specifier: 'catalog:'
-        version: 3.5.0
+        version: 3.5.3
       typescript:
         specifier: 'catalog:'
         version: 5.7.2
@@ -150,7 +150,7 @@ importers:
         version: 8.5.2
       prettier:
         specifier: 'catalog:'
-        version: 3.5.0
+        version: 3.5.3
       recma-export-filepath:
         specifier: ^1.1.0
         version: 1.1.0
@@ -228,7 +228,7 @@ importers:
         version: 7.37.2(eslint@9.20.1(jiti@1.21.6))
       eslint-plugin-react-hooks:
         specifier: rc
-        version: 5.1.0-rc.1(eslint@9.20.1(jiti@1.21.6))
+        version: 5.2.0-rc.1(eslint@9.20.1(jiti@1.21.6))
       typescript-eslint:
         specifier: ^8.15.0
         version: 8.15.0(eslint@9.20.1(jiti@1.21.6))(typescript@5.7.2)
@@ -244,7 +244,7 @@ importers:
         version: 9.20.1(jiti@1.21.6)
       prettier:
         specifier: 'catalog:'
-        version: 3.5.0
+        version: 3.5.3
       typescript:
         specifier: 'catalog:'
         version: 5.7.2
@@ -255,13 +255,13 @@ importers:
     dependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: ^4.3.1
-        version: 4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.0)
+        version: 4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.3)
       prettier:
         specifier: 'catalog:'
-        version: 3.5.0
+        version: 3.5.3
       prettier-plugin-tailwindcss:
         specifier: ^0.6.9
-        version: 0.6.9(@ianvs/prettier-plugin-sort-imports@4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.0))(prettier@3.5.0)
+        version: 0.6.9(@ianvs/prettier-plugin-sort-imports@4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.3))(prettier@3.5.3)
     devDependencies:
       '@acme/tsconfig':
         specifier: workspace:^
@@ -293,7 +293,7 @@ importers:
         version: 9.20.1(jiti@1.21.6)
       prettier:
         specifier: 'catalog:'
-        version: 3.5.0
+        version: 3.5.3
       typescript:
         specifier: 'catalog:'
         version: 5.7.2
@@ -2465,8 +2465,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9
 
-  eslint-plugin-react-hooks@5.1.0-rc.1:
-    resolution: {integrity: sha512-nAD017D/00XFwjP4F7cXaIbCxQ9A4pGaqjLs5347px37w/WclOtPqz8bBiTQFoj+teVQei6Ahr1h1aZiuaXMSw==}
+  eslint-plugin-react-hooks@5.2.0-rc.1:
+    resolution: {integrity: sha512-4DCfGKVLE6crSBMZtv/5ZcQuWR7gNKQdrBf+whq90fwYLS7cahmmYKa+9wzTvrgncN73wya56TZWxEPFeIsj8w==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -3997,8 +3997,8 @@ packages:
       prettier-plugin-svelte:
         optional: true
 
-  prettier@3.5.0:
-    resolution: {integrity: sha512-quyMrVt6svPS7CjQ9gKb3GLEX/rl3BCL2oa/QkNcXv4YNVBC9olt3s+H7ukto06q7B1Qz46PbrKLO34PR6vXcA==}
+  prettier@3.5.3:
+    resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -5977,13 +5977,13 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.1': {}
 
-  '@ianvs/prettier-plugin-sort-imports@4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.0)':
+  '@ianvs/prettier-plugin-sort-imports@4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.3)':
     dependencies:
       '@babel/generator': 7.26.2
       '@babel/parser': 7.26.2
       '@babel/traverse': 7.25.9
       '@babel/types': 7.26.0
-      prettier: 3.5.0
+      prettier: 3.5.3
       semver: 7.6.3
     optionalDependencies:
       '@vue/compiler-sfc': 3.5.13
@@ -7384,7 +7384,7 @@ snapshots:
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.1
 
-  eslint-plugin-react-hooks@5.1.0-rc.1(eslint@9.20.1(jiti@1.21.6)):
+  eslint-plugin-react-hooks@5.2.0-rc.1(eslint@9.20.1(jiti@1.21.6)):
     dependencies:
       eslint: 9.20.1(jiti@1.21.6)
 
@@ -9332,13 +9332,13 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-tailwindcss@0.6.9(@ianvs/prettier-plugin-sort-imports@4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.0))(prettier@3.5.0):
+  prettier-plugin-tailwindcss@0.6.9(@ianvs/prettier-plugin-sort-imports@4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.3))(prettier@3.5.3):
     dependencies:
-      prettier: 3.5.0
+      prettier: 3.5.3
     optionalDependencies:
-      '@ianvs/prettier-plugin-sort-imports': 4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.0)
+      '@ianvs/prettier-plugin-sort-imports': 4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.3)
 
-  prettier@3.5.0: {}
+  prettier@3.5.3: {}
 
   prh@5.4.4:
     dependencies:
