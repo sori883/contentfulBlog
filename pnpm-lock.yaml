@@ -125,8 +125,8 @@ importers:
         specifier: ^0.17.0
         version: 0.17.0(hono@4.7.0)(miniflare@3.20250129.0)(wrangler@3.107.3(@cloudflare/workers-types@4.20250204.0))
       '@hono/vite-ssg':
-        specifier: ^0.1.0
-        version: 0.1.0(hono@4.7.0)
+        specifier: ^0.1.2
+        version: 0.1.2(hono@4.7.0)
       '@mdx-js/rollup':
         specifier: ^3.0.1
         version: 3.1.0(acorn@8.14.0)(rollup@4.34.3)
@@ -228,7 +228,7 @@ importers:
         version: 7.37.2(eslint@9.20.1(jiti@1.21.6))
       eslint-plugin-react-hooks:
         specifier: rc
-        version: 5.1.0-rc.1(eslint@9.20.1(jiti@1.21.6))
+        version: 5.2.0-rc.1(eslint@9.20.1(jiti@1.21.6))
       typescript-eslint:
         specifier: ^8.15.0
         version: 8.15.0(eslint@9.20.1(jiti@1.21.6))(typescript@5.7.2)
@@ -1286,8 +1286,8 @@ packages:
       wrangler:
         optional: true
 
-  '@hono/vite-ssg@0.1.0':
-    resolution: {integrity: sha512-tnkBilZ2/+y8w/X+R2Pf4Heu+Xyk4wO2KiBiEOvqqiXQC2yT8WAdiB17qk87og3ZuRCC/721ZZ736TpB6fGkWQ==}
+  '@hono/vite-ssg@0.1.2':
+    resolution: {integrity: sha512-d8/UsYEwJtjyo6DDYa5VA9LnCDBSz33tUH4UxQjujsXlKSRExYnaqJbu+wL84mF3oi3g9XXOt1AtxqmCZJr3LA==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '>=4.0.0'
@@ -2465,8 +2465,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9
 
-  eslint-plugin-react-hooks@5.1.0-rc.1:
-    resolution: {integrity: sha512-nAD017D/00XFwjP4F7cXaIbCxQ9A4pGaqjLs5347px37w/WclOtPqz8bBiTQFoj+teVQei6Ahr1h1aZiuaXMSw==}
+  eslint-plugin-react-hooks@5.2.0-rc.1:
+    resolution: {integrity: sha512-4DCfGKVLE6crSBMZtv/5ZcQuWR7gNKQdrBf+whq90fwYLS7cahmmYKa+9wzTvrgncN73wya56TZWxEPFeIsj8w==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -5955,7 +5955,7 @@ snapshots:
       miniflare: 3.20250129.0
       wrangler: 3.107.3(@cloudflare/workers-types@4.20250204.0)
 
-  '@hono/vite-ssg@0.1.0(hono@4.7.0)':
+  '@hono/vite-ssg@0.1.2(hono@4.7.0)':
     dependencies:
       hono: 4.7.0
 
@@ -7384,7 +7384,7 @@ snapshots:
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.1
 
-  eslint-plugin-react-hooks@5.1.0-rc.1(eslint@9.20.1(jiti@1.21.6)):
+  eslint-plugin-react-hooks@5.2.0-rc.1(eslint@9.20.1(jiti@1.21.6)):
     dependencies:
       eslint: 9.20.1(jiti@1.21.6)
 
