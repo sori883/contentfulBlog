@@ -53,6 +53,9 @@ importers:
       '@hono/zod-validator':
         specifier: ^0.2.2
         version: 0.2.2(hono@4.7.0)(zod@3.24.2)
+      '@twemoji/parser':
+        specifier: ^15.1.1
+        version: 15.1.1
       hono:
         specifier: 'catalog:'
         version: 4.7.0
@@ -1667,6 +1670,9 @@ packages:
 
   '@textlint/utils@14.3.0':
     resolution: {integrity: sha512-Q7bKiPobKCDXM5z+xByLZzSjcOBhvlDufQGHNgHR8EFie2/AFc68cN8RYCY0MmwCMBMuHuYaOzfIOpQpK9oTcQ==}
+
+  '@twemoji/parser@15.1.1':
+    resolution: {integrity: sha512-CChRzIu6ngkCJOmURBlYEdX5DZSu+bBTtqR60XjBkFrmvplKW7OQsea+i8XwF4bLVlUXBO7ZmHhRPDzfQyLwwg==}
 
   '@types/acorn@4.0.6':
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
@@ -6418,6 +6424,8 @@ snapshots:
   '@textlint/utils@13.4.1': {}
 
   '@textlint/utils@14.3.0': {}
+
+  '@twemoji/parser@15.1.1': {}
 
   '@types/acorn@4.0.6':
     dependencies:
