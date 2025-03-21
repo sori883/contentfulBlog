@@ -18,5 +18,5 @@ export const twemojiRouter = new Hono<{ Bindings: Bindings }>().get(
     const twemoji = parseTwemoji(emoji);
 
     return c.json({ data: twemoji });
-  }
+  },
 );

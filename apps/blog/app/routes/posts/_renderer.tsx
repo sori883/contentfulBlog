@@ -20,7 +20,11 @@ export default jsxRenderer(
     ).data;
 
     const twemoji = (
-      await (await client.api.twemoji.getTwemoji.$get({query: {emoji: frontmatter.icon}})).json()
+      await (
+        await client.api.twemoji.getTwemoji.$get({
+          query: { emoji: frontmatter.icon },
+        })
+      ).json()
     ).data;
 
     return (
@@ -28,7 +32,11 @@ export default jsxRenderer(
         <GeneralLayout>
           <div className="mb-8 text-center">
             <div className="mb-8 flex justify-center">
-              <img  class="w-36 h-auto" src={twemoji[0]!.url} alt="この記事のアイキャッチ" />
+              <img
+                class="h-auto w-36"
+                src={twemoji[0]!.url}
+                alt="この記事のアイキャッチ"
+              />
             </div>
             <h1 className="mb-8 px-1">
               <span className="text-3xl">{frontmatter.title}</span>
