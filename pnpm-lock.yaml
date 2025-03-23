@@ -155,8 +155,8 @@ importers:
         specifier: 'catalog:'
         version: 3.5.0
       recma-export-filepath:
-        specifier: ^1.1.0
-        version: 1.1.0
+        specifier: ^1.2.0
+        version: 1.2.0
       rehype-highlight:
         specifier: ^7.0.2
         version: 7.0.2
@@ -1262,19 +1262,6 @@ packages:
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: ^4
-
-  '@hono/vite-dev-server@0.18.0':
-    resolution: {integrity: sha512-CVHgDYk3haRnWUI/I2tNydgIIXI2lSczseko5Qvu/n1K6I9GyXzRW4rJFUlLClz3LDLOCgRCW+kDW4YT3BVSLA==}
-    engines: {node: '>=18.14.1'}
-    peerDependencies:
-      hono: '*'
-      miniflare: '*'
-      wrangler: '*'
-    peerDependenciesMeta:
-      miniflare:
-        optional: true
-      wrangler:
-        optional: true
 
   '@hono/vite-dev-server@0.19.0':
     resolution: {integrity: sha512-myMc4Nm0nFQSPaeE6I/a1ODyDR5KpQ4EHodX4Tu/7qlB31GfUemhUH/WsO91HJjDEpRRpsT4Zbg+PleMlpTljw==}
@@ -4093,8 +4080,8 @@ packages:
   recma-build-jsx@1.0.0:
     resolution: {integrity: sha512-8GtdyqaBcDfva+GUKDr3nev3VpKAhup1+RvkMvUxURHpW7QyIvk9F5wz7Vzo06CEMSilw6uArgRqhpiUcWp8ew==}
 
-  recma-export-filepath@1.1.0:
-    resolution: {integrity: sha512-Xvs7R84WI72PxORtkusu1pwzgrqfXX+7TzFBdUBv1fZreB4F0a9xWI+3zH1pvciS+PkkuwfYAt26wMmEl3Yp3w==}
+  recma-export-filepath@1.2.0:
+    resolution: {integrity: sha512-tsaQbFU5Opw5Q8YOgyvrX8cTe5U94vx9D3GvKYxJSoBjhrziX4seaB6qzHJeAhMbtDBUP9lM6Pz/JrG3a43hKQ==}
 
   recma-jsx@1.0.0:
     resolution: {integrity: sha512-5vwkv65qWwYxg+Atz95acp8DMu1JDSqdGkA2Of1j6rCreyFUE/gp15fC8MnGEuG1W68UKjM6x6+YTWIh7hZM/Q==}
@@ -4724,6 +4711,9 @@ packages:
 
   unist-util-is@6.0.0:
     resolution: {integrity: sha512-2qCTHimwdxLfz+YzdGfkqNlH0tLi9xjTnHddPmJwtIG9MGsdbutfTc4P+haPD7l7Cjxf/WZj+we5qfVPvvxfYw==}
+
+  unist-util-mdx-define@1.1.1:
+    resolution: {integrity: sha512-wW3Uq+92zHTCoJRVWBWr4KHMpkOIHMVZ5kyU/HVV4l1UMl6j2Vs6P+uj8tFMUk9QoA3wR/7wOVD23Cx77dXXoA==}
 
   unist-util-position-from-estree@2.0.0:
     resolution: {integrity: sha512-KaFVRjoqLyF6YXCbVLNad/eS4+OfPQQn2yOd7zF/h5T/CSL2v8NpN6a5TPvtbXthAGw5nG+PuTtq+DdIZr+cRQ==}
@@ -5954,15 +5944,6 @@ snapshots:
   '@hono/node-server@1.13.7(hono@4.7.0)':
     dependencies:
       hono: 4.7.0
-
-  '@hono/vite-dev-server@0.18.0(hono@4.7.0)(miniflare@3.20250129.0)(wrangler@3.107.3(@cloudflare/workers-types@4.20250204.0))':
-    dependencies:
-      '@hono/node-server': 1.13.7(hono@4.7.0)
-      hono: 4.7.0
-      minimatch: 9.0.5
-    optionalDependencies:
-      miniflare: 3.20250129.0
-      wrangler: 3.107.3(@cloudflare/workers-types@4.20250204.0)
 
   '@hono/vite-dev-server@0.19.0(hono@4.7.0)(miniflare@3.20250129.0)(wrangler@3.107.3(@cloudflare/workers-types@4.20250204.0))':
     dependencies:
@@ -9461,12 +9442,13 @@ snapshots:
       estree-util-build-jsx: 3.0.1
       vfile: 6.0.3
 
-  recma-export-filepath@1.1.0:
+  recma-export-filepath@1.2.0:
     dependencies:
       '@types/estree': 1.0.6
       estree-util-is-identifier-name: 3.0.0
       normalize-path: 3.0.0
       unified: 11.0.5
+      unist-util-mdx-define: 1.1.1
 
   recma-jsx@1.0.0(acorn@8.14.0):
     dependencies:
@@ -10375,6 +10357,16 @@ snapshots:
   unist-util-is@6.0.0:
     dependencies:
       '@types/unist': 3.0.3
+
+  unist-util-mdx-define@1.1.1:
+    dependencies:
+      '@types/estree': 1.0.6
+      '@types/hast': 3.0.4
+      '@types/mdast': 4.0.4
+      estree-util-is-identifier-name: 3.0.0
+      estree-util-scope: 1.0.0
+      estree-walker: 3.0.3
+      vfile: 6.0.3
 
   unist-util-position-from-estree@2.0.0:
     dependencies:
