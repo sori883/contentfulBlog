@@ -135,7 +135,7 @@ function getExtractContent(htmlContent: string) {
 ```
 
 最後にmain関数を定義し、MCPサーバーを起動するようにします。  
-```
+```ts
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
@@ -160,6 +160,7 @@ main().catch((error) => {
 
 `claude_desktop_config.json`を以下の通り編集します。  
 MACとWindowsでパスの指定方法が違うのでご注意ください。  
+```json
 {
   "mcpServers": {
     "url2Markdown": {
@@ -170,6 +171,7 @@ MACとWindowsでパスの指定方法が違うのでご注意ください。
     }
   }
 }
+```
 
 編集後にClaude Desktopプロセスを再起動するとMCPツールボタンが表示されており、有効化されているMCPサーバー数が表示されているはず。  
 画像だと「1」の部分  
