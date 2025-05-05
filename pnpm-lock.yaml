@@ -100,8 +100,8 @@ importers:
         specifier: 'catalog:'
         version: 4.7.0
       honox:
-        specifier: ^0.1.38
-        version: 0.1.38(hono@4.7.0)(miniflare@3.20250129.0)(wrangler@3.107.3(@cloudflare/workers-types@4.20250505.0))
+        specifier: ^0.1.40
+        version: 0.1.40(hono@4.7.0)(miniflare@3.20250129.0)(wrangler@3.107.3(@cloudflare/workers-types@4.20250505.0))
       sass:
         specifier: ^1.83.4
         version: 1.83.4
@@ -2874,8 +2874,8 @@ packages:
     resolution: {integrity: sha512-hV97aIR4WYbG30k234sD9B3VNr1ZWdQRmrVF76LKFlmI7O9Yo70mG9+mFwyQ6Sjrz4wH71GfnBxv6CPjcx3QNw==}
     engines: {node: '>=16.9.0'}
 
-  honox@0.1.38:
-    resolution: {integrity: sha512-UW6Ao7nobujpkwhD1mcaJIK7zVCTEBrJWV+gmcYBEVfMR7f/zS7XeSlpTuGPGfODS10ldzHWljJ3V0rf1fcrYA==}
+  honox@0.1.40:
+    resolution: {integrity: sha512-yXxx/jHcPPJMxw5VzyaSRgl9Dxlw4sIyzbqb5vcQG8ijpvttxoHT51zombgsIID/oOa2UEHaHOfu8HI+Tgjvww==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '>=4.*'
@@ -7952,7 +7952,7 @@ snapshots:
 
   hono@4.7.0: {}
 
-  honox@0.1.38(hono@4.7.0)(miniflare@3.20250129.0)(wrangler@3.107.3(@cloudflare/workers-types@4.20250505.0)):
+  honox@0.1.40(hono@4.7.0)(miniflare@3.20250129.0)(wrangler@3.107.3(@cloudflare/workers-types@4.20250505.0)):
     dependencies:
       '@babel/generator': 7.25.6
       '@babel/parser': 7.25.6
