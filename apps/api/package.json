@@ -17,7 +17,7 @@
     "login": "wrangler login"
   },
   "dependencies": {
-    "@hono/zod-validator": "^0.2.2",
+    "@hono/zod-validator": "^0.5.0",
     "@twemoji/parser": "^15.1.1",
     "hono": "catalog:",
     "zod": "^3.24.2"

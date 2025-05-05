@@ -51,8 +51,8 @@ importers:
   apps/api:
     dependencies:
       '@hono/zod-validator':
-        specifier: ^0.2.2
-        version: 0.2.2(hono@4.7.0)(zod@3.24.2)
+        specifier: ^0.5.0
+        version: 0.5.0(hono@4.7.0)(zod@3.24.2)
       '@twemoji/parser':
         specifier: ^15.1.1
         version: 15.1.1
@@ -1282,8 +1282,8 @@ packages:
     peerDependencies:
       hono: '>=4.0.0'
 
-  '@hono/zod-validator@0.2.2':
-    resolution: {integrity: sha512-dSDxaPV70Py8wuIU2QNpoVEIOSzSXZ/6/B/h4xA7eOMz7+AarKTSGV8E6QwrdcCbBLkpqfJ4Q2TmBO0eP1tCBQ==}
+  '@hono/zod-validator@0.5.0':
+    resolution: {integrity: sha512-ds5bW6DCgAnNHP33E3ieSbaZFd5dkV52ZjyaXtGoR06APFrCtzAsKZxTHwOrJNBdXsi0e5wNwo5L4nVEVnJUdg==}
     peerDependencies:
       hono: '>=3.9.0'
       zod: ^3.19.1
@@ -6236,7 +6236,7 @@ snapshots:
     dependencies:
       hono: 4.7.0
 
-  '@hono/zod-validator@0.2.2(hono@4.7.0)(zod@3.24.2)':
+  '@hono/zod-validator@0.5.0(hono@4.7.0)(zod@3.24.2)':
     dependencies:
       hono: 4.7.0
       zod: 3.24.2
