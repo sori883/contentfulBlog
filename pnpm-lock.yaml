@@ -54,8 +54,8 @@ importers:
         specifier: ^0.2.2
         version: 0.2.2(hono@4.7.9)(zod@3.24.2)
       '@twemoji/parser':
-        specifier: ^15.1.1
-        version: 15.1.1
+        specifier: ^16.0.0
+        version: 16.0.0
       hono:
         specifier: 'catalog:'
         version: 4.7.9
@@ -144,13 +144,13 @@ importers:
         version: 2.0.13
       autoprefixer:
         specifier: ^10.4.21
-        version: 10.4.21(postcss@8.5.2)
+        version: 10.4.21(postcss@8.5.3)
       eslint:
         specifier: 'catalog:'
         version: 9.26.0(jiti@1.21.6)
       postcss:
         specifier: ^8.5.2
-        version: 8.5.2
+        version: 8.5.3
       prettier:
         specifier: 'catalog:'
         version: 3.5.0
@@ -1670,8 +1670,8 @@ packages:
   '@textlint/utils@14.7.1':
     resolution: {integrity: sha512-nvIOltt0U5HQzu28qfYgbXUvZxEZBPRnQZHqlwMsqKp55bZ5L3iSNYwHvCej7fm9GOXH7Yz3UzLSko9eF5m3PA==}
 
-  '@twemoji/parser@15.1.1':
-    resolution: {integrity: sha512-CChRzIu6ngkCJOmURBlYEdX5DZSu+bBTtqR60XjBkFrmvplKW7OQsea+i8XwF4bLVlUXBO7ZmHhRPDzfQyLwwg==}
+  '@twemoji/parser@16.0.0':
+    resolution: {integrity: sha512-jmuIjkp3OIaEemwMy3sArBwZSuZkRqmueGwRe2Zk4cFzbUJISFBJSZLDUUBNIgq3c+nY49ideYN2OiII6JUqwA==}
 
   '@types/acorn@4.0.6':
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
@@ -4258,10 +4258,6 @@ packages:
     engines: {node: '>=10'}
     peerDependencies:
       postcss: ^8.2.9
-
-  postcss@8.5.2:
-    resolution: {integrity: sha512-MjOadfU3Ys9KYoX0AdkBlFEF1Vx37uCCeN4ZHnmwm9FfpbsGWMZeBLMmmpY+6Ocqod7mkdZ0DT31OlbsFrLlkA==}
-    engines: {node: ^10 || ^12 || >=14}
 
   postcss@8.5.3:
     resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
@@ -6896,7 +6892,7 @@ snapshots:
 
   '@textlint/utils@14.7.1': {}
 
-  '@twemoji/parser@15.1.1': {}
+  '@twemoji/parser@16.0.0': {}
 
   '@types/acorn@4.0.6':
     dependencies:
@@ -7075,7 +7071,7 @@ snapshots:
       '@vue/shared': 3.5.13
       estree-walker: 2.0.2
       magic-string: 0.30.13
-      postcss: 8.5.2
+      postcss: 8.5.3
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.5.13':
@@ -7254,14 +7250,14 @@ snapshots:
 
   async@3.2.6: {}
 
-  autoprefixer@10.4.21(postcss@8.5.2):
+  autoprefixer@10.4.21(postcss@8.5.3):
     dependencies:
       browserslist: 4.24.4
       caniuse-lite: 1.0.30001706
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-value-parser: 4.2.0
 
   available-typed-arrays@1.0.7:
@@ -7640,11 +7636,11 @@ snapshots:
     dependencies:
       node-source-walk: 7.0.0
 
-  detective-postcss@7.0.0(postcss@8.5.2):
+  detective-postcss@7.0.0(postcss@8.5.3):
     dependencies:
       is-url: 1.2.4
-      postcss: 8.5.2
-      postcss-values-parser: 6.0.2(postcss@8.5.2)
+      postcss: 8.5.3
+      postcss-values-parser: 6.0.2(postcss@8.5.3)
 
   detective-sass@6.0.0:
     dependencies:
@@ -10201,28 +10197,28 @@ snapshots:
 
   possible-typed-array-names@1.0.0: {}
 
-  postcss-import@15.1.0(postcss@8.5.2):
+  postcss-import@15.1.0(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.8
 
-  postcss-js@4.0.1(postcss@8.5.2):
+  postcss-js@4.0.1(postcss@8.5.3):
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.5.2
+      postcss: 8.5.3
 
-  postcss-load-config@4.0.2(postcss@8.5.2):
+  postcss-load-config@4.0.2(postcss@8.5.3):
     dependencies:
       lilconfig: 3.1.3
       yaml: 2.6.1
     optionalDependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
 
-  postcss-nested@6.2.0(postcss@8.5.2):
+  postcss-nested@6.2.0(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-selector-parser: 6.1.2
 
   postcss-selector-parser@6.0.10:
@@ -10237,18 +10233,12 @@ snapshots:
 
   postcss-value-parser@4.2.0: {}
 
-  postcss-values-parser@6.0.2(postcss@8.5.2):
+  postcss-values-parser@6.0.2(postcss@8.5.3):
     dependencies:
       color-name: 1.1.4
       is-url-superb: 4.0.0
-      postcss: 8.5.2
+      postcss: 8.5.3
       quote-unquote: 1.0.0
-
-  postcss@8.5.2:
-    dependencies:
-      nanoid: 3.3.8
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
 
   postcss@8.5.3:
     dependencies:
@@ -10263,7 +10253,7 @@ snapshots:
       detective-amd: 6.0.0
       detective-cjs: 6.0.0
       detective-es6: 5.0.0
-      detective-postcss: 7.0.0(postcss@8.5.2)
+      detective-postcss: 7.0.0(postcss@8.5.3)
       detective-sass: 6.0.0
       detective-scss: 5.0.0
       detective-stylus: 5.0.0
@@ -10271,7 +10261,7 @@ snapshots:
       detective-vue2: 2.1.0(typescript@5.8.3)
       module-definition: 6.0.0
       node-source-walk: 7.0.0
-      postcss: 8.5.2
+      postcss: 8.5.3
       typescript: 5.8.3
     transitivePeerDependencies:
       - supports-color
@@ -11082,11 +11072,11 @@ snapshots:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.1.1
-      postcss: 8.5.2
-      postcss-import: 15.1.0(postcss@8.5.2)
-      postcss-js: 4.0.1(postcss@8.5.2)
-      postcss-load-config: 4.0.2(postcss@8.5.2)
-      postcss-nested: 6.2.0(postcss@8.5.2)
+      postcss: 8.5.3
+      postcss-import: 15.1.0(postcss@8.5.3)
+      postcss-js: 4.0.1(postcss@8.5.3)
+      postcss-load-config: 4.0.2(postcss@8.5.3)
+      postcss-nested: 6.2.0(postcss@8.5.3)
       postcss-selector-parser: 6.1.2
       resolve: 1.22.8
       sucrase: 3.35.0
