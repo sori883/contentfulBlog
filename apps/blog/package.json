@@ -20,7 +20,7 @@
     "@acme/api": "workspace:^",
     "hono": "catalog:",
     "honox": "^0.1.40",
-    "sass": "^1.83.4"
+    "sass": "^1.88.0"
   },
   "devDependencies": {
     "@acme/eslint-config": "workspace:^",
