@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@eslint/compat": "^1.2.6",
-    "eslint-config-turbo": "^2.4.4",
+    "eslint-config-turbo": "^2.5.3",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.9.0",
     "eslint-plugin-react": "^7.37.5",
