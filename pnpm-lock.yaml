@@ -144,13 +144,13 @@ importers:
         version: 2.0.13
       autoprefixer:
         specifier: ^10.4.21
-        version: 10.4.21(postcss@8.5.2)
+        version: 10.4.21(postcss@8.5.3)
       eslint:
         specifier: 'catalog:'
         version: 9.26.0(jiti@1.21.6)
       postcss:
         specifier: ^8.5.2
-        version: 8.5.2
+        version: 8.5.3
       prettier:
         specifier: 'catalog:'
         version: 3.5.0
@@ -203,8 +203,8 @@ importers:
         specifier: ^6.3.5
         version: 6.3.5(@types/node@22.9.3)(jiti@1.21.6)(sass@1.83.4)(yaml@2.6.1)
       vite-plugin-static-copy:
-        specifier: ^2.3.1
-        version: 2.3.1(vite@6.3.5(@types/node@22.9.3)(jiti@1.21.6)(sass@1.83.4)(yaml@2.6.1))
+        specifier: ^3.0.2
+        version: 3.0.2(vite@6.3.5(@types/node@22.9.3)(jiti@1.21.6)(sass@1.83.4)(yaml@2.6.1))
       vite-tsconfig-paths:
         specifier: ^5.1.3
         version: 5.1.3(typescript@5.8.3)(vite@6.3.5(@types/node@22.9.3)(jiti@1.21.6)(sass@1.83.4)(yaml@2.6.1))
@@ -2834,8 +2834,8 @@ packages:
     resolution: {integrity: sha512-Rx/WycZ60HOaqLKAi6cHRKKI7zxWbJ31MhntmtwMoaTeF7XFH9hhBp8vITaMidfljRQ6eYWCKkaTK+ykVJHP2A==}
     engines: {node: '>= 0.8'}
 
-  fs-extra@11.2.0:
-    resolution: {integrity: sha512-PmDi3uwK5nFuXh7XDTlVnS17xJS7vW36is2+w3xcv8SVxiB4NyATf4ctkVY5bkSjX0Y4nbvZCq1/EjtEyr9ktw==}
+  fs-extra@11.3.0:
+    resolution: {integrity: sha512-Z4XaCL6dUDHfP/jT25jJKMmtxvuwbkrD1vNSMFlo9lNLY2c5FHYSQgHPRZUjAB26TpDEoW9HCOgplrdbaPV/ew==}
     engines: {node: '>=14.14'}
 
   fs-readdir-recursive@1.1.0:
@@ -4259,10 +4259,6 @@ packages:
     peerDependencies:
       postcss: ^8.2.9
 
-  postcss@8.5.2:
-    resolution: {integrity: sha512-MjOadfU3Ys9KYoX0AdkBlFEF1Vx37uCCeN4ZHnmwm9FfpbsGWMZeBLMmmpY+6Ocqod7mkdZ0DT31OlbsFrLlkA==}
-    engines: {node: ^10 || ^12 || >=14}
-
   postcss@8.5.3:
     resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
     engines: {node: ^10 || ^12 || >=14}
@@ -4930,6 +4926,10 @@ packages:
     resolution: {integrity: sha512-mEwzpUgrLySlveBwEVDMKk5B57bhLPYovRfPAXD5gA/98Opn0rCDj3GtLwFvCvH5RK9uPCExUROW5NjDwvqkxw==}
     engines: {node: '>=12.0.0'}
 
+  tinyglobby@0.2.14:
+    resolution: {integrity: sha512-tX5e7OM1HnYr2+a2C/4V0htOcSQcoSTH9KgJnVvNm5zm/cyEWKJ7j7YutsH9CxMdtOkkLFy2AHrMci9IM8IPZQ==}
+    engines: {node: '>=12.0.0'}
+
   to-fast-properties@2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
     engines: {node: '>=4'}
@@ -5213,8 +5213,8 @@ packages:
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
-  vite-plugin-static-copy@2.3.1:
-    resolution: {integrity: sha512-EfsPcBm3ewg3UMG8RJaC0ADq6/qnUZnokXx4By4+2cAcipjT9i0Y0owIJGqmZI7d6nxk4qB1q5aXOwNuSyPdyA==}
+  vite-plugin-static-copy@3.0.2:
+    resolution: {integrity: sha512-/seLvhUg44s1oU9RhjTZZy/0NPbfNctozdysKcvPovxxXZdI5l19mGq6Ri3IaTf1Dy/qChS4BSR7ayxeu8o9aQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0
@@ -7075,7 +7075,7 @@ snapshots:
       '@vue/shared': 3.5.13
       estree-walker: 2.0.2
       magic-string: 0.30.13
-      postcss: 8.5.2
+      postcss: 8.5.3
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.5.13':
@@ -7254,14 +7254,14 @@ snapshots:
 
   async@3.2.6: {}
 
-  autoprefixer@10.4.21(postcss@8.5.2):
+  autoprefixer@10.4.21(postcss@8.5.3):
     dependencies:
       browserslist: 4.24.4
       caniuse-lite: 1.0.30001706
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-value-parser: 4.2.0
 
   available-typed-arrays@1.0.7:
@@ -7640,11 +7640,11 @@ snapshots:
     dependencies:
       node-source-walk: 7.0.0
 
-  detective-postcss@7.0.0(postcss@8.5.2):
+  detective-postcss@7.0.0(postcss@8.5.3):
     dependencies:
       is-url: 1.2.4
-      postcss: 8.5.2
-      postcss-values-parser: 6.0.2(postcss@8.5.2)
+      postcss: 8.5.3
+      postcss-values-parser: 6.0.2(postcss@8.5.3)
 
   detective-sass@6.0.0:
     dependencies:
@@ -8390,7 +8390,7 @@ snapshots:
 
   fresh@2.0.0: {}
 
-  fs-extra@11.2.0:
+  fs-extra@11.3.0:
     dependencies:
       graceful-fs: 4.2.11
       jsonfile: 6.1.0
@@ -10201,28 +10201,28 @@ snapshots:
 
   possible-typed-array-names@1.0.0: {}
 
-  postcss-import@15.1.0(postcss@8.5.2):
+  postcss-import@15.1.0(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.8
 
-  postcss-js@4.0.1(postcss@8.5.2):
+  postcss-js@4.0.1(postcss@8.5.3):
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.5.2
+      postcss: 8.5.3
 
-  postcss-load-config@4.0.2(postcss@8.5.2):
+  postcss-load-config@4.0.2(postcss@8.5.3):
     dependencies:
       lilconfig: 3.1.3
       yaml: 2.6.1
     optionalDependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
 
-  postcss-nested@6.2.0(postcss@8.5.2):
+  postcss-nested@6.2.0(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-selector-parser: 6.1.2
 
   postcss-selector-parser@6.0.10:
@@ -10237,18 +10237,12 @@ snapshots:
 
   postcss-value-parser@4.2.0: {}
 
-  postcss-values-parser@6.0.2(postcss@8.5.2):
+  postcss-values-parser@6.0.2(postcss@8.5.3):
     dependencies:
       color-name: 1.1.4
       is-url-superb: 4.0.0
-      postcss: 8.5.2
+      postcss: 8.5.3
       quote-unquote: 1.0.0
-
-  postcss@8.5.2:
-    dependencies:
-      nanoid: 3.3.8
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
 
   postcss@8.5.3:
     dependencies:
@@ -10263,7 +10257,7 @@ snapshots:
       detective-amd: 6.0.0
       detective-cjs: 6.0.0
       detective-es6: 5.0.0
-      detective-postcss: 7.0.0(postcss@8.5.2)
+      detective-postcss: 7.0.0(postcss@8.5.3)
       detective-sass: 6.0.0
       detective-scss: 5.0.0
       detective-stylus: 5.0.0
@@ -10271,7 +10265,7 @@ snapshots:
       detective-vue2: 2.1.0(typescript@5.8.3)
       module-definition: 6.0.0
       node-source-walk: 7.0.0
-      postcss: 8.5.2
+      postcss: 8.5.3
       typescript: 5.8.3
     transitivePeerDependencies:
       - supports-color
@@ -11082,11 +11076,11 @@ snapshots:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.1.1
-      postcss: 8.5.2
-      postcss-import: 15.1.0(postcss@8.5.2)
-      postcss-js: 4.0.1(postcss@8.5.2)
-      postcss-load-config: 4.0.2(postcss@8.5.2)
-      postcss-nested: 6.2.0(postcss@8.5.2)
+      postcss: 8.5.3
+      postcss-import: 15.1.0(postcss@8.5.3)
+      postcss-js: 4.0.1(postcss@8.5.3)
+      postcss-load-config: 4.0.2(postcss@8.5.3)
+      postcss-nested: 6.2.0(postcss@8.5.3)
       postcss-selector-parser: 6.1.2
       resolve: 1.22.8
       sucrase: 3.35.0
@@ -11214,6 +11208,11 @@ snapshots:
       any-promise: 1.3.0
 
   tinyglobby@0.2.13:
+    dependencies:
+      fdir: 6.4.4(picomatch@4.0.2)
+      picomatch: 4.0.2
+
+  tinyglobby@0.2.14:
     dependencies:
       fdir: 6.4.4(picomatch@4.0.2)
       picomatch: 4.0.2
@@ -11557,13 +11556,13 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite-plugin-static-copy@2.3.1(vite@6.3.5(@types/node@22.9.3)(jiti@1.21.6)(sass@1.83.4)(yaml@2.6.1)):
+  vite-plugin-static-copy@3.0.2(vite@6.3.5(@types/node@22.9.3)(jiti@1.21.6)(sass@1.83.4)(yaml@2.6.1)):
     dependencies:
       chokidar: 3.6.0
-      fast-glob: 3.3.2
-      fs-extra: 11.2.0
+      fs-extra: 11.3.0
       p-map: 7.0.3
       picocolors: 1.1.1
+      tinyglobby: 0.2.14
       vite: 6.3.5(@types/node@22.9.3)(jiti@1.21.6)(sass@1.83.4)(yaml@2.6.1)
 
   vite-tsconfig-paths@5.1.3(typescript@5.8.3)(vite@6.3.5(@types/node@22.9.3)(jiti@1.21.6)(sass@1.83.4)(yaml@2.6.1)):
