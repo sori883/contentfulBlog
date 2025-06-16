@@ -52,7 +52,7 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: ^0.2.2
-        version: 0.2.2(hono@4.7.9)(zod@3.24.2)
+        version: 0.2.2(hono@4.7.9)(zod@3.25.67)
       '@twemoji/parser':
         specifier: ^15.1.1
         version: 15.1.1
@@ -60,8 +60,8 @@ importers:
         specifier: 'catalog:'
         version: 4.7.9
       zod:
-        specifier: ^3.24.2
-        version: 3.24.2
+        specifier: ^3.25.67
+        version: 3.25.67
     devDependencies:
       '@acme/eslint-config':
         specifier: workspace:^
@@ -144,13 +144,13 @@ importers:
         version: 2.0.13
       autoprefixer:
         specifier: ^10.4.21
-        version: 10.4.21(postcss@8.5.2)
+        version: 10.4.21(postcss@8.5.3)
       eslint:
         specifier: 'catalog:'
         version: 9.26.0(jiti@1.21.6)
       postcss:
         specifier: ^8.5.2
-        version: 8.5.2
+        version: 8.5.3
       prettier:
         specifier: 'catalog:'
         version: 3.5.0
@@ -4259,10 +4259,6 @@ packages:
     peerDependencies:
       postcss: ^8.2.9
 
-  postcss@8.5.2:
-    resolution: {integrity: sha512-MjOadfU3Ys9KYoX0AdkBlFEF1Vx37uCCeN4ZHnmwm9FfpbsGWMZeBLMmmpY+6Ocqod7mkdZ0DT31OlbsFrLlkA==}
-    engines: {node: ^10 || ^12 || >=14}
-
   postcss@8.5.3:
     resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
     engines: {node: ^10 || ^12 || >=14}
@@ -5399,8 +5395,8 @@ packages:
     peerDependencies:
       zod: ^3.18.0
 
-  zod@3.24.2:
-    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
+  zod@3.25.67:
+    resolution: {integrity: sha512-idA2YXwpCdqUSKRCACDE6ItZD9TZzy3OZMtpfLoh6oPR47lipysRrJfjzMqFxQ3uJuUPyUeWe1r9vLH33xO/Qw==}
 
   zwitch@1.0.5:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}
@@ -6414,10 +6410,10 @@ snapshots:
     dependencies:
       hono: 4.7.9
 
-  '@hono/zod-validator@0.2.2(hono@4.7.9)(zod@3.24.2)':
+  '@hono/zod-validator@0.2.2(hono@4.7.9)(zod@3.25.67)':
     dependencies:
       hono: 4.7.9
-      zod: 3.24.2
+      zod: 3.25.67
 
   '@humanfs/core@0.19.1': {}
 
@@ -6531,8 +6527,8 @@ snapshots:
       express-rate-limit: 7.5.0(express@5.1.0)
       pkce-challenge: 5.0.0
       raw-body: 3.0.0
-      zod: 3.24.2
-      zod-to-json-schema: 3.24.5(zod@3.24.2)
+      zod: 3.25.67
+      zod-to-json-schema: 3.24.5(zod@3.25.67)
     transitivePeerDependencies:
       - supports-color
 
@@ -7075,7 +7071,7 @@ snapshots:
       '@vue/shared': 3.5.13
       estree-walker: 2.0.2
       magic-string: 0.30.13
-      postcss: 8.5.2
+      postcss: 8.5.3
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.5.13':
@@ -7254,14 +7250,14 @@ snapshots:
 
   async@3.2.6: {}
 
-  autoprefixer@10.4.21(postcss@8.5.2):
+  autoprefixer@10.4.21(postcss@8.5.3):
     dependencies:
       browserslist: 4.24.4
       caniuse-lite: 1.0.30001706
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-value-parser: 4.2.0
 
   available-typed-arrays@1.0.7:
@@ -7640,11 +7636,11 @@ snapshots:
     dependencies:
       node-source-walk: 7.0.0
 
-  detective-postcss@7.0.0(postcss@8.5.2):
+  detective-postcss@7.0.0(postcss@8.5.3):
     dependencies:
       is-url: 1.2.4
-      postcss: 8.5.2
-      postcss-values-parser: 6.0.2(postcss@8.5.2)
+      postcss: 8.5.3
+      postcss-values-parser: 6.0.2(postcss@8.5.3)
 
   detective-sass@6.0.0:
     dependencies:
@@ -8063,8 +8059,8 @@ snapshots:
       '@babel/plugin-transform-private-methods': 7.25.9(@babel/core@7.26.0)
       eslint: 9.26.0(jiti@1.21.6)
       hermes-parser: 0.25.1
-      zod: 3.24.2
-      zod-validation-error: 3.4.0(zod@3.24.2)
+      zod: 3.25.67
+      zod-validation-error: 3.4.0(zod@3.25.67)
     transitivePeerDependencies:
       - supports-color
 
@@ -8143,7 +8139,7 @@ snapshots:
       minimatch: 3.1.2
       natural-compare: 1.4.0
       optionator: 0.9.4
-      zod: 3.24.2
+      zod: 3.25.67
     optionalDependencies:
       jiti: 1.21.6
     transitivePeerDependencies:
@@ -9838,7 +9834,7 @@ snapshots:
       workerd: 1.20250129.0
       ws: 8.18.0
       youch: 3.3.4
-      zod: 3.24.2
+      zod: 3.25.67
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -10201,28 +10197,28 @@ snapshots:
 
   possible-typed-array-names@1.0.0: {}
 
-  postcss-import@15.1.0(postcss@8.5.2):
+  postcss-import@15.1.0(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.8
 
-  postcss-js@4.0.1(postcss@8.5.2):
+  postcss-js@4.0.1(postcss@8.5.3):
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.5.2
+      postcss: 8.5.3
 
-  postcss-load-config@4.0.2(postcss@8.5.2):
+  postcss-load-config@4.0.2(postcss@8.5.3):
     dependencies:
       lilconfig: 3.1.3
       yaml: 2.6.1
     optionalDependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
 
-  postcss-nested@6.2.0(postcss@8.5.2):
+  postcss-nested@6.2.0(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.2
+      postcss: 8.5.3
       postcss-selector-parser: 6.1.2
 
   postcss-selector-parser@6.0.10:
@@ -10237,18 +10233,12 @@ snapshots:
 
   postcss-value-parser@4.2.0: {}
 
-  postcss-values-parser@6.0.2(postcss@8.5.2):
+  postcss-values-parser@6.0.2(postcss@8.5.3):
     dependencies:
       color-name: 1.1.4
       is-url-superb: 4.0.0
-      postcss: 8.5.2
+      postcss: 8.5.3
       quote-unquote: 1.0.0
-
-  postcss@8.5.2:
-    dependencies:
-      nanoid: 3.3.8
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
 
   postcss@8.5.3:
     dependencies:
@@ -10263,7 +10253,7 @@ snapshots:
       detective-amd: 6.0.0
       detective-cjs: 6.0.0
       detective-es6: 5.0.0
-      detective-postcss: 7.0.0(postcss@8.5.2)
+      detective-postcss: 7.0.0(postcss@8.5.3)
       detective-sass: 6.0.0
       detective-scss: 5.0.0
       detective-stylus: 5.0.0
@@ -10271,7 +10261,7 @@ snapshots:
       detective-vue2: 2.1.0(typescript@5.8.3)
       module-definition: 6.0.0
       node-source-walk: 7.0.0
-      postcss: 8.5.2
+      postcss: 8.5.3
       typescript: 5.8.3
     transitivePeerDependencies:
       - supports-color
@@ -11082,11 +11072,11 @@ snapshots:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.1.1
-      postcss: 8.5.2
-      postcss-import: 15.1.0(postcss@8.5.2)
-      postcss-js: 4.0.1(postcss@8.5.2)
-      postcss-load-config: 4.0.2(postcss@8.5.2)
-      postcss-nested: 6.2.0(postcss@8.5.2)
+      postcss: 8.5.3
+      postcss-import: 15.1.0(postcss@8.5.3)
+      postcss-js: 4.0.1(postcss@8.5.3)
+      postcss-load-config: 4.0.2(postcss@8.5.3)
+      postcss-nested: 6.2.0(postcss@8.5.3)
       postcss-selector-parser: 6.1.2
       resolve: 1.22.8
       sucrase: 3.35.0
@@ -11755,15 +11745,15 @@ snapshots:
 
   zlibjs@0.3.1: {}
 
-  zod-to-json-schema@3.24.5(zod@3.24.2):
+  zod-to-json-schema@3.24.5(zod@3.25.67):
     dependencies:
-      zod: 3.24.2
+      zod: 3.25.67
 
-  zod-validation-error@3.4.0(zod@3.24.2):
+  zod-validation-error@3.4.0(zod@3.25.67):
     dependencies:
-      zod: 3.24.2
+      zod: 3.25.67
 
-  zod@3.24.2: {}
+  zod@3.25.67: {}
 
   zwitch@1.0.5: {}
 
