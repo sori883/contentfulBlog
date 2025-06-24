@@ -19,7 +19,7 @@
   "dependencies": {
     "@acme/api": "workspace:^",
     "hono": "catalog:",
-    "honox": "^0.1.40",
+    "honox": "^0.1.42",
     "sass": "^1.83.4"
   },
   "devDependencies": {
