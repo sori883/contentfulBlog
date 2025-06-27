@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "mcp__readability__read_url_content_as_markdown",
+      // lsmcp tools (TypeScript via Compiler API)
+      "mcp__lsmcp__*",
+      // Or specific tools
+      "mcp__lsmcp__rename_symbol",
+      "mcp__lsmcp__move_file",
+      // TypeScript-specific server
+      "mcp__typescript__*",
+      // Language-specific tools
+      "rust_*",
+      "python_*",
+      "go_*"
+    ],
+    "deny": [
+      "Bash(npm:*)"
+    ]
+  }
+}

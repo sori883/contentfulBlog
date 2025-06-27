@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "lsmcp": {
+      "command": "npx",
+      "args": ["-y", "@mizchi/lsmcp", "--language", "typescript"]
+    },
+    "readability": {
+      "command": "npx",
+      "args": ["-y", "@mizchi/readability", "--mcp"]
+    }
+  }
+}

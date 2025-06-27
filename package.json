@@ -19,8 +19,9 @@
     "eslint": "catalog:",
     "prettier": "catalog:",
     "turbo": "^2.4.4",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "typescript-language-server": "^4.3.4"
   },
   "prettier": "@acme/prettier-config",
-  "packageManager": "pnpm@10.12.2"
+  "packageManager": "pnpm@10.12.3"
 }
