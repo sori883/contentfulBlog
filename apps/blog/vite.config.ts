@@ -18,7 +18,7 @@ import { defineConfig, normalizePath } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-const entry = "./server.ts";
+const entry = "./app/server.ts";
 
 export default defineConfig(({ mode }) => {
   if (mode === "client") {
