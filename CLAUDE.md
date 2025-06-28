@@ -89,6 +89,11 @@ This project uses external MCP servers via mcp.json:
 - TypeScript language server (@mizchi/lsmcp)
 - Web readability tools (@mizchi/readability)
 
+### Cpmmand Configuration
+This project uses Command via .claude/commands:
+- Google Search (gemini-search)
+- Split complex tasks into sequential steps, where each step can contain multiple parallel subtasks (orchestrator)
+
 ### Monorepo Structure
 - Uses PNPM workspaces with Turborepo
 - Hono-based API and blog applications

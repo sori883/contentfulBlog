@@ -18,7 +18,7 @@ export async function PostSummary({ post }: Props) {
   ).data;
 
   return (
-    <section className="h-[12rem] w-[20rem] rounded-[0.5rem] bg-secondary shadow">
+    <section className="h-[12rem] w-[20rem] rounded-[0.5rem] bg-secondary hover:bg-deep transition-colors duration-200 shadow">
       <a href={post.permalink}>
         <div className="flex min-h-[12rem] flex-col overflow-hidden">
           <div className="container flex flex-1 justify-center p-6 px-4 pt-5">
