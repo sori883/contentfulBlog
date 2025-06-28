@@ -33,12 +33,16 @@ pnpm typecheck
 
 # Linting
 pnpm lint
+
+# Format
+pnpm format
 ```
 
 ### 2. Code Quality Checks
 Before committing, always run:
 1. `pnpm typecheck` - Ensure no TypeScript errors
 2. `pnpm lint` - Check for linting issues
+3. `pnpm format` - Check for format issues
 
 ### 3. Refactoring Guidelines
 - Use TypeScript MCP tools for semantic refactoring

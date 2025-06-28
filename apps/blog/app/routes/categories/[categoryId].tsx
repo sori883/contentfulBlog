@@ -38,7 +38,7 @@ export default createRoute(param, (c) => {
         <div className="text-center">
           <h1 className="text-2xl font-bold">カテゴリが見つかりません</h1>
         </div>
-      </GeneralLayout>
+      </GeneralLayout>,
     );
   }
 
@@ -49,10 +49,10 @@ export default createRoute(param, (c) => {
   return c.render(
     <GeneralLayout>
       <PrimeContentLayout>
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold">{categoryData.name}</h1>
-        <p className="mt-2">{category?.posts.length ?? 0}件の記事</p>
-      </div>
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold">{categoryData.name}</h1>
+          <p className="mt-2">{category?.posts.length ?? 0}件の記事</p>
+        </div>
       </PrimeContentLayout>
 
       <GridListLayout>
@@ -72,6 +72,6 @@ export default createRoute(param, (c) => {
           categoryId={categoryId}
         />
       </div>
-    </GeneralLayout>
+    </GeneralLayout>,
   );
 });

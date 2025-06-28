@@ -7,10 +7,14 @@ type Props = {
   categoryId: string;
 };
 
-export function CategoryPagination({ totalCount, currentPage, categoryId }: Props) {
+export function CategoryPagination({
+  totalCount,
+  currentPage,
+  categoryId,
+}: Props) {
   const basePath = `/categories/${categoryId}`;
   const maxPage = totalCount;
-  
+
   const getPageUrl = (page: number) => {
     return page === 1 ? basePath : `${basePath}?page=${page}`;
   };
@@ -63,7 +67,9 @@ export function CategoryPagination({ totalCount, currentPage, categoryId }: Prop
                 </a>
               ))}
               <a
-                href={currentPage === maxPage ? getPageUrl(currentPage) : nextlink}
+                href={
+                  currentPage === maxPage ? getPageUrl(currentPage) : nextlink
+                }
                 className="relative inline-flex items-center rounded-br-[0.5rem] rounded-tr-[0.5rem] bg-secondary px-2 py-2 text-gray-500 hover:text-white focus:z-20"
               >
                 ＞

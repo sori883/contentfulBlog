@@ -20,7 +20,7 @@ export default function Top() {
         <CategoryList />
       </PrimeContentLayout>
       <PrimeContentLayout>
-        <h2 className="text-xl font-bold mb-4">新規記事</h2>
+        <h2 className="mb-4 text-xl font-bold">新規記事</h2>
       </PrimeContentLayout>
       <GridListLayout>
         {posts.map((post) => {

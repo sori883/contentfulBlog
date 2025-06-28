@@ -188,23 +188,23 @@
   .znc h1 {
     font-size: 1.6em;
   }
-  
+
   .znc h2 {
     font-size: 1.4em;
   }
-  
+
   .znc h3 {
     font-size: 1.2em;
   }
-  
+
   .znc h4 {
     font-size: 1.1em;
   }
-  
+
   .znc h5 {
     font-size: 1em;
   }
-  
+
   .znc h6 {
     font-size: 0.85em;
   }
@@ -278,8 +278,7 @@
 .znc .code-block-filename {
   font-family:
     "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   -webkit-font-smoothing: antialiased;
 }
 
