@@ -33,12 +33,16 @@ pnpm typecheck
 
 # Linting
 pnpm lint
+
+# Format
+pnpm format
 ```
 
 ### 2. Code Quality Checks
 Before committing, always run:
 1. `pnpm typecheck` - Ensure no TypeScript errors
 2. `pnpm lint` - Check for linting issues
+3. `pnpm format` - Check for format issues
 
 ### 3. Refactoring Guidelines
 - Use TypeScript MCP tools for semantic refactoring
@@ -88,6 +92,11 @@ Before committing, always run:
 This project uses external MCP servers via mcp.json:
 - TypeScript language server (@mizchi/lsmcp)
 - Web readability tools (@mizchi/readability)
+
+### Cpmmand Configuration
+This project uses Command via .claude/commands:
+- Google Search (gemini-search)
+- Split complex tasks into sequential steps, where each step can contain multiple parallel subtasks (orchestrator)
 
 ### Monorepo Structure
 - Uses PNPM workspaces with Turborepo

@@ -1,40 +1,39 @@
 const range = (start: number, end: number) =>
   [...Array<number>(end - start + 1)].map((_, i) => start + i);
 
-export function Pagination(props: {
+type Props = {
   totalCount: number;
   currentPage: number;
-  basePath?: string;
-}) {
-  const basePath = props.basePath ?? "/";
-  const maxPage = props.totalCount;
+  categoryId: string;
+};
+
+export function CategoryPagination({
+  totalCount,
+  currentPage,
+  categoryId,
+}: Props) {
+  const basePath = `/categories/${categoryId}`;
+  const maxPage = totalCount;
 
   const getPageUrl = (page: number) => {
-    if (basePath === "/") {
-      return page === 1 ? "/" : `/page/${page}/`;
-    } else {
-      return page === 1 ? basePath : `${basePath}/${page}/`;
-    }
+    return page === 1 ? basePath : `${basePath}?page=${page}`;
   };
 
-  const backlink = getPageUrl(props.currentPage - 1);
+  const backlink = getPageUrl(currentPage - 1);
+  const nextlink = getPageUrl(currentPage + 1);
 
   if (maxPage > 0) {
     return (
       <div className="mt-10 flex items-center justify-between">
         <div className="flex flex-1 justify-between sm:hidden">
           <a
-            href={props.currentPage === 1 ? getPageUrl(1) : backlink}
+            href={currentPage === 1 ? basePath : backlink}
             className="relative inline-flex items-center rounded-[0.5rem] bg-secondary px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50"
           >
             ＜
           </a>
           <a
-            href={
-              props.currentPage === maxPage
-                ? getPageUrl(props.currentPage)
-                : getPageUrl(props.currentPage + 1)
-            }
+            href={currentPage === maxPage ? getPageUrl(currentPage) : nextlink}
             className="relative ml-3 inline-flex items-center rounded-[0.5rem] bg-secondary px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:text-white"
           >
             ＞
@@ -48,7 +47,7 @@ export function Pagination(props: {
               aria-label="Pagination"
             >
               <a
-                href={props.currentPage === 1 ? getPageUrl(1) : backlink}
+                href={currentPage === 1 ? basePath : backlink}
                 className="relative inline-flex items-center rounded-bl-[0.5rem] rounded-tl-[0.5rem] bg-secondary px-2 py-2 text-gray-400 hover:text-white focus:z-20"
               >
                 ＜
@@ -59,7 +58,7 @@ export function Pagination(props: {
                   aria-current="page"
                   key={index}
                   className={` ${
-                    props.currentPage === number
+                    currentPage === number
                       ? "bg-seagreen-600 relative z-10 inline-flex items-center px-4 py-2 text-sm font-bold text-white focus:z-20"
                       : "relative inline-flex items-center bg-secondary px-4 py-2 text-sm font-bold text-gray-500 hover:text-white focus:z-20"
                   } `}
@@ -69,9 +68,7 @@ export function Pagination(props: {
               ))}
               <a
                 href={
-                  props.currentPage === maxPage
-                    ? getPageUrl(props.currentPage)
-                    : getPageUrl(props.currentPage + 1)
+                  currentPage === maxPage ? getPageUrl(currentPage) : nextlink
                 }
                 className="relative inline-flex items-center rounded-br-[0.5rem] rounded-tr-[0.5rem] bg-secondary px-2 py-2 text-gray-500 hover:text-white focus:z-20"
               >

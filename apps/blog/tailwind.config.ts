@@ -12,9 +12,8 @@ export default {
       colors: {
         base: "#2d2c38",
         secondary: "#22202f",
-        white: "#d4d3de",
-        primary: "#5a4eb4",
         deep: "#1a1b26",
+        white: "#d4d3de",
       },
       fontFamily: {
         sans: ["Inter var", ...fontFamily.sans],

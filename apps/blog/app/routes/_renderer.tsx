@@ -37,6 +37,7 @@ export default jsxRenderer(
           <Link rel="icon" href="/favicon.ico" />
           <link href={`https://sori883.dev${c.req.path}`} rel="canonical" />
           <Link href="/app/css/tailwind.css" rel="stylesheet" />
+          <Link href="/app/css/main.css" rel="stylesheet" />
           <Link
             href="https://rsms.me/inter/inter.css"
             rel="preload"
@@ -46,7 +47,6 @@ export default jsxRenderer(
           <Script src="/app/client.ts" async />
           {import.meta.env.PROD ? <GoogleAnalytics /> : null}
           <script async src="https://platform.twitter.com/widgets.js" />
-          <Link href="/app/css/index.scss" rel="stylesheet" />
         </head>
         <body>{children}</body>
       </html>
