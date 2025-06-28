@@ -25,18 +25,13 @@ export default defineConfig(({ mode }) => {
     return {
       build: {
         rollupOptions: {
-          input: ["/app/css/tailwind.css", "/app/css/index.scss"],
+          input: ["/app/css/tailwind.css", "/app/css/main.css"],
         },
       },
       plugins: [client(), tsconfigPaths()],
     };
   } else {
     return {
-      resolve: {
-        alias: {
-          "@": path.resolve(__dirname, "app"),
-        },
-      },
       assetsInclude: ["**/*.JPG"],
       base:
         process.env.NODE_ENV === "production" ? "https://sori883.dev/" : "/",
@@ -48,7 +43,7 @@ export default defineConfig(({ mode }) => {
         honox({ devServer: { adapter } }),
         mdx({
           jsxImportSource: "hono/jsx",
-          providerImportSource: "@/mdx/mdx-components",
+          providerImportSource: "./app/mdx/mdx-components",
           remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
           rehypePlugins: [
             rehypeHighlight,
