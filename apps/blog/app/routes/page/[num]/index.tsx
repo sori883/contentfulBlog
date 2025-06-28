@@ -2,10 +2,12 @@ import type { Env } from "hono";
 import { ssgParams } from "hono/ssg";
 import { createRoute } from "honox/factory";
 
+import { CategoryList } from "~/components/domain/categoryList";
 import { PostSummary } from "~/components/domain/postSummary";
 import { Pagination } from "~/components/elements/pagination";
 import { GeneralLayout } from "~/components/layouts/generalLayout";
 import { GridListLayout } from "~/components/layouts/gridListLayout";
+import { PrimeContentLayout } from "~/components/layouts/primeContentLayout";
 import { getAllPosts, getMaxPageNumber, getPosts } from "~/mdx/posts";
 
 const param = ssgParams<Env>((_c) => {
@@ -39,6 +41,12 @@ export default createRoute(param, (c) => {
 
   return c.render(
     <GeneralLayout>
+      <PrimeContentLayout>
+        <CategoryList />
+      </PrimeContentLayout>
+      <PrimeContentLayout>
+        <h2 className="mb-4 text-xl font-bold">新規記事</h2>
+      </PrimeContentLayout>
       <GridListLayout>
         {posts.map((post) => {
           return (
