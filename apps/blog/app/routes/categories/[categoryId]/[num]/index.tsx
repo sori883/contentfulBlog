@@ -13,10 +13,10 @@ import { getCategories, getCategoryPosts, getMaxPageNumber } from "~/mdx/posts";
 const param = ssgParams<Env>((_c) => {
   const categories = getCategories();
   const params = [];
-  
+
   for (const category of categories) {
     const totalPages = getMaxPageNumber(category.posts);
-    
+
     for (let num = 2; num <= totalPages; num++) {
       // 1ページ目は /categories/[categoryId] で処理されるので2ページ目から
       params.push({
@@ -25,7 +25,7 @@ const param = ssgParams<Env>((_c) => {
       });
     }
   }
-  
+
   return params;
 });
 
@@ -77,8 +77,8 @@ export default createRoute(param, (c) => {
       </GridListLayout>
 
       <div className="flex justify-center">
-        <Pagination 
-          currentPage={num} 
+        <Pagination
+          currentPage={num}
           totalCount={totalCount}
           basePath={`/categories/${categoryId}`}
         />

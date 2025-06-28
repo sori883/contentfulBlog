@@ -1,8 +1,8 @@
 import type { Env } from "hono";
 import { ssgParams } from "hono/ssg";
 import { createRoute } from "honox/factory";
-import { CategoryList } from "~/components/domain/categoryList";
 
+import { CategoryList } from "~/components/domain/categoryList";
 import { PostSummary } from "~/components/domain/postSummary";
 import { Pagination } from "~/components/elements/pagination";
 import { GeneralLayout } from "~/components/layouts/generalLayout";

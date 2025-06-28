@@ -1,14 +1,14 @@
 const range = (start: number, end: number) =>
   [...Array<number>(end - start + 1)].map((_, i) => start + i);
 
-export function Pagination(props: { 
-  totalCount: number; 
-  currentPage: number; 
-  basePath?: string; 
+export function Pagination(props: {
+  totalCount: number;
+  currentPage: number;
+  basePath?: string;
 }) {
   const basePath = props.basePath ?? "/";
   const maxPage = props.totalCount;
-  
+
   const getPageUrl = (page: number) => {
     if (basePath === "/") {
       return page === 1 ? "/" : `/page/${page}/`;
