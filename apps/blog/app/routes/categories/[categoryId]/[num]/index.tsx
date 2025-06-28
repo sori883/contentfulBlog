@@ -13,25 +13,32 @@ import { getCategories, getCategoryPosts, getMaxPageNumber } from "~/mdx/posts";
 const param = ssgParams<Env>((_c) => {
   const categories = getCategories();
   const params = [];
+
   for (const category of categories) {
-    // 各カテゴリの1ページ目のみSSG生成（他はクライアント側ルーティング）
-    params.push({
-      categoryId: category.id,
-    });
+    const totalPages = getMaxPageNumber(category.posts);
+
+    for (let num = 2; num <= totalPages; num++) {
+      // 1ページ目は /categories/[categoryId] で処理されるので2ページ目から
+      params.push({
+        categoryId: category.id,
+        num: num.toString(),
+      });
+    }
   }
+
   return params;
 });
 
 export default createRoute(param, (c) => {
   const categoryId = c.req.param("categoryId");
-  const pageStr = c.req.query("page") ?? "1";
-  const pageNum = Number.parseInt(pageStr);
+  const numStr = c.req.param("num");
+  const num = Number.parseInt(numStr);
 
-  if (Number.isNaN(pageNum) || pageNum < 1) {
+  if (Number.isNaN(num) || num < 1) {
     return c.notFound();
   }
 
-  const categoryData = getCategoryPosts(categoryId, pageNum);
+  const categoryData = getCategoryPosts(categoryId, num);
 
   if (!categoryData) {
     return c.render(
@@ -71,7 +78,7 @@ export default createRoute(param, (c) => {
 
       <div className="flex justify-center">
         <Pagination
-          currentPage={pageNum}
+          currentPage={num}
           totalCount={totalCount}
           basePath={`/categories/${categoryId}`}
         />
