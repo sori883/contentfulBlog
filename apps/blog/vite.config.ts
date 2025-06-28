@@ -18,7 +18,7 @@ import { defineConfig, normalizePath } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-const entry = "@/server.ts";
+const entry = "./server.ts";
 
 export default defineConfig(({ mode }) => {
   if (mode === "client") {
@@ -32,7 +32,6 @@ export default defineConfig(({ mode }) => {
     };
   } else {
     return {
-      assetsInclude: ["**/*.JPG"],
       base:
         process.env.NODE_ENV === "production" ? "https://sori883.dev/" : "/",
       build: {

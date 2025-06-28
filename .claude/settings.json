@@ -3,6 +3,7 @@
     "allow": [
       "Bash(ls:*)",
       "Bash(grep:*)",
+      "Bash(gemini:*)",
       "mcp__readability__read_url_content_as_markdown",
       // lsmcp tools (TypeScript via Compiler API)
       "mcp__lsmcp__*",
