@@ -18,7 +18,7 @@
     "@acme/prettier-config": "workspace:^",
     "eslint": "catalog:",
     "prettier": "catalog:",
-    "turbo": "^2.4.4",
+    "turbo": "^2.5.4",
     "typescript": "catalog:",
     "typescript-language-server": "^4.3.4"
   },
