@@ -11,11 +11,7 @@
       "mcp__lsmcp__rename_symbol",
       "mcp__lsmcp__move_file",
       // TypeScript-specific server
-      "mcp__typescript__*",
-      // Language-specific tools
-      "rust_*",
-      "python_*",
-      "go_*"
+      "mcp__typescript__*"
     ],
     "deny": [
       "Bash(npm:*)"
