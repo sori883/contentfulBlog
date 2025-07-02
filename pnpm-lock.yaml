@@ -103,8 +103,8 @@ importers:
         specifier: 'catalog:'
         version: 4.7.9
       honox:
-        specifier: ^0.1.42
-        version: 0.1.42(hono@4.7.9)(miniflare@3.20250129.0)(wrangler@3.107.3(@cloudflare/workers-types@4.20250628.0))
+        specifier: ^0.1.43
+        version: 0.1.43(hono@4.7.9)(miniflare@3.20250129.0)(wrangler@3.107.3(@cloudflare/workers-types@4.20250628.0))
     devDependencies:
       '@acme/eslint-config':
         specifier: workspace:^
@@ -3127,8 +3127,8 @@ packages:
     resolution: {integrity: sha512-/EsCoR5h7N4yu01TDu9GMCCJa6ZLk5ZJIWFFGNawAXmd1Tp53+Wir4xm0D2X19bbykWUlzQG0+BvPAji6p9E8Q==}
     engines: {node: '>=16.9.0'}
 
-  honox@0.1.42:
-    resolution: {integrity: sha512-FEz01nDUA8SrSR57ZLrUjJfQUUJ2XYcG++tajiTMwLIRv/2JLKb1UwOGT4no7CSAz5P/mejBOHcRclOTwuYGPQ==}
+  honox@0.1.43:
+    resolution: {integrity: sha512-PNlDHOPMrStgVwD4SOO/ihcA2iK3UaNluIWahxJkjY0dgvOc1hm8BBM06XpMNF2zVkOrtYk1xS3cCxCJZQIwpw==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '>=4.*'
@@ -6322,7 +6322,7 @@ snapshots:
       '@babel/parser': 7.26.2
       '@babel/template': 7.25.9
       '@babel/types': 7.26.0
-      debug: 4.4.0
+      debug: 4.4.1(supports-color@8.1.1)
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -9019,7 +9019,7 @@ snapshots:
 
   hono@4.7.9: {}
 
-  honox@0.1.42(hono@4.7.9)(miniflare@3.20250129.0)(wrangler@3.107.3(@cloudflare/workers-types@4.20250628.0)):
+  honox@0.1.43(hono@4.7.9)(miniflare@3.20250129.0)(wrangler@3.107.3(@cloudflare/workers-types@4.20250628.0)):
     dependencies:
       '@babel/generator': 7.25.6
       '@babel/parser': 7.25.6
