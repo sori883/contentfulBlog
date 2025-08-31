@@ -32,7 +32,7 @@
     "@hono/vite-ssg": "^0.1.2",
     "@mdx-js/rollup": "^3.0.1",
     "@tailwindcss/typography": "^0.5.15",
-    "@textlint-ja/textlint-rule-preset-ai-writing": "^1.4.0",
+    "@textlint-ja/textlint-rule-preset-ai-writing": "^1.6.1",
     "@textlint/textlint-plugin-markdown": "^15.0.1",
     "@types/mdx": "^2.0.13",
     "autoprefixer": "^10.4.21",
