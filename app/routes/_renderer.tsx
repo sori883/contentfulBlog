@@ -5,7 +5,7 @@ import { ThemeInit } from "@/libs/tailwind/theme";
 
 export default jsxRenderer(({ children }, c) => {
   const title = "今日も生きてるだけでえらい";
-  const ogImage = "https://sori883.dev/static/ogp.png";
+  const ogImage = "https://sori883.dev/ogp.png";
   const description = "sori883のポートフォリオ";
 
   return (

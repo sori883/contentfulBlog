@@ -5,7 +5,7 @@ import { ThemeInit } from "@/libs/tailwind/theme";
 
 export default jsxRenderer(({ children, title, description }, c) => {
   const pageTitle = title || "今日も生きてるだけでえらい";
-  const ogImage = "https://sori883.dev/static/ogp.png";
+  const ogImage = "https://sori883.dev/ogp.png";
   const pageDescription = description || "カテゴリ一覧";
 
   return (

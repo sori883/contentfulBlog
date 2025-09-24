@@ -37,7 +37,7 @@ export default defineConfig(({ mode }) => {
     : {
         ssr: {
           target: "node",
-          external: ["@twemoji/parser", "jsdom"],
+          external: ["@twemoji/parser", "jsdom", "feed"],
         },
         build: { emptyOutDir: false },
         resolve: {
