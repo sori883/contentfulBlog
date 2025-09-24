@@ -76,7 +76,7 @@ export default defineConfig(({ mode }) => {
                   const destPath = normalizePath(
                     path
                       .relative(__dirname, fullPath)
-                      .replaceAll("contents", ""),
+                      .replaceAll("contents", "")
                   );
                   return destPath;
                 },
