@@ -1,14 +1,14 @@
-import { Feed } from "feed"
-import { createRoute } from "honox/factory"
-import { getAllPosts } from "@/features/posts"
+import { createRoute } from "honox/factory";
+import { getAllPosts } from "@/features/posts";
+import { Feed } from "feed";
 
 export default createRoute(async (c) => {
-  const feeds = generateRssFeed()
+  const feeds = generateRssFeed();
 
   return c.text(feeds, 200, {
     "Content-Type": "text/xml",
-  })
-})
+  });
+});
 
 export const generateRssFeed = (): string => {
   const feed = new Feed({
@@ -24,9 +24,9 @@ export const generateRssFeed = (): string => {
     author: {
       name: "suna",
     },
-  })
+  });
 
-  const posts = getAllPosts()
+  const posts = getAllPosts();
   for (const post of posts) {
     feed.addItem({
       title: post.frontmatter.title,
@@ -34,9 +34,9 @@ export const generateRssFeed = (): string => {
       date: new Date(post.frontmatter.date),
       id: `https://sori883.dev/posts/${post.frontmatter.permalink}`,
       link: `https://sori883.dev/posts/${post.frontmatter.permalink}`,
-    })
+    });
   }
 
   // RSS 2.0
-  return feed.rss2()
-}
+  return feed.rss2();
+};

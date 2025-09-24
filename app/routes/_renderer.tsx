@@ -30,7 +30,7 @@ export default jsxRenderer(({ children }, c) => {
         <ThemeInit />
         <Link href="/app/css/style.css" rel="stylesheet" />
         <Script src="/app/client.ts" async />
-        {import.meta.env.PROD ? <GoogleAnalytics /> : null }
+        {import.meta.env.PROD ? <GoogleAnalytics /> : null}
       </head>
       <body>{children}</body>
     </html>
