@@ -1,0 +1,17 @@
+{
+  "plugins": {
+    "@textlint/markdown": {
+      "extensions": [".mdx"]
+    }
+  },
+  "rules": {
+    "ja-unnatural-alphabet": true,
+    "ja-no-redundant-expression": true,
+    "no-doubled-joshi": true,
+    "preset-ja-technical-writing": {
+      "no-exclamation-question-mark": false
+    },
+    "aws-service-name": false,
+    "@textlint-ja/preset-ai-writing": false
+  }
+}
