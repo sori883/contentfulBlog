@@ -1,0 +1,135 @@
+---
+icon: "🎨"
+permalink: "sass_update_migration_1.80"
+title: "Sassの@import廃止対応しました"
+date: 2025-01-26T00:00:00
+description: "Sassの@import廃止対応しました"
+category: "Sass"
+tags:
+  - sass
+---
+## はじめに
+このブログを`build`したらSassでエラー出てました。  
+
+```
+@import "./_content.scss";
+        ^^^^^^^^^^^^^^^^^
+app\css\index.scss 70:11  root stylesheet
+
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+More info and automated migrator: https://sass-lang.com/d/import
+```
+
+どうやら、Dart Sass 3.0.0で廃止される`@import`や、グローバル組み込み関数が非推奨になるらしいのです。  
+下記サイトに沿ってマイグレしたので、備忘録とします。    
+<ExLinkCard url="https://sass-lang.com/documentation/breaking-changes/import/" title="Breaking Change: `@import` and global built-in functions"/>
+
+## マイグレ対応
+### 何をすれば良いのか
+以下に対応する必要があります。  
+- `@import`が非推奨
+  - `@use`や`@forward`に置き換える必要がある
+- グローバルスコープ変数、関数が非推奨
+  - 変数は`colors.$my-variable`のように名前空間を指定する必要がある  
+  - 組み込みも`map.get`のように名前空間を指定する必要がある
+など。  
+
+### 自動マイグレツールを実行してみる
+ありがたいことにマイグレツールが用意されていたので実行してみました。  
+```
+npm install -g sass-migrator
+sass-migrator module --migrate-deps your-entrypoint.scss
+```
+
+残念ながらエラーになりました。  
+  外部ファイルに設定されている外部変数にアクセス出来ないようです。  
+```
+Error: This stylesheet was loaded by a nested import in index.scss. The module system only supports loading nested CSS using the load-css() mixin, which doesn't allow access to variables from the outer stylesheet.
+   ╷
+10 │   color: $c-text-link-primary;
+   │          ^^^^^^^^^^^^^^^^^^^^
+   ╵
+  _content.scss 10:10  root stylesheet
+Migration failed!
+```
+
+### @importの書き換え
+まずは`@import`を`@use`や`@forward`に書き換えを実施しました。  
+`@use`を使用するにあたって、別ファイルで定義された変数を使うためには`@use: "variable"`としたうえで`名前空間.color`のように変数を使用する必要があります。  
+そうなると、`index.scss（エントリポイント）`で定義した変数を`_content.scss`で使用するような依存関係はNGです。  
+`index.scss`←`_content.scss`←`_variables.scss`のような依存関係にする必要があります。  
+
+以下は今回のマイグレで実施した構成変更です。  
+![sassの構成](./sass_architecture.webp)
+***変更前***
+```scss
+@import "content";
+@import "embed";
+@import "highlight";
+```
+
+***変更後***
+```scss
+@use "content";
+@use "embed";
+@use "highlight";
+```
+### 変数やmixinの書き換え
+グローバルでなくなったため、別ファイルで定義した変数やmixinを使用するには`@use`したうえで名前空間を指定する必要があります。  
+***変更前***
+```scss
+// 変数
+.embed-figma {
+  border: 1px solid $c-border-gray;
+}
+// mixin
+@include mq(sm) {
+  padding: 1rem 0.8rem;
+  font-size: 0.85em;
+}
+```
+
+***変更後***
+```scss
+// variableをuse
+@use "variables" as variables;
+// 変数
+.embed-figma {
+  border: 1px solid variables.$c-border-gray;
+}
+// mixin
+@include variables.mq(sm) {
+  padding: 1rem 0.8rem;
+  font-size: 0.85em;
+}
+```
+
+### ビルドイン関数の書き換え
+ビルドイン関数も、`@use`で読み込んで使用する必要があります。  
+例えば`map-get`は以下の通りです。  
+
+***変更前***
+```scss
+@media #{map-get($breakpoints, $size)} {
+  @content;
+}
+```
+
+***変更後***
+```scss
+@use "sass:map";
+
+@media #{map.get($breakpoints, $size)} {
+  @content;
+}
+```
+
+その他のビルドイン関数についてはSassドキュメントを参照してください。  
+<ExLinkCard url="https://sass-lang.com/documentation/modules/" title="Built-In Modules" />
+
+
+## 終わりに
+マイグレ自体は以上で完了し、ビルド時の警告文もでなくなりました。  
+このブログで行った変更を下記リンクから参照出来ます。参考程度に参照ください。  
+<ExLinkCard url="https://github.com/sori883/contentfulBlog/commit/2b98757ea1ddeebda2661ccc22b48e9306b4cab6" />
+

@@ -1,12 +1,19 @@
 {
   "mcpServers": {
-    "lsmcp": {
-      "command": "npx",
-      "args": ["-y", "@mizchi/lsmcp", "--language", "typescript"]
-    },
-    "readability": {
-      "command": "npx",
-      "args": ["-y", "@mizchi/readability", "--mcp"]
+    "serena": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server",
+        "--context",
+        "ide-assistant",
+        "--project",
+        "../contentfulBlog"
+      ],
+      "env": {}
     }
   }
 }

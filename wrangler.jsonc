@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sori883_dev",
+  "compatibility_date": "2025-09-18",
+  "compatibility_flags": [
+    "nodejs_compat_v2"
+  ],
+  "assets": {
+    "directory": "./dist"
+  }
+}
