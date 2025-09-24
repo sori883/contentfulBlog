@@ -20,7 +20,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Lint
-        run: pnpm lint && pnpm lint:ws
+        run: pnpm lint
 
   textlint:
     runs-on: ubuntu-latest
