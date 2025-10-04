@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "copy": "sh cp-images.sh",
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build --mode client && vite build",
     "preview": "pnpm run build && wrangler dev",
     "deploy:worker": "pnpm run build && wrangler deploy",

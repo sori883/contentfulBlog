@@ -117,3 +117,7 @@
     background-color: var(--deep);
   }
 }
+
+html, body {
+  background-color: var(--background-secondary);
+}
