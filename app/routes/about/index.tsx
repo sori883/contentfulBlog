@@ -230,7 +230,7 @@ export default createRoute((c) => {
                   <h3 className="text-theme mb-2 text-lg font-semibold">
                     インフラ・クラウド
                   </h3>
-                  <p className="text-theme mb-3 text-xs">
+                  <p className="text-theme mb-3 text-sm">
                     オンプレミスサーバーの設計・構築・保守・運用の経験
                     <br />
                     AWS Well-Architected
@@ -300,7 +300,7 @@ export default createRoute((c) => {
                   <h3 className="text-theme mb-2 text-lg font-semibold">
                     フロントエンド
                   </h3>
-                  <p className="text-theme mb-3 text-xs">
+                  <p className="text-theme mb-3 text-sm">
                     業務、個人で開発、改修を行った経験があります。
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -332,7 +332,7 @@ export default createRoute((c) => {
                   <h3 className="text-theme mb-2 text-lg font-semibold">
                     バックエンド
                   </h3>
-                  <p className="text-theme mb-3 text-xs">
+                  <p className="text-theme mb-3 text-sm">
                     業務、個人で開発、改修を行った経験があります。
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -355,7 +355,7 @@ export default createRoute((c) => {
                   <h3 className="text-theme mb-2 text-lg font-semibold">
                     ツール
                   </h3>
-                  <p className="text-theme mb-3 text-xs">
+                  <p className="text-theme mb-3 text-sm">
                     開発で導入・利用したツール
                   </p>
                   <div className="flex flex-wrap gap-2">
