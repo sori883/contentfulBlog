@@ -7,6 +7,7 @@ import { PrimeContentLayout } from "@/components/layouts/primeContentLayout";
 import { Pagination } from "@/components/pagination/pagination";
 import { CategoryList } from "@/components/post/categoryList";
 import { PostSummary } from "@/components/post/postSummary";
+import { ZennLink } from "@/components/social/zennLink";
 
 export default createRoute((c) => {
   const totalCount = getMaxPageNumber(getAllPosts());
@@ -17,6 +18,9 @@ export default createRoute((c) => {
     <GeneralLayout>
       <PrimeContentLayout>
         <h2 className="text-theme mb-8 text-xl font-bold">ブログ</h2>
+        <div className="mb-8">
+          <ZennLink />
+        </div>
         <CategoryList />
       </PrimeContentLayout>
       <GridListLayout>

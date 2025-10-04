@@ -14,7 +14,7 @@ export default jsxRenderer(({ children }, c) => {
         <title>{title}</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex, nofollow, noimageindex" />
         <meta name="description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:description" content={description} />
@@ -24,7 +24,6 @@ export default jsxRenderer(({ children }, c) => {
         <meta name="twitter:site" content="@sori883" />
         <meta name="twitter:creator" content="@sori883" />
         <meta property="og:title" content={title} />
-        <link href={`https://sori883.dev${c.req.path}`} rel="canonical" />
         <link href="https://rsms.me/inter/inter.css" rel="preload" as="style" />
         <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
         <link rel="icon" href="/favicon.ico" />

@@ -79,7 +79,7 @@ export default createRoute((c) => {
                 <h2 className="text-theme text-2xl font-bold">
                   sorinaji@sori883
                 </h2>
-                <ul className="text-theme text-sm">
+                <ul className="text-theme text-md">
                   <li className="py-0.5">伊藤 健治(Kenji Ito)</li>
                   <li className="py-0.5">岩手出身/仙台在住</li>
                   <li className="py-0.5">1998.05.18生</li>
@@ -87,14 +87,14 @@ export default createRoute((c) => {
               </div>
               <div className="mt-6 space-y-2">
                 <h2 className="text-theme mt-6 text-lg font-bold">所属</h2>
-                <p className="text-theme text-sm">
+                <p className="text-theme text-md">
                   エーピーコミュニケーションズ
                   <br />
                   <a
                     href="https://www.ap-com.co.jp/"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-blue-500 hover:underline"
+                    className="text-blue-500 hover:underline text-md"
                   >
                     https://www.ap-com.co.jp/
                   </a>
@@ -107,7 +107,7 @@ export default createRoute((c) => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-theme flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition-all hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="text-theme flex items-center gap-3 rounded-lg px-4 py-3 text-md font-medium transition-all hover:bg-gray-100 dark:hover:bg-gray-800"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -139,12 +139,21 @@ export default createRoute((c) => {
                   <br />
                   アプリケーション開発の経験を活かし、現在はクラウドインフラ領域で活動しています。
                   <br />
-                  開発者視点を持ったインフラエンジニアとして、お客様の課題解決に向けたソリューション提案から設計、構築までを一貫して手掛けています。
+                  開発者視点を持ったインフラエンジニアとして、お客様の課題解決に向けたソリューション提案から設計、構築、導入を一貫して手掛けています。
                   <br />
                   <br />
                   私の強みは、アプリケーションとインフラ両面から最適なアーキテクチャを提案できることです。
                   <br />
                   新しい技術のキャッチアップを継続し、開発者にもお客様にも最適な環境を設計することを大切にしています。
+                  <br />
+                  <br />
+                  <img
+                    src="real-me.webp"
+                    alt="APC入社時の写真"
+                    className="w-full rounded-lg object-cover"
+                    loading="lazy"
+                  />
+                  <span className="text-sm">APC入社時（2025.10.01）</span>
                 </p>
               </div>
             </div>
