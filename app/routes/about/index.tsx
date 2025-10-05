@@ -99,6 +99,19 @@ export default createRoute((c) => {
                     https://www.ap-com.co.jp/
                   </a>
                 </p>
+                <p className="text-theme text-md">
+                  放送大学<br />
+                  教養学部教養学科 情報コース
+                  <br />
+                  <a
+                    href="https://www.ouj.ac.jp/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-blue-500 hover:underline text-md"
+                  >
+                    https://www.ouj.ac.jp/
+                  </a>
+                </p>
               </div>
 
               <div className="mt-6 space-y-2">
@@ -169,7 +182,7 @@ export default createRoute((c) => {
               </h2>
               <div className="space-y-3 text-gray-700 dark:text-gray-300">
                 <p className="mb-4">
-                  昼飲みからのラーメン、つけ麺、油そばの王道コース
+                  昼飲みからの炭水化物は幸福の極み
                 </p>
                 <div className="grid grid-cols-2 gap-2">
                   <img
