@@ -94,20 +94,21 @@ export default createRoute((c) => {
                     href="https://www.ap-com.co.jp/"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-blue-500 hover:underline text-md"
+                    className="text-md text-blue-500 hover:underline"
                   >
                     https://www.ap-com.co.jp/
                   </a>
                 </p>
                 <p className="text-theme text-md">
-                  放送大学<br />
+                  放送大学
+                  <br />
                   教養学部教養学科 情報コース
                   <br />
                   <a
                     href="https://www.ouj.ac.jp/"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-blue-500 hover:underline text-md"
+                    className="text-md text-blue-500 hover:underline"
                   >
                     https://www.ouj.ac.jp/
                   </a>
@@ -120,7 +121,7 @@ export default createRoute((c) => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-theme flex items-center gap-3 rounded-lg px-4 py-3 text-md font-medium transition-all hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="text-theme text-md flex items-center gap-3 rounded-lg px-4 py-3 font-medium transition-all hover:bg-gray-100 dark:hover:bg-gray-800"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -181,9 +182,7 @@ export default createRoute((c) => {
                 <span>すきなこと</span>
               </h2>
               <div className="space-y-3 text-gray-700 dark:text-gray-300">
-                <p className="mb-4">
-                  昼飲みからの炭水化物は幸福の極み
-                </p>
+                <p className="mb-4">昼飲みからの炭水化物は幸福の極み</p>
                 <div className="grid grid-cols-2 gap-2">
                   <img
                     src="/like/osake1.webp"
