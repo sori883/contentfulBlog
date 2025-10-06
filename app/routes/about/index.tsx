@@ -166,7 +166,7 @@ export default createRoute((c) => {
                     className="w-full rounded-lg object-cover"
                     loading="lazy"
                   />
-                  <span className="text-sm">若かりし頃</span>
+                  <span className="text-sm">初出社前の私</span>
                 </p>
               </div>
             </div>
