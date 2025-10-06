@@ -166,7 +166,7 @@ export default createRoute((c) => {
                     className="w-full rounded-lg object-cover"
                     loading="lazy"
                   />
-                  <span className="text-sm">APC入社時（2025.10.01）</span>
+                  <span className="text-sm">若かりし頃</span>
                 </p>
               </div>
             </div>
