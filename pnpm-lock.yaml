@@ -37,8 +37,8 @@ importers:
         specifier: ^1.3.0
         version: 1.7.0(hono@4.9.12)
       '@hono/vite-dev-server':
-        specifier: ^0.18.2
-        version: 0.18.3(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.42.2(@cloudflare/workers-types@4.20251011.0))
+        specifier: ^0.23.0
+        version: 0.23.0(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.42.2(@cloudflare/workers-types@4.20251011.0))
       '@hono/vite-ssg':
         specifier: ^0.2.1
         version: 0.2.1(hono@4.9.12)
@@ -1212,8 +1212,8 @@ packages:
     peerDependencies:
       hono: '*'
 
-  '@hono/vite-dev-server@0.18.3':
-    resolution: {integrity: sha512-JztypLmq6qtQ3OAcz5vDzwXYBBymLztSbfDuNf4XTWkfppLjf6DHvYHtQZ5idOfNhUzdnbYY7/6QAKlVk6G3QQ==}
+  '@hono/vite-dev-server@0.20.1':
+    resolution: {integrity: sha512-wXikV0C5tPqwH6udA68VTsmnFKWGhIeBuhuxgdGDQIbVNbv5gD0vqKLhx4nG1o4dhksaWPiiSqZV58sTKUzNxA==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '*'
@@ -1225,8 +1225,8 @@ packages:
       wrangler:
         optional: true
 
-  '@hono/vite-dev-server@0.20.1':
-    resolution: {integrity: sha512-wXikV0C5tPqwH6udA68VTsmnFKWGhIeBuhuxgdGDQIbVNbv5gD0vqKLhx4nG1o4dhksaWPiiSqZV58sTKUzNxA==}
+  '@hono/vite-dev-server@0.23.0':
+    resolution: {integrity: sha512-tHV86xToed9Up0j/dubQW2PDP4aYNFDSfQrjcV6Ra7bqCGrxhtg/zZBmbgSco3aTxKOEPzDXKK+6seAAfsbIXw==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '*'
@@ -1749,9 +1749,6 @@ packages:
   '@textlint/markdown-to-ast@13.4.1':
     resolution: {integrity: sha512-jUa5bTNmxjEgfCXW4xfn7eSJqzUXyNKiIDWLKtI4MUKRNhT3adEaa/NuQl0Mii3Hu3HraZR7hYhRHLh+eeM43w==}
 
-  '@textlint/markdown-to-ast@15.2.2':
-    resolution: {integrity: sha512-7LsDOCApuM5463e4mfJAORyOMDxzJGmfDfoT6RtwL5P1T1kKGxLl5yudzdfm8++WB8v4wJZZEUQqppejeDRs9Q==}
-
   '@textlint/markdown-to-ast@15.2.3':
     resolution: {integrity: sha512-5kz75TBEOUQIpqCaV65l98YSIpfyOyTKSn4et9A//iSbjiwZHDK3HBo2jDWdkHmGX28+w1hBFDR7/eFMnbxAJQ==}
 
@@ -1785,9 +1782,6 @@ packages:
   '@textlint/textlint-plugin-markdown@13.4.1':
     resolution: {integrity: sha512-OcLkFKYmbYeGJ0kj2487qcicCYTiE2vJLwfPcUDJrNoMYak5JtvHJfWffck8gON2mEM00DPkHH0UdxZpFjDfeg==}
 
-  '@textlint/textlint-plugin-markdown@15.2.2':
-    resolution: {integrity: sha512-JzmHAtC2C4LOpJ/JD2YsqBZt9ej4khFFDI0d9E6P9y9AO/HOEv4GeT7aAjGGPG6AVO977aGiJ92EK9kTwlVnIQ==}
-
   '@textlint/textlint-plugin-markdown@15.2.3':
     resolution: {integrity: sha512-fpHuWt1Tonl+UuObH5upByvPWQjd9swu+beMlrSagBWTFblEyNxGwgaQkTjaWC/SYqJn4TkTsT1c1IZJaHV5oQ==}
 
@@ -1799,9 +1793,6 @@ packages:
 
   '@textlint/types@13.4.1':
     resolution: {integrity: sha512-1ApwQa31sFmiJeJ5yTNFqjbb2D1ICZvIDW0tFSM0OtmQCSDFNcKD3YrrwDBgSokZ6gWQq/FpNjlhi6iETUWt0Q==}
-
-  '@textlint/types@15.2.2':
-    resolution: {integrity: sha512-X2BHGAR3yXJsCAjwYEDBIk9qUDWcH4pW61ISfmtejau+tVqKtnbbvEZnMTb6mWgKU1BvTmftd5DmB1XVDUtY3g==}
 
   '@textlint/types@15.2.3':
     resolution: {integrity: sha512-i8XVmDHJwykMXcGgkSxZLjdbeqnl+voYAcIr94KIe0STwgkHIhwHJgb/tEVFawGClHo+gPczF12l1C5+TAZEzQ==}
@@ -7070,7 +7061,7 @@ snapshots:
     dependencies:
       hono: 4.9.12
 
-  '@hono/vite-dev-server@0.18.3(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.42.2(@cloudflare/workers-types@4.20251011.0))':
+  '@hono/vite-dev-server@0.20.1(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.42.2(@cloudflare/workers-types@4.20251011.0))':
     dependencies:
       '@hono/node-server': 1.19.3(hono@4.9.12)
       hono: 4.9.12
@@ -7079,7 +7070,7 @@ snapshots:
       miniflare: 4.20251008.0
       wrangler: 4.42.2(@cloudflare/workers-types@4.20251011.0)
 
-  '@hono/vite-dev-server@0.20.1(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.42.2(@cloudflare/workers-types@4.20251011.0))':
+  '@hono/vite-dev-server@0.23.0(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.42.2(@cloudflare/workers-types@4.20251011.0))':
     dependencies:
       '@hono/node-server': 1.19.3(hono@4.9.12)
       hono: 4.9.12
@@ -7648,21 +7639,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@textlint/markdown-to-ast@15.2.2':
-    dependencies:
-      '@textlint/ast-node-types': 15.2.2
-      debug: 4.4.3(supports-color@8.1.1)
-      mdast-util-gfm-autolink-literal: 0.1.3
-      neotraverse: 0.6.18
-      remark-footnotes: 3.0.0
-      remark-frontmatter: 3.0.0
-      remark-gfm: 1.0.0
-      remark-parse: 9.0.0
-      structured-source: 4.0.0
-      unified: 9.2.2
-    transitivePeerDependencies:
-      - supports-color
-
   '@textlint/markdown-to-ast@15.2.3':
     dependencies:
       '@textlint/ast-node-types': 15.2.3
@@ -7728,13 +7704,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@textlint/textlint-plugin-markdown@15.2.2':
-    dependencies:
-      '@textlint/markdown-to-ast': 15.2.2
-      '@textlint/types': 15.2.2
-    transitivePeerDependencies:
-      - supports-color
-
   '@textlint/textlint-plugin-markdown@15.2.3':
     dependencies:
       '@textlint/markdown-to-ast': 15.2.3
@@ -7754,10 +7723,6 @@ snapshots:
   '@textlint/types@13.4.1':
     dependencies:
       '@textlint/ast-node-types': 13.4.1
-
-  '@textlint/types@15.2.2':
-    dependencies:
-      '@textlint/ast-node-types': 15.2.2
 
   '@textlint/types@15.2.3':
     dependencies:
