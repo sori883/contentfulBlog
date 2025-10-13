@@ -9,7 +9,8 @@
     "ja-no-redundant-expression": true,
     "no-doubled-joshi": true,
     "preset-ja-technical-writing": {
-      "no-exclamation-question-mark": false
+      "no-exclamation-question-mark": false, 
+      "ja-no-weak-phrase": false
     },
     "aws-service-name": false,
     "@textlint-ja/preset-ai-writing": false
