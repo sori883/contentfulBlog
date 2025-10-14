@@ -16,7 +16,7 @@ importers:
         version: 4.9.12
       honox:
         specifier: ^0.1.46
-        version: 0.1.46(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.42.2(@cloudflare/workers-types@4.20251011.0))
+        version: 0.1.46(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.43.0(@cloudflare/workers-types@4.20251011.0))
       jsdom:
         specifier: ^27.0.0
         version: 27.0.0(postcss@8.5.6)
@@ -38,7 +38,7 @@ importers:
         version: 1.7.0(hono@4.9.12)
       '@hono/vite-dev-server':
         specifier: ^0.23.0
-        version: 0.23.0(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.42.2(@cloudflare/workers-types@4.20251011.0))
+        version: 0.23.0(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.43.0(@cloudflare/workers-types@4.20251011.0))
       '@hono/vite-ssg':
         specifier: ^0.2.1
         version: 0.2.1(hono@4.9.12)
@@ -148,8 +148,8 @@ importers:
         specifier: ^3.1.3
         version: 3.1.3(vite@6.3.6(@types/node@24.7.2)(jiti@2.5.1)(lightningcss@1.30.1)(yaml@2.8.1))
       wrangler:
-        specifier: ^4.42.2
-        version: 4.42.2(@cloudflare/workers-types@4.20251011.0)
+        specifier: ^4.43.0
+        version: 4.43.0(@cloudflare/workers-types@4.20251011.0)
 
 packages:
 
@@ -5827,8 +5827,8 @@ packages:
   workerpool@6.5.1:
     resolution: {integrity: sha512-Fs4dNYcsdpYSAfVxhnl1L5zTksjvOJxtC5hzMNl+1t9B8hTJTdKDyZ5ju7ztgPy+ft9tBFXoOlDNiOT9WUXZlA==}
 
-  wrangler@4.42.2:
-    resolution: {integrity: sha512-1iTnbjB4F12KSP1zbfxQL495xarS+vdrZnulQP2SEcAxDTUGn7N9zk1O2WtFOc+Fhcgl+9/sdz/4AL9pF34Pwg==}
+  wrangler@4.43.0:
+    resolution: {integrity: sha512-IBNqXlYHSUSCNNWj/tQN4hFiQy94l7fTxEnJWETXyW69+cjUyjQ7MfeoId3vIV9KBgY8y5M5uf2XulU95OikJg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
@@ -7061,23 +7061,23 @@ snapshots:
     dependencies:
       hono: 4.9.12
 
-  '@hono/vite-dev-server@0.20.1(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.42.2(@cloudflare/workers-types@4.20251011.0))':
+  '@hono/vite-dev-server@0.20.1(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.43.0(@cloudflare/workers-types@4.20251011.0))':
     dependencies:
       '@hono/node-server': 1.19.3(hono@4.9.12)
       hono: 4.9.12
       minimatch: 9.0.5
     optionalDependencies:
       miniflare: 4.20251008.0
-      wrangler: 4.42.2(@cloudflare/workers-types@4.20251011.0)
+      wrangler: 4.43.0(@cloudflare/workers-types@4.20251011.0)
 
-  '@hono/vite-dev-server@0.23.0(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.42.2(@cloudflare/workers-types@4.20251011.0))':
+  '@hono/vite-dev-server@0.23.0(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.43.0(@cloudflare/workers-types@4.20251011.0))':
     dependencies:
       '@hono/node-server': 1.19.3(hono@4.9.12)
       hono: 4.9.12
       minimatch: 9.0.5
     optionalDependencies:
       miniflare: 4.20251008.0
-      wrangler: 4.42.2(@cloudflare/workers-types@4.20251011.0)
+      wrangler: 4.43.0(@cloudflare/workers-types@4.20251011.0)
 
   '@hono/vite-ssg@0.2.1(hono@4.9.12)':
     dependencies:
@@ -9834,13 +9834,13 @@ snapshots:
 
   hono@4.9.12: {}
 
-  honox@0.1.46(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.42.2(@cloudflare/workers-types@4.20251011.0)):
+  honox@0.1.46(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.43.0(@cloudflare/workers-types@4.20251011.0)):
     dependencies:
       '@babel/generator': 7.25.6
       '@babel/parser': 7.25.6
       '@babel/traverse': 7.25.6
       '@babel/types': 7.25.6
-      '@hono/vite-dev-server': 0.20.1(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.42.2(@cloudflare/workers-types@4.20251011.0))
+      '@hono/vite-dev-server': 0.20.1(hono@4.9.12)(miniflare@4.20251008.0)(wrangler@4.43.0(@cloudflare/workers-types@4.20251011.0))
       hono: 4.9.12
       jsonc-parser: 3.3.1
       precinct: 12.2.0
@@ -12934,7 +12934,7 @@ snapshots:
 
   workerpool@6.5.1: {}
 
-  wrangler@4.42.2(@cloudflare/workers-types@4.20251011.0):
+  wrangler@4.43.0(@cloudflare/workers-types@4.20251011.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.4.0
       '@cloudflare/unenv-preset': 2.7.7(unenv@2.0.0-rc.21)(workerd@1.20251008.0)
