@@ -66,7 +66,7 @@
     "textlint-rule-ja-unnatural-alphabet": "^2.0.1",
     "textlint-rule-no-doubled-joshi": "^5.1.1",
     "textlint-rule-preset-ja-technical-writing": "^12.0.2",
-    "typescript-eslint": "^8.46.0",
+    "typescript-eslint": "^8.46.3",
     "vite": "^6.3.5",
     "vite-plugin-static-copy": "^3.1.4",
     "wrangler": "^4.42.2"
