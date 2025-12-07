@@ -38,7 +38,7 @@
     "@mdx-js/rollup": "^3.1.1",
     "@tailwindcss/vite": "^4.0.9",
     "@textlint-ja/textlint-rule-preset-ai-writing": "^1.6.1",
-    "@textlint/textlint-plugin-markdown": "^15.2.3",
+    "@textlint/textlint-plugin-markdown": "^15.5.0",
     "@twemoji/parser": "^16.0.0",
     "@types/jsdom": "^27.0.0",
     "@types/mdx": "^2.0.13",
