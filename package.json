@@ -24,7 +24,7 @@
     "feed": "^5.1.0",
     "hono": "^4.10.4",
     "honox": "^0.1.46",
-    "jsdom": "^27.0.0"
+    "jsdom": "^27.4.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20251011.0",
