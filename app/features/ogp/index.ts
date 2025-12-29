@@ -78,8 +78,7 @@ export async function getOGP(url: string): Promise<OGPData> {
       imageUrl,
       siteName,
     };
-  } catch (error) {
-    console.error("OGP取得エラー:", error);
+  } catch {
     return {
       title: "",
       description: "",
