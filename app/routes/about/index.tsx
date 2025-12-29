@@ -213,9 +213,7 @@ export default createRoute((c) => {
                     エキスパート（AZ-304）
                   </a>
                 </p>
-                <h3 className="text-theme mb-2 text-lg font-semibold">
-                  IPA
-                </h3>
+                <h3 className="text-theme mb-2 text-lg font-semibold">IPA</h3>
                 <p>
                   <a
                     href="https://x.com/sori883/status/2004026396566528321"
@@ -292,7 +290,6 @@ export default createRoute((c) => {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
