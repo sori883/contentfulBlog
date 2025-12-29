@@ -20,7 +20,7 @@ export default createRoute(
 
   async (c) => {
     const permalink = c.req.param("permalink");
-    const post = getPostByPermalink(permalink);
+    const post = getPostByPermalink(permalink!);
     if (!post) return c.redirect("/404");
 
     const twemoji = parseTwemoji(post.frontmatter.icon);

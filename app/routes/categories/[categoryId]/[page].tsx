@@ -33,7 +33,7 @@ export default createRoute(
   (c) => {
     const pageNum = c.req.param("page") ? Number(c.req.param("page")) : 1;
     const categoryId = c.req.param("categoryId");
-    const posts = getCategoryPosts(categoryId, pageNum);
+    const posts = getCategoryPosts(categoryId!, pageNum);
 
     return c.render(
       <GeneralLayout>
