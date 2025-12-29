@@ -27,7 +27,7 @@ export default createRoute(
 
   (c) => {
     const pageNumStr = c.req.param("page");
-    const pageNum = Number.parseInt(pageNumStr);
+    const pageNum = Number.parseInt(pageNumStr!);
 
     const allPosts = getAllPosts();
     const totalCount = getMaxPageNumber(allPosts);
