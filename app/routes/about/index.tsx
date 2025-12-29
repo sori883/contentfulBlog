@@ -88,6 +88,8 @@ export default createRoute((c) => {
               <div className="mt-6 space-y-2">
                 <h2 className="text-theme mt-6 text-lg font-bold">所属</h2>
                 <p className="text-theme text-md">
+                  2025.10.1〜
+                  <br />
                   エーピーコミュニケーションズ
                   <br />
                   <a
@@ -100,6 +102,8 @@ export default createRoute((c) => {
                   </a>
                 </p>
                 <p className="text-theme text-md">
+                  2025.10.1〜
+                  <br />
                   放送大学
                   <br />
                   教養学部教養学科 情報コース
@@ -148,17 +152,7 @@ export default createRoute((c) => {
                 <p>
                   こんにちは！プロフィールを閲覧いただきありがとうございます！
                   <br />
-                  <br />
-                  アプリ開発からクラウドインフラの世界へ。
-                  <br />
-                  アプリケーション開発の経験を活かし、現在はクラウドインフラ領域で活動しています。
-                  <br />
-                  開発者視点を持ったインフラエンジニアとして、お客様の課題解決に向けたソリューション提案から設計、構築、導入を一貫して手掛けています。
-                  <br />
-                  <br />
-                  私の強みは、アプリケーションとインフラ両面から最適なアーキテクチャを提案できることです。
-                  <br />
-                  新しい技術のキャッチアップを継続し、開発者にもお客様にも最適な環境を設計することを大切にしています。
+                  インフラとアプリをやってます！こんな風貌ですm_ _m
                   <br />
                   <br />
                   <img
@@ -167,7 +161,70 @@ export default createRoute((c) => {
                     className="w-full rounded-lg object-cover"
                     loading="lazy"
                   />
-                  <span className="text-sm">APC入社時点のわたし</span>
+                  <span className="text-sm">※APC入社時</span>
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-theme rounded-xl p-6 shadow-lg">
+              <h2 className="text-theme mb-4 flex items-center gap-2 text-2xl font-bold">
+                <img
+                  className="h-8 w-8"
+                  src={parseTwemoji("🏆")[0].url}
+                  alt="トロフィーのアイコン"
+                />
+                <span>資格</span>
+              </h2>
+              <div className="space-y-3 text-gray-700 dark:text-gray-300">
+                <h3 className="text-theme mb-2 text-lg font-semibold">
+                  AWS、Google、OCI
+                </h3>
+                <p>
+                  <a
+                    href="https://www.credly.com/users/sori883"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-blue-500 hover:underline"
+                  >
+                    Credlyデジタルバッジ
+                  </a>
+                </p>
+                <h3 className="text-theme mb-2 text-lg font-semibold">
+                  マイクロソフト認定
+                </h3>
+                <p>
+                  <a
+                    href="https://learn.microsoft.com/api/credentials/share/ja-jp/sori883/9BDF980EEB12A2C2?sharingId=A95A292AC2761537"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-blue-500 hover:underline"
+                  >
+                    マイクロソフト認定: Azure管理者アソシエイト（AZ-104）
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href="https://learn.microsoft.com/api/credentials/share/ja-jp/sori883/ED8B774EE24C3AD2?sharingId=A95A292AC2761537"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-blue-500 hover:underline"
+                  >
+                    マイクロソフト認定: Azure ソリューション アーキテクト
+                    エキスパート（AZ-304）
+                  </a>
+                </p>
+                <h3 className="text-theme mb-2 text-lg font-semibold">
+                  IPA
+                </h3>
+                <p>
+                  <a
+                    href="https://x.com/sori883/status/2004026396566528321"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-blue-500 hover:underline"
+                  >
+                    情報処理安全確保支援士試験 合格
+                  </a>
                 </p>
               </div>
             </div>
@@ -236,223 +293,6 @@ export default createRoute((c) => {
               </div>
             </div>
 
-            <div className="bg-theme rounded-xl p-6 shadow-lg">
-              <h2 className="text-theme mb-4 flex items-center gap-2 text-2xl font-bold">
-                <img
-                  className="h-8 w-8"
-                  src={parseTwemoji("💻")[0].url}
-                  alt="PCのアイコン"
-                />
-                <span>スキル・経験</span>
-              </h2>
-
-              <div className="space-y-6 text-gray-700 dark:text-gray-300">
-                <div>
-                  <h3 className="text-theme mb-2 text-lg font-semibold">
-                    インフラ・クラウド
-                  </h3>
-                  <p className="text-theme mb-3 text-sm">
-                    オンプレミスサーバーの設計・構築・保守・運用の経験
-                    <br />
-                    AWS Well-Architected
-                    Frameworkに基づくベストプラクティスに沿ったインフラ提案・設計・構築・運用
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="rounded-full bg-orange-100 px-3 py-1 text-sm text-orange-800 dark:bg-orange-900 dark:text-orange-200">
-                      Linux
-                    </span>
-                    <span className="rounded-full bg-orange-100 px-3 py-1 text-sm text-orange-800 dark:bg-orange-900 dark:text-orange-200">
-                      Windows Server
-                    </span>
-                    <span className="rounded-full bg-orange-100 px-3 py-1 text-sm text-orange-800 dark:bg-orange-900 dark:text-orange-200">
-                      AWS
-                    </span>
-                    <span className="rounded-full bg-orange-100 px-3 py-1 text-sm text-orange-800 dark:bg-orange-900 dark:text-orange-200">
-                      Cloudflare
-                    </span>
-                    <span className="rounded-full bg-orange-100 px-3 py-1 text-sm text-orange-800 dark:bg-orange-900 dark:text-orange-200">
-                      AWS CDK
-                    </span>
-                    <span className="rounded-full bg-orange-100 px-3 py-1 text-sm text-orange-800 dark:bg-orange-900 dark:text-orange-200">
-                      Terraform
-                    </span>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-theme mb-2 text-lg font-semibold">
-                    言語
-                  </h3>
-                  <p className="text-theme mb-3 text-sm">
-                    様々な言語を使用した開発、改修を行った業務経験があります。
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                      TypeScript
-                    </span>
-                    <span className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                      Python
-                    </span>
-                    <span className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                      PHP
-                    </span>
-                    <span className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                      HTML/CSS
-                    </span>
-                    <span className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                      VBScript(Classic ASP)
-                    </span>
-                    <span className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                      Java
-                    </span>
-                    <span className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                      C#
-                    </span>
-                    <span className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                      VBA
-                    </span>
-                    <span className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                      SQL
-                    </span>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-theme mb-2 text-lg font-semibold">
-                    フロントエンド
-                  </h3>
-                  <p className="text-theme mb-3 text-sm">
-                    業務、個人で開発、改修を行った経験があります。
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="rounded-full bg-purple-100 px-3 py-1 text-sm text-purple-800 dark:bg-purple-900 dark:text-purple-200">
-                      jQuery
-                    </span>
-                    <span className="rounded-full bg-purple-100 px-3 py-1 text-sm text-purple-800 dark:bg-purple-900 dark:text-purple-200">
-                      React
-                    </span>
-                    <span className="rounded-full bg-purple-100 px-3 py-1 text-sm text-purple-800 dark:bg-purple-900 dark:text-purple-200">
-                      Next.js
-                    </span>
-                    <span className="rounded-full bg-purple-100 px-3 py-1 text-sm text-purple-800 dark:bg-purple-900 dark:text-purple-200">
-                      React Router(Remix)
-                    </span>
-                    <span className="rounded-full bg-purple-100 px-3 py-1 text-sm text-purple-800 dark:bg-purple-900 dark:text-purple-200">
-                      HonoX
-                    </span>
-                    <span className="rounded-full bg-purple-100 px-3 py-1 text-sm text-purple-800 dark:bg-purple-900 dark:text-purple-200">
-                      Bootstrap
-                    </span>
-                    <span className="rounded-full bg-purple-100 px-3 py-1 text-sm text-purple-800 dark:bg-purple-900 dark:text-purple-200">
-                      Tailwind CSS
-                    </span>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-theme mb-2 text-lg font-semibold">
-                    バックエンド
-                  </h3>
-                  <p className="text-theme mb-3 text-sm">
-                    業務、個人で開発、改修を行った経験があります。
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">
-                      Node.js
-                    </span>
-                    <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">
-                      Express
-                    </span>
-                    <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">
-                      Hono
-                    </span>
-                    <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200">
-                      Laravel
-                    </span>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-theme mb-2 text-lg font-semibold">
-                    ツール
-                  </h3>
-                  <p className="text-theme mb-3 text-sm">
-                    開発で導入・利用したツール
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-800 dark:bg-gray-700 dark:text-gray-200">
-                      Eclipse
-                    </span>
-                    <span className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-800 dark:bg-gray-700 dark:text-gray-200">
-                      VSCode
-                    </span>
-                    <span className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-800 dark:bg-gray-700 dark:text-gray-200">
-                      Docker
-                    </span>
-                    <span className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-800 dark:bg-gray-700 dark:text-gray-200">
-                      Git
-                    </span>
-                    <span className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-800 dark:bg-gray-700 dark:text-gray-200">
-                      GitHub
-                    </span>
-                    <span className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-800 dark:bg-gray-700 dark:text-gray-200">
-                      SVN
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-theme rounded-xl p-6 shadow-lg">
-              <h2 className="text-theme mb-4 flex items-center gap-2 text-2xl font-bold">
-                <img
-                  className="h-8 w-8"
-                  src={parseTwemoji("🏆")[0].url}
-                  alt="トロフィーのアイコン"
-                />
-                <span>資格</span>
-              </h2>
-              <div className="space-y-3 text-gray-700 dark:text-gray-300">
-                <p>AWS認定資格をはじめ、色々な資格に挑戦中です！</p>
-                <h3 className="text-theme mb-2 text-lg font-semibold">
-                  AWS、Google認定
-                </h3>
-                <p>
-                  <a
-                    href="https://www.credly.com/users/sori883"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-blue-500 hover:underline"
-                  >
-                    Credlyデジタルバッジ
-                  </a>
-                </p>
-                <h3 className="text-theme mb-2 text-lg font-semibold">
-                  マイクロソフト認定
-                </h3>
-                <p>
-                  <a
-                    href="https://learn.microsoft.com/api/credentials/share/ja-jp/sori883/9BDF980EEB12A2C2?sharingId=A95A292AC2761537"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-blue-500 hover:underline"
-                  >
-                    マイクロソフト認定: Azure管理者アソシエイト（AZ-104）
-                  </a>
-                </p>
-                <p>
-                  <a
-                    href="https://learn.microsoft.com/api/credentials/share/ja-jp/sori883/ED8B774EE24C3AD2?sharingId=A95A292AC2761537"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-blue-500 hover:underline"
-                  >
-                    マイクロソフト認定: Azure ソリューション アーキテクト
-                    エキスパート（AZ-304）
-                  </a>
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
