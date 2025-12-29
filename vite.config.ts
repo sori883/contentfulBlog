@@ -42,6 +42,7 @@ export default defineConfig(({ mode }) => {
         build: { emptyOutDir: false },
         resolve: {
           alias: { "@": path.resolve(__dirname, "./app") },
+          builtins: [/^node:/],
         },
         plugins: [
           honox({
