@@ -37,6 +37,17 @@ const socialLinks = [
     icon: <img src="/qiita-icon.png" alt="Qiita" className="h-5 w-5" />,
   },
   {
+    name: "Speaker Deck",
+    href: "https://speakerdeck.com/sori883",
+    icon: (
+      <img
+        src="/speakerdeck-icon.svg"
+        alt="Speaker Deck"
+        className="h-5 w-5 rounded-full"
+      />
+    ),
+  },
+  {
     name: "sori883.dev",
     href: "https://sori883.dev",
     icon: (
