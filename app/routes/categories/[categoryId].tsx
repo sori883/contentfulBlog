@@ -8,6 +8,8 @@ import { PrimeContentLayout } from "@/components/layouts/primeContentLayout";
 import { Pagination } from "@/components/pagination/pagination";
 import { CategoryList } from "@/components/post/categoryList";
 import { PostSummary } from "@/components/post/postSummary";
+import { QiitaLink } from "@/components/social/qiitaLink";
+import { ZennLink } from "@/components/social/zennLink";
 
 export default createRoute(
   ssgParams(() => {
@@ -31,6 +33,14 @@ export default createRoute(
       <GeneralLayout>
         <PrimeContentLayout>
           <h2 className="text-theme mb-8 text-xl font-bold"># {posts?.name}</h2>
+          <div className="mb-8 flex gap-3">
+            <div>
+              <QiitaLink />
+            </div>
+            <div>
+              <ZennLink />
+            </div>
+          </div>
           <CategoryList />
         </PrimeContentLayout>
         <GridListLayout>
