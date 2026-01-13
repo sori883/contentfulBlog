@@ -42,7 +42,7 @@
     "@twemoji/parser": "^16.0.0",
     "@types/jsdom": "^27.0.0",
     "@types/mdx": "^2.0.13",
-    "@types/node": "^24.10.4",
+    "@types/node": "^24.10.7",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",
