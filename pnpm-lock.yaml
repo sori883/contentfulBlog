@@ -40,8 +40,8 @@ importers:
         specifier: ^0.24.1
         version: 0.24.1(hono@4.11.4)(miniflare@4.20251210.0)(wrangler@4.54.0(@cloudflare/workers-types@4.20260103.0))
       '@hono/vite-ssg':
-        specifier: ^0.3.2
-        version: 0.3.2(hono@4.11.4)
+        specifier: ^0.3.3
+        version: 0.3.3(hono@4.11.4)
       '@ianvs/prettier-plugin-sort-imports':
         specifier: ^4.7.0
         version: 4.7.0(@vue/compiler-sfc@3.5.21)(prettier@3.7.4)
@@ -1254,8 +1254,8 @@ packages:
       wrangler:
         optional: true
 
-  '@hono/vite-ssg@0.3.2':
-    resolution: {integrity: sha512-3/XuvMT1GeSVH4HGf9J7vbsPcokBtHNCsSNiuld0rb4f1dmlpg3Wsm62drKWtERo4OWQCUWDtfuzBZGxELOAVQ==}
+  '@hono/vite-ssg@0.3.3':
+    resolution: {integrity: sha512-i8mIZhgW1S/xpNLcLHDFvAiwRkLQolJlQWTwNMWZcGnSkc8/Mq+TCWv4NDRWmDayNGWlOqbjIUwk8w5wp/eHTg==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '>=4.8.0'
@@ -7032,7 +7032,7 @@ snapshots:
       miniflare: 4.20251210.0
       wrangler: 4.54.0(@cloudflare/workers-types@4.20260103.0)
 
-  '@hono/vite-ssg@0.3.2(hono@4.11.4)':
+  '@hono/vite-ssg@0.3.3(hono@4.11.4)':
     dependencies:
       hono: 4.11.4
 
