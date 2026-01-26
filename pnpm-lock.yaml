@@ -34,8 +34,8 @@ importers:
         specifier: ^2.0.6
         version: 2.0.6(@typescript-eslint/utils@8.53.1(eslint@9.39.2(jiti@2.5.1))(typescript@5.9.2))(eslint@9.39.2(jiti@2.5.1))(typescript@5.9.2)
       '@hono/vite-build':
-        specifier: ^1.8.0
-        version: 1.8.0(hono@4.11.6)
+        specifier: ^1.9.2
+        version: 1.9.2(hono@4.11.6)
       '@hono/vite-dev-server':
         specifier: ^0.24.1
         version: 0.24.1(hono@4.11.6)(miniflare@4.20251210.0)(wrangler@4.54.0(@cloudflare/workers-types@4.20260103.0))
@@ -1232,8 +1232,8 @@ packages:
     peerDependencies:
       hono: ^4
 
-  '@hono/vite-build@1.8.0':
-    resolution: {integrity: sha512-T/w0Tuv8VV6FgjNnw2aW6LXtRfc5tOhaO54tKCRv4Zqc1tP3w6JyqTFtzJFFDvmY0xTxHS+Pj+ZPLhzFsdiFzQ==}
+  '@hono/vite-build@1.9.2':
+    resolution: {integrity: sha512-7/qan3lgeA8mMv7jtx5KX0wrAdMteNqI87JcZjS1CUN9hhIsaqOvySXcT3lZLyhYidywl+s88ZX84I0knefItA==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: '*'
@@ -7106,7 +7106,7 @@ snapshots:
     dependencies:
       hono: 4.11.6
 
-  '@hono/vite-build@1.8.0(hono@4.11.6)':
+  '@hono/vite-build@1.9.2(hono@4.11.6)':
     dependencies:
       hono: 4.11.6
 
