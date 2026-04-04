@@ -34,7 +34,7 @@
     "@hono/vite-build": "^1.8.0",
     "@hono/vite-dev-server": "^0.24.1",
     "@hono/vite-ssg": "^0.3.3",
-    "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
     "@mdx-js/rollup": "^3.1.1",
     "@tailwindcss/vite": "^4.0.9",
     "@textlint-ja/textlint-rule-preset-ai-writing": "^1.6.1",
