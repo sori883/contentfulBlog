@@ -52,8 +52,8 @@ importers:
         specifier: ^4.0.9
         version: 4.1.13(vite@6.4.1(@types/node@24.10.7)(jiti@2.5.1)(lightningcss@1.30.1)(yaml@2.8.1))
       '@textlint-ja/textlint-rule-preset-ai-writing':
-        specifier: ^1.6.1
-        version: 1.6.1
+        specifier: ^1.6.3
+        version: 1.6.3
       '@textlint/textlint-plugin-markdown':
         specifier: ^15.5.1
         version: 15.5.1
@@ -1748,8 +1748,8 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6 || ^7
 
-  '@textlint-ja/textlint-rule-preset-ai-writing@1.6.1':
-    resolution: {integrity: sha512-UvWK2UnYwObEHh1yP4tbHmWc1UBYRUIaeiSBdBz8pS6Ks+SEMq7u2ZMqYY2kh2e2VjoBidvu28+eN1g2YzXQjw==}
+  '@textlint-ja/textlint-rule-preset-ai-writing@1.6.3':
+    resolution: {integrity: sha512-QQxO3sK6mGQyPS753jZ2zIy0EgAQHqiJ3oadnwV/hs5sOZn2WOqHWNAnjwEXLYiFNvI53zVMTiabL31cJPigiw==}
 
   '@textlint-rule/textlint-rule-no-invalid-control-character@3.0.0':
     resolution: {integrity: sha512-2o9n4z49ntSPtJPlcJtxakyB4dAg2MKSvR9ZCZEHjye0ee27oWYzK6yHz2HjsXQqt9VeCwxNHDOIGIx2CQX0Dw==}
@@ -7597,7 +7597,7 @@ snapshots:
       tailwindcss: 4.1.13
       vite: 6.4.1(@types/node@24.10.7)(jiti@2.5.1)(lightningcss@1.30.1)(yaml@2.8.1)
 
-  '@textlint-ja/textlint-rule-preset-ai-writing@1.6.1':
+  '@textlint-ja/textlint-rule-preset-ai-writing@1.6.3':
     dependencies:
       '@textlint/regexp-string-matcher': 2.0.2
       kuromojin: 3.0.1
