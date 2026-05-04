@@ -23,7 +23,7 @@
   "dependencies": {
     "feed": "^5.2.0",
     "hono": "^4.11.6",
-    "honox": "^0.1.53",
+    "honox": "^0.1.55",
     "jsdom": "^27.4.0"
   },
   "devDependencies": {
