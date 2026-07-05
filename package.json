@@ -2,7 +2,6 @@
   "name": "contentfulblog",
   "type": "module",
   "scripts": {
-    "copy": "sh cp-images.sh",
     "dev": "vite --host",
     "build": "vite build --mode client && vite build",
     "preview": "pnpm run build && wrangler dev",
