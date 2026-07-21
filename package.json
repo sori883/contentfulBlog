@@ -59,7 +59,7 @@
     "remark-gfm": "^4.0.1",
     "remark-mdx-frontmatter": "^5.2.0",
     "tailwindcss": "^4.3.0",
-    "textlint": "^15.5.1",
+    "textlint": "^15.7.1",
     "textlint-rule-aws-service-name": "^1.14.0",
     "textlint-rule-ja-no-redundant-expression": "^4.0.1",
     "textlint-rule-ja-unnatural-alphabet": "^2.0.1",
