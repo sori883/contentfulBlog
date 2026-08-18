@@ -21,7 +21,7 @@
   "packageManager": "pnpm@10.33.4",
   "dependencies": {
     "feed": "^5.2.1",
-    "hono": "^4.12.32",
+    "hono": "^4.13.3",
     "honox": "^0.1.60",
     "jsdom": "^27.4.0"
   },
