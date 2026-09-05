@@ -70,10 +70,7 @@ for (const width of [375, 768, 1440]) {
     await expect(page.getByRole("link", { name: "本文へ移動" })).toBeFocused();
     await page.keyboard.press("Enter");
     await expect(page).toHaveURL(/#main-content$/);
-    const animation = await page
-      .locator(".hero-flower")
-      .evaluate((el) => getComputedStyle(el).animationName);
-    expect(animation).toBe("none");
+    await expect(page.locator(".hero-flower")).toHaveCount(0);
     const roomLoaded = await page
       .locator(".room-illustration")
       .evaluate(

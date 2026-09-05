@@ -8,9 +8,6 @@ export default createRoute((c) =>
       <section className="home-hero" aria-labelledby="hero-title">
         <h1 id="hero-title" className="hero-title">
           sori883.dev
-          <span className="hero-flower" aria-hidden="true">
-            ✳
-          </span>
         </h1>
         <div className="hero-scene">
           <img
