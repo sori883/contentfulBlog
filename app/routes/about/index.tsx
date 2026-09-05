@@ -162,8 +162,6 @@ export default createRoute((c) => {
                 <p>
                   こんにちは！プロフィールを閲覧いただきありがとうございます！
                   <br />
-                  インフラとアプリをやってます！こんな風貌ですm_ _m
-                  <br />
                   <br />
                   <img
                     src="/real-me.webp"
