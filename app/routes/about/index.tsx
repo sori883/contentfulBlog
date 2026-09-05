@@ -65,11 +65,9 @@ export default createRoute((c) => {
     <GeneralLayout>
       <div className="profile-page-heading">
         <div className="mb-8 px-1">
-          <p className="eyebrow">A LITTLE MORE ABOUT ME</p>
           <h1 className="page-title">
             About Me<span className="coral-dot">.</span>
           </h1>
-          <span className="inline-block text-gray-500">私について</span>
         </div>
       </div>
 
