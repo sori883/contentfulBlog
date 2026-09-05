@@ -63,9 +63,12 @@ const socialLinks = [
 export default createRoute((c) => {
   return c.render(
     <GeneralLayout>
-      <div className="mb-8 text-center">
+      <div className="profile-page-heading">
         <div className="mb-8 px-1">
-          <h1 className="text-theme text-4xl">About Me</h1>
+          <p className="eyebrow">A LITTLE MORE ABOUT ME</p>
+          <h1 className="page-title">
+            About Me<span className="coral-dot">.</span>
+          </h1>
           <span className="inline-block text-gray-500 dark:text-gray-400">
             私について
           </span>
@@ -167,7 +170,7 @@ export default createRoute((c) => {
                   <br />
                   <br />
                   <img
-                    src="real-me.webp"
+                    src="/real-me.webp"
                     alt="APC入社時の写真"
                     className="w-full rounded-lg object-cover"
                     loading="lazy"

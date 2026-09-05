@@ -17,7 +17,7 @@ export default createRoute(
     const maxPageNumber = getMaxPageNumber(posts);
     const params = [];
     for (let num = 1; num <= maxPageNumber; num++) {
-      // 1ページ目はトップページなので生成不要
+      // 1ページ目は /blog で生成する
       if (num <= 1) {
         continue;
       }
@@ -42,7 +42,7 @@ export default createRoute(
     return c.render(
       <GeneralLayout>
         <PrimeContentLayout>
-          <h2 className="text-theme mb-8 text-xl font-bold">ブログ</h2>
+          <h1 className="text-theme mb-8 text-xl font-bold">ブログ</h1>
           <div className="mb-8 flex gap-3">
             <div>
               <QiitaLink />

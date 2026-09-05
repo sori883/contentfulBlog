@@ -14,6 +14,9 @@ function generateSitemap(posts: Post[], categories: Category[]): string {
         <lastmod>${format(now, SITEMAP_DATE_FORMAT, "en")}</lastmod>
     </url>
     <url>
+        <loc>https://sori883.dev/blog</loc>
+    </url>
+    <url>
         <loc>https://sori883.dev/privacypolicy</loc>
         <lastmod>${format(now, SITEMAP_DATE_FORMAT, "en")}</lastmod>
     </url>

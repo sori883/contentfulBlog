@@ -38,7 +38,7 @@ export default createRoute(
     return c.render(
       <GeneralLayout>
         <PrimeContentLayout>
-          <h2 className="mb-8 text-xl font-bold"># {posts?.name}</h2>
+          <h1 className="mb-8 text-xl font-bold"># {posts?.name}</h1>
           <CategoryList />
         </PrimeContentLayout>
         <GridListLayout>
