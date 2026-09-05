@@ -115,9 +115,9 @@ test("メニューから独立した各ページへ移動しサイト名を表�
   await expect(page.locator("main #activities")).toHaveCount(0);
   await expect(page.locator("main .likes-gallery")).toHaveCount(0);
   await page.goto("/likes");
-  await expect(page.locator(".likes-gallery img")).toHaveCount(6);
+  await expect(page.locator(".likes-gallery img")).toHaveCount(0);
   await page.goto("/about");
-  await expect(page.locator("main img[src^='/like/']")).toHaveCount(6);
+  await expect(page.locator("main img[src^='/like/']")).toHaveCount(0);
 });
 
 test("旧サイト名が残らず廃止ページをサイトマップから除く", async ({
@@ -193,13 +193,13 @@ test("OSと保存設定がdarkでも全ページをライトで表示する", as
   }
 });
 
-test("活動ページを廃止して好きなものをAboutの下に統合する", async ({
+test("活動・好きなものを廃止し旧URLをAboutへ転送する", async ({
   page,
   request,
 }) => {
   for (const [path, destination] of [
     ["/activities", "/about"],
-    ["/likes", "/about#likes"],
+    ["/likes", "/about"],
   ]) {
     const response = await request.get(path, { maxRedirects: 0 });
     expect(response.status()).toBe(302);
@@ -209,23 +209,14 @@ test("活動ページを廃止して好きなものをAboutの下に統合する
     ).toBe(destination);
   }
   await page.goto("/likes");
-  await expect(page).toHaveURL(/\/about#likes$/);
-  await expect(page.locator("#likes img")).toHaveCount(6);
+  await expect(page).toHaveURL(/\/about$/);
+  await expect(page.locator("#likes img")).toHaveCount(0);
   await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
-  await expect(page.locator("#likes h2")).toContainText("ひと休みも、");
+  await expect(page.locator("main")).not.toContainText("LIKES / OFF THE CLOCK");
   const navigation = page.getByRole("navigation", {
     name: "メインナビゲーション",
   });
   await expect(navigation.getByRole("link")).toHaveText(["HOME", "ABOUT"]);
-  const likesAfterProfile = await page.locator("#likes").evaluate((el) => {
-    const main = el.closest("main");
-    return (
-      main?.lastElementChild === el &&
-      main.innerText.indexOf("資格") <
-        main.innerText.indexOf("LIKES / OFF THE CLOCK")
-    );
-  });
-  expect(likesAfterProfile).toBe(true);
   await expect(page.locator("meta[name=robots]")).toHaveAttribute(
     "content",
     "noindex, nofollow, noimageindex"
