@@ -9,6 +9,7 @@ export function GeneralLayout({ children }: PropsWithChildren) {
       <main id="main-content" className="site-main">
         {children}
       </main>
+      <div className="bottom-band" aria-hidden="true" />
     </div>
   );
 }

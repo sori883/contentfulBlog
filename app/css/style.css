@@ -765,3 +765,8 @@ summary:focus-visible {
   color: var(--accent);
   font-size: 22px;
 }
+
+.bottom-band {
+  height: 72px;
+  background: var(--lavender);
+}
