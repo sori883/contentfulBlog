@@ -10,11 +10,6 @@ const pageContracts = [
     title: `About Me | ${siteTitle}`,
     robots: "noindex, nofollow, noimageindex",
   },
-  {
-    path: "/privacypolicy",
-    title: `プライバシーポリシー | ${siteTitle}`,
-    canonical: `${siteUrl}/privacypolicy`,
-  },
 ] as const;
 
 for (const contract of pageContracts) {
@@ -62,10 +57,13 @@ for (const width of [375, 768, 1440]) {
         )
       ).toBe(true);
       await expect(page.locator("header")).toHaveCount(0);
+      await expect(page.locator("footer")).toHaveCount(0);
       await expect(
-        page.getByRole("link", { name: "sori883.dev ホーム", exact: true })
+        page.getByRole("link", {
+          name: path === "/" ? "ABOUT" : "HOME",
+          exact: true,
+        })
       ).toBeVisible();
-      await expect(page.locator(".footer-wordmark")).toHaveText("sori883.dev");
     }
     await page.goto("/");
     await page.keyboard.press("Tab");
@@ -87,11 +85,11 @@ for (const width of [375, 768, 1440]) {
   });
 }
 
-test("イラスト下のABOUTとフッターからページを移動する", async ({ page }) => {
+test("ABOUTとHOMEのリンクからページを移動する", async ({ page }) => {
   await page.goto("/");
   for (const [label, path, title] of [
     ["ABOUT", "/about", "About Me | sori883.dev"],
-    ["sori883.dev ホーム", "/", "sori883.dev"],
+    ["HOME", "/", "sori883.dev"],
   ]) {
     await page.getByRole("link", { name: label, exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`${path === "/" ? "/" : path}$`));
@@ -100,9 +98,6 @@ test("イラスト下のABOUTとフッターからページを移動する", asy
       "content",
       title
     );
-    await expect(
-      page.getByRole("link", { name: "sori883.dev ホーム", exact: true })
-    ).toBeVisible();
   }
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     /sori883.dev/
@@ -118,13 +113,7 @@ test("イラスト下のABOUTとフッターからページを移動する", asy
 test("旧サイト名が残らず廃止ページをサイトマップから除く", async ({
   request,
 }) => {
-  for (const path of [
-    "/",
-    "/about",
-    "/activities",
-    "/likes",
-    "/privacypolicy",
-  ]) {
+  for (const path of ["/", "/about", "/activities", "/likes"]) {
     const response = await request.get(path);
     expect(response.status()).toBe(200);
     expect(await response.text()).not.toMatch(/今日も生きてる|だけでえらい/);
@@ -167,13 +156,7 @@ test("トップは紹介文とボタンを除き大きなイラストを中央�
 test("OSと保存設定がdarkでも全ページをライトで表示する", async ({ page }) => {
   await page.emulateMedia({ colorScheme: "dark" });
   await page.addInitScript(() => localStorage.setItem("theme", "dark"));
-  for (const path of [
-    "/",
-    "/activities",
-    "/likes",
-    "/about",
-    "/privacypolicy",
-  ]) {
+  for (const path of ["/", "/activities", "/likes", "/about"]) {
     await page.goto(path);
     await expect(page.locator("html")).not.toHaveClass(/dark/);
     await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
@@ -216,6 +199,7 @@ test("活動・好きなものを廃止し旧URLをAboutへ転送する", async 
 
 test("ブログの全ページと記事画像を配信しない", async ({ request, page }) => {
   const removedPaths = [
+    "/privacypolicy",
     "/blog",
     "/feed.xml",
     "/feed",
@@ -271,7 +255,6 @@ test("ブログの全ページと記事画像を配信しない", async ({ reque
   expect(sitemap.status()).toBe(200);
   expect((await sitemap.text()).match(/<loc>.*?<\/loc>/g)).toEqual([
     `<loc>${siteUrl}</loc>`,
-    `<loc>${siteUrl}/privacypolicy</loc>`,
   ]);
   const robots = await request.get("/robots.txt");
   expect(robots.status()).toBe(200);

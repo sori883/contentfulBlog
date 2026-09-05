@@ -222,6 +222,11 @@ export default createRoute((c) => {
           </div>
         </div>
       </div>
+      <div className="home-about-link">
+        <a href="/">
+          HOME <span aria-hidden="true">↗</span>
+        </a>
+      </div>
     </GeneralLayout>
   );
 });

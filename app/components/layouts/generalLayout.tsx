@@ -1,7 +1,5 @@
 import type { PropsWithChildren } from "hono/jsx";
 
-import { Footer } from "@/components/footer/footer";
-
 export function GeneralLayout({ children }: PropsWithChildren) {
   return (
     <div className="site-shell">
@@ -11,7 +9,6 @@ export function GeneralLayout({ children }: PropsWithChildren) {
       <main id="main-content" className="site-main">
         {children}
       </main>
-      <Footer />
     </div>
   );
 }
