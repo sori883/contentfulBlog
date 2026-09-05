@@ -769,13 +769,6 @@ summary:focus-visible {
   font-size: 22px;
 }
 
-.bottom-band {
-  position: absolute;
-  inset: auto 0 0;
-  height: clamp(10px, 2svh, 20px);
-  background: var(--lavender);
-}
-
 .hero-title,
 .page-title,
 .home-about-link a {
