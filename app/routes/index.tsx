@@ -15,10 +15,10 @@ export default createRoute((c) =>
         <div className="hero-scene">
           <img
             className="room-illustration"
-            src="/room.svg"
-            alt="PC、本、ラーメンとキツネのいる、淡い紫と水色の小さな部屋"
-            width="900"
-            height="750"
+            src="/room-3d.png"
+            alt="PC、本、ラーメンとキツネのいる、淡い紫と水色の立体的な小さな部屋"
+            width="1370"
+            height="1148"
             fetchpriority="high"
           />
         </div>
