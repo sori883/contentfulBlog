@@ -72,7 +72,7 @@ for (const width of [375, 768, 1440]) {
     await expect(page).toHaveURL(/#main-content$/);
     await expect(page.locator(".hero-flower")).toHaveCount(0);
     const roomLoaded = await page
-      .locator(".room-illustration")
+      .locator(".hero-artwork")
       .evaluate(
         (el) =>
           (el as HTMLImageElement).complete &&
@@ -139,7 +139,7 @@ test("トップは紹介文とボタンを除き大きなイラストを中央�
     await expect(
       page.getByRole("link", { name: "プロフィールを見る" })
     ).toHaveCount(0);
-    const room = await page.locator(".room-illustration").boundingBox();
+    const room = await page.locator(".hero-artwork").boundingBox();
     const scene = await page.locator(".hero-scene").boundingBox();
     expect(room).not.toBeNull();
     expect(scene).not.toBeNull();
@@ -258,18 +258,20 @@ test("ブログの全ページと記事画像を配信しない", async ({ reque
   expect(await robots.text()).toContain(`Sitemap: ${siteUrl}/sitemap.xml`);
 });
 
-test("部屋だけを表示しキツネとアニメーション操作を除去する", async ({
-  page,
-}) => {
+test("デフォルメされたキツネを静止画で表示する", async ({ page }) => {
   await page.goto("/");
-  await expect(page.locator(".room-stage img")).toHaveCount(1);
-  await expect(page.locator(".room-illustration")).toBeVisible();
+  await expect(page.locator(".hero-stage img")).toHaveCount(1);
+  await expect(page.locator(".hero-artwork")).toBeVisible();
+  await expect(page.locator(".hero-artwork")).toHaveAttribute(
+    "src",
+    "/fox-chibi.png"
+  );
   await expect(
     page.locator(".pixel-fox, .motion-toggle, .motion-label")
   ).toHaveCount(0);
   expect(
     await page
-      .locator(".room-stage")
+      .locator(".hero-stage")
       .evaluate((el) => el.getAnimations({ subtree: true }).length)
   ).toBe(0);
 });

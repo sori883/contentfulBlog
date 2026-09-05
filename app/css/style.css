@@ -732,7 +732,7 @@ summary:focus-visible {
   place-items: center;
   margin: 12px 0 0;
 }
-.room-illustration {
+.hero-artwork {
   display: block;
   width: 100%;
   max-width: 1100px;
@@ -792,12 +792,10 @@ summary:focus-visible {
   letter-spacing: 0.04em;
 }
 
-.room-stage {
-  position: relative;
-  width: 100%;
-  max-width: 1100px;
+.hero-scene {
+  width: min(100%, 560px);
+  margin: 24px auto 0;
 }
-.room-stage .room-illustration {
-  /* Clip the exterior precisely so the page itself supplies the background. */
-  clip-path: polygon(50.2% 2.2%, 92.3% 19.9%, 92.3% 66.2%, 95.1% 67.5%, 95.1% 73.7%, 57.4% 99%, 46.7% 99%, 9.1% 73.5%, 9.1% 67.3%, 12.5% 65.4%, 12.5% 19.7%);
+.hero-stage {
+  width: 100%;
 }
