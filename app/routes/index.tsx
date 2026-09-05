@@ -12,9 +12,9 @@ export default createRoute((c) =>
         <div className="hero-scene">
           <img
             className="room-illustration"
-            src="/room-illustrated.png"
-            alt="PC、本、ラーメンとキツネのいる、淡い紫と水色の立体的な小さな部屋"
-            width="1373"
+            src="/room-simple.png"
+            alt="PCデスクとキツネのいる、淡い紫と水色の立体的な小さな部屋"
+            width="1372"
             height="1146"
             fetchpriority="high"
           />
