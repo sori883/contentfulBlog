@@ -334,64 +334,6 @@ summary:focus-visible {
   line-height: 1;
   color: var(--coral);
 }
-.activity-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-.activity-card {
-  padding: 25px;
-  background: var(--lavender);
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s;
-}
-.activity-card:nth-child(2) {
-  background: var(--blue);
-}
-.activity-card:nth-child(3) {
-  background: var(--mint);
-}
-.activity-card:hover {
-  transform: translateY(-6px);
-}
-.activity-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-.activity-top > span:last-child {
-  font-size: 22px;
-}
-.activity-icon {
-  display: block;
-  font-size: 60px;
-  margin: 18px 0 8px;
-  line-height: 1.5;
-}
-.activity-card h3 {
-  font-size: 30px;
-  font-weight: 800;
-  margin-bottom: 16px;
-}
-.activity-card p {
-  font-size: 12px;
-  line-height: 2;
-  max-width: 260px;
-}
-.activity-link {
-  margin-top: auto;
-  padding-top: 35px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  font-weight: 800;
-}
 .section-subtitle {
   color: var(--foreground-secondary);
   font-size: 12px;
@@ -600,9 +542,6 @@ summary:focus-visible {
     float: right;
     margin: 0 0 20px 10px;
   }
-  .activity-card {
-    padding: 20px;
-  }
 }
 @media (max-width: 700px) {
   .site-header {
@@ -674,30 +613,6 @@ summary:focus-visible {
   }
   .section-doodle {
     display: none;
-  }
-  .activity-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .activity-card {
-    padding: 24px;
-    position: relative;
-  }
-  .activity-icon {
-    position: absolute;
-    top: 48px;
-    right: 28px;
-    font-size: 56px;
-    margin: 0;
-  }
-  .activity-card h3 {
-    margin-top: 25px;
-  }
-  .activity-card p {
-    max-width: 78%;
-  }
-  .activity-link {
-    padding-top: 22px;
   }
   .post-grid {
     grid-template-columns: 1fr;

@@ -4,8 +4,6 @@ import { GoogleAnalytics } from "@/libs/analytics/googleAnalytics";
 
 export default jsxRenderer(({ children }, c) => {
   const pageNames: Record<string, string> = {
-    "/activities": "活動紹介",
-    "/likes": "好きなもの",
     "/blog": "ブログ",
   };
   const pageName = pageNames[c.req.path.replace(/\/$/, "")];

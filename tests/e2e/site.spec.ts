@@ -280,8 +280,6 @@ test("メニューから独立した各ページへ移動しサイト名を表�
 }) => {
   await page.goto("/");
   for (const [label, path, title] of [
-    ["ACTIVITIES", "/activities", "活動紹介 | sori883.dev"],
-    ["LIKES", "/likes", "好きなもの | sori883.dev"],
     ["BLOG", "/blog", "ブログ | sori883.dev"],
     ["ABOUT", "/about", "About Me | sori883.dev"],
     ["HOME", "/", "sori883.dev"],
@@ -308,10 +306,10 @@ test("メニューから独立した各ページへ移動しサイト名を表�
   await page.goto("/likes");
   await expect(page.locator(".likes-gallery img")).toHaveCount(6);
   await page.goto("/about");
-  await expect(page.locator("main img[src^='/like/']")).toHaveCount(0);
+  await expect(page.locator("main img[src^='/like/']")).toHaveCount(6);
 });
 
-test("旧サイト名が配信HTMLとRSSに残らず新ページをサイトマップに掲載する", async ({
+test("旧サイト名が残らず廃止ページをサイトマップから除く", async ({
   request,
 }) => {
   for (const path of [
@@ -330,8 +328,8 @@ test("旧サイト名が配信HTMLとRSSに残らず新ページをサイトマ�
     expect(await response.text()).not.toMatch(/今日も生きてる|だけでえらい/);
   }
   const sitemap = await (await request.get("/sitemap.xml")).text();
-  expect(sitemap).toContain(`<loc>${siteUrl}/activities</loc>`);
-  expect(sitemap).toContain(`<loc>${siteUrl}/likes</loc>`);
+  expect(sitemap).not.toContain(`<loc>${siteUrl}/activities</loc>`);
+  expect(sitemap).not.toContain(`<loc>${siteUrl}/likes</loc>`);
   expect(sitemap).not.toContain(`<loc>${siteUrl}/about</loc>`);
 });
 
@@ -408,4 +406,47 @@ test("OSと保存設定がdarkでも全ページをライトで表示する", as
     );
     await expect(page.locator(".theme-control")).toHaveCount(0);
   }
+});
+
+test("活動ページを廃止して好きなものをAboutの下に統合する", async ({
+  page,
+  request,
+}) => {
+  for (const [path, destination] of [
+    ["/activities", "/about"],
+    ["/likes", "/about#likes"],
+  ]) {
+    const response = await request.get(path, { maxRedirects: 0 });
+    expect(response.status()).toBe(302);
+    expect(
+      new URL(response.headers().location, "http://127.0.0.1:4173").pathname +
+        new URL(response.headers().location, "http://127.0.0.1:4173").hash
+    ).toBe(destination);
+  }
+  await page.goto("/likes");
+  await expect(page).toHaveURL(/\/about#likes$/);
+  await expect(page.locator("#likes img")).toHaveCount(6);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+  await expect(page.locator("#likes h2")).toContainText("ひと休みも、");
+  const navigation = page.getByRole("navigation", {
+    name: "メインナビゲーション",
+  });
+  await expect(navigation.getByRole("link")).toHaveText([
+    "HOME",
+    "ABOUT",
+    "BLOG",
+  ]);
+  const likesAfterProfile = await page.locator("#likes").evaluate((el) => {
+    const main = el.closest("main");
+    return (
+      main?.lastElementChild === el &&
+      main.innerText.indexOf("資格") <
+        main.innerText.indexOf("LIKES / OFF THE CLOCK")
+    );
+  });
+  expect(likesAfterProfile).toBe(true);
+  await expect(page.locator("meta[name=robots]")).toHaveAttribute(
+    "content",
+    "noindex, nofollow, noimageindex"
+  );
 });
