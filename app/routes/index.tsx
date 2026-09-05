@@ -10,28 +10,15 @@ export default createRoute((c) =>
           sori883.dev
         </h1>
         <div className="hero-scene">
-          <input className="motion-toggle" type="checkbox" id="pause-fox" />
-          <label className="motion-label" for="pause-fox">
-            アニメーションを停止
-          </label>
           <div className="room-stage">
             <img
               className="room-illustration"
               src="/room-muted.png"
-              alt="淡い色のPCデスクのある部屋を、オレンジのドット絵のキツネが跳び回っています"
+              alt="淡い色のPCデスク、椅子、窓と植物のある小さな部屋"
               width="1370"
               height="1148"
               fetchpriority="high"
             />
-            <div className="fox-flight" aria-hidden="true">
-              <img
-                className="pixel-fox"
-                src="/fox-pixel.png"
-                alt=""
-                width="1254"
-                height="1254"
-              />
-            </div>
           </div>
         </div>
         <div className="home-about-link">
