@@ -143,6 +143,8 @@ summary:focus-visible {
   outline-offset: 6px;
 }
 .site-shell {
+  position: relative;
+  min-height: 100svh;
   max-width: 1600px;
   margin: auto;
 }
@@ -767,7 +769,9 @@ summary:focus-visible {
 }
 
 .bottom-band {
-  height: 72px;
+  position: absolute;
+  inset: auto 0 0;
+  height: clamp(10px, 2svh, 20px);
   background: var(--lavender);
 }
 
