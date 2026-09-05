@@ -72,11 +72,17 @@ export async function getOGP(url: string): Promise<OGPData> {
     const imageUrl = getMetaContent("og:image") || "";
     const siteName = getMetaContent("og:site_name") || "";
 
+    // A build can read metadata from the previous deployment of our own site.
+    const normalizeSiteName = (value: string): string =>
+      new URL(decodedUrl).origin === "https://sori883.dev"
+        ? value.replaceAll("今日も生きてるだけでえらい", "sori883.dev")
+        : value;
+
     return {
-      title,
-      description,
+      title: normalizeSiteName(title),
+      description: normalizeSiteName(description),
       imageUrl,
-      siteName,
+      siteName: normalizeSiteName(siteName),
     };
   } catch {
     return {

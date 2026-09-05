@@ -4,7 +4,7 @@ import { GoogleAnalytics } from "@/libs/analytics/googleAnalytics";
 import { ThemeInit } from "@/libs/tailwind/theme";
 
 export default jsxRenderer(({ children, title, description }, c) => {
-  const pageTitle = title || "今日も生きてるだけでえらい";
+  const pageTitle = title || "sori883.dev";
   const ogImage = "https://sori883.dev/ogp.png";
   const pageDescription = description || "プログ記事";
 
