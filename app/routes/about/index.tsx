@@ -188,9 +188,6 @@ export default createRoute((c) => {
                 <span>資格</span>
               </h2>
               <div className="space-y-3 text-gray-700">
-                <h3 className="text-theme mb-2 text-lg font-semibold">
-                  AWS、Google、OCI
-                </h3>
                 <p>
                   <a
                     href="https://www.credly.com/users/sori883"
@@ -201,39 +198,14 @@ export default createRoute((c) => {
                     Credlyデジタルバッジ
                   </a>
                 </p>
-                <h3 className="text-theme mb-2 text-lg font-semibold">
-                  マイクロソフト認定
-                </h3>
                 <p>
                   <a
-                    href="https://learn.microsoft.com/api/credentials/share/ja-jp/sori883/9BDF980EEB12A2C2?sharingId=A95A292AC2761537"
+                    href="https://www.linkedin.com/in/kenji-ito/details/certifications/"
                     target="_blank"
                     rel="noreferrer"
                     className="text-blue-500 hover:underline"
                   >
-                    マイクロソフト認定: Azure管理者アソシエイト（AZ-104）
-                  </a>
-                </p>
-                <p>
-                  <a
-                    href="https://learn.microsoft.com/api/credentials/share/ja-jp/sori883/ED8B774EE24C3AD2?sharingId=A95A292AC2761537"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-blue-500 hover:underline"
-                  >
-                    マイクロソフト認定: Azure ソリューション アーキテクト
-                    エキスパート（AZ-304）
-                  </a>
-                </p>
-                <h3 className="text-theme mb-2 text-lg font-semibold">IPA</h3>
-                <p>
-                  <a
-                    href="https://x.com/sori883/status/2004026396566528321"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-blue-500 hover:underline"
-                  >
-                    情報処理安全確保支援士試験 合格
+                    Linkedin
                   </a>
                 </p>
               </div>
