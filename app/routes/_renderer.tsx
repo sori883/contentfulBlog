@@ -24,8 +24,16 @@ export default jsxRenderer(({ children }, c) => {
         <meta name="twitter:creator" content="@sori883" />
         <meta property="og:title" content={title} />
         <link href={`https://sori883.dev${c.req.path}`} rel="canonical" />
-        <link href="https://rsms.me/inter/inter.css" rel="preload" as="style" />
-        <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
         <link rel="icon" href="/favicon.ico" />
         <Link href="/app/css/style.css" rel="stylesheet" />
         <Script src="/app/client.ts" async />
