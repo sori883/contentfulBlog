@@ -61,11 +61,11 @@ for (const width of [375, 768, 1440]) {
           () => document.documentElement.scrollWidth <= window.innerWidth
         )
       ).toBe(true);
+      await expect(page.locator("header")).toHaveCount(0);
       await expect(
-        page
-          .getByRole("navigation", { name: "メインナビゲーション" })
-          .getByRole("link", { name: "ABOUT", exact: true })
+        page.getByRole("link", { name: "sori883.dev ホーム", exact: true })
       ).toBeVisible();
+      await expect(page.locator(".footer-wordmark")).toHaveText("sori883.dev");
     }
     await page.goto("/");
     await page.keyboard.press("Tab");
@@ -87,18 +87,13 @@ for (const width of [375, 768, 1440]) {
   });
 }
 
-test("メニューから独立した各ページへ移動しサイト名を表示する", async ({
-  page,
-}) => {
+test("イラスト下のABOUTとフッターからページを移動する", async ({ page }) => {
   await page.goto("/");
   for (const [label, path, title] of [
     ["ABOUT", "/about", "About Me | sori883.dev"],
-    ["HOME", "/", "sori883.dev"],
+    ["sori883.dev ホーム", "/", "sori883.dev"],
   ]) {
-    await page
-      .getByRole("navigation", { name: "メインナビゲーション" })
-      .getByRole("link", { name: label, exact: true })
-      .click();
+    await page.getByRole("link", { name: label, exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`${path === "/" ? "/" : path}$`));
     await expect(page).toHaveTitle(title);
     await expect(page.locator("meta[property='og:title']")).toHaveAttribute(
@@ -213,10 +208,6 @@ test("活動・好きなものを廃止し旧URLをAboutへ転送する", async 
   await expect(page.locator("#likes img")).toHaveCount(0);
   await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
   await expect(page.locator("main")).not.toContainText("LIKES / OFF THE CLOCK");
-  const navigation = page.getByRole("navigation", {
-    name: "メインナビゲーション",
-  });
-  await expect(navigation.getByRole("link")).toHaveText(["HOME", "ABOUT"]);
   await expect(page.locator("meta[name=robots]")).toHaveAttribute(
     "content",
     "noindex, nofollow, noimageindex"

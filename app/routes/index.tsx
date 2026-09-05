@@ -22,6 +22,11 @@ export default createRoute((c) =>
             fetchpriority="high"
           />
         </div>
+        <div className="home-about-link">
+          <a href="/about">
+            ABOUT <span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </section>
     </GeneralLayout>
   )
