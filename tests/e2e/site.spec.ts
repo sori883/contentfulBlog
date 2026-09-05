@@ -162,7 +162,10 @@ test("プロフィールから活動とブログへ移動できる", async ({ pa
   await expect(page.locator("main article")).toHaveCount(0);
   await expect(page.locator("main")).not.toContainText("1998.05.18");
   await expect(page.locator("main")).not.toContainText("伊藤 健治");
-  await page.getByRole("link", { name: "プロフィールを見る" }).click();
+  await page
+    .getByRole("navigation", { name: "メインナビゲーション" })
+    .getByRole("link", { name: "ABOUT", exact: true })
+    .click();
   await expect(page).toHaveURL(/\/about$/);
   await expect(page.locator("meta[name=robots]")).toHaveAttribute(
     "content",
@@ -348,5 +351,34 @@ test("旧公開版から得た自サイトのリンクカードだけ名称を�
     expect(external.title).toBe(`記事 | ${oldName}`);
   } finally {
     globalThis.fetch = originalFetch;
+  }
+});
+
+test("トップは紹介文とボタンを除き大きなイラストを中央に表示する", async ({
+  page,
+}) => {
+  for (const width of [375, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/");
+    await expect(page.locator("main")).not.toContainText("HELLO, WORLD!");
+    await expect(page.locator("main")).not.toContainText("インフラも、");
+    await expect(page.locator("main")).not.toContainText("アプリも。");
+    await expect(page.locator("main")).not.toContainText(
+      "つくる、学ぶ、たまにひと休み。"
+    );
+    await expect(page.locator("main")).not.toContainText(
+      "sori883の活動と日々の記録。"
+    );
+    await expect(
+      page.getByRole("link", { name: "プロフィールを見る" })
+    ).toHaveCount(0);
+    const room = await page.locator(".room-illustration").boundingBox();
+    const scene = await page.locator(".hero-scene").boundingBox();
+    expect(room).not.toBeNull();
+    expect(scene).not.toBeNull();
+    expect(
+      Math.abs(room!.x + room!.width / 2 - (scene!.x + scene!.width / 2))
+    ).toBeLessThan(2);
+    expect(room!.width / scene!.width).toBeGreaterThan(0.8);
   }
 });

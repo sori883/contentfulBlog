@@ -19,28 +19,12 @@ export default createRoute((c) =>
           </span>
         </h1>
         <div className="hero-scene">
-          <div className="hero-message">
-            <span className="small-label">HELLO, WORLD!</span>
-            <p>
-              インフラも、
-              <br />
-              アプリも。
-            </p>
-            <div className="hero-description">
-              つくる、学ぶ、たまにひと休み。
-              <br />
-              sori883の活動と日々の記録。
-            </div>
-            <a className="round-link" href="/about">
-              プロフィールを見る <span>↗</span>
-            </a>
-          </div>
           <img
             className="room-illustration"
             src="/room.svg"
             alt="PC、本、ラーメンとキツネのいる、淡い紫と水色の小さな部屋"
             width="900"
-            height="660"
+            height="750"
             fetchpriority="high"
           />
           <span className="scene-note">MAKE YOURSELF AT HOME.</span>

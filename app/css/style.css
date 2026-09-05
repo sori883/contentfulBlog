@@ -273,67 +273,6 @@ summary:focus-visible {
   font-weight: 500;
   animation: flower-turn 30s linear infinite;
 }
-.hero-scene {
-  position: relative;
-  min-height: 520px;
-  margin-top: -35px;
-}
-.room-illustration {
-  width: 76%;
-  margin: -12px -28px 0 auto;
-  position: relative;
-  pointer-events: none;
-}
-.hero-message {
-  position: absolute;
-  z-index: 1;
-  top: 115px;
-  left: 0;
-}
-.small-label {
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  display: inline-block;
-  border: 1px solid var(--border);
-  padding: 7px 12px;
-  border-radius: 20px;
-}
-.hero-message > p {
-  font-size: clamp(25px, 3vw, 44px);
-  font-weight: 800;
-  line-height: 1.65;
-  letter-spacing: 0.02em;
-  margin: 20px 0 16px;
-}
-.hero-message > p > span {
-  color: var(--accent);
-}
-.hero-description {
-  font-size: 12px;
-  line-height: 2;
-  color: var(--foreground-secondary);
-}
-.round-link {
-  display: inline-flex;
-  gap: 25px;
-  align-items: center;
-  font-size: 11px;
-  font-weight: 700;
-  margin-top: 24px;
-}
-.round-link span {
-  display: grid;
-  place-items: center;
-  width: 35px;
-  height: 35px;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  transition: background 0.2s;
-}
-.round-link:hover span {
-  background: var(--lavender);
-}
 .scene-note {
   position: absolute;
   bottom: 35px;
@@ -687,26 +626,8 @@ summary:focus-visible {
   }
 }
 @media (min-width: 1400px) {
-  .hero-scene {
-    margin-top: -50px;
-  }
-  .hero-message {
-    top: 160px;
-  }
 }
 @media (max-width: 1000px) {
-  .hero-scene {
-    min-height: 450px;
-    margin-top: -10px;
-  }
-  .room-illustration {
-    width: 78%;
-    padding-top: 20px;
-    margin-right: -15px;
-  }
-  .hero-message {
-    top: 70px;
-  }
   .intro-section {
     gap: 7%;
   }
@@ -758,31 +679,6 @@ summary:focus-visible {
   }
   .hero-title {
     font-size: 20vw;
-  }
-  .hero-scene {
-    margin-top: 5px;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  .room-illustration {
-    order: -1;
-    width: 112%;
-    max-width: none;
-    margin: 0 -6%;
-    padding: 0;
-  }
-  .hero-message {
-    position: relative;
-    top: auto;
-    padding: 0 0 30px;
-  }
-  .hero-message > p {
-    font-size: 29px;
-    margin: 15px 0;
-  }
-  .hero-description {
-    font-size: 12px;
   }
   .scene-note {
     display: none;
@@ -954,4 +850,19 @@ summary:focus-visible {
 }
 .section-page h1 {
   text-wrap: balance;
+}
+
+/* The illustration is the single focal point of the home page. */
+.hero-scene {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: 12px 0 0;
+}
+.room-illustration {
+  display: block;
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+  margin: 0 auto;
 }
