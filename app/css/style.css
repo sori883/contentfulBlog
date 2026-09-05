@@ -121,6 +121,7 @@ html {
   color-scheme: light;
   scroll-behavior: smooth;
   scroll-padding-top: 30px;
+  scroll-padding-bottom: calc(120px + env(safe-area-inset-bottom));
 }
 body {
   color: var(--foreground);
@@ -150,7 +151,7 @@ summary:focus-visible {
 }
 .site-main {
   min-height: 60vh;
-  padding: 36px clamp(22px, 5vw, 80px) 60px;
+  padding: 36px clamp(22px, 5vw, 80px) calc(120px + env(safe-area-inset-bottom));
 }
 .site-header {
   display: flex;
@@ -801,13 +802,18 @@ summary:focus-visible {
 }
 
 .page-menu {
+  position: fixed;
+  z-index: 50;
+  left: 50%;
+  bottom: calc(24px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   gap: 6px;
   width: fit-content;
-  max-width: 100%;
-  margin: 32px auto 0;
+  max-width: calc(100% - 32px);
+  margin: 0;
   padding: 6px;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -825,7 +831,7 @@ summary:focus-visible {
 .page-menu a[aria-current="page"] { background: var(--lavender); }
 .page-menu a:hover { color: var(--accent); }
 .write-page { max-width: 800px; margin: 0 auto; }
-.write-page > .page-menu { margin: 28px 0 48px; }
+.write-page > .page-title { margin-bottom: 36px; }
 .write-list { list-style: none; padding: 0; margin: 0; }
 .write-list li { border-bottom: 1px solid var(--border); }
 .write-list a { display: block; position: relative; padding: 28px 36px 28px 0; }
