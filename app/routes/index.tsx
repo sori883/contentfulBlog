@@ -10,14 +10,29 @@ export default createRoute((c) =>
           sori883.dev
         </h1>
         <div className="hero-scene">
-          <img
-            className="room-illustration"
-            src="/room-simple.png"
-            alt="PCデスクとキツネのいる、淡い紫と水色の立体的な小さな部屋"
-            width="1372"
-            height="1146"
-            fetchpriority="high"
-          />
+          <input className="motion-toggle" type="checkbox" id="pause-fox" />
+          <label className="motion-label" for="pause-fox">
+            アニメーションを停止
+          </label>
+          <div className="room-stage">
+            <img
+              className="room-illustration"
+              src="/room-muted.png"
+              alt="淡い色のPCデスクのある部屋を、オレンジのドット絵のキツネが跳び回っています"
+              width="1370"
+              height="1148"
+              fetchpriority="high"
+            />
+            <div className="fox-flight" aria-hidden="true">
+              <img
+                className="pixel-fox"
+                src="/fox-pixel.png"
+                alt=""
+                width="1254"
+                height="1254"
+              />
+            </div>
+          </div>
         </div>
         <div className="home-about-link">
           <a href="/about">

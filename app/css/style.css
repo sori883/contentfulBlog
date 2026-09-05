@@ -791,3 +791,67 @@ summary:focus-visible {
   font-size: 18px;
   letter-spacing: 0.04em;
 }
+
+.room-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+}
+.room-stage .room-illustration {
+  /* Clip the exterior precisely so the page itself supplies the background. */
+  clip-path: polygon(50.2% 2.2%, 92.3% 19.9%, 92.3% 66.2%, 95.1% 67.5%, 95.1% 73.7%, 57.4% 99%, 46.7% 99%, 9.1% 73.5%, 9.1% 67.3%, 12.5% 65.4%, 12.5% 19.7%);
+}
+.fox-flight {
+  position: absolute;
+  width: 13%;
+  left: 65%;
+  top: 69%;
+  pointer-events: none;
+  animation: fox-room-tour 14s linear infinite;
+}
+.pixel-fox {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  animation: fox-hop 700ms ease-in-out infinite;
+}
+@keyframes fox-room-tour {
+  0%, 100% { left: 65%; top: 69%; transform: scaleX(-1); }
+  20% { left: 27%; top: 64%; transform: scaleX(-1); }
+  35% { left: 25%; top: 35%; transform: scaleX(-1); }
+  35.1% { left: 25%; top: 35%; transform: scaleX(1); }
+  60% { left: 63%; top: 28%; transform: scaleX(1); }
+  78% { left: 76%; top: 52%; transform: scaleX(1); }
+  78.1% { left: 76%; top: 52%; transform: scaleX(-1); }
+}
+@keyframes fox-hop {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-28%) rotate(7deg); }
+}
+.motion-toggle {
+  position: absolute;
+  opacity: 0;
+}
+.motion-label {
+  justify-self: end;
+  color: var(--foreground-secondary);
+  font-size: 12px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.motion-toggle:focus-visible + .motion-label {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+.motion-toggle:checked + .motion-label {
+  text-decoration: underline;
+}
+.motion-toggle:checked ~ .room-stage .fox-flight,
+.motion-toggle:checked ~ .room-stage .pixel-fox {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fox-flight, .pixel-fox { animation: none; }
+  .motion-toggle, .motion-label { display: none; }
+}

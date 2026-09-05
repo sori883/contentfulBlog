@@ -257,3 +257,45 @@ test("ブログの全ページと記事画像を配信しない", async ({ reque
   expect(robots.status()).toBe(200);
   expect(await robots.text()).toContain(`Sitemap: ${siteUrl}/sitemap.xml`);
 });
+
+test("キツネが室内を周回し停止操作と動きを減らす設定に対応する", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const fox = page.locator(".fox-flight");
+  await expect(page.locator(".pixel-fox")).toBeVisible();
+  const positions = await fox.evaluate((el) => {
+    const animation = el.getAnimations()[0];
+    animation.pause();
+    return [0, 3500, 7000, 10500, 14000].map((time) => {
+      animation.currentTime = time;
+      const box = el.getBoundingClientRect();
+      return { x: box.x, y: box.y, width: box.width, height: box.height };
+    });
+  });
+  expect(positions[0].x).not.toBe(positions[1].x);
+  expect(positions[0].y).not.toBe(positions[2].y);
+  expect(positions[0].x).toBeCloseTo(positions[4].x, 1);
+  expect(positions[0].y).toBeCloseTo(positions[4].y, 1);
+  const room = await page.locator(".room-stage").boundingBox();
+  for (const position of positions) {
+    expect(position.x).toBeGreaterThanOrEqual(room!.x);
+    expect(position.y).toBeGreaterThanOrEqual(room!.y);
+    expect(position.x + position.width).toBeLessThanOrEqual(
+      room!.x + room!.width
+    );
+    expect(position.y + position.height).toBeLessThanOrEqual(
+      room!.y + room!.height
+    );
+  }
+  await page.reload();
+  await page.getByText("アニメーションを停止", { exact: true }).click();
+  await expect(fox).toHaveCSS("animation-play-state", "paused");
+  await expect(page.locator(".pixel-fox")).toHaveCSS(
+    "animation-play-state",
+    "paused"
+  );
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(fox).toHaveCSS("animation-name", "none");
+  await expect(page.locator(".pixel-fox")).toHaveCSS("animation-name", "none");
+});
