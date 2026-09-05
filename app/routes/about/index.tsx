@@ -206,6 +206,17 @@ export default createRoute((c) => {
                     Linkedin
                   </a>
                 </p>
+                <h3 className="text-theme mb-2 text-lg font-semibold">IPA</h3>
+                <p>
+                  <a
+                    href="https://x.com/sori883/status/2004026396566528321"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-blue-500 hover:underline"
+                  >
+                    情報処理安全確保支援士試験 合格
+                  </a>
+                </p>
               </div>
             </div>
           </div>
