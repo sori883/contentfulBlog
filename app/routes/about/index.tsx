@@ -204,7 +204,6 @@ export default createRoute((c) => {
                     Linkedin
                   </a>
                 </p>
-                <h3 className="text-theme mb-2 text-lg font-semibold">IPA</h3>
                 <p>
                   <a
                     href="https://x.com/sori883/status/2004026396566528321"
