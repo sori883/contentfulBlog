@@ -1,6 +1,7 @@
 ---
 title: Markdownの表示サンプル
 updated: 2026-09-06
+draft: true
 description: 文章と画像の表示を確認するためのサンプルです。
 ---
 これはWRITEの表示サンプルです。自由に書き換えたり、フォルダごと削除したりできます。

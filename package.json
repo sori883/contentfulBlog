@@ -10,10 +10,11 @@
     "lint": "eslint .",
     "format": "prettier --check \"**/*.{ts,tsx}\" --cache",
     "format:fix": "prettier --write \"**/*.{ts,tsx}\" --cache",
-    "test:e2e": "pnpm test:content && pnpm build && playwright test",
+    "test:e2e": "pnpm test:content && pnpm test:dev && pnpm build && playwright test",
     "typecheck": "tsc --noEmit",
     "write:new": "node scripts/new-write.mjs",
-    "test:content": "playwright test -c playwright.content.config.ts"
+    "test:content": "playwright test -c playwright.content.config.ts",
+    "test:dev": "playwright test -c playwright.dev.config.ts"
   },
   "private": true,
   "engines": {

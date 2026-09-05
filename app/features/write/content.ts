@@ -25,7 +25,10 @@ const imageTypes: Record<string, string> = {
   ".avif": "image/avif",
 };
 
-export function readWrites(root = path.resolve("contents/write")): {
+export function readWrites(
+  root = path.resolve("contents/write"),
+  { includeDrafts = false }: { includeDrafts?: boolean } = {}
+): {
   entries: WriteEntry[];
   assets: WriteAsset[];
 } {
@@ -52,6 +55,9 @@ export function readWrites(root = path.resolve("contents/write")): {
       const meta = parse(match[1]);
       if (!meta || typeof meta !== "object" || Array.isArray(meta))
         throw new Error("フロントマターを確認してください");
+      if (meta.draft !== undefined && typeof meta.draft !== "boolean")
+        throw new Error("draftはtrueまたはfalseで指定してください");
+      if (meta.draft === true && !includeDrafts) continue;
       if (typeof meta.title !== "string" || !meta.title.trim())
         throw new Error("titleが必要です");
       if (

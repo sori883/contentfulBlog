@@ -61,3 +61,35 @@ for (const source of [
       expect(() => readWrites(root)).toThrow(/invalid\/index.md/);
     }));
 }
+
+test("下書きと専用画像は既定で除外し、開発時だけ含める", () =>
+  withContent((root, add) => {
+    add("public", front("公開", "2026-09-06") + "本文");
+    add(
+      "explicit-public",
+      "---\ntitle: 公開指定\nupdated: 2026-09-06\ndraft: false\n---\n本文"
+    );
+    add(
+      "draft",
+      "---\ntitle: 下書き\nupdated: 2026-09-06\ndraft: true\n---\n![画像](./assets/only.png)"
+    );
+    mkdirSync(path.join(root, "draft/assets"));
+    writeFileSync(path.join(root, "draft/assets/only.png"), "fixture");
+    expect(readWrites(root).entries.map((e) => e.slug)).toEqual([
+      "explicit-public",
+      "public",
+    ]);
+    expect(readWrites(root).assets).toEqual([]);
+    const preview = readWrites(root, { includeDrafts: true });
+    expect(preview.entries).toHaveLength(3);
+    expect(preview.assets).toHaveLength(1);
+  }));
+
+test("draftの文字列指定は誤公開を防ぐため拒否する", () =>
+  withContent((root, add) => {
+    add(
+      "invalid",
+      "---\ntitle: 不正\nupdated: 2026-09-06\ndraft: 'true'\n---\n本文"
+    );
+    expect(() => readWrites(root)).toThrow(/draft/);
+  }));

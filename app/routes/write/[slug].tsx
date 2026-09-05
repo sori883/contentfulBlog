@@ -1,4 +1,4 @@
-import { ssgParams } from "hono/ssg";
+import { isSSGContext, ssgParams } from "hono/ssg";
 import { createRoute } from "honox/factory";
 import { readWrites } from "@/features/write/content";
 
@@ -8,9 +8,9 @@ import { SiteMenu } from "@/components/navigation/siteMenu";
 export default createRoute(
   ssgParams(() => readWrites().entries.map((entry) => ({ slug: entry.slug }))),
   (c) => {
-    const entry = readWrites().entries.find(
-      (entry) => entry.slug === c.req.param("slug")
-    );
+    const entry = readWrites(undefined, {
+      includeDrafts: import.meta.env.DEV && !isSSGContext(c),
+    }).entries.find((entry) => entry.slug === c.req.param("slug"));
     if (!entry) return c.notFound();
     return c.render(
       <GeneralLayout>

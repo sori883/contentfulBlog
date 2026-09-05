@@ -27,7 +27,9 @@ export function writeAssets(): Plugin {
         if (!req.url?.startsWith("/write-assets/")) return next();
         try {
           const url = new URL(req.url, "http://localhost").pathname;
-          const asset = readWrites().assets.find((asset) => asset.url === url);
+          const asset = readWrites(undefined, {
+            includeDrafts: true,
+          }).assets.find((asset) => asset.url === url);
           if (!asset) {
             res.statusCode = 404;
             res.end("Not Found");

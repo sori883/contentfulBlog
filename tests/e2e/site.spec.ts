@@ -349,3 +349,23 @@ test("WRITEメニューから一覧・本文・ローカル画像を表示する
     (await request.get("/write/not-found-for-contract-test")).status()
   ).toBe(404);
 });
+
+test("下書きの本文・画像・サイトマップを本番配信しない", async ({
+  request,
+}) => {
+  const preview = readWrites(undefined, { includeDrafts: true });
+  const published = new Set(writeContent.entries.map((entry) => entry.slug));
+  const assets = new Set(writeContent.assets.map((asset) => asset.url));
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  for (const entry of preview.entries.filter(
+    (entry) => !published.has(entry.slug)
+  )) {
+    expect((await request.get(`/write/${entry.slug}`)).status()).toBe(404);
+    expect(sitemap).not.toContain(`/write/${entry.slug}</loc>`);
+  }
+  for (const asset of preview.assets.filter(
+    (asset) => !assets.has(asset.url)
+  )) {
+    expect((await request.get(asset.url)).status()).toBe(404);
+  }
+});
