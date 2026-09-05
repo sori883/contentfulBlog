@@ -2,6 +2,7 @@ import { createRoute } from "honox/factory";
 import { parseTwemoji } from "@/libs/twemoji";
 
 import { GeneralLayout } from "@/components/layouts/generalLayout";
+import { SiteMenu } from "@/components/navigation/siteMenu";
 
 const socialLinks = [
   {
@@ -65,13 +66,9 @@ export default createRoute((c) => {
     <GeneralLayout>
       <div className="profile-page-heading">
         <div className="mb-8 px-1">
-          <p className="eyebrow">A LITTLE MORE ABOUT ME</p>
           <h1 className="page-title">
             About Me<span className="coral-dot">.</span>
           </h1>
-          <span className="inline-block text-gray-500 dark:text-gray-400">
-            私について
-          </span>
         </div>
       </div>
 
@@ -79,12 +76,12 @@ export default createRoute((c) => {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[300px_1fr]">
           {/* 左カラム */}
           <div className="space-y-6">
-            <div className="bg-theme rounded-xl p-6 shadow-lg">
+            <div className="bg-theme rounded-xl p-6">
               <div className="mb-12 flex flex-col items-center">
                 <img
                   src="/me.webp"
                   alt="Profile"
-                  className="h-48 w-48 rounded-full object-cover ring-4 ring-gray-200 dark:ring-gray-700"
+                  className="h-48 w-48 rounded-full object-cover ring-4 ring-gray-200"
                   width="192"
                   height="192"
                 />
@@ -139,7 +136,7 @@ export default createRoute((c) => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-theme text-md flex items-center gap-3 rounded-lg px-4 py-3 font-medium transition-all hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="text-theme text-md flex items-center gap-3 rounded-lg px-4 py-3 font-medium transition-all hover:bg-gray-100"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -153,7 +150,7 @@ export default createRoute((c) => {
 
           {/* 右カラム */}
           <div className="space-y-6">
-            <div className="bg-theme rounded-xl p-6 shadow-lg">
+            <div className="bg-theme rounded-xl p-6">
               <h2 className="text-theme mb-4 flex items-center gap-2 text-2xl font-bold">
                 <img
                   className="h-8 w-8"
@@ -162,11 +159,9 @@ export default createRoute((c) => {
                 />
                 <span>自己紹介</span>
               </h2>
-              <div className="space-y-3 text-gray-700 dark:text-gray-300">
+              <div className="space-y-3 text-gray-700">
                 <p>
                   こんにちは！プロフィールを閲覧いただきありがとうございます！
-                  <br />
-                  インフラとアプリをやってます！こんな風貌ですm_ _m
                   <br />
                   <br />
                   <img
@@ -180,7 +175,7 @@ export default createRoute((c) => {
               </div>
             </div>
 
-            <div className="bg-theme rounded-xl p-6 shadow-lg">
+            <div className="bg-theme rounded-xl p-6">
               <h2 className="text-theme mb-4 flex items-center gap-2 text-2xl font-bold">
                 <img
                   className="h-8 w-8"
@@ -189,10 +184,7 @@ export default createRoute((c) => {
                 />
                 <span>資格</span>
               </h2>
-              <div className="space-y-3 text-gray-700 dark:text-gray-300">
-                <h3 className="text-theme mb-2 text-lg font-semibold">
-                  AWS、Google、OCI
-                </h3>
+              <div className="space-y-3 text-gray-700">
                 <p>
                   <a
                     href="https://www.credly.com/users/sori883"
@@ -203,31 +195,16 @@ export default createRoute((c) => {
                     Credlyデジタルバッジ
                   </a>
                 </p>
-                <h3 className="text-theme mb-2 text-lg font-semibold">
-                  マイクロソフト認定
-                </h3>
                 <p>
                   <a
-                    href="https://learn.microsoft.com/api/credentials/share/ja-jp/sori883/9BDF980EEB12A2C2?sharingId=A95A292AC2761537"
+                    href="https://www.linkedin.com/in/kenji-ito/details/certifications/"
                     target="_blank"
                     rel="noreferrer"
                     className="text-blue-500 hover:underline"
                   >
-                    マイクロソフト認定: Azure管理者アソシエイト（AZ-104）
+                    Linkedin
                   </a>
                 </p>
-                <p>
-                  <a
-                    href="https://learn.microsoft.com/api/credentials/share/ja-jp/sori883/ED8B774EE24C3AD2?sharingId=A95A292AC2761537"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-blue-500 hover:underline"
-                  >
-                    マイクロソフト認定: Azure ソリューション アーキテクト
-                    エキスパート（AZ-304）
-                  </a>
-                </p>
-                <h3 className="text-theme mb-2 text-lg font-semibold">IPA</h3>
                 <p>
                   <a
                     href="https://x.com/sori883/status/2004026396566528321"
@@ -243,6 +220,7 @@ export default createRoute((c) => {
           </div>
         </div>
       </div>
+      <SiteMenu current="about" />
     </GeneralLayout>
   );
 });

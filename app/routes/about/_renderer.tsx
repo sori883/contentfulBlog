@@ -1,7 +1,6 @@
 import { jsxRenderer } from "hono/jsx-renderer";
 import { Link, Script } from "honox/server";
 import { GoogleAnalytics } from "@/libs/analytics/googleAnalytics";
-import { ThemeInit } from "@/libs/tailwind/theme";
 
 export default jsxRenderer(({ children }, c) => {
   const title = "About Me | sori883.dev";
@@ -24,10 +23,17 @@ export default jsxRenderer(({ children }, c) => {
         <meta name="twitter:site" content="@sori883" />
         <meta name="twitter:creator" content="@sori883" />
         <meta property="og:title" content={title} />
-        <link href="https://rsms.me/inter/inter.css" rel="preload" as="style" />
-        <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=M+PLUS+Rounded+1c:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
         <link rel="icon" href="/favicon.ico" />
-        <ThemeInit />
         <Link href="/app/css/style.css" rel="stylesheet" />
         <Link href="/app/css/content.css" rel="stylesheet" />
         <Script src="/app/client.ts" async />

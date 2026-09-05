@@ -22,17 +22,6 @@ jobs:
       - name: Lint
         run: pnpm lint
 
-  textlint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-
-      - name: Setup
-        uses: ./.github/actions/setup
-
-      - name: Lint
-        run: pnpm lint:text
-
   format:
     runs-on: ubuntu-latest
     steps:

@@ -1,4 +1,4 @@
-import type {} from "@formkit/tempo";
+import type {} from "hono";
 
 type Head = {
   title?: string;
