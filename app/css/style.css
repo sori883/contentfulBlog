@@ -770,3 +770,20 @@ summary:focus-visible {
   height: 72px;
   background: var(--lavender);
 }
+
+.hero-title,
+.page-title,
+.home-about-link a {
+  font-family: "Fredoka", "M PLUS Rounded 1c", sans-serif;
+  font-weight: 700;
+}
+.hero-title {
+  letter-spacing: -0.035em;
+}
+.page-title {
+  letter-spacing: -0.015em;
+}
+.home-about-link a {
+  font-size: 18px;
+  letter-spacing: 0.04em;
+}
