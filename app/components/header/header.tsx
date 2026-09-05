@@ -1,5 +1,3 @@
-import { ToggleTheme } from "@/components/theme/$toggleTheme";
-
 export function Header() {
   return (
     <header className="site-header">
@@ -16,9 +14,6 @@ export function Header() {
         <a href="/blog">BLOG</a>
         <a href="/likes">LIKES</a>
       </nav>
-      <div className="theme-control">
-        <ToggleTheme />
-      </div>
     </header>
   );
 }

@@ -1,5 +1,4 @@
 @import "tailwindcss" source("../../app");
-@custom-variant dark (&:where(.dark, .dark *));
 
 /* 洗練されたカラーパレット */
 @theme {
@@ -23,26 +22,19 @@
   /* 背景色の定義 */
   --color-background-light: #ffffff;
   --color-background-light-secondary: #f8fafc;
-  --color-background-dark: #2d2c38;
-  --color-background-dark-secondary: #22202f;
 
   /* テキストカラーの定義 */
   --color-text-light: #0f172a;
   --color-text-light-secondary: #64748b;
-  --color-text-dark: #d4d3de;
-  --color-text-dark-secondary: #cbd5e1;
 
   /* セマンティックカラー */
   --color-surface-light: #ffffff;
-  --color-surface-dark: #22202f;
 
   /* ディープカラー */
   --color-deep-light: #f1f5f9;
-  --color-deep-dark: #1a1b26;
 
   /* ボーダーカラー */
   --color-border-light: #e2e8f0;
-  --color-border-dark: #334155;
 }
 
 /* ライトテーマ（デフォルト） */
@@ -56,19 +48,6 @@
   --accent: var(--color-brand-default);
   --accent-hover: var(--color-brand-dark);
   --deep: var(--color-deep-light);
-}
-
-/* ダークテーマ */
-.dark {
-  --background: var(--color-background-dark-secondary);
-  --background-secondary: var(--color-background-dark);
-  --foreground: var(--color-text-dark);
-  --foreground-secondary: var(--color-text-dark-secondary);
-  --surface: var(--color-surface-dark);
-  --border: var(--color-border-dark);
-  --accent: var(--color-brand-light);
-  --accent-hover: var(--color-primary-300);
-  --deep: var(--color-deep-dark);
 }
 
 /* カスタムユーティリティクラス */
@@ -138,22 +117,8 @@ body {
   --mint: #e0ece6;
   --blue: #e1edf2;
 }
-.dark {
-  --background: #302d40;
-  --background-secondary: #242331;
-  --foreground: #f0e9e4;
-  --foreground-secondary: #c1b8ce;
-  --surface: #302d40;
-  --border: #565067;
-  --accent: #f4a3a3;
-  --accent-hover: #ffbabc;
-  --deep: #3a344b;
-  --coral: #f09292;
-  --lavender: #393349;
-  --mint: #293e3b;
-  --blue: #2c3a49;
-}
 html {
+  color-scheme: light;
   scroll-behavior: smooth;
   scroll-padding-top: 30px;
 }
@@ -220,10 +185,6 @@ summary:focus-visible {
 .site-nav a:hover {
   color: var(--accent);
   border-color: var(--accent);
-}
-.theme-control {
-  border-left: 1px solid var(--border);
-  padding-left: 16px;
 }
 .skip-link {
   position: fixed;
@@ -651,11 +612,6 @@ summary:focus-visible {
   }
   .wordmark {
     font-size: 25px;
-  }
-  .theme-control {
-    margin-left: auto;
-    order: 1;
-    border: 0;
   }
   .site-nav {
     order: 2;

@@ -11,7 +11,7 @@ export function Twitter({ url }: Props) {
       <blockquote
         className="twitter-tweet"
         data-width="400px"
-        data-theme="dark"
+        data-theme="light"
       >
         <a href={twUrl}>{url}</a>
       </blockquote>

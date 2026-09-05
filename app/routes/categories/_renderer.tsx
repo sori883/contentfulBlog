@@ -1,7 +1,6 @@
 import { jsxRenderer } from "hono/jsx-renderer";
 import { Link, Script } from "honox/server";
 import { GoogleAnalytics } from "@/libs/analytics/googleAnalytics";
-import { ThemeInit } from "@/libs/tailwind/theme";
 
 export default jsxRenderer(({ children, title, description }, c) => {
   const pageTitle = title || "sori883.dev";
@@ -27,7 +26,6 @@ export default jsxRenderer(({ children, title, description }, c) => {
         <link href="https://rsms.me/inter/inter.css" rel="preload" as="style" />
         <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
         <link rel="icon" href="/favicon.ico" />
-        <ThemeInit />
         <Link href="/app/css/style.css" rel="stylesheet" />
         <Link href="/app/css/content.css" rel="stylesheet" />
         <Script src="/app/client.ts" async />

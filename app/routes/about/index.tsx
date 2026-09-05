@@ -69,9 +69,7 @@ export default createRoute((c) => {
           <h1 className="page-title">
             About Me<span className="coral-dot">.</span>
           </h1>
-          <span className="inline-block text-gray-500 dark:text-gray-400">
-            私について
-          </span>
+          <span className="inline-block text-gray-500">私について</span>
         </div>
       </div>
 
@@ -84,7 +82,7 @@ export default createRoute((c) => {
                 <img
                   src="/me.webp"
                   alt="Profile"
-                  className="h-48 w-48 rounded-full object-cover ring-4 ring-gray-200 dark:ring-gray-700"
+                  className="h-48 w-48 rounded-full object-cover ring-4 ring-gray-200"
                   width="192"
                   height="192"
                 />
@@ -139,7 +137,7 @@ export default createRoute((c) => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-theme text-md flex items-center gap-3 rounded-lg px-4 py-3 font-medium transition-all hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="text-theme text-md flex items-center gap-3 rounded-lg px-4 py-3 font-medium transition-all hover:bg-gray-100"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -162,7 +160,7 @@ export default createRoute((c) => {
                 />
                 <span>自己紹介</span>
               </h2>
-              <div className="space-y-3 text-gray-700 dark:text-gray-300">
+              <div className="space-y-3 text-gray-700">
                 <p>
                   こんにちは！プロフィールを閲覧いただきありがとうございます！
                   <br />
@@ -189,7 +187,7 @@ export default createRoute((c) => {
                 />
                 <span>資格</span>
               </h2>
-              <div className="space-y-3 text-gray-700 dark:text-gray-300">
+              <div className="space-y-3 text-gray-700">
                 <h3 className="text-theme mb-2 text-lg font-semibold">
                   AWS、Google、OCI
                 </h3>

@@ -1,7 +1,6 @@
 import { jsxRenderer } from "hono/jsx-renderer";
 import { Link, Script } from "honox/server";
 import { GoogleAnalytics } from "@/libs/analytics/googleAnalytics";
-import { ThemeInit } from "@/libs/tailwind/theme";
 
 export default jsxRenderer(({ children }, c) => {
   const pageNames: Record<string, string> = {
@@ -34,7 +33,6 @@ export default jsxRenderer(({ children }, c) => {
         <link href="https://rsms.me/inter/inter.css" rel="preload" as="style" />
         <link href="https://rsms.me/inter/inter.css" rel="stylesheet" />
         <link rel="icon" href="/favicon.ico" />
-        <ThemeInit />
         <Link href="/app/css/style.css" rel="stylesheet" />
         <Script src="/app/client.ts" async />
         {import.meta.env.PROD ? <GoogleAnalytics /> : null}

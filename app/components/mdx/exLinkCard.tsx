@@ -25,7 +25,7 @@ export async function ExLinkCard({ url, title }: Props) {
             {cardTitle}
           </span>
           {ogpData.description && (
-            <span className="line-clamp-2 text-sm text-ellipsis text-gray-500 max-md:text-xs dark:text-gray-300">
+            <span className="line-clamp-2 text-sm text-ellipsis text-gray-500 max-md:text-xs">
               {ogpData.description}
             </span>
           )}

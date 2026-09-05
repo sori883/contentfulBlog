@@ -382,3 +382,30 @@ test("トップは紹介文とボタンを除き大きなイラストを中央�
     expect(room!.width / scene!.width).toBeGreaterThan(0.8);
   }
 });
+
+test("OSと保存設定がdarkでも全ページをライトで表示する", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.addInitScript(() => localStorage.setItem("theme", "dark"));
+  for (const path of [
+    "/",
+    "/activities",
+    "/likes",
+    "/about",
+    "/blog",
+    "/posts/first_post",
+    "/categories/hono",
+    "/privacypolicy",
+  ]) {
+    await page.goto(path);
+    await expect(page.locator("html")).not.toHaveClass(/dark/);
+    await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
+    await expect(page.locator("body")).toHaveCSS(
+      "background-color",
+      "rgb(250, 248, 242)"
+    );
+    await expect(page.getByRole("button", { name: /theme icon/ })).toHaveCount(
+      0
+    );
+    await expect(page.locator(".theme-control")).toHaveCount(0);
+  }
+});
