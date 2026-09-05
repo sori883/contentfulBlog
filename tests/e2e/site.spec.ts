@@ -1,8 +1,9 @@
 import { expect, test } from "playwright/test";
 
 import { Pagination } from "../../app/components/pagination/pagination";
+import { getOGP } from "../../app/features/ogp";
 
-const siteTitle = "今日も生きてるだけでえらい";
+const siteTitle = "sori883.dev";
 const siteUrl = "https://sori883.dev";
 
 const pageContracts = [
@@ -114,11 +115,11 @@ for (const contract of pageContracts) {
   });
 }
 
-test("トップページにブログ一覧と外部リンクを表示する", async ({ page }) => {
-  await page.goto("/");
+test("ブログページに記事一覧と外部リンクを表示する", async ({ page }) => {
+  await page.goto("/blog");
 
   await expect(
-    page.getByRole("heading", { name: "ブログ", exact: true })
+    page.getByRole("heading", { name: "ブログ.", exact: true })
   ).toBeVisible();
   await expect(page.getByRole("link", { name: /Qiita/ })).toBeVisible();
   await expect(page.getByRole("link", { name: /Zenn/ })).toBeVisible();
@@ -157,13 +158,11 @@ test("存在しないURLは404を返す", async ({ request }) => {
 test("プロフィールから活動とブログへ移動できる", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(/sori883/);
-  await expect(page.locator("#activities")).toContainText(
-    "こんなこと、しています。"
-  );
-  await expect(page.locator(".latest-section article")).toHaveCount(3);
+  await expect(page.locator("main > section")).toHaveCount(1);
+  await expect(page.locator("main article")).toHaveCount(0);
   await expect(page.locator("main")).not.toContainText("1998.05.18");
   await expect(page.locator("main")).not.toContainText("伊藤 健治");
-  await page.getByRole("link", { name: "もう少し、私について" }).click();
+  await page.getByRole("link", { name: "プロフィールを見る" }).click();
   await expect(page).toHaveURL(/\/about$/);
   await expect(page.locator("meta[name=robots]")).toHaveAttribute(
     "content",
@@ -215,7 +214,14 @@ for (const width of [375, 768, 1440]) {
   }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.emulateMedia({ reducedMotion: "reduce" });
-    for (const path of ["/", "/blog", "/about", "/posts/first_post"]) {
+    for (const path of [
+      "/",
+      "/activities",
+      "/likes",
+      "/blog",
+      "/about",
+      "/posts/first_post",
+    ]) {
       await page.goto(path);
       expect(
         await page.evaluate(
@@ -263,5 +269,84 @@ test("複数ページの記事一覧とカテゴリでページ送りのURLを�
       navigation.getByRole("link", { name: "3", exact: true })
     ).toHaveAttribute("href", basePath ? `${basePath}/3` : "/pages/3");
     await expect(navigation.locator("[aria-current=page]")).toHaveText("2");
+  }
+});
+
+test("メニューから独立した各ページへ移動しサイト名を表示する", async ({
+  page,
+}) => {
+  await page.goto("/");
+  for (const [label, path, title] of [
+    ["ACTIVITIES", "/activities", "活動紹介 | sori883.dev"],
+    ["LIKES", "/likes", "好きなもの | sori883.dev"],
+    ["BLOG", "/blog", "ブログ | sori883.dev"],
+    ["ABOUT", "/about", "About Me | sori883.dev"],
+    ["HOME", "/", "sori883.dev"],
+  ]) {
+    await page
+      .getByRole("navigation", { name: "メインナビゲーション" })
+      .getByRole("link", { name: label, exact: true })
+      .click();
+    await expect(page).toHaveURL(new RegExp(`${path === "/" ? "/" : path}$`));
+    await expect(page).toHaveTitle(title);
+    await expect(page.locator("meta[property='og:title']")).toHaveAttribute(
+      "content",
+      title
+    );
+    await expect(
+      page.getByRole("link", { name: "sori883.dev ホーム", exact: true })
+    ).toBeVisible();
+  }
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    /sori883.dev/
+  );
+  await expect(page.locator("main #activities")).toHaveCount(0);
+  await expect(page.locator("main .likes-gallery")).toHaveCount(0);
+  await page.goto("/likes");
+  await expect(page.locator(".likes-gallery img")).toHaveCount(6);
+  await page.goto("/about");
+  await expect(page.locator("main img[src^='/like/']")).toHaveCount(0);
+});
+
+test("旧サイト名が配信HTMLとRSSに残らず新ページをサイトマップに掲載する", async ({
+  request,
+}) => {
+  for (const path of [
+    "/",
+    "/about",
+    "/activities",
+    "/likes",
+    "/blog",
+    "/privacypolicy",
+    "/posts/first_post",
+    "/categories/hono",
+    "/feed.xml",
+  ]) {
+    const response = await request.get(path);
+    expect(response.status()).toBe(200);
+    expect(await response.text()).not.toMatch(/今日も生きてる|だけでえらい/);
+  }
+  const sitemap = await (await request.get("/sitemap.xml")).text();
+  expect(sitemap).toContain(`<loc>${siteUrl}/activities</loc>`);
+  expect(sitemap).toContain(`<loc>${siteUrl}/likes</loc>`);
+  expect(sitemap).not.toContain(`<loc>${siteUrl}/about</loc>`);
+});
+
+test("旧公開版から得た自サイトのリンクカードだけ名称を更新する", async () => {
+  const originalFetch = globalThis.fetch;
+  const oldName = "今日も生きてるだけでえらい";
+  globalThis.fetch = async () =>
+    new Response(
+      `<meta property="og:title" content="記事 | ${oldName}"><meta property="og:description" content="${oldName}"><meta property="og:site_name" content="${oldName}">`
+    );
+  try {
+    const own = await getOGP("https://sori883.dev/posts/first_post");
+    expect(own.title).toBe("記事 | sori883.dev");
+    expect(own.description).toBe("sori883.dev");
+    expect(own.siteName).toBe("sori883.dev");
+    const external = await getOGP("https://example.com/");
+    expect(external.title).toBe(`記事 | ${oldName}`);
+  } finally {
+    globalThis.fetch = originalFetch;
   }
 });

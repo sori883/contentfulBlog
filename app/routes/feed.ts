@@ -12,7 +12,7 @@ export default createRoute(async (c) => {
 
 export const generateRssFeed = (): string => {
   const feed = new Feed({
-    title: "今日も生きてるだけでえらい",
+    title: "sori883.dev",
     description: "sori883のブログ",
     id: "https://sori883.dev",
     link: "https://sori883.dev",

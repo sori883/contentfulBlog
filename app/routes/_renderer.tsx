@@ -4,7 +4,13 @@ import { GoogleAnalytics } from "@/libs/analytics/googleAnalytics";
 import { ThemeInit } from "@/libs/tailwind/theme";
 
 export default jsxRenderer(({ children }, c) => {
-  const title = "今日も生きてるだけでえらい";
+  const pageNames: Record<string, string> = {
+    "/activities": "活動紹介",
+    "/likes": "好きなもの",
+    "/blog": "ブログ",
+  };
+  const pageName = pageNames[c.req.path.replace(/\/$/, "")];
+  const title = pageName ? `${pageName} | sori883.dev` : "sori883.dev";
   const ogImage = "https://sori883.dev/ogp.png";
   const description =
     "sori883のプロフィールと活動紹介。インフラ、アプリ開発、学びの記録。";

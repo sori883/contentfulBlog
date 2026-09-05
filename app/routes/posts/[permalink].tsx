@@ -69,7 +69,7 @@ export default createRoute(
         </GeneralLayout>
       </div>,
       {
-        title: post.frontmatter.title + " | 今日も生きてるだけでえらい",
+        title: post.frontmatter.title + " | sori883.dev",
         description: post.frontmatter.description,
       }
     );

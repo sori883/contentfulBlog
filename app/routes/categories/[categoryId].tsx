@@ -62,7 +62,7 @@ export default createRoute(
         </div>
       </GeneralLayout>,
       {
-        title: posts?.name + " | 今日も生きてるだけでえらい",
+        title: posts?.name + " | sori883.dev",
         description: `${posts?.name}記事一覧`,
       }
     );

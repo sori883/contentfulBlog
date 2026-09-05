@@ -888,3 +888,70 @@ summary:focus-visible {
     transition: none !important;
   }
 }
+
+/* Each destination has its own page and a compact shared footer. */
+.hero-title {
+  font-size: clamp(72px, 13vw, 190px);
+}
+.site-nav {
+  gap: clamp(14px, 2vw, 28px);
+}
+.section-page {
+  padding: 35px 0 65px;
+}
+.section-page .section-heading h1,
+.likes-copy h1 {
+  font-size: clamp(27px, 3.3vw, 44px);
+  font-weight: 800;
+  line-height: 1.65;
+  letter-spacing: -0.03em;
+}
+.section-page .activity-grid {
+  margin-top: 50px;
+}
+.likes-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.likes-gallery img {
+  aspect-ratio: 1;
+  height: auto;
+}
+.site-footer {
+  padding-top: 24px;
+}
+.footer-bottom {
+  border-top: 0;
+  padding-top: 0;
+}
+.footer-wordmark {
+  font-size: 20px !important;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+}
+.footer-wordmark span {
+  color: var(--accent);
+}
+@media (max-width: 700px) {
+  .hero-title {
+    font-size: 14vw;
+  }
+  .section-page {
+    padding: 25px 0;
+  }
+  .section-page .section-heading h1,
+  .likes-copy h1 {
+    font-size: 28px;
+  }
+  .site-nav {
+    gap: 8px;
+  }
+  .likes-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+.section-page h1 {
+  text-wrap: balance;
+}
