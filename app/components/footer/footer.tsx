@@ -7,7 +7,6 @@ export function Footer() {
         </a>
         <small>© sori883.dev</small>
         <nav aria-label="フッター">
-          <a href="/feed.xml">RSS ↗</a>
           <a href="/privacypolicy">プライバシーポリシー</a>
           <a href="#main-content">PAGE TOP ↑</a>
         </nav>

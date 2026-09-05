@@ -3,11 +3,7 @@ import { Link, Script } from "honox/server";
 import { GoogleAnalytics } from "@/libs/analytics/googleAnalytics";
 
 export default jsxRenderer(({ children }, c) => {
-  const pageNames: Record<string, string> = {
-    "/blog": "ブログ",
-  };
-  const pageName = pageNames[c.req.path.replace(/\/$/, "")];
-  const title = pageName ? `${pageName} | sori883.dev` : "sori883.dev";
+  const title = "sori883.dev";
   const ogImage = "https://sori883.dev/ogp.png";
   const description =
     "sori883のプロフィールと活動紹介。インフラ、アプリ開発、学びの記録。";

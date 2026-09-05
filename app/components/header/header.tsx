@@ -10,7 +10,6 @@ export function Header() {
       <nav className="site-nav" aria-label="メインナビゲーション">
         <a href="/">HOME</a>
         <a href="/about">ABOUT</a>
-        <a href="/blog">BLOG</a>
       </nav>
     </header>
   );
