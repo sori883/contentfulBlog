@@ -32,7 +32,7 @@ export default createRoute(
     return c.render(
       <GeneralLayout>
         <PrimeContentLayout>
-          <h2 className="text-theme mb-8 text-xl font-bold"># {posts?.name}</h2>
+          <h1 className="text-theme mb-8 text-xl font-bold"># {posts?.name}</h1>
           <div className="mb-8 flex gap-3">
             <div>
               <QiitaLink />

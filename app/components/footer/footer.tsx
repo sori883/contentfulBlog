@@ -1,21 +1,23 @@
-const navigation = {
-  main: [{ name: "プライバシーポリシー", href: "/privacypolicy" }],
-};
-
 export function Footer() {
   return (
-    <footer>
-      <div className="text-theme mx-auto max-w-7xl overflow-hidden px-6 py-3">
-        <nav aria-label="Footer" className="-mb-6 text-center sm:space-x-12">
-          {navigation.main.map((item) => (
-            <div key={item.name}>
-              <a href={item.href} className="text-sm">
-                {item.name}
-              </a>
-            </div>
-          ))}
+    <footer className="site-footer">
+      <div className="footer-top">
+        <p>
+          また、ふらっと
+          <br />
+          遊びにきてね。
+        </p>
+        <a href="/" className="footer-name">
+          sori883<span>✳</span>
+        </a>
+      </div>
+      <div className="footer-bottom">
+        <small>© sori883.dev</small>
+        <nav aria-label="フッター">
+          <a href="/feed.xml">RSS ↗</a>
+          <a href="/privacypolicy">プライバシーポリシー</a>
+          <a href="#main-content">PAGE TOP ↑</a>
         </nav>
-        <p className="mt-5 text-center text-xs leading-5">&copy; sori883.dev</p>
       </div>
     </footer>
   );

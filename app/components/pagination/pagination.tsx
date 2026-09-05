@@ -1,3 +1,4 @@
+/** @jsxImportSource hono/jsx */
 const range = (start: number, end: number) =>
   [...Array<number>(end - start + 1)].map((_, i) => start + i);
 
@@ -11,7 +12,7 @@ export function Pagination(props: {
 
   const getPageUrl = (page: number) => {
     if (basePath === "/") {
-      return page === 1 ? "/" : `/pages/${page}`;
+      return page === 1 ? "/blog" : `/pages/${page}`;
     } else {
       return page === 1 ? basePath : `${basePath}/${page}`;
     }
@@ -56,7 +57,9 @@ export function Pagination(props: {
               {range(1, maxPage).map((number, index) => (
                 <a
                   href={getPageUrl(number)}
-                  aria-current="page"
+                  aria-current={
+                    props.currentPage === number ? "page" : undefined
+                  }
                   key={index}
                   className={` ${
                     props.currentPage === number

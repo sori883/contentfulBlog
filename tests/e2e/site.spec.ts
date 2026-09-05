@@ -1,5 +1,7 @@
 import { expect, test } from "playwright/test";
 
+import { Pagination } from "../../app/components/pagination/pagination";
+
 const siteTitle = "今日も生きてるだけでえらい";
 const siteUrl = "https://sori883.dev";
 
@@ -150,4 +152,116 @@ test("存在しないURLは404を返す", async ({ request }) => {
   const response = await request.get("/not-found-for-contract-test");
 
   expect(response.status()).toBe(404);
+});
+
+test("プロフィールから活動とブログへ移動できる", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(/sori883/);
+  await expect(page.locator("#activities")).toContainText(
+    "こんなこと、しています。"
+  );
+  await expect(page.locator(".latest-section article")).toHaveCount(3);
+  await expect(page.locator("main")).not.toContainText("1998.05.18");
+  await expect(page.locator("main")).not.toContainText("伊藤 健治");
+  await page.getByRole("link", { name: "もう少し、私について" }).click();
+  await expect(page).toHaveURL(/\/about$/);
+  await expect(page.locator("meta[name=robots]")).toHaveAttribute(
+    "content",
+    "noindex, nofollow, noimageindex"
+  );
+  await page
+    .getByRole("navigation", { name: "メインナビゲーション" })
+    .getByRole("link", { name: "BLOG", exact: true })
+    .click();
+  await expect(page).toHaveURL(/\/blog$/);
+  await expect(page.locator(".post-card").first()).toBeVisible();
+  await page.locator(".post-card a").first().click();
+  await expect(page).toHaveURL(/\/posts\//);
+  await expect(page.getByRole("article")).toBeVisible();
+});
+
+test("ブログ一覧を公開しページ送りの先頭はブログへ戻る", async ({
+  page,
+  request,
+}) => {
+  const response = await page.goto("/blog");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("link[rel=canonical]")).toHaveAttribute(
+    "href",
+    `${siteUrl}/blog`
+  );
+  const pagination = page.getByRole("navigation", { name: "Pagination" });
+  await expect(
+    pagination.getByRole("link", { name: "1", exact: true })
+  ).toHaveAttribute("href", "/blog");
+  await expect(pagination.locator("[aria-current=page]")).toHaveCount(1);
+  const nextPage = pagination.getByRole("link", { name: "2", exact: true });
+  if (await nextPage.count()) {
+    await nextPage.click();
+    await expect(page).toHaveURL(/\/pages\/2$/);
+    await page
+      .getByRole("navigation", { name: "Pagination" })
+      .getByRole("link", { name: "1", exact: true })
+      .click();
+    await expect(page).toHaveURL(/\/blog$/);
+  }
+  const sitemap = await request.get("/sitemap.xml");
+  expect(await sitemap.text()).toContain(`<loc>${siteUrl}/blog</loc>`);
+});
+
+for (const width of [375, 768, 1440]) {
+  test(`${width}pxで表示が収まりナビゲーションを利用できる`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    for (const path of ["/", "/blog", "/about", "/posts/first_post"]) {
+      await page.goto(path);
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= window.innerWidth
+        )
+      ).toBe(true);
+      await expect(
+        page
+          .getByRole("navigation", { name: "メインナビゲーション" })
+          .getByRole("link", { name: "ABOUT", exact: true })
+      ).toBeVisible();
+    }
+    await page.goto("/");
+    await page.keyboard.press("Tab");
+    await expect(page.getByRole("link", { name: "本文へ移動" })).toBeFocused();
+    await page.keyboard.press("Enter");
+    await expect(page).toHaveURL(/#main-content$/);
+    const animation = await page
+      .locator(".hero-flower")
+      .evaluate((el) => getComputedStyle(el).animationName);
+    expect(animation).toBe("none");
+    const roomLoaded = await page
+      .locator(".room-illustration")
+      .evaluate(
+        (el) =>
+          (el as HTMLImageElement).complete &&
+          (el as HTMLImageElement).naturalWidth > 0
+      );
+    expect(roomLoaded).toBe(true);
+  });
+}
+
+test("複数ページの記事一覧とカテゴリでページ送りのURLを維持する", async ({
+  page,
+}) => {
+  for (const basePath of [undefined, "/categories/hono"]) {
+    await page.setContent(
+      String(Pagination({ currentPage: 2, totalCount: 3, basePath }))
+    );
+    const navigation = page.getByRole("navigation", { name: "Pagination" });
+    await expect(
+      navigation.getByRole("link", { name: "1", exact: true })
+    ).toHaveAttribute("href", basePath ?? "/blog");
+    await expect(
+      navigation.getByRole("link", { name: "3", exact: true })
+    ).toHaveAttribute("href", basePath ? `${basePath}/3` : "/pages/3");
+    await expect(navigation.locator("[aria-current=page]")).toHaveText("2");
+  }
 });
