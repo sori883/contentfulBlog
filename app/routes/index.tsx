@@ -1,6 +1,7 @@
 import { createRoute } from "honox/factory";
 
 import { GeneralLayout } from "@/components/layouts/generalLayout";
+import { SiteMenu } from "@/components/navigation/siteMenu";
 
 export default createRoute((c) =>
   c.render(
@@ -21,11 +22,7 @@ export default createRoute((c) =>
             />
           </div>
         </div>
-        <div className="home-about-link">
-          <a href="/about">
-            ABOUT <span aria-hidden="true">↗</span>
-          </a>
-        </div>
+        <SiteMenu current="home" />
       </section>
     </GeneralLayout>
   )

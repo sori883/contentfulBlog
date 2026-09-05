@@ -2,6 +2,7 @@ import { createRoute } from "honox/factory";
 import { parseTwemoji } from "@/libs/twemoji";
 
 import { GeneralLayout } from "@/components/layouts/generalLayout";
+import { SiteMenu } from "@/components/navigation/siteMenu";
 
 const socialLinks = [
   {
@@ -219,11 +220,7 @@ export default createRoute((c) => {
           </div>
         </div>
       </div>
-      <div className="home-about-link">
-        <a href="/">
-          HOME <span aria-hidden="true">↗</span>
-        </a>
-      </div>
+      <SiteMenu current="about" />
     </GeneralLayout>
   );
 });

@@ -1,5 +1,13 @@
 import { expect, test } from "playwright/test";
 
+import { readWrites } from "../../app/features/write/content";
+
+const writeContent = readWrites();
+const writePaths = [
+  "/write",
+  ...writeContent.entries.map((entry) => `/write/${entry.slug}`),
+];
+
 const siteTitle = "sori883.dev";
 const siteUrl = "https://sori883.dev";
 
@@ -49,7 +57,13 @@ for (const width of [375, 768, 1440]) {
   }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.emulateMedia({ reducedMotion: "reduce" });
-    for (const path of ["/", "/activities", "/likes", "/about"]) {
+    for (const path of [
+      "/",
+      "/activities",
+      "/likes",
+      "/about",
+      ...writePaths,
+    ]) {
       await page.goto(path);
       expect(
         await page.evaluate(
@@ -153,7 +167,7 @@ test("トップは紹介文とボタンを除き大きなイラストを中央�
 test("OSと保存設定がdarkでも全ページをライトで表示する", async ({ page }) => {
   await page.emulateMedia({ colorScheme: "dark" });
   await page.addInitScript(() => localStorage.setItem("theme", "dark"));
-  for (const path of ["/", "/activities", "/likes", "/about"]) {
+  for (const path of ["/", "/activities", "/likes", "/about", ...writePaths]) {
     await page.goto(path);
     await expect(page.locator("html")).not.toHaveClass(/dark/);
     await expect(page.locator("html")).toHaveCSS("color-scheme", "light");
@@ -252,6 +266,10 @@ test("ブログの全ページと記事画像を配信しない", async ({ reque
   expect(sitemap.status()).toBe(200);
   expect((await sitemap.text()).match(/<loc>.*?<\/loc>/g)).toEqual([
     `<loc>${siteUrl}</loc>`,
+    `<loc>${siteUrl}/write</loc>`,
+    ...writeContent.entries.map(
+      (entry) => `<loc>${siteUrl}/write/${entry.slug}</loc>`
+    ),
   ]);
   const robots = await request.get("/robots.txt");
   expect(robots.status()).toBe(200);
@@ -274,4 +292,60 @@ test("デフォルメされたキツネを静止画で表示する", async ({ pa
       .locator(".hero-stage")
       .evaluate((el) => el.getAnimations({ subtree: true }).length)
   ).toBe(0);
+});
+
+test("WRITEメニューから一覧・本文・ローカル画像を表示する", async ({
+  page,
+  request,
+}) => {
+  await page.goto("/");
+  await page.getByRole("link", { name: "WRITE", exact: true }).click();
+  await expect(page).toHaveTitle("Write | sori883.dev");
+  await expect(page.locator(".page-menu [aria-current=page]")).toHaveText(
+    "WRITE"
+  );
+  await expect(page.locator(".write-list li")).toHaveCount(
+    writeContent.entries.length
+  );
+  if (!writeContent.entries.length)
+    await expect(page.getByText("まだ文章はありません。")).toBeVisible();
+  for (const entry of writeContent.entries) {
+    await page.goto(`/write/${entry.slug}`);
+    await expect(page).toHaveTitle(`${entry.title} | sori883.dev`);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+      entry.title
+    );
+    await expect(page.locator("link[rel=canonical]")).toHaveAttribute(
+      "href",
+      `${siteUrl}/write/${entry.slug}`
+    );
+    await expect(page.locator(".write-updated time")).toHaveAttribute(
+      "datetime",
+      entry.updated
+    );
+    for (const img of await page
+      .locator(".write-prose img[src^='/write-assets/']")
+      .all()) {
+      await img.scrollIntoViewIfNeeded();
+      await expect
+        .poll(() =>
+          img.evaluate(
+            (el) =>
+              (el as HTMLImageElement).complete &&
+              (el as HTMLImageElement).naturalWidth > 0
+          )
+        )
+        .toBe(true);
+    }
+    await page.getByRole("link", { name: "← WRITEの一覧へ" }).click();
+    await expect(page).toHaveURL(/\/write$/);
+  }
+  for (const asset of writeContent.assets) {
+    const response = await request.get(asset.url);
+    expect(response.status()).toBe(200);
+    expect(response.headers()["content-type"]).toContain(asset.mime);
+  }
+  expect(
+    (await request.get("/write/not-found-for-contract-test")).status()
+  ).toBe(404);
 });

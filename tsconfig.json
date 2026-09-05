@@ -5,13 +5,31 @@
     "moduleResolution": "Bundler",
     "strict": true,
     "skipLibCheck": true,
-    "lib": ["ESNext", "DOM"],
-    "types": ["@cloudflare/workers-types", "vite/client"],
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "types": [
+      "@cloudflare/workers-types",
+      "vite/client"
+    ],
     "rootDir": ".",
-    "paths": { "@/*": ["./app/*"] },
+    "paths": {
+      "@/*": [
+        "./app/*"
+      ]
+    },
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx"
   },
-  "include": ["app/**/*.ts", "app/**/*.tsx"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "build/**/*.ts",
+    "vite.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

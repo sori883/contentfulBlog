@@ -6,6 +6,8 @@ import ssg from "@hono/vite-ssg";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 
+import { writeAssets } from "./build/write-assets";
+
 export default defineConfig(({ mode }) => {
   return mode === "client"
     ? {
@@ -29,7 +31,7 @@ export default defineConfig(({ mode }) => {
     : {
         ssr: {
           target: "node",
-          external: ["@twemoji/parser"],
+          external: ["@twemoji/parser", "markdown-it", "yaml"],
         },
         build: { emptyOutDir: false },
         resolve: {
@@ -37,6 +39,7 @@ export default defineConfig(({ mode }) => {
           builtins: [/^node:/],
         },
         plugins: [
+          writeAssets(),
           honox({
             client: { input: ["./app/css/style.css"] },
             devServer: { adapter },
