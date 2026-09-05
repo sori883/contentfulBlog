@@ -75,7 +75,7 @@ export default createRoute((c) => {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[300px_1fr]">
           {/* 左カラム */}
           <div className="space-y-6">
-            <div className="bg-theme rounded-xl p-6 shadow-lg">
+            <div className="bg-theme rounded-xl p-6">
               <div className="mb-12 flex flex-col items-center">
                 <img
                   src="/me.webp"
@@ -149,7 +149,7 @@ export default createRoute((c) => {
 
           {/* 右カラム */}
           <div className="space-y-6">
-            <div className="bg-theme rounded-xl p-6 shadow-lg">
+            <div className="bg-theme rounded-xl p-6">
               <h2 className="text-theme mb-4 flex items-center gap-2 text-2xl font-bold">
                 <img
                   className="h-8 w-8"
@@ -174,7 +174,7 @@ export default createRoute((c) => {
               </div>
             </div>
 
-            <div className="bg-theme rounded-xl p-6 shadow-lg">
+            <div className="bg-theme rounded-xl p-6">
               <h2 className="text-theme mb-4 flex items-center gap-2 text-2xl font-bold">
                 <img
                   className="h-8 w-8"
