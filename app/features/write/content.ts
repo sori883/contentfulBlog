@@ -72,7 +72,7 @@ export function readWrites(
         typeof meta.description !== "string"
       )
         throw new Error("descriptionは文字列で指定してください");
-      const md = new MarkdownIt({ html: false, linkify: true });
+      const md = new MarkdownIt({ html: false, linkify: true, breaks: true });
       md.renderer.rules.heading_open = (tokens, index) =>
         `<h${Math.min(Number(tokens[index].tag.slice(1)) + 1, 6)}>`;
       md.renderer.rules.heading_close = (tokens, index) =>
