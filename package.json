@@ -20,7 +20,7 @@
   "engines": {
     "node": ">=24.22.3"
   },
-  "packageManager": "pnpm@12.21.0",
+  "packageManager": "pnpm@12.23.0",
   "dependencies": {
     "hono": "^4.13.16",
     "honox": "^0.1.62"
@@ -39,7 +39,6 @@
     "@types/node": "^24.19.2",
     "eslint": "^10.15.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
     "markdown-it": "^15.0.2",
     "miniflare": "5.20261006.2-beta",

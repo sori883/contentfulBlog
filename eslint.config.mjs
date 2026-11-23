@@ -1,7 +1,6 @@
 // @ts-check
 import eslintJs from "@eslint/js";
 import configPrettier from "eslint-config-prettier";
-import pluginReact from "eslint-plugin-react";
 import pluginReactHooks from "eslint-plugin-react-hooks";
 import pluginTypeScript from "typescript-eslint";
 
@@ -27,18 +26,6 @@ const config = [
   ...pluginTypeScript.configs.recommended,
 
   // React
-  {
-    name: "react/jsx-runtime",
-    plugins: {
-      react: pluginReact,
-    },
-    rules: pluginReact.configs["jsx-runtime"].rules,
-    settings: {
-      react: {
-        version: "detect",
-      },
-    },
-  },
   {
     name: "react-hooks/recommended",
     plugins: {
