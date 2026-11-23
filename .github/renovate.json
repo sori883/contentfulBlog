@@ -3,22 +3,9 @@
   "extends": ["config:base"],
   "updateInternalDeps": true,
   "rangeStrategy": "bump",
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["patch"],
-      "automerge": true,
-      "automergeType": "pr",
-      "platformAutomerge": true
-    },
-    {
-      "matchUpdateTypes": ["minor"],
-      "automerge": false
-    },
-    {
-      "matchUpdateTypes": ["major"],
-      "automerge": false
-    }
-  ],
+  "automerge": true,
+  "automergeType": "pr",
+  "platformAutomerge": false,
   "npm": {
     "fileMatch": ["(^|/)package\\.json$", "(^|/)package\\.json\\.hbs$"]
   }
