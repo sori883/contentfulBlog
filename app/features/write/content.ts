@@ -136,7 +136,8 @@ export function readWrites(
       });
     } catch (error) {
       throw new Error(
-        `${filename}: ${error instanceof Error ? error.message : String(error)}`
+        `${filename}: ${error instanceof Error ? error.message : String(error)}`,
+        { cause: error }
       );
     }
   }
