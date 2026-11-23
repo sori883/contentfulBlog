@@ -23,7 +23,7 @@
   "packageManager": "pnpm@12.23.0",
   "dependencies": {
     "hono": "^4.13.16",
-    "honox": "^0.1.62"
+    "honox": "^0.1.63"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20261123.1",
