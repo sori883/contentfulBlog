@@ -4,13 +4,13 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build --mode client && vite build",
-    "preview": "pnpm run build && wrangler dev",
-    "deploy:worker": "pnpm run build && wrangler deploy",
+    "preview": "bun run build && wrangler dev",
+    "deploy:worker": "bun run build && wrangler deploy",
     "clean": "rm -rf dist/ node_modules/",
     "lint": "eslint .",
     "format": "prettier --check \"**/*.{ts,tsx}\" --cache",
     "format:fix": "prettier --write \"**/*.{ts,tsx}\" --cache",
-    "test:e2e": "pnpm test:content && pnpm test:dev && pnpm build && playwright test",
+    "test:e2e": "bun run test:content && bun run test:dev && bun run build && playwright test",
     "typecheck": "tsc --noEmit",
     "write:new": "node scripts/new-write.mjs",
     "test:content": "playwright test -c playwright.content.config.ts",
@@ -20,7 +20,7 @@
   "engines": {
     "node": ">=24.22.3"
   },
-  "packageManager": "pnpm@12.23.0",
+  "packageManager": "bun@1.4.5",
   "dependencies": {
     "hono": "^4.13.16",
     "honox": "^0.1.62"
@@ -51,5 +51,14 @@
     "vite": "^8.3.8",
     "wrangler": "^4.166.0",
     "yaml": "^2.9.1"
+  },
+  "overrides": {
+    "brace-expansion@>=1.0.0 <1.1.22": "^1.1.22",
+    "brace-expansion@>=5.0.0 <5.0.13": "^5.0.13",
+    "js-yaml@>=4.0.0 <4.3.2": "^4.3.2",
+    "source-map-js@>=1.0.0 <1.2.2": "^1.2.2",
+    "undici@>=7.0.0 <7.30.1": "^7.30.1",
+    "@hono/node-server@>=1.19.10 <2.1.3": "^2.1.11",
+    "minimatch@>=7.0.0 <11.0.1": "^11.0.1"
   }
 }

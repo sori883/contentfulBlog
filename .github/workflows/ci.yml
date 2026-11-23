@@ -20,7 +20,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Lint
-        run: pnpm lint
+        run: bun run lint
 
   format:
     runs-on: ubuntu-latest
@@ -31,7 +31,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Format
-        run: pnpm format
+        run: bun run format
 
   typecheck:
     runs-on: ubuntu-latest
@@ -42,7 +42,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Typecheck
-        run: pnpm typecheck
+        run: bun run typecheck
 
   build:
     runs-on: ubuntu-latest
@@ -53,7 +53,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Build
-        run: pnpm build
+        run: bun run build
 
   audit:
     runs-on: ubuntu-latest
@@ -64,7 +64,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Audit production dependencies
-        run: pnpm audit --prod
+        run: bun audit --prod
 
   e2e:
     runs-on: ubuntu-latest
@@ -75,7 +75,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Install Chromium
-        run: pnpm exec playwright install --with-deps chromium
+        run: bun run playwright install --with-deps chromium
 
       - name: Test
-        run: pnpm test:e2e
+        run: bun run test:e2e

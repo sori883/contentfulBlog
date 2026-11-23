@@ -5,7 +5,7 @@ import path from "node:path";
 
 const slug = process.argv[2];
 if (!slug || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
-  console.error("使い方: pnpm write:new my-note（英小文字・数字・ハイフン）");
+  console.error("使い方: bun run write:new my-note（英小文字・数字・ハイフン）");
   process.exit(1);
 }
 const directory = path.resolve("contents/write", slug);

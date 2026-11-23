@@ -3,31 +3,31 @@
 ## 開発コマンド
 ```bash
 # 開発サーバー起動
-pnpm dev
+bun run dev
 
 # プロダクションビルド
-pnpm build
+bun run build
 
 # プレビュー（Wranglerでローカル実行）
-pnpm preview
+bun run preview
 
 # Cloudflare Workersにデプロイ
-pnpm deploy
+bun run deploy:worker
 
 # プロジェクトクリーンアップ
-pnpm clean
+bun run clean
 ```
 
 ## コード品質コマンド
 ```bash
 # ESLintでリント実行
-pnpm lint
+bun run lint
 
 # Prettierでフォーマット実行
-pnpm format:write
+bun run format:fix
 
 # Prettierでフォーマットチェック
-pnpm format:check
+bun run format
 ```
 
 ## システムユーティリティ（macOS/Darwin）
@@ -47,9 +47,9 @@ git push        # プッシュ
 git pull        # プル
 
 # パッケージ管理
-pnpm install    # 依存関係インストール
-pnpm add        # パッケージ追加
-pnpm remove     # パッケージ削除
+bun install    # 依存関係インストール
+bun add        # パッケージ追加
+bun remove     # パッケージ削除
 ```
 
 ## よく使用するVite/Wranglerコマンド

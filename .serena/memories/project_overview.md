@@ -10,7 +10,7 @@
 - **UI**: React (Hono/JSX使用)
 - **スタイリング**: Tailwind CSS v4
 - **ビルドツール**: Vite
-- **パッケージマネージャー**: pnpm
+- **パッケージマネージャー**: Bun
 - **デプロイ**: Cloudflare Workers (Wranglerを使用)
 
 ## プロジェクト構造
@@ -37,4 +37,4 @@ contentfulBlog/
 ## 開発環境
 - **OS**: macOS (Darwin)
 - **Node.js**: 最新版推奨
-- **パッケージマネージャー**: pnpm
+- **パッケージマネージャー**: Bun
