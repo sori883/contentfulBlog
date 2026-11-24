@@ -9,6 +9,13 @@
   "automergeStrategy": "squash",
   "packageRules": [
     {
+      "description": "Match Bun's 24-hour release age for npm updates",
+      "matchManagers": ["bun"],
+      "matchDatasources": ["npm"],
+      "minimumReleaseAge": "1 day",
+      "minimumReleaseAgeBuffer": null
+    },
+    {
       "description": "Keep security overrides within their selected major version",
       "matchDepTypes": ["overrides"],
       "matchUpdateTypes": ["major"],
