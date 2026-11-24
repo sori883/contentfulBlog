@@ -5,7 +5,7 @@
 
 ### 1. リント実行
 ```bash
-pnpm lint
+bun run lint
 ```
 - ESLintによる構文・スタイルチェック
 - TypeScriptエラーの検出
@@ -13,7 +13,7 @@ pnpm lint
 
 ### 2. フォーマット実行
 ```bash
-pnpm format:write
+bun run format:fix
 ```
 - Prettierによるコード整形
 - Import文の並び替え
@@ -21,7 +21,7 @@ pnpm format:write
 
 ### 3. ビルドテスト
 ```bash
-pnpm build
+bun run build
 ```
 - プロダクション環境でのビルド確認
 - TypeScript型エラーの検出
@@ -29,16 +29,16 @@ pnpm build
 
 ### 4. ローカル動作確認（オプション）
 ```bash
-pnpm preview
+bun run preview
 ```
 - ビルド後のアプリケーション動作確認
 - Cloudflare Workers環境での実行テスト
 
 ## 推奨ワークフロー
 1. **コード変更**
-2. **`pnpm lint`** でエラー修正
-3. **`pnpm format:write`** で整形
-4. **`pnpm build`** でビルド確認
+2. **`bun run lint`** でエラー修正
+3. **`bun run format:fix`** で整形
+4. **`bun run build`** でビルド確認
 5. **Git commit & push**
 
 ## 自動修正可能な問題

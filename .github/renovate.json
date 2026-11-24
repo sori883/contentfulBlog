@@ -10,7 +10,7 @@
   "packageRules": [
     {
       "description": "Keep security overrides within their selected major version",
-      "matchDepTypes": ["pnpm.overrides", "pnpm-workspace.overrides"],
+      "matchDepTypes": ["overrides"],
       "matchUpdateTypes": ["major"],
       "enabled": false
     }

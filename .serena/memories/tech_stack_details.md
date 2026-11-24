@@ -21,7 +21,7 @@
 - **typescript-eslint**: TypeScript用ESLintプラグイン
 
 ## Package Management
-- **pnpm**: 効率的なパッケージマネージャー
+- **Bun**: パッケージマネージャー
 
 ## Deployment
 - **Cloudflare Workers**: エッジでの実行

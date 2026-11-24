@@ -5,7 +5,7 @@ export default defineConfig({
   reporter: "list",
   use: { baseURL: "http://127.0.0.1:5175" },
   webServer: {
-    command: "pnpm dev --host 127.0.0.1 --port 5175 --strictPort",
+    command: "bun run dev --host 127.0.0.1 --port 5175 --strictPort",
     url: "http://127.0.0.1:5175/write",
     reuseExistingServer: false,
   },
