@@ -5,7 +5,7 @@
     "": {
       "name": "contentfulblog",
       "dependencies": {
-        "hono": "^4.13.16",
+        "hono": "^4.13.21",
         "honox": "^0.1.63",
       },
       "devDependencies": {
@@ -667,7 +667,7 @@
 
     "hermes-parser": ["hermes-parser@0.25.1", "", { "dependencies": { "hermes-estree": "0.25.1" } }, "sha512-6pEjquH3rqaI6cYAXYPcz9MS4rY6R4ngRgrgfDshRptUZIc3lw0MCIJIGDj9++mfySOuPTHB4nrSW99BCvOPIA=="],
 
-    "hono": ["hono@4.13.20", "", {}, "sha512-xo6gecEJQ+CjTtOUUbcLHE8CdRKMeF4qITe+DT+OhFnSUmZR/ZBa9XavAfiGh4HlukmlaHFdaK4dz5tkTYFNmA=="],
+    "hono": ["hono@4.13.21", "", {}, "sha512-h9UsguqfVk4kjUwLvQpHOmOaJpW10jz9lp8bvKUUa04wJG/fabKFBqXZ06D6LFaeKQZtUZRVeg0gfkTTEsX7Mw=="],
 
     "honox": ["honox@0.1.63", "", { "dependencies": { "@babel/generator": "7.29.1", "@babel/parser": "7.29.3", "@babel/traverse": "7.29.0", "@babel/types": "7.29.0", "@hono/vite-dev-server": "0.25.3", "jsonc-parser": "3.3.1", "precinct": "12.2.0" }, "optionalDependencies": { "@rollup/rollup-linux-x64-gnu": "4.64.6" }, "peerDependencies": { "hono": ">=4.* || ^5.0.0-0" } }, "sha512-lWxCkD5f6/FvrNkRPvNXU0uYxGrnnYGMd8jo3TWkbexmOh7ugKTxt94r4A3mDZEQpqm+AIQxOLBbRS5NBPzFLg=="],
 
